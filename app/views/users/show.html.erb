@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Domain name:</strong>
+  <%= @user.domain_name %>
+</p>
+
+<p>
+  <strong>Name first:</strong>
+  <%= @user.name_first %>
+</p>
+
+<p>
+  <strong>Name last:</strong>
+  <%= @user.name_last %>
+</p>
+
+<p>
+  <strong>Homepage header:</strong>
+  <%= @user.homepage_header %>
+</p>
+
+<p>
+  <strong>Intro paragraph:</strong>
+  <%= @user.intro_paragraph %>
+</p>
+<p>
+    <strong>Homepage Pic:</strong>
+    <%= image_tag @user.homepage_pic.url(:large) %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

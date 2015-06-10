@@ -152,26 +152,155 @@
             </div>
             <div class = "row">
               <div class = "small-12 small-centered columns">
-                <h4> JumpStart MBA Competition </h4>
-                <p> I participated in the 2014 Finance 2.0 and Consulting Case Private Equity Boot Camp competition. My team and I presented an LBO opportunity of Pfizer, which was recognized by the judges as the best analytical presentation. The excel model and powerpoint presentation are included below as a sample of my work </p>
-                <a href="Pfizer_excel.xlsx"><i class="fa fa-file-excel-o fa-2x"></i> &nbsp; Excel Model</a><br/>
-                <a href="Pfizer_ppt.pptx"><i class="fa fa-file-powerpoint-o fa-2x"></i> &nbsp; Powerpoint Presentation</a>
+                <h4> <%= @user.project1_title %> </h4>
+                <p> <%= @user.project1_paragraph %></p>
+
+                <% if @user.project1_file1? %>
+                  <a href="<%= @user.project1_file1.url() %>">
+                  <% if @user.project1_file1_type == 0 %>
+                    <i class="fa fa-file-word-o fa-2x"></i> 
+                  <% elsif @user.project1_file1_type == 1 %>
+                    <i class="fa fa-file-excel-o fa-2x"></i> 
+                  <% elsif @user.project1_file1_type == 2 %>
+                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+                  <% else%>
+                    <i class="fa fa-file-pdf-o fa-2x"></i> 
+                  <% end %>
+                    &nbsp; <%= @user.project1_file1_title %></a><br/>
+                <% end %>
+
+                <% if @user.project1_file2? %>
+                  <a href="<%= @user.project1_file2.url() %>">
+                  <% if @user.project1_file2_type == 0 %>
+                    <i class="fa fa-file-word-o fa-2x"></i> 
+                  <% elsif @user.project1_file2_type == 1 %>
+                    <i class="fa fa-file-excel-o fa-2x"></i> 
+                  <% elsif @user.project1_file2_type == 2 %>
+                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+                  <% else%>
+                    <i class="fa fa-file-pdf-o fa-2x"></i> 
+                  <% end %>
+                    &nbsp; <%= @user.project1_file2_title %></a><br/>
+                <% end %>
+
+                <% if @user.project1_file3? %>
+                  <a href="<%= @user.project1_file3.url() %>">
+                  <% if @user.project1_file3_type == 0 %>
+                    <i class="fa fa-file-word-o fa-2x"></i> 
+                  <% elsif @user.project1_file3_type == 1 %>
+                    <i class="fa fa-file-excel-o fa-2x"></i> 
+                  <% elsif @user.project1_file3_type == 2 %>
+                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+                  <% else%>
+                    <i class="fa fa-file-pdf-o fa-2x"></i> 
+                  <% end %>
+                    &nbsp; <%= @user.project1_file3_title %></a><br/>
+                <% end %>
+
               </div>
               <br/><br/>
             </div>
-            <div class = "row">
+
+
+                        <div class = "row">
               <div class = "small-12 small-centered columns">
-                <!-- <img src="img/NAYP.png"></img> -->
-                <h4> Network for Aspiring Young Professionals </h4>
-                <p> As an <a href="http://www.inroads.org/">Inroads </a>alumnus and mentor I enjoy connecting with students. My desire to increase financial literacy while having an impact in my community inspired me to find the <a href="www.wearenayp.org">Network for Aspiring Young Professionals</a>. The organization holds sessions to help underserved students learn economic concepts, current economic issues & conditions, basic corporate &amp; personal finance, networking skills, and pre-college mentoring. </p>
+                <h4> <%= @user.project2_title %> </h4>
+                <p> <%= @user.project2_paragraph %></p>
+
+                <% if @user.project2_file1? %>
+                  <a href="<%= @user.project2_file1.url() %>">
+                  <% if @user.project2_file1_type == 0 %>
+                    <i class="fa fa-file-word-o fa-2x"></i> 
+                  <% elsif @user.project2_file1_type == 1 %>
+                    <i class="fa fa-file-excel-o fa-2x"></i> 
+                  <% elsif @user.project2_file1_type == 2 %>
+                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+                  <% else%>
+                    <i class="fa fa-file-pdf-o fa-2x"></i> 
+                  <% end %>
+                    &nbsp; <%= @user.project2_file1_title %></a><br/>
+                <% end %>
+
+                <% if @user.project2_file2? %>
+                  <a href="<%= @user.project2_file2.url() %>">
+                  <% if @user.project2_file2_type == 0 %>
+                    <i class="fa fa-file-word-o fa-2x"></i> 
+                  <% elsif @user.project2_file2_type == 1 %>
+                    <i class="fa fa-file-excel-o fa-2x"></i> 
+                  <% elsif @user.project2_file2_type == 2 %>
+                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+                  <% else%>
+                    <i class="fa fa-file-pdf-o fa-2x"></i> 
+                  <% end %>
+                    &nbsp; <%= @user.project2_file2_title %></a><br/>
+                <% end %>
+
+                <% if @user.project2_file3? %>
+                  <a href="<%= @user.project2_file3.url() %>">
+                  <% if @user.project2_file3_type == 0 %>
+                    <i class="fa fa-file-word-o fa-2x"></i> 
+                  <% elsif @user.project2_file3_type == 1 %>
+                    <i class="fa fa-file-excel-o fa-2x"></i> 
+                  <% elsif @user.project2_file3_type == 2 %>
+                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+                  <% else%>
+                    <i class="fa fa-file-pdf-o fa-2x"></i> 
+                  <% end %>
+                    &nbsp; <%= @user.project2_file3_title %></a><br/>
+                <% end %>
+
               </div>
               <br/><br/>
             </div>
-            <div class = "row">
+
+            
+                        <div class = "row">
               <div class = "small-12 small-centered columns">
-                <!-- <img src="img/thorobird.jpg"></img> -->
-                <h4> Affordable Housing Development </h4>
-                <p> Growing up in a one bedroom basement apartment in Brooklyn, NY with a family of seven was very challenging. My humble beginnings taught me many valuable life lessons, among them was the challenge of affordable housing. Leveraging my real estate finance experience I did pro-bono work for an affordable housing development project in Bronx, NY with <a href="http://www.thorobird.com/index.html">Thorobird.</a>  </p>
+                <h4> <%= @user.project3_title %> </h4>
+                <p> <%= @user.project3_paragraph %></p>
+
+                <% if @user.project3_file1? %>
+                  <a href="<%= @user.project3_file1.url() %>">
+                  <% if @user.project3_file1_type == 0 %>
+                    <i class="fa fa-file-word-o fa-2x"></i> 
+                  <% elsif @user.project3_file1_type == 1 %>
+                    <i class="fa fa-file-excel-o fa-2x"></i> 
+                  <% elsif @user.project3_file1_type == 2 %>
+                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+                  <% else%>
+                    <i class="fa fa-file-pdf-o fa-2x"></i> 
+                  <% end %>
+                    &nbsp; <%= @user.project3_file1_title %></a><br/>
+                <% end %>
+
+                <% if @user.project3_file2? %>
+                  <a href="<%= @user.project3_file2.url() %>">
+                  <% if @user.project3_file2_type == 0 %>
+                    <i class="fa fa-file-word-o fa-2x"></i> 
+                  <% elsif @user.project3_file2_type == 1 %>
+                    <i class="fa fa-file-excel-o fa-2x"></i> 
+                  <% elsif @user.project3_file2_type == 2 %>
+                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+                  <% else%>
+                    <i class="fa fa-file-pdf-o fa-2x"></i> 
+                  <% end %>
+                    &nbsp; <%= @user.project3_file2_title %></a><br/>
+                <% end %>
+
+                <% if @user.project3_file3? %>
+                  <a href="<%= @user.project3_file3.url() %>">
+                  <% if @user.project3_file3_type == 0 %>
+                    <i class="fa fa-file-word-o fa-2x"></i> 
+                  <% elsif @user.project3_file3_type == 1 %>
+                    <i class="fa fa-file-excel-o fa-2x"></i> 
+                  <% elsif @user.project3_file3_type == 2 %>
+                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+                  <% else%>
+                    <i class="fa fa-file-pdf-o fa-2x"></i> 
+                  <% end %>
+                    &nbsp; <%= @user.project3_file3_title %></a><br/>
+                <% end %>
+
               </div>
               <br/><br/>
             </div>

@@ -13,23 +13,101 @@
     </div>
     <% end %>
     <%= f.input :domain_name %>
+    
     <%= f.input :name_first %>
     <%= f.input :name_last %>
     <%= f.input :homepage_pic %>
     <%= f.input :homepage_header %>
+    
     <%= f.input :intro_paragraph %>
     <%= f.input :about_pic %>
     <%= f.input :resume %>
+    
+
     <%= f.label :background_type %>
     <%= f.collection_radio_buttons :background_type, [[0, 'Experience'] ,[1, 'Education']], :first, :last %>
+    
     <%= f.input :background_link1 %>
     <%= f.input :background_img1 %>
+    
     <%= f.input :background_link2 %>
     <%= f.input :background_img2 %>
+    
     <%= f.input :background_link3 %>
     <%= f.input :background_img3 %>
+    
     <%= f.input :background_link4 %>
     <%= f.input :background_img4 %>
+    
+
+    <%= f.label :showcase_type %>
+    <%= f.collection_radio_buttons :showcase_type, [[0, 'Projects'] ,[1, 'Companies']], :first, :last%>
+
+
+    <%= f.input :project1_title %>
+    <%= f.input :project1_paragraph %>
+
+    <%= f.input :project1_file1_title %>
+    <%= f.collection_radio_buttons :project1_file1_type, [[0, 'Word'] ,[1, 'Excel'], [2, 'PPT'], [3, 'PDF']], :first, :last%>
+    <%= f.input :project1_file1 %>
+
+    <%= f.input :project1_file2_title %>
+    <%= f.collection_radio_buttons :project1_file2_type, [[0, 'Word'] ,[1, 'Excel'], [2, 'PPT'], [3, 'PDF']], :first, :last%>
+    <%= f.input :project1_file2 %>
+
+    <%= f.input :project1_file3_title %>
+    <%= f.collection_radio_buttons :project1_file3_type, [[0, 'Word'] ,[1, 'Excel'], [2, 'PPT'], [3, 'PDF']], :first, :last%>
+    <%= f.input :project1_file3 %>
+
+
+
+    <%= f.input :project2_title %>
+    <%= f.input :project2_paragraph %>
+
+    <%= f.input :project2_file1_title %>
+    <%= f.collection_radio_buttons :project2_file1_type, [[0, 'Word'] ,[1, 'Excel'], [2, 'PPT'], [3, 'PDF']], :first, :last%>
+    <%= f.input :project2_file1 %>
+
+    <%= f.input :project2_file2_title %>
+    <%= f.collection_radio_buttons :project2_file2_type, [[0, 'Word'] ,[1, 'Excel'], [2, 'PPT'], [3, 'PDF']], :first, :last%>
+    <%= f.input :project2_file2 %>
+
+    <%= f.input :project2_file3_title %>
+    <%= f.collection_radio_buttons :project2_file3_type, [[0, 'Word'] ,[1, 'Excel'], [2, 'PPT'], [3, 'PDF']], :first, :last%>
+    <%= f.input :project2_file3 %>
+
+
+    <%= f.input :project3_title %>
+    <%= f.input :project3_paragraph %>
+
+    <%= f.input :project3_file1_title %>
+    <%= f.collection_radio_buttons :project3_file1_type, [[0, 'Word'] ,[1, 'Excel'], [2, 'PPT'], [3, 'PDF']], :first, :last%>
+    <%= f.input :project3_file1 %>
+
+    <%= f.input :project3_file2_title %>
+    <%= f.collection_radio_buttons :project3_file2_type, [[0, 'Word'] ,[1, 'Excel'], [2, 'PPT'], [3, 'PDF']], :first, :last%>
+    <%= f.input :project3_file2 %>
+
+    <%= f.input :project3_file3_title %>
+    <%= f.collection_radio_buttons :project3_file3_type, [[0, 'Word'] ,[1, 'Excel'], [2, 'PPT'], [3, 'PDF']], :first, :last%>
+    <%= f.input :project3_file3 %>
+
+
+
+    <%= f.input :project4_title %>
+    <%= f.input :project4_paragraph %>
+
+    <%= f.input :project4_file1_title %>
+    <%= f.collection_radio_buttons :project4_file1_type, [[0, 'Word'] ,[1, 'Excel'], [2, 'PPT'], [3, 'PDF']], :first, :last%>
+    <%= f.input :project4_file1 %>
+
+    <%= f.input :project4_file2_title %>
+    <%= f.collection_radio_buttons :project4_file2_type, [[0, 'Word'] ,[1, 'Excel'], [2, 'PPT'], [3, 'PDF']], :first, :last%>
+    <%= f.input :project4_file2 %>
+
+    <%= f.input :project4_file3_title %>
+    <%= f.collection_radio_buttons :project4_file3_type, [[0, 'Word'] ,[1, 'Excel'], [2, 'PPT'], [3, 'PDF']], :first, :last%>
+    <%= f.input :project4_file3 %>
     <br/>
     <%= f.button :submit %>
     <% end %>

@@ -44,11 +44,8 @@
       <section class="main-section">
 
 
-
+        <!-- START hero row -->
         <div class = "row hero">
-<!--           <div id="bg">
-           <%= image_tag @user.homepage_pic.url() %>
-          </div> -->
           <div class = "small-12 columns text-center logo">
             <a href="#about">
               <h1><%= @user.name_first %> <%= @user.name_last %></h1>
@@ -64,9 +61,8 @@
 
 
 
-
-
         <div class = "show-for-medium-up">
+
           <!-- START DESKTOP NAVIGATION -->
           <div data-magellan-expedition="fixed">
             <dl class="sub-nav">
@@ -145,56 +141,44 @@
         <!-- END ABOUT SECTION   -->
 
 
-        <!-- START PROJECT SECTION -->
-        <div class = "content section">
-          <a name = "projects" data-magellan-destination="projects"></a>
-          <div class = "row">
-            <div class = "small-12 small-cenetered columns">
-              <h3 class = "header"> Projects </h3>
+
+          <!-- START PROJECT SECTION -->
+          <div class = "content section">
+            <a name = "projects" data-magellan-destination="projects"></a>
+            <div class = "row">
+              <div class = "small-12 small-cenetered columns">
+                <h4 class = "header"> Projects </h3>
+              </div>
+            </div>
+            <div class = "row">
+              <div class = "small-12 small-centered columns">
+                <h4> JumpStart MBA Competition </h4>
+                <p> I participated in the 2014 Finance 2.0 and Consulting Case Private Equity Boot Camp competition. My team and I presented an LBO opportunity of Pfizer, which was recognized by the judges as the best analytical presentation. The excel model and powerpoint presentation are included below as a sample of my work </p>
+                <a href="Pfizer_excel.xlsx"><i class="fa fa-file-excel-o fa-2x"></i> &nbsp; Excel Model</a><br/>
+                <a href="Pfizer_ppt.pptx"><i class="fa fa-file-powerpoint-o fa-2x"></i> &nbsp; Powerpoint Presentation</a>
+              </div>
+              <br/><br/>
+            </div>
+            <div class = "row">
+              <div class = "small-12 small-centered columns">
+                <!-- <img src="img/NAYP.png"></img> -->
+                <h4> Network for Aspiring Young Professionals </h4>
+                <p> As an <a href="http://www.inroads.org/">Inroads </a>alumnus and mentor I enjoy connecting with students. My desire to increase financial literacy while having an impact in my community inspired me to find the <a href="www.wearenayp.org">Network for Aspiring Young Professionals</a>. The organization holds sessions to help underserved students learn economic concepts, current economic issues & conditions, basic corporate &amp; personal finance, networking skills, and pre-college mentoring. </p>
+              </div>
+              <br/><br/>
+            </div>
+            <div class = "row">
+              <div class = "small-12 small-centered columns">
+                <!-- <img src="img/thorobird.jpg"></img> -->
+                <h4> Affordable Housing Development </h4>
+                <p> Growing up in a one bedroom basement apartment in Brooklyn, NY with a family of seven was very challenging. My humble beginnings taught me many valuable life lessons, among them was the challenge of affordable housing. Leveraging my real estate finance experience I did pro-bono work for an affordable housing development project in Bronx, NY with <a href="http://www.thorobird.com/index.html">Thorobird.</a>  </p>
+              </div>
+              <br/><br/>
             </div>
           </div>
-          <div class = "row portfolio">
-            <div class = "small-12 medium-4 columns">
-              <a href ="http://www.rnaseq101.com">
-                <div class = "project_box">
-                  <div class = "pic">
-                    <img src="img/rnaseq.png">
-                  </div>
-                  <div class = "description">
-                    RNAseq101 | <em> Just for fun </em>
-                  </div>
-                </div>
-              </a>
-            </div>
+          <!-- END PROJECT SECTION -->
 
-            <div class = "small-12 medium-4 columns">
-              <a href ="Ayers,Brian_thesis.pdf">
-                <div class = "project_box">
-                  <div class = "pic">
-                    <img src="img/aunp.png">
-                  </div>
-                  <div class = "description">
-                    Anti-CD47 + AuNP | <em> Thesis</em>
-                  </div>
-                </div>
-              </a>
-            </div>
 
-            <div class = "small-12 medium-4 columns">
-              <a href ="Porter_EMR_report.pdf">
-                <div class = "project_box">
-                  <div class = "pic">
-                    <img src="img/porter.png">
-                  </div>
-                  <div class = "description">
-                    Porter Hospital | <em> Co-Author</em>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- END PROJECT SECTION -->
 
         <!-- START BLOG SECTION -->
         <div class = "content section blog">

@@ -1497,6 +1497,12 @@ $tabbar-hamburger-icon-gap: 10px;
 
 .pic.about {
 	padding-bottom: 20px;
+	max-height: 500px;
+	overflow: hidden;
+	img {
+		min-width: 100%;
+		height: auto;
+	}
 }
 
 // Projects
@@ -1803,6 +1809,14 @@ a {
 		img {
 			  padding-bottom: 60px;
 			  max-width: 200px;
+		}
+	}
+	.experience_img {
+		height: 200px;
+		overflow: hidden;
+		img {
+			width: 100%;
+			height: auto;
 		}
 	}
 }

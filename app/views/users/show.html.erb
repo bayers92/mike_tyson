@@ -114,18 +114,22 @@
 
           <div class = "row pastExperience">
             <div class = "small-12 small-centered columns">
-              <h4 class = "header"> Education </h4>
-              <div class = "small-12 medium-3 columns text-center">
-                <a href="http://www.simon.rochester.edu/programs/full-time-mba/academics/programs/other-programs/md-mba-program/index.aspx"> <img src = "img/URMC.jpg"></img></a>
+              <% if @user.background_type == 0 %>
+                <h4 class = "header"> Experience </h4>
+              <% else %>
+                  <h4 class = "header"> Education </h4>
+              <% end %>
+              <div class = "small-12 medium-3 columns experience_img">
+                <a href="http://www.simon.rochester.edu/programs/full-time-mba/academics/programs/other-programs/md-mba-program/index.aspx">  <%= image_tag @user.background_img1.url(:large) %></a>
               </div>
-              <div class = "small-12 medium-3 columns text-center">
-                <a href="http://www.simon.rochester.edu/programs/full-time-mba/academics/programs/other-programs/md-mba-program/index.aspx"> <img src = "img/simon.png"></img></a>
+              <div class = "small-12 medium-3 columns experience_img">
+                <a href="http://www.simon.rochester.edu/programs/full-time-mba/academics/programs/other-programs/md-mba-program/index.aspx"> <%= image_tag @user.background_img2.url(:large) %></a>
               </div>
-              <div class = "small-12 medium-3 columns text-center">
-                <a href="http://middlebury.edu"> <img src = "img/middlebury.jpg"></img></a>
+              <div class = "small-12 medium-3 columns experience_img">
+                <a href="http://middlebury.edu"> <%= image_tag @user.background_img3.url(:large) %></a>
               </div>
-              <div class = "small-12 medium-3 columns text-center">
-                <a href="https://www.stmarksschool.org/"> <img src = "img/stMarks.jpg"></img></a>
+              <div class = "small-12 medium-3 columns experience_img">
+                <a href="http://middlebury.edu"> <%= image_tag @user.background_img4.url(:large) %></a>
               </div>
             </div>
           </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609211007) do
+ActiveRecord::Schema.define(version: 20150610140222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,23 @@ ActiveRecord::Schema.define(version: 20150609211007) do
     t.string   "resume_content_type"
     t.integer  "resume_file_size"
     t.datetime "resume_updated_at"
+    t.integer  "background_type"
+    t.string   "background_img1_file_name"
+    t.string   "background_img1_content_type"
+    t.integer  "background_img1_file_size"
+    t.datetime "background_img1_updated_at"
+    t.string   "background_img2_file_name"
+    t.string   "background_img2_content_type"
+    t.integer  "background_img2_file_size"
+    t.datetime "background_img2_updated_at"
+    t.string   "background_img3_file_name"
+    t.string   "background_img3_content_type"
+    t.integer  "background_img3_file_size"
+    t.datetime "background_img3_updated_at"
+    t.string   "background_img4_file_name"
+    t.string   "background_img4_content_type"
+    t.integer  "background_img4_file_size"
+    t.datetime "background_img4_updated_at"
   end
 
 end

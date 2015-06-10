@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610140222) do
+ActiveRecord::Schema.define(version: 20150610154512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,10 @@ ActiveRecord::Schema.define(version: 20150610140222) do
     t.string   "background_img4_content_type"
     t.integer  "background_img4_file_size"
     t.datetime "background_img4_updated_at"
+    t.string   "background_link1"
+    t.string   "background_link2"
+    t.string   "background_link3"
+    t.string   "background_link4"
   end
 
 end

@@ -1652,45 +1652,6 @@ a {
 .off-canvas-wrap .main-section:-webkit-scrollbar { 
 	display: none; 
 }
-// 
-// OFFCANVAS NAV BAR FIX START
-@media #{$small-only} {
-	.row {
-		padding-bottom: 15px !important;
-		padding-top: 15px !important;
-	}
-	.content {
-		margin-top: 0px !important;
-	}
-	body,html{
-	    height:100%;
-	    width:100%;
-	}
-	.off-canvas-wrap,.inner-wrap{
-	    height:100%;   
-	}
-
-	.off-canvas-wrap .main-section
-	{
-	  height: 100%; overflow:scroll;
-	  -webkit-overflow-scrolling: touch;
-	}
-
-	.tumblr_posts {
-		li {
-			width: 90% !important;
-			min-height: 150px;
-		}
-	}
-	#instafeed {
-		text-align: center !important;
-		img {
-			padding: 10px;
-			width: 150px !important;
-		}
-	}
-}
-// OFFCANVAS NAV BAR FIX END
 
 #loader {
 	position: absolute;
@@ -1814,6 +1775,7 @@ a {
 	.experience_img {
 		height: 200px;
 		overflow: hidden;
+		float: left !important;
 		img {
 			width: 100%;
 			height: auto;
@@ -1852,3 +1814,53 @@ a {
 		}
 	}
 }
+
+
+// 
+// OFFCANVAS NAV BAR FIX START
+@media #{$small-only} {
+	.row {
+		padding-bottom: 15px !important;
+		padding-top: 15px !important;
+	}
+	.content {
+		margin-top: 0px !important;
+	}
+	body,html{
+	    height:100%;
+	    width:100%;
+	}
+	.off-canvas-wrap,.inner-wrap{
+	    height:100%;   
+	}
+
+	.off-canvas-wrap .main-section
+	{
+	  height: 100%; overflow:scroll;
+	  -webkit-overflow-scrolling: touch;
+	}
+
+	.tumblr_posts {
+		li {
+			width: 90% !important;
+			min-height: 150px;
+		}
+	}
+	#instafeed {
+		text-align: center !important;
+		img {
+			padding: 10px;
+			width: 150px !important;
+		}
+	}
+	.pastExperience {
+		.experience_img {
+			margin-left: auto;
+			margin-right: auto;
+			width: 200px;
+			text-align: center;
+			float: none !important;		
+		}
+	}
+}
+// OFFCANVAS NAV BAR FIX END

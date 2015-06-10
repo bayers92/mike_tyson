@@ -119,18 +119,26 @@
               <% else %>
                   <h4 class = "header"> Education </h4>
               <% end %>
-              <div class = "small-12 medium-3 columns experience_img">
-                <a href="http://www.simon.rochester.edu/programs/full-time-mba/academics/programs/other-programs/md-mba-program/index.aspx">  <%= image_tag @user.background_img1.url(:large) %></a>
-              </div>
-              <div class = "small-12 medium-3 columns experience_img">
-                <a href="http://www.simon.rochester.edu/programs/full-time-mba/academics/programs/other-programs/md-mba-program/index.aspx"> <%= image_tag @user.background_img2.url(:large) %></a>
-              </div>
-              <div class = "small-12 medium-3 columns experience_img">
-                <a href="http://middlebury.edu"> <%= image_tag @user.background_img3.url(:large) %></a>
-              </div>
-              <div class = "small-12 medium-3 columns experience_img">
-                <a href="http://middlebury.edu"> <%= image_tag @user.background_img4.url(:large) %></a>
-              </div>
+              <% if @user.background_img1? %>
+                <div class = "small-12 medium-3 columns experience_img">
+                  <a href="http://<%= @user.background_link1 %>">  <%= image_tag @user.background_img1.url(:large) %></a>
+                </div>
+              <% end %>
+              <% if @user.background_img2? %>
+                <div class = "small-12 medium-3 columns experience_img">
+                  <a href="http://<%= @user.background_link2 %>"> <%= image_tag @user.background_img2.url(:large) %></a>
+                </div>
+              <% end %>
+              <% if @user.background_img3? %>
+                <div class = "small-12 medium-3 columns experience_img">
+                  <a href="http://<%= @user.background_link3 %>"> <%= image_tag @user.background_img3.url(:large) %></a>
+                </div>
+              <% end %>
+              <% if @user.background_img4?%>
+                <div class = "small-12 medium-3 columns experience_img">
+                  <a href="http://<%= @user.background_link4 %>"> <%= image_tag @user.background_img4.url(:large) %></a>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>

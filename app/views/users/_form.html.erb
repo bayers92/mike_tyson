@@ -15,16 +15,20 @@
     <%= f.input :domain_name %>
     <%= f.input :name_first %>
     <%= f.input :name_last %>
+    <%= f.input :homepage_pic %>
     <%= f.input :homepage_header %>
     <%= f.input :intro_paragraph %>
-    <%= f.input :homepage_pic %>
     <%= f.input :about_pic %>
     <%= f.input :resume %>
     <%= f.label :background_type %>
     <%= f.collection_radio_buttons :background_type, [[0, 'Experience'] ,[1, 'Education']], :first, :last %>
+    <%= f.input :background_link1 %>
     <%= f.input :background_img1 %>
+    <%= f.input :background_link2 %>
     <%= f.input :background_img2 %>
+    <%= f.input :background_link3 %>
     <%= f.input :background_img3 %>
+    <%= f.input :background_link4 %>
     <%= f.input :background_img4 %>
     <br/>
     <%= f.button :submit %>

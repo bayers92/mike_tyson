@@ -35,7 +35,7 @@
           <li><a href="#about"><i class="fa fa-user fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;About</a></li>
           <li><a href="#projects"><i class="fa fa-flask fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Projects</a></li>
           <li><a href="#blog"><i class="fa fa-newspaper-o fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Reading List</a></li>
-          <li><a href="#instagram"><i class="fa fa-instagram fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Photos</a></li>
+          <li><a href="#photos"><i class="fa fa-instagram fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Photos</a></li>
           <li><a href="mailto:brianc.ayers@gmail.com"><i class="fa fa-envelope-o fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Contact</a></li>
         </ul>
       </aside>
@@ -69,7 +69,7 @@
               <dd data-magellan-arrival="about"><a href="#about">About</a></dd>
               <dd data-magellan-arrival="projects"><a href="#projects">Projects</a></dd>
               <dd data-magellan-arrival="blog"><a href="#blog">Reading List</a></dd>
-              <dd data-magellan-arrival="instagram"><a href="#instagram">Photos</a></dd>
+              <dd data-magellan-arrival="photos"><a href="#photos">Photos</a></dd>
               <dd><a href="mailto:BrianC.ayers@gmail.com">Contact</a></dd>
             </dl>
           </div>
@@ -253,7 +253,7 @@
               <br/><br/>
             </div>
 
-            
+
                         <div class = "row">
               <div class = "small-12 small-centered columns">
                 <h4> <%= @user.project3_title %> </h4>
@@ -325,15 +325,15 @@
 
 
         <!-- START INSTAGRAM SECTION -->
-        <div class = "content section insta">
-          <a name = "instagram" data-magellan-destination="instagram"></a>
+        <div class = "content section photos">
+          <a name = "photos" data-magellan-destination="photos"></a>
           <div class = "row">
             <div class = "small-12 small-centered columns center-text">
               <h3 class = "header"> Photos </h3>
             </div>
             <div class = "small-12 small-centered columns center-text">
-              <ul class="small-block-grid-3">
-                <div id="instafeed"></div>
+              <ul class="no-bullet">
+                <script type="text/javascript" src="<%= @user.tumblr_url %>"></script>
               </ul>
             </div>
           </div>

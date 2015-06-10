@@ -163,15 +163,6 @@ a .project_box .description {
   list-style-type: none;
 }
 /* line 1601, ../scss/_settings.scss */
-.tumblr_posts li {
-  width: 40%;
-  margin-left: 5%;
-  margin-right: 5%;
-  padding-top: 25px !important;
-  padding-bottom: 25px !important;
-  float: left;
-  min-height: 250px;
-}
 /* line 1610, ../scss/_settings.scss */
 .tumblr_posts li a {
   font-size: 1.1rem;

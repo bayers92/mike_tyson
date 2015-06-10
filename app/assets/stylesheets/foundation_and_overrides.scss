@@ -1604,23 +1604,26 @@ a {
 	text-align: left;
 	list-style:none;
 	list-style-type: none;
-	li {
-		width: 40%;
-		margin-left: 5%;
-		margin-right: 5%;
-		padding-top: 25px !important;
-		padding-bottom: 25px !important;
-		// border-bottom: thin solid $medium-gray;
+	li { 
+		display: none;
+	}
+	li.tumblr_post.tumblr_photo_post {
+		display: block !important;
+		width: 20%;
+		margin-left: 2.5%;
+		margin-right: 2.5%;
+		padding-top: 5% !important;
 		float: left;
-		min-height: 250px;
+		// min-height: 250px;
 		a {
-			font-size: 1.1rem;
+			font-size: 0.6rem;
 			color: $dark-gray !important;
 			&:hover {
 				color: $primary-color !important;
 			}
 		}
-		.tumblr_description {
+		.tumblr_caption {
+			display: none;
 			.link_og_blockquote {
 				border: none !important;
 				color: $medium-gray !important;
@@ -1630,7 +1633,7 @@ a {
 				color: $medium-gray;
 				// font-style: italic;
 				// display: none;
-				font-size: 80%;
+				font-size: 50%;
 				font-style: italic;
 			}
 		}
@@ -1642,6 +1645,7 @@ a {
 				margin-top: 5px;
 				color: $medium-gray;
 				margin-bottom: 0 !important;
+				font-size: 100%;
 			}
 		}
 	}
@@ -1840,12 +1844,6 @@ a {
 	  -webkit-overflow-scrolling: touch;
 	}
 
-	.tumblr_posts {
-		li {
-			width: 90% !important;
-			min-height: 150px;
-		}
-	}
 	#instafeed {
 		text-align: center !important;
 		img {

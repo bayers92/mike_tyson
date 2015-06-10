@@ -90,7 +90,8 @@ class UsersController < ApplicationController
         :project4_title, :project4_paragraph, 
         :project4_file1, :project4_file1_title, :project4_file1_type,
         :project4_file2, :project4_file2_title, :project4_file2_type,
-        :project4_file3, :project4_file3_title, :project4_file3_type
+        :project4_file3, :project4_file3_title, :project4_file3_type,
+        :tumblr_url
         )
     end
 end

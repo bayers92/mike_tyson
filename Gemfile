@@ -41,3 +41,4 @@ gem 'spring',        group: :development
 gem 'paperclip'
 gem 'foundation-rails'
 gem 'simple_form'
+gem 'devise'

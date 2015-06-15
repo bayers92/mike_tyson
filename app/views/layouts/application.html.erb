@@ -14,7 +14,9 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
       <%= yield %>
+    <% end %> 
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
   </body>
 </html>

@@ -130,12 +130,14 @@ $light-gray: #F9F6F6;
 
 // We use these to control various global styles
 
-@import url(http://fonts.googleapis.com/css?family=Raleway);
-$raleway:'Raleway', sans-serif;
+// @import url(http://fonts.googleapis.com/css?family=Raleway);
+// @import url(http://fonts.googleapis.com/css?family=Merriweather:400,300,900);
+// $merriweather: 'Merriweather', serif;
+// $raleway:'Raleway', sans-serif;
 
 $body-bg: $white;
 $body-font-color: $wet-asphalt;
-$body-font-family: $raleway;
+// $body-font-family: $merriweather;
 $body-font-weight: normal;
 $body-font-style: normal;
 

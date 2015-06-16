@@ -116,7 +116,8 @@ $jet         : #222222;
 $black       : #000000;
 
 // We use these as default colors throughout
-$primary-color: #65E0CB;
+// $primary-color: #65E0CB;
+$primary-color: #FA584F;
 $secondary-color: #65CAE0;
 $wet-asphalt: #34495E;
 $dark-gray: #696969;
@@ -130,13 +131,17 @@ $light-gray: #F9F6F6;
 
 // We use these to control various global styles
 
-// @import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+$raleway:'Raleway', sans-serif;
+
 @import url(http://fonts.googleapis.com/css?family=Merriweather:400,300,900);
 $merriweather: 'Merriweather', serif;
-// $raleway:'Raleway', sans-serif;
+
+@import url(http://fonts.googleapis.com/css?family=Pontano+Sans);
+$pontano: 'Pontano Sans', sans-serif;
 
 $body-bg: $white;
-$body-font-color: $wet-asphalt;
+$body-font-color: rgba(0, 0, 0, 0.8);
 $body-font-family: $merriweather;
 $body-font-weight: normal;
 $body-font-style: normal;
@@ -246,8 +251,8 @@ $h6-font-size: 1rem;
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
 // $paragraph-font-weight: $font-weight-normal;
-// $paragraph-font-size: 1rem;
-// $paragraph-line-height: 1.6;
+$paragraph-font-size: 1.1rem;
+$paragraph-line-height: 2;
 // $paragraph-margin-bottom: rem-calc(20);
 // $paragraph-aside-font-size: rem-calc(14);
 // $paragraph-aside-line-height: 1.35;
@@ -1803,6 +1808,10 @@ a {
 	z-index: -1;
 	height: 100vh;
 	width: 100vw;
+	h1 {
+		font-family: $raleway;
+		font-size: 3.5rem;
+	}
 	.logo {
 		top: 30%;
 		min-height: 10vh;
@@ -1864,3 +1873,35 @@ a {
 	}
 }
 // OFFCANVAS NAV BAR FIX END
+
+
+
+.homepage {
+	h1 {
+	  text-transform: uppercase;
+	  font-size: 7rem !important;
+	  font-weight: bold;
+	}
+}
+
+.heading {
+	.logo {
+		padding-top: 10px;
+		padding-left: 20px;
+		height: 10%;
+		min-height: 40px;
+		img {
+			min-height: 100%;
+			width: auto;
+		}
+	}
+	.devise_links {
+		padding-top: 30px;
+		font-weight: bold;
+		a {
+			color: $secondary-color !important;
+		}
+	}
+}
+
+@import 'foundation';

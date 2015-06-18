@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource
 
   # GET /users
   # GET /users.json
@@ -92,7 +93,8 @@ class UsersController < ApplicationController
         :project4_file1, :project4_file1_title, :project4_file1_type,
         :project4_file2, :project4_file2_title, :project4_file2_type,
         :project4_file3, :project4_file3_title, :project4_file3_type,
-        :tumblr_url
+        :tumblr_url,
+        :link_linkedin, :link_facebook, :link_twitter, :link_instagram, :link_tumblr, :link_github, :link_alt_email
         )
     end
 end

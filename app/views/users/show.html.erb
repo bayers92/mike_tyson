@@ -6,6 +6,9 @@
 
 <% content_for :custom_css do %> 
 <style>
+.heading {
+    display: none !important;
+}
 .row.hero {
   background: url("<%= @user.homepage_pic.url() %>") no-repeat center center fixed;
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url("<%= @user.homepage_pic.url() %>");
@@ -333,8 +336,13 @@
             </div>
             <div class = "small-12 small-centered columns center-text">
               <ul class="no-bullet">
-                <script type="text/javascript" src="<%= @user.tumblr_url %>"></script>
+                <script type="text/javascript" src="<%= @user.tumblr_url %>/js"></script>
               </ul>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "small-12 columns">
+              <p class = "small"> <a href="<%= @user.tumblr_url %>"> View more photos <i class="fa fa-arrow-right"></i></a> </p>
             </div>
           </div>
         </div>
@@ -345,14 +353,38 @@
           <div class = "row">
             <div class = "small-12 large-4 small-centered columns">
               <div class = "icons">
-                <a href="https://www.facebook.com/brianCayers"><i class="fa fa-facebook fa-1x"></i></a>
-                <a href="https://www.linkedin.com/in/briancayers"><i class="fa fa-linkedin fa-1x"></i></a>
-                <a href="https://github.com/bayers92"><i class="fa fa-github-alt fa-1x"></i></a>
-                <a href="http://instagram.com/brian_ayers"><i class="fa fa-instagram fa-1x"></i></a>
+
+                <% if @user.link_linkedin? %>
+                  <a href="<%= @user.link_linkedin %>"><i class="fa fa-linkedin fa-1x"></i></a>
+                <% end %>
+
+                <% if @user.link_twitter? %>
+                  <a href="<%= @user.link_twitter %>"><i class="fa fa-twitter fa-1x"></i></a>
+                <% end %>
+
+                <% if @user.link_facebook? %>
+                  <a href="<%= @user.link_facebook %>"><i class="fa fa-facebook fa-1x"></i></a>
+                <% end %>
+
+                <% if @user.link_github? %>
+                  <a href="<%= @user.link_github %>"><i class="fa fa-github-alt fa-1x"></i></a>
+                <% end %>
+
+                <% if @user.link_instagram? %>
+                  <a href="<%= @user.link_instagram %>"><i class="fa fa-instagram fa-1x"></i></a>
+                <% end %>
+
+                <% if @user.link_tumblr? %>
+                  <a href="<%= @user.link_tumblr %>"><i class="fa fa-tumblr fa-1x"></i></a>
+                <% end %>
               </div>
             </div>
             <div class = "small-12 large-8 small-centered columns">
-              <a href="mailto:brianc.ayers@gmail.com"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; brianc.ayers@gmail.com </a>
+              <% if @user.link_alt_email? %>
+                <a href="<%= @user.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.link_alt_email %> </a>
+              <% else %>
+              <a href="<%= @user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.email %> </a>
+              <% end %>
             </div>    
           </div>
         </div>

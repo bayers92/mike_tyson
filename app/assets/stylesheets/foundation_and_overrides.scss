@@ -1877,10 +1877,13 @@ a {
 
 
 .homepage {
-	h1 {
-	  text-transform: uppercase;
-	  font-size: 7rem !important;
-	  font-weight: bold;
+	.title {
+		margin-top: 50px;
+		h1 {
+		  text-transform: uppercase;
+		  font-size: 6rem !important;
+		  font-weight: bold;
+		}
 	}
 }
 

@@ -109,6 +109,16 @@
     <%= f.collection_radio_buttons :project4_file3_type, [[0, 'Word'] ,[1, 'Excel'], [2, 'PPT'], [3, 'PDF']], :first, :last%>
     <%= f.input :project4_file3 %>
     <%= f.input :tumblr_url %>
+
+    <h1> social media links </h1>
+    <%= f.input :link_linkedin %>
+    <%= f.input :link_instagram %>
+    <%= f.input :link_twitter %>
+    <%= f.input :link_facebook %>
+    <%= f.input :link_tumblr %>
+    <%= f.input :link_github %>
+    <%= f.input :link_alt_email %>
+
     <br/>
     <%= f.button :submit %>
     <% end %>

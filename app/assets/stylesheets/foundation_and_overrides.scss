@@ -1772,15 +1772,15 @@ a {
 }
 
 .row {
-  padding-bottom: 20px;
-  padding-top: 20px;
+	padding-bottom: 20px;
+	padding-top: 20px;
 }
 
 .pastExperience {
 	a {
 		img {
-			  padding-bottom: 60px;
-			  max-width: 200px;
+			padding-bottom: 60px;
+			max-width: 200px;
 		}
 	}
 	.experience_img {
@@ -1842,17 +1842,17 @@ a {
 		margin-top: 0px !important;
 	}
 	body,html{
-	    height:100%;
-	    width:100%;
+		height:100%;
+		width:100%;
 	}
 	.off-canvas-wrap,.inner-wrap{
-	    height:100%;   
+		height:100%;   
 	}
 
 	.off-canvas-wrap .main-section
 	{
-	  height: 100%; overflow:scroll;
-	  -webkit-overflow-scrolling: touch;
+		height: 100%; overflow:scroll;
+		-webkit-overflow-scrolling: touch;
 	}
 
 	#instafeed {
@@ -1880,9 +1880,9 @@ a {
 	.title {
 		margin-top: 50px;
 		h1 {
-		  text-transform: uppercase;
-		  font-size: 6rem !important;
-		  font-weight: bold;
+			text-transform: uppercase;
+			font-size: 6rem !important;
+			font-weight: bold;
 		}
 	}
 }
@@ -1905,6 +1905,44 @@ a {
 			color: $secondary-color !important;
 		}
 	}
+}
+
+.edit-page {
+	padding: 0px;
+	min-width:100% !important;
+	max-width: none !important;
+	min-height: 100vh;
+	height:100vh;
+	max-height: 100vh;
+	overflow-y: hidden;
+	.nav {
+		min-height:100%;
+		background-color: $dark-gray;
+		.logo {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+		.user-name {
+			h4 {
+				min-width: 100%;
+				background-color: $primary-color;
+				color: white;
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+		}
+		.links {
+			
+		}
+	}
+	.form-yield {
+		height: 100%;
+		overflow-y: scroll;
+	}
+}
+
+.no-padding {
+	padding: 0px !important;
 }
 
 @import 'foundation';

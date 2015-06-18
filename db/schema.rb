@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618183643) do
+ActiveRecord::Schema.define(version: 20150618184337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20150618183643) do
 
   create_table "homepage_infos", force: true do |t|
     t.string   "homepage_header"
-    t.text     "intro_paragraph"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "homepage_pic_file_name"
@@ -115,8 +114,6 @@ ActiveRecord::Schema.define(version: 20150618183643) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name_first"
-    t.string   "name_last"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                  default: "", null: false

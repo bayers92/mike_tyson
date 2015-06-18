@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617192228) do
+ActiveRecord::Schema.define(version: 20150618183643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,24 @@ ActiveRecord::Schema.define(version: 20150617192228) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "domain_name"
-    t.string   "name_first"
-    t.string   "name_last"
-    t.text     "homepage_header"
+  create_table "background_infos", force: true do |t|
+    t.integer  "background_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "experiences", force: true do |t|
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
+  end
+
+  create_table "homepage_infos", force: true do |t|
+    t.string   "homepage_header"
     t.text     "intro_paragraph"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -36,123 +49,82 @@ ActiveRecord::Schema.define(version: 20150617192228) do
     t.string   "homepage_pic_content_type"
     t.integer  "homepage_pic_file_size"
     t.datetime "homepage_pic_updated_at"
-    t.string   "about_pic_file_name"
-    t.string   "about_pic_content_type"
-    t.integer  "about_pic_file_size"
-    t.datetime "about_pic_updated_at"
+  end
+
+  create_table "personal_infos", force: true do |t|
+    t.string   "name_first"
+    t.string   "name_last"
+    t.text     "intro_paragraph"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "resume_file_name"
     t.string   "resume_content_type"
     t.integer  "resume_file_size"
     t.datetime "resume_updated_at"
-    t.integer  "background_type"
-    t.string   "background_img1_file_name"
-    t.string   "background_img1_content_type"
-    t.integer  "background_img1_file_size"
-    t.datetime "background_img1_updated_at"
-    t.string   "background_img2_file_name"
-    t.string   "background_img2_content_type"
-    t.integer  "background_img2_file_size"
-    t.datetime "background_img2_updated_at"
-    t.string   "background_img3_file_name"
-    t.string   "background_img3_content_type"
-    t.integer  "background_img3_file_size"
-    t.datetime "background_img3_updated_at"
-    t.string   "background_img4_file_name"
-    t.string   "background_img4_content_type"
-    t.integer  "background_img4_file_size"
-    t.datetime "background_img4_updated_at"
-    t.string   "background_link1"
-    t.string   "background_link2"
-    t.string   "background_link3"
-    t.string   "background_link4"
-    t.integer  "showcase_type"
-    t.string   "project1_title"
-    t.text     "project1_paragraph"
-    t.string   "project2_title"
-    t.text     "project2_paragraph"
-    t.string   "project3_title"
-    t.text     "project3_paragraph"
-    t.string   "project4_title"
-    t.text     "project4_paragraph"
-    t.string   "project1_file1_file_name"
-    t.string   "project1_file1_content_type"
-    t.integer  "project1_file1_file_size"
-    t.datetime "project1_file1_updated_at"
-    t.string   "project1_file2_file_name"
-    t.string   "project1_file2_content_type"
-    t.integer  "project1_file2_file_size"
-    t.datetime "project1_file2_updated_at"
-    t.string   "project1_file3_file_name"
-    t.string   "project1_file3_content_type"
-    t.integer  "project1_file3_file_size"
-    t.datetime "project1_file3_updated_at"
-    t.string   "project2_file1_file_name"
-    t.string   "project2_file1_content_type"
-    t.integer  "project2_file1_file_size"
-    t.datetime "project2_file1_updated_at"
-    t.string   "project2_file2_file_name"
-    t.string   "project2_file2_content_type"
-    t.integer  "project2_file2_file_size"
-    t.datetime "project2_file2_updated_at"
-    t.string   "project2_file3_file_name"
-    t.string   "project2_file3_content_type"
-    t.integer  "project2_file3_file_size"
-    t.datetime "project2_file3_updated_at"
-    t.string   "project3_file1_file_name"
-    t.string   "project3_file1_content_type"
-    t.integer  "project3_file1_file_size"
-    t.datetime "project3_file1_updated_at"
-    t.string   "project3_file2_file_name"
-    t.string   "project3_file2_content_type"
-    t.integer  "project3_file2_file_size"
-    t.datetime "project3_file2_updated_at"
-    t.string   "project3_file3_file_name"
-    t.string   "project3_file3_content_type"
-    t.integer  "project3_file3_file_size"
-    t.datetime "project3_file3_updated_at"
-    t.string   "project4_file1_file_name"
-    t.string   "project4_file1_content_type"
-    t.integer  "project4_file1_file_size"
-    t.datetime "project4_file1_updated_at"
-    t.string   "project4_file2_file_name"
-    t.string   "project4_file2_content_type"
-    t.integer  "project4_file2_file_size"
-    t.datetime "project4_file2_updated_at"
-    t.string   "project4_file3_file_name"
-    t.string   "project4_file3_content_type"
-    t.integer  "project4_file3_file_size"
-    t.datetime "project4_file3_updated_at"
-    t.string   "project1_file1_title"
-    t.integer  "project1_file1_type"
-    t.string   "project1_file2_title"
-    t.integer  "project1_file2_type"
-    t.string   "project1_file3_title"
-    t.integer  "project1_file3_type"
-    t.string   "project2_file1_title"
-    t.integer  "project2_file1_type"
-    t.string   "project2_file2_title"
-    t.integer  "project2_file2_type"
-    t.string   "project2_file3_title"
-    t.integer  "project2_file3_type"
-    t.string   "project3_file1_title"
-    t.integer  "project3_file1_type"
-    t.string   "project3_file2_title"
-    t.integer  "project3_file2_type"
-    t.string   "project3_file3_title"
-    t.integer  "project3_file3_type"
-    t.string   "project4_file1_title"
-    t.integer  "project4_file1_type"
-    t.string   "project4_file2_title"
-    t.integer  "project4_file2_type"
-    t.string   "project4_file3_title"
-    t.integer  "project4_file3_type"
+    t.string   "about_pic_file_name"
+    t.string   "about_pic_content_type"
+    t.integer  "about_pic_file_size"
+    t.datetime "about_pic_updated_at"
+  end
+
+  create_table "photos", force: true do |t|
     t.string   "tumblr_url"
-    t.string   "email",                        default: "", null: false
-    t.string   "encrypted_password",           default: "", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects", force: true do |t|
+    t.string   "title"
+    t.text     "paragraph"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file1_file_name"
+    t.string   "file1_content_type"
+    t.integer  "file1_file_size"
+    t.datetime "file1_updated_at"
+    t.string   "file2_file_name"
+    t.string   "file2_content_type"
+    t.integer  "file2_file_size"
+    t.datetime "file2_updated_at"
+    t.string   "file3_file_name"
+    t.string   "file3_content_type"
+    t.integer  "file3_file_size"
+    t.datetime "file3_updated_at"
+    t.string   "file4_file_name"
+    t.string   "file4_content_type"
+    t.integer  "file4_file_size"
+    t.datetime "file4_updated_at"
+  end
+
+  create_table "showcases", force: true do |t|
+    t.integer  "showcase_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "social_links", force: true do |t|
+    t.string   "link_linkedin"
+    t.string   "link_instagram"
+    t.string   "link_facebook"
+    t.string   "link_twitter"
+    t.string   "link_tumblr"
+    t.string   "link_github"
+    t.string   "link_alt_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name_first"
+    t.string   "name_last"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -161,17 +133,17 @@ ActiveRecord::Schema.define(version: 20150617192228) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "link_linkedin"
-    t.string   "link_instagram"
-    t.string   "link_facebook"
-    t.string   "link_twitter"
-    t.string   "link_tumblr"
-    t.string   "link_github"
-    t.string   "link_alt_email"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "website_settings", force: true do |t|
+    t.string   "domain_name"
+    t.integer  "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

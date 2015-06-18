@@ -24,17 +24,9 @@ class PersonalInfosController < ApplicationController
   # POST /personal_infos
   # POST /personal_infos.json
   def create
-    @personal_info = PersonalInfo.new(personal_info_params)
+    @user = User.find(params[:user_id])
+    @personal_info = @user.personal_info.create(personal_info_params)
 
-    respond_to do |format|
-      if @personal_info.save
-        format.html { redirect_to @personal_info, notice: 'Personal info was successfully created.' }
-        format.json { render :show, status: :created, location: @personal_info }
-      else
-        format.html { render :new }
-        format.json { render json: @personal_info.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /personal_infos/1

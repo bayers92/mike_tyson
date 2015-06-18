@@ -1,0 +1,23 @@
+<h1>Listing website_settings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @website_settings.each do |website_setting| %>
+      <tr>
+        <td><%= link_to 'Show', website_setting %></td>
+        <td><%= link_to 'Edit', edit_website_setting_path(website_setting) %></td>
+        <td><%= link_to 'Destroy', website_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Website setting', new_website_setting_path %>

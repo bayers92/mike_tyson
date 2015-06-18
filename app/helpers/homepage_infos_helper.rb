@@ -1,0 +1,2 @@
+module HomepageInfosHelper
+end

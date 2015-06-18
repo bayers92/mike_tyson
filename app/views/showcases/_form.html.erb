@@ -2,6 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+  	<%= f.collection_radio_buttons :showcase_type, [[0, 'Projects'] ,[1, 'Companies']], :first, :last%>
   </div>
 
   <div class="form-actions">

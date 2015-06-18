@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618184337) do
+ActiveRecord::Schema.define(version: 20150618192210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,13 +22,19 @@ ActiveRecord::Schema.define(version: 20150618184337) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "background_infos", force: true do |t|
     t.integer  "background_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "background_infos", ["user_id"], name: "index_background_infos_on_user_id", using: :btree
 
   create_table "experiences", force: true do |t|
     t.string   "url"
@@ -38,7 +44,10 @@ ActiveRecord::Schema.define(version: 20150618184337) do
     t.string   "img_content_type"
     t.integer  "img_file_size"
     t.datetime "img_updated_at"
+    t.integer  "background_info_id"
   end
+
+  add_index "experiences", ["background_info_id"], name: "index_experiences_on_background_info_id", using: :btree
 
   create_table "homepage_infos", force: true do |t|
     t.string   "homepage_header"
@@ -48,7 +57,10 @@ ActiveRecord::Schema.define(version: 20150618184337) do
     t.string   "homepage_pic_content_type"
     t.integer  "homepage_pic_file_size"
     t.datetime "homepage_pic_updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "homepage_infos", ["user_id"], name: "index_homepage_infos_on_user_id", using: :btree
 
   create_table "personal_infos", force: true do |t|
     t.string   "name_first"
@@ -64,13 +76,19 @@ ActiveRecord::Schema.define(version: 20150618184337) do
     t.string   "about_pic_content_type"
     t.integer  "about_pic_file_size"
     t.datetime "about_pic_updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "personal_infos", ["user_id"], name: "index_personal_infos_on_user_id", using: :btree
 
   create_table "photos", force: true do |t|
     t.string   "tumblr_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "photos", ["user_id"], name: "index_photos_on_user_id", using: :btree
 
   create_table "projects", force: true do |t|
     t.string   "title"
@@ -93,13 +111,19 @@ ActiveRecord::Schema.define(version: 20150618184337) do
     t.string   "file4_content_type"
     t.integer  "file4_file_size"
     t.datetime "file4_updated_at"
+    t.integer  "showcase_id"
   end
+
+  add_index "projects", ["showcase_id"], name: "index_projects_on_showcase_id", using: :btree
 
   create_table "showcases", force: true do |t|
     t.integer  "showcase_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "showcases", ["user_id"], name: "index_showcases_on_user_id", using: :btree
 
   create_table "social_links", force: true do |t|
     t.string   "link_linkedin"
@@ -111,7 +135,10 @@ ActiveRecord::Schema.define(version: 20150618184337) do
     t.string   "link_alt_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "social_links", ["user_id"], name: "index_social_links_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.datetime "created_at"
@@ -141,6 +168,9 @@ ActiveRecord::Schema.define(version: 20150618184337) do
     t.integer  "color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "website_settings", ["user_id"], name: "index_website_settings_on_user_id", using: :btree
 
 end

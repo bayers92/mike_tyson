@@ -14,20 +14,27 @@
 		<ul class = "no-bullet">
 			<li>
 				<% if current_user.personal_info != nil %>
-				<%= link_to 'Edit Personal Info', edit_personal_info_path(current_user.personal_info) %>
+					<%= link_to 'Edit Personal Info', edit_personal_info_path(current_user.personal_info) %>
 				<% else %>
-				<%= link_to 'Create Personal Info', new_personal_info_path %> 
+					<%= link_to 'Create Personal Info', new_personal_info_path %> 
 				<% end %>
 			</li>
 			<li>
 				<% if current_user.background_info != nil %>
-				<%= link_to 'Edit Background Info', edit_background_info_path(current_user.background_info) %>
+					<%= link_to 'Edit Background Info', edit_background_info_path(current_user.background_info) %>
 				<% else %>
-				<%= link_to 'Create Background Info', new_background_info_path %> 
+					<%= link_to 'Create Background Info', new_background_info_path %> 
 				<% end %>
 			</li>
 			<li>
 				<%= link_to 'Reading List', articles_path %>
+			</li>
+			<li>
+				<% if current_user.photo_link != nil %>
+					<%= link_to 'Photos', edit_photo_link_path(current_user.photo_link) %>
+				<% else %>
+					<%= link_to 'Photos', new_photo_link_path %> 
+				<% end %>
 			</li>
 		</ul>
 	</div>

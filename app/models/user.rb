@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 	has_many :experiences, through: :background_info
 	has_many :homepage_info,  autosave: true
 	has_one :personal_info,  autosave: true
-	has_many :photo,  autosave: true
+	has_one :photo_link,  autosave: true
 	has_many :showcase,  autosave: true
 	has_many :social_link,  autosave: true
 	has_many :website_setting,  autosave: true

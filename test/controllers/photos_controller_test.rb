@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PhotosControllerTest < ActionController::TestCase
   setup do
-    @photo = photos(:one)
+    @photo_album = photos(:one)
   end
 
   test "should get index" do
@@ -25,23 +25,23 @@ class PhotosControllerTest < ActionController::TestCase
   end
 
   test "should show photo" do
-    get :show, id: @photo
+    get :show, id: @photo_album
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @photo
+    get :edit, id: @photo_album
     assert_response :success
   end
 
   test "should update photo" do
-    patch :update, id: @photo, photo: {  }
+    patch :update, id: @photo_album, photo: {  }
     assert_redirected_to photo_path(assigns(:photo))
   end
 
   test "should destroy photo" do
     assert_difference('Photo.count', -1) do
-      delete :destroy, id: @photo
+      delete :destroy, id: @photo_album
     end
 
     assert_redirected_to photos_path

@@ -1,5 +1,13 @@
-<h1>New showcase</h1>
+<div class = "row edit-page">
+	<%= render 'application/sideNav'%>
+	<div class = "small-9 columns form-yield">
+		<%= render 'form' %>
 
-<%= render 'form' %>
 
-<%= link_to 'Back', showcases_path %>
+		<%= link_to 'Create New Project', new_project_path %>
+
+		<br/>
+		<br/>
+		<%= render @showcase.projects %>
+	</div>
+</div>

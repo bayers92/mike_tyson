@@ -27,6 +27,13 @@
 				<% end %>
 			</li>
 			<li>
+				<% if current_user.showcase != nil %>
+					<%= link_to 'Edit Showcase', edit_showcase_path(current_user.showcase) %>
+				<% else %>
+					<%= link_to 'Create Showcase', new_showcase_path %> 
+				<% end %>
+			</li>
+			<li>
 				<%= link_to 'Reading List', articles_path %>
 			</li>
 			<li>

@@ -218,7 +218,14 @@
             <div class = "small-12 columns">
               <h3 class = "header text-left"> Reading List </h3>
               <ul class="no-bullet">
-                <script type="text/javascript" src="http://brian-ayers.tumblr.com/js"></script>
+                <% @user.articles.each do |article| %>
+                  <a href= "<%= article.url %>">
+                    <li> 
+                      <h4> <%= article.title %> </h4>
+                      <p> <%= article.summary %> </p>
+                    </li>
+                  </a>
+                <% end %>
               </ul>
             </div>
           </div>

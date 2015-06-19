@@ -1,0 +1,23 @@
+<h1>Listing background_infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @background_infos.each do |background_info| %>
+      <tr>
+        <td><%= link_to 'Show', background_info %></td>
+        <td><%= link_to 'Edit', edit_background_info_path(background_info) %></td>
+        <td><%= link_to 'Destroy', background_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Background info', new_background_info_path %>

@@ -1,0 +1,69 @@
+<div class = "small-3 columns nav no-padding">
+	<div class = "small-12 columns text-center">
+		<div class = "logo">
+			<a href="/">
+				<%= image_tag "brandclub_logo.png" %>
+			</a>
+		</div>
+	</div>
+	<div class = "small-12 columns user-name no-padding text-center">
+		<h4> <%= current_user.email %> </h4>
+	</div>
+	<div class = "small-12 columns links text-center">
+
+		<ul class = "no-bullet">
+			<li>
+				<% if current_user.homepage_info != nil %>
+					<%= link_to 'Homepage Info', edit_homepage_info_path(current_user.homepage_info) %>
+				<% else %>
+					<%= link_to 'Homepage Info', new_homepage_info_path %> 
+				<% end %>
+			</li>
+			<li>
+				<% if current_user.personal_info != nil %>
+					<%= link_to 'Personal Info', edit_personal_info_path(current_user.personal_info) %>
+				<% else %>
+					<%= link_to 'Personal Info', new_personal_info_path %> 
+				<% end %>
+			</li>
+			<li>
+				<% if current_user.background_info != nil %>
+					<%= link_to 'Background Info', edit_background_info_path(current_user.background_info) %>
+				<% else %>
+					<%= link_to 'Background Info', new_background_info_path %> 
+				<% end %>
+			</li>
+			<li>
+				<% if current_user.showcase != nil %>
+					<%= link_to 'Showcase', edit_showcase_path(current_user.showcase) %>
+				<% else %>
+					<%= link_to 'Showcase', new_showcase_path %> 
+				<% end %>
+			</li>
+			<li>
+				<%= link_to 'Reading List', articles_path %>
+			</li>
+			<li>
+				<% if current_user.photo_link != nil %>
+					<%= link_to 'Photos', edit_photo_link_path(current_user.photo_link) %>
+				<% else %>
+					<%= link_to 'Photos', new_photo_link_path %> 
+				<% end %>
+			</li>
+			<li>
+				<% if current_user.social_link != nil %>
+					<%= link_to 'Social Links', edit_social_link_path(current_user.social_link) %>
+				<% else %>
+					<%= link_to 'Social Links', new_social_link_path %> 
+				<% end %>
+			</li>
+			<li>
+				<% if current_user.website_setting != nil %>
+					<%= link_to 'Website Settings', edit_website_setting_path(current_user.website_setting) %>
+				<% else %>
+					<%= link_to 'Website Settings', new_website_setting_path %> 
+				<% end %>
+			</li>
+		</ul>
+	</div>
+</div>

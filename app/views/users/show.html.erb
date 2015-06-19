@@ -1,6 +1,6 @@
 
 <% content_for :title do %>
-  <%= @user.name_first%>
+  <%= @user.personal_info.name_first%>
 <% end %>
 
 
@@ -10,8 +10,8 @@
     display: none !important;
 }
 .row.hero {
-  background: url("<%= @user.homepage_pic.url() %>") no-repeat center center fixed;
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url("<%= @user.homepage_pic.url() %>");
+  background: url("<%= @user.homepage_info.homepage_pic.url() %>") no-repeat center center fixed;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url("<%= @user.homepage_info.homepage_pic.url() %>");
 }
 </style>
 <% end %>
@@ -34,12 +34,12 @@
       <!-- MOBILE NAVIGATION OFFCANVAS LIST -->
       <aside class="right-off-canvas-menu" aria-hidden="true">
         <ul class="off-canvas-list">
-          <li><label><%= @user.name_first %> <%= @user.name_last%></label></li>
+          <li><label><%= @user.personal_info.name_first %> <%= @user.personal_info.name_last%></label></li>
           <li><a href="#about"><i class="fa fa-user fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;About</a></li>
           <li><a href="#projects"><i class="fa fa-flask fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Projects</a></li>
           <li><a href="#blog"><i class="fa fa-newspaper-o fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Reading List</a></li>
           <li><a href="#photos"><i class="fa fa-instagram fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Photos</a></li>
-          <li><a href="mailto:brianc.ayers@gmail.com"><i class="fa fa-envelope-o fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Contact</a></li>
+          <li><a href="mailto:<%=@user.email%>"><i class="fa fa-envelope-o fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Contact</a></li>
         </ul>
       </aside>
       <!-- END MOBILE NAV OFFCANVAS -->
@@ -51,8 +51,8 @@
         <div class = "row hero">
           <div class = "small-12 columns text-center logo">
             <a href="#about">
-              <h1><%= @user.name_first %> <%= @user.name_last %></h1>
-              <h3><%= @user.homepage_header %></h3>
+              <h1><%= @user.personal_info.name_first %> <%= @user.personal_info.name_last %></h1>
+              <h3><%= @user.homepage_info.homepage_header %></h3>
             </a>
           </div>
           <div class = "small-12 small-centered columns text-center arrow">
@@ -73,7 +73,7 @@
               <dd data-magellan-arrival="projects"><a href="#projects">Projects</a></dd>
               <dd data-magellan-arrival="blog"><a href="#blog">Reading List</a></dd>
               <dd data-magellan-arrival="photos"><a href="#photos">Photos</a></dd>
-              <dd><a href="mailto:BrianC.ayers@gmail.com">Contact</a></dd>
+              <dd><a href="mailto:<%=@user.email%>">Contact</a></dd>
             </dl>
           </div>
         </div>
@@ -91,7 +91,7 @@
           <div class = "row">
             <div class = "small-12 small-centered columns">
               <div class = "pic about">
-                <img src="<%= @user.about_pic.url() %>">
+                <img src="<%= @user.personal_info.about_pic.url() %>">
               </div>
             </div>
           </div>
@@ -99,43 +99,28 @@
           <div class = "row">
             <div class ="small-12 small-centered columns">
               <p>
-                <%= @user.intro_paragraph %>
+                <%= @user.personal_info.intro_paragraph %>
               </p>
             </div>
           </div>
 
           <div class = "row">
             <div class = "small-12 small-centered columns">
-              <a href = "<%= @user.resume.url() %>"><i class="fa fa-paperclip fa-2x"></i> &nbsp; View Full Resume </a><br/><br/>
+              <a href = "<%= @user.personal_info.resume.url() %>"><i class="fa fa-paperclip fa-2x"></i> &nbsp; View Full Resume </a><br/><br/>
             </div>
           </div>
 
 
           <div class = "row pastExperience">
             <div class = "small-12 small-centered columns">
-              <% if @user.background_type == 0 %>
+              <% if @user.background_info.background_type == 0 %>
                 <h4 class = "header"> Experience </h4>
               <% else %>
                   <h4 class = "header"> Education </h4>
               <% end %>
-              <% if @user.background_img1? %>
+              <% @user.experiences.each do |experience| %>
                 <div class = "small-12 medium-3 columns experience_img">
-                  <a href="http://<%= @user.background_link1 %>">  <%= image_tag @user.background_img1.url(:large) %></a>
-                </div>
-              <% end %>
-              <% if @user.background_img2? %>
-                <div class = "small-12 medium-3 columns experience_img">
-                  <a href="http://<%= @user.background_link2 %>"> <%= image_tag @user.background_img2.url(:large) %></a>
-                </div>
-              <% end %>
-              <% if @user.background_img3? %>
-                <div class = "small-12 medium-3 columns experience_img">
-                  <a href="http://<%= @user.background_link3 %>"> <%= image_tag @user.background_img3.url(:large) %></a>
-                </div>
-              <% end %>
-              <% if @user.background_img4?%>
-                <div class = "small-12 medium-3 columns experience_img">
-                  <a href="http://<%= @user.background_link4 %>"> <%= image_tag @user.background_img4.url(:large) %></a>
+                  <a href="http://<%= experience.url %>">  <%= image_tag experience.img.url(:large) %></a>
                 </div>
               <% end %>
             </div>
@@ -145,171 +130,85 @@
 
 
 
-          <!-- START PROJECT SECTION -->
-          <div class = "content section">
-            <a name = "projects" data-magellan-destination="projects"></a>
-            <div class = "row">
-              <div class = "small-12 small-cenetered columns">
-                <h4 class = "header"> Projects </h3>
-              </div>
-            </div>
-            <div class = "row">
-              <div class = "small-12 small-centered columns">
-                <h4> <%= @user.project1_title %> </h4>
-                <p> <%= @user.project1_paragraph %></p>
-
-                <% if @user.project1_file1? %>
-                  <a href="<%= @user.project1_file1.url() %>">
-                  <% if @user.project1_file1_type == 0 %>
-                    <i class="fa fa-file-word-o fa-2x"></i> 
-                  <% elsif @user.project1_file1_type == 1 %>
-                    <i class="fa fa-file-excel-o fa-2x"></i> 
-                  <% elsif @user.project1_file1_type == 2 %>
-                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
-                  <% else%>
-                    <i class="fa fa-file-pdf-o fa-2x"></i> 
-                  <% end %>
-                    &nbsp; <%= @user.project1_file1_title %></a><br/>
-                <% end %>
-
-                <% if @user.project1_file2? %>
-                  <a href="<%= @user.project1_file2.url() %>">
-                  <% if @user.project1_file2_type == 0 %>
-                    <i class="fa fa-file-word-o fa-2x"></i> 
-                  <% elsif @user.project1_file2_type == 1 %>
-                    <i class="fa fa-file-excel-o fa-2x"></i> 
-                  <% elsif @user.project1_file2_type == 2 %>
-                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
-                  <% else%>
-                    <i class="fa fa-file-pdf-o fa-2x"></i> 
-                  <% end %>
-                    &nbsp; <%= @user.project1_file2_title %></a><br/>
-                <% end %>
-
-                <% if @user.project1_file3? %>
-                  <a href="<%= @user.project1_file3.url() %>">
-                  <% if @user.project1_file3_type == 0 %>
-                    <i class="fa fa-file-word-o fa-2x"></i> 
-                  <% elsif @user.project1_file3_type == 1 %>
-                    <i class="fa fa-file-excel-o fa-2x"></i> 
-                  <% elsif @user.project1_file3_type == 2 %>
-                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
-                  <% else%>
-                    <i class="fa fa-file-pdf-o fa-2x"></i> 
-                  <% end %>
-                    &nbsp; <%= @user.project1_file3_title %></a><br/>
-                <% end %>
-
-              </div>
-              <br/><br/>
-            </div>
-
-
-                        <div class = "row">
-              <div class = "small-12 small-centered columns">
-                <h4> <%= @user.project2_title %> </h4>
-                <p> <%= @user.project2_paragraph %></p>
-
-                <% if @user.project2_file1? %>
-                  <a href="<%= @user.project2_file1.url() %>">
-                  <% if @user.project2_file1_type == 0 %>
-                    <i class="fa fa-file-word-o fa-2x"></i> 
-                  <% elsif @user.project2_file1_type == 1 %>
-                    <i class="fa fa-file-excel-o fa-2x"></i> 
-                  <% elsif @user.project2_file1_type == 2 %>
-                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
-                  <% else%>
-                    <i class="fa fa-file-pdf-o fa-2x"></i> 
-                  <% end %>
-                    &nbsp; <%= @user.project2_file1_title %></a><br/>
-                <% end %>
-
-                <% if @user.project2_file2? %>
-                  <a href="<%= @user.project2_file2.url() %>">
-                  <% if @user.project2_file2_type == 0 %>
-                    <i class="fa fa-file-word-o fa-2x"></i> 
-                  <% elsif @user.project2_file2_type == 1 %>
-                    <i class="fa fa-file-excel-o fa-2x"></i> 
-                  <% elsif @user.project2_file2_type == 2 %>
-                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
-                  <% else%>
-                    <i class="fa fa-file-pdf-o fa-2x"></i> 
-                  <% end %>
-                    &nbsp; <%= @user.project2_file2_title %></a><br/>
-                <% end %>
-
-                <% if @user.project2_file3? %>
-                  <a href="<%= @user.project2_file3.url() %>">
-                  <% if @user.project2_file3_type == 0 %>
-                    <i class="fa fa-file-word-o fa-2x"></i> 
-                  <% elsif @user.project2_file3_type == 1 %>
-                    <i class="fa fa-file-excel-o fa-2x"></i> 
-                  <% elsif @user.project2_file3_type == 2 %>
-                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
-                  <% else%>
-                    <i class="fa fa-file-pdf-o fa-2x"></i> 
-                  <% end %>
-                    &nbsp; <%= @user.project2_file3_title %></a><br/>
-                <% end %>
-
-              </div>
-              <br/><br/>
-            </div>
-
-
-                        <div class = "row">
-              <div class = "small-12 small-centered columns">
-                <h4> <%= @user.project3_title %> </h4>
-                <p> <%= @user.project3_paragraph %></p>
-
-                <% if @user.project3_file1? %>
-                  <a href="<%= @user.project3_file1.url() %>">
-                  <% if @user.project3_file1_type == 0 %>
-                    <i class="fa fa-file-word-o fa-2x"></i> 
-                  <% elsif @user.project3_file1_type == 1 %>
-                    <i class="fa fa-file-excel-o fa-2x"></i> 
-                  <% elsif @user.project3_file1_type == 2 %>
-                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
-                  <% else%>
-                    <i class="fa fa-file-pdf-o fa-2x"></i> 
-                  <% end %>
-                    &nbsp; <%= @user.project3_file1_title %></a><br/>
-                <% end %>
-
-                <% if @user.project3_file2? %>
-                  <a href="<%= @user.project3_file2.url() %>">
-                  <% if @user.project3_file2_type == 0 %>
-                    <i class="fa fa-file-word-o fa-2x"></i> 
-                  <% elsif @user.project3_file2_type == 1 %>
-                    <i class="fa fa-file-excel-o fa-2x"></i> 
-                  <% elsif @user.project3_file2_type == 2 %>
-                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
-                  <% else%>
-                    <i class="fa fa-file-pdf-o fa-2x"></i> 
-                  <% end %>
-                    &nbsp; <%= @user.project3_file2_title %></a><br/>
-                <% end %>
-
-                <% if @user.project3_file3? %>
-                  <a href="<%= @user.project3_file3.url() %>">
-                  <% if @user.project3_file3_type == 0 %>
-                    <i class="fa fa-file-word-o fa-2x"></i> 
-                  <% elsif @user.project3_file3_type == 1 %>
-                    <i class="fa fa-file-excel-o fa-2x"></i> 
-                  <% elsif @user.project3_file3_type == 2 %>
-                    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
-                  <% else%>
-                    <i class="fa fa-file-pdf-o fa-2x"></i> 
-                  <% end %>
-                    &nbsp; <%= @user.project3_file3_title %></a><br/>
-                <% end %>
-
-              </div>
-              <br/><br/>
+        <!-- START PROJECT SECTION -->
+        <div class = "content section">
+          <a name = "projects" data-magellan-destination="projects"></a>
+          <div class = "row">
+            <div class = "small-12 small-cenetered columns">
+              <h3 class = "header"> Projects </h3>
             </div>
           </div>
-          <!-- END PROJECT SECTION -->
+          <% @user.projects.each do |project| %>
+                    <div class = "row">
+            <div class = "small-12 small-centered columns">
+              <h4> <%= project.title %> </h4>
+              <p> <%= project.paragraph %></p>
 
+              <% if project.file1? %>
+              <a href="<%= project.file1.url() %>">
+                <% if project.file1_type == 0 %>
+                <i class="fa fa-file-word-o fa-2x"></i> 
+                <% elsif project.file1_type == 1 %>
+                <i class="fa fa-file-excel-o fa-2x"></i> 
+                <% elsif project.file1_type == 2 %>
+                <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+                <% else %>
+                <i class="fa fa-file-pdf-o fa-2x"></i> 
+                <% end %>
+                &nbsp; <%= project.file1_title %>
+              </a><br/>
+              <% end %>
+
+              <% if project.file2? %>
+              <a href="<%= project.file1.url() %>">
+                <% if project.file2_type == 0 %>
+                <i class="fa fa-file-word-o fa-2x"></i> 
+                <% elsif project.file2_type == 1 %>
+                <i class="fa fa-file-excel-o fa-2x"></i> 
+                <% elsif project.file2_type == 2 %>
+                <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+                <% else %>
+                <i class="fa fa-file-pdf-o fa-2x"></i> 
+                <% end %>
+                &nbsp; <%= project.file2_title %>
+              </a><br/>
+              <% end %>
+
+              <% if project.file3? %>
+              <a href="<%= project.file1.url() %>">
+                <% if project.file3_type == 0 %>
+                <i class="fa fa-file-word-o fa-2x"></i> 
+                <% elsif project.file3_type == 1 %>
+                <i class="fa fa-file-excel-o fa-2x"></i> 
+                <% elsif project.file3_type == 2 %>
+                <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+                <% else %>
+                <i class="fa fa-file-pdf-o fa-2x"></i> 
+                <% end %>
+                &nbsp; <%= project.file3_title %>
+              </a><br/>
+              <% end %>
+
+              <% if project.file4? %>
+              <a href="<%= project.file1.url() %>">
+                <% if project.file4_type == 0 %>
+                <i class="fa fa-file-word-o fa-2x"></i> 
+                <% elsif project.file4_type == 1 %>
+                <i class="fa fa-file-excel-o fa-2x"></i> 
+                <% elsif project.file4_type == 2 %>
+                <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+                <% else %>
+                <i class="fa fa-file-pdf-o fa-2x"></i> 
+                <% end %>
+                &nbsp; <%= project.file4_title %>
+              </a><br/>
+              <% end %>
+            </div>
+            <br/><br/>
+          </div>
+          <% end %>
+        </div>
+            <!-- END PROJECT SECTION -->
 
 
         <!-- START BLOG SECTION -->
@@ -319,7 +218,14 @@
             <div class = "small-12 columns">
               <h3 class = "header text-left"> Reading List </h3>
               <ul class="no-bullet">
-                <script type="text/javascript" src="http://brian-ayers.tumblr.com/js"></script>
+                <% @user.articles.each do |article| %>
+                  <a href= "<%= article.url %>">
+                    <li> 
+                      <h4> <%= article.title %> </h4>
+                      <p> <%= article.summary %> </p>
+                    </li>
+                  </a>
+                <% end %>
               </ul>
             </div>
           </div>
@@ -336,13 +242,13 @@
             </div>
             <div class = "small-12 small-centered columns center-text">
               <ul class="no-bullet">
-                <script type="text/javascript" src="<%= @user.tumblr_url %>/js"></script>
+                <script type="text/javascript" src="<%= @user.photo_link.tumblr_url %>/js"></script>
               </ul>
             </div>
           </div>
           <div class = "row">
             <div class = "small-12 columns">
-              <p class = "small"> <a href="<%= @user.tumblr_url %>"> View more photos <i class="fa fa-arrow-right"></i></a> </p>
+              <p class = "small"> <a href="<%= @user.photo_link.tumblr_url %>"> View more photos <i class="fa fa-arrow-right"></i></a> </p>
             </div>
           </div>
         </div>
@@ -354,34 +260,34 @@
             <div class = "small-12 large-4 small-centered columns">
               <div class = "icons">
 
-                <% if @user.link_linkedin? %>
-                  <a href="<%= @user.link_linkedin %>"><i class="fa fa-linkedin fa-1x"></i></a>
+                <% if @user.social_link.link_linkedin? %>
+                  <a href="<%= @user.social_link.link_linkedin %>"><i class="fa fa-linkedin fa-1x"></i></a>
                 <% end %>
 
-                <% if @user.link_twitter? %>
-                  <a href="<%= @user.link_twitter %>"><i class="fa fa-twitter fa-1x"></i></a>
+                <% if @user.social_link.link_twitter? %>
+                  <a href="<%= @user.social_link.link_twitter %>"><i class="fa fa-twitter fa-1x"></i></a>
                 <% end %>
 
-                <% if @user.link_facebook? %>
-                  <a href="<%= @user.link_facebook %>"><i class="fa fa-facebook fa-1x"></i></a>
+                <% if @user.social_link.link_facebook? %>
+                  <a href="<%= @user.social_link.link_facebook %>"><i class="fa fa-facebook fa-1x"></i></a>
                 <% end %>
 
-                <% if @user.link_github? %>
-                  <a href="<%= @user.link_github %>"><i class="fa fa-github-alt fa-1x"></i></a>
+                <% if @user.social_link.link_github? %>
+                  <a href="<%= @user.social_link.link_github %>"><i class="fa fa-github-alt fa-1x"></i></a>
                 <% end %>
 
-                <% if @user.link_instagram? %>
-                  <a href="<%= @user.link_instagram %>"><i class="fa fa-instagram fa-1x"></i></a>
+                <% if @user.social_link.link_instagram? %>
+                  <a href="<%= @user.social_link.link_instagram %>"><i class="fa fa-instagram fa-1x"></i></a>
                 <% end %>
 
-                <% if @user.link_tumblr? %>
-                  <a href="<%= @user.link_tumblr %>"><i class="fa fa-tumblr fa-1x"></i></a>
+                <% if @user.social_link.link_tumblr? %>
+                  <a href="<%= @user.social_link.link_tumblr %>"><i class="fa fa-tumblr fa-1x"></i></a>
                 <% end %>
               </div>
             </div>
             <div class = "small-12 large-8 small-centered columns">
-              <% if @user.link_alt_email? %>
-                <a href="<%= @user.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.link_alt_email %> </a>
+              <% if @user.social_link.link_alt_email? %>
+                <a href="<%= @user.social_link.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.social_link.link_alt_email %> </a>
               <% else %>
               <a href="<%= @user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.email %> </a>
               <% end %>

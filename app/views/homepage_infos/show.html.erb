@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Homepage header:</strong>
+  <%= @homepage_info.homepage_header %>
+</p>
+
+<p>
+  <strong>Homepage display name:</strong>
+  <%= @homepage_info.homepage_display_name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @homepage_info.user %>
+</p>
+
+<%= link_to 'Edit', edit_homepage_info_path(@homepage_info) %> |
+<%= link_to 'Back', homepage_infos_path %>

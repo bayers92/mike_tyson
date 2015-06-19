@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  homepage_header: MyString
+  homepage_display_name: MyString
+  user_id: 
+
+two:
+  homepage_header: MyString
+  homepage_display_name: MyString
+  user_id: 

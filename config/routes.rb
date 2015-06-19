@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
+  resources :photo_links
+
   devise_for :users
   resources :articles
   resources :users
+  resources :background_infos
+  resources :experiences
+  resources :homepage_infos
+  resources :personal_infos
+  resources :projects
+  resources :showcases
+  resources :social_links
+  resources :website_settings
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

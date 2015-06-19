@@ -1,21 +1,7 @@
 <div class = "row edit-page">
-	<div class = "small-3 columns nav no-padding">
-		<div class = "small-12 columns text-center">
-			<div class = "logo">
-				<a href="/">
-					<%= image_tag "brandclub_logo.png" %>
-				</a>
-			</div>
-		</div>
-		<div class = "small-12 columns user-name no-padding text-center">
-			<h4> <%= @user.name_first %> <%= @user.name_last %> </h4>
-		</div>
-		<div class = "small-12 columns links">
-			
-		</div>
-	</div>
+	<%= render 'application/sideNav'%>
+
 	<div class = "small-9 columns form-yield">
-			<%= render 'form' %>
 	</div>
 </div>
 

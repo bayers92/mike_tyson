@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618192210) do
+ActiveRecord::Schema.define(version: 20150619135610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,13 +51,14 @@ ActiveRecord::Schema.define(version: 20150618192210) do
 
   create_table "homepage_infos", force: true do |t|
     t.string   "homepage_header"
+    t.string   "homepage_display_name"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "homepage_pic_file_name"
     t.string   "homepage_pic_content_type"
     t.integer  "homepage_pic_file_size"
     t.datetime "homepage_pic_updated_at"
-    t.integer  "user_id"
   end
 
   add_index "homepage_infos", ["user_id"], name: "index_homepage_infos_on_user_id", using: :btree
@@ -68,27 +69,27 @@ ActiveRecord::Schema.define(version: 20150618192210) do
     t.text     "intro_paragraph"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "resume_file_name"
-    t.string   "resume_content_type"
-    t.integer  "resume_file_size"
-    t.datetime "resume_updated_at"
     t.string   "about_pic_file_name"
     t.string   "about_pic_content_type"
     t.integer  "about_pic_file_size"
     t.datetime "about_pic_updated_at"
     t.integer  "user_id"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
   end
 
   add_index "personal_infos", ["user_id"], name: "index_personal_infos_on_user_id", using: :btree
 
-  create_table "photos", force: true do |t|
+  create_table "photo_links", force: true do |t|
     t.string   "tumblr_url"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
-  add_index "photos", ["user_id"], name: "index_photos_on_user_id", using: :btree
+  add_index "photo_links", ["user_id"], name: "index_photo_links_on_user_id", using: :btree
 
   create_table "projects", force: true do |t|
     t.string   "title"
@@ -112,6 +113,14 @@ ActiveRecord::Schema.define(version: 20150618192210) do
     t.integer  "file4_file_size"
     t.datetime "file4_updated_at"
     t.integer  "showcase_id"
+    t.integer  "file1_type"
+    t.integer  "file2_type"
+    t.integer  "file3_type"
+    t.integer  "file4_type"
+    t.string   "file1_title"
+    t.string   "file2_title"
+    t.string   "file3_title"
+    t.string   "file4_title"
   end
 
   add_index "projects", ["showcase_id"], name: "index_projects_on_showcase_id", using: :btree

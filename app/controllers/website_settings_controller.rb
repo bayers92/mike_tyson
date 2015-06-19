@@ -24,11 +24,11 @@ class WebsiteSettingsController < ApplicationController
   # POST /website_settings
   # POST /website_settings.json
   def create
-    @website_setting = WebsiteSetting.new(website_setting_params)
+    @website_setting = current_user.create_website_setting(website_setting_params)
 
     respond_to do |format|
       if @website_setting.save
-        format.html { redirect_to @website_setting, notice: 'Website setting was successfully created.' }
+        format.html { redirect_to edit_user_path(current_user), notice: 'Website setting was successfully created.' }
         format.json { render :show, status: :created, location: @website_setting }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class WebsiteSettingsController < ApplicationController
   def update
     respond_to do |format|
       if @website_setting.update(website_setting_params)
-        format.html { redirect_to @website_setting, notice: 'Website setting was successfully updated.' }
+        format.html { redirect_to edit_user_path(current_user), notice: 'Website setting was successfully updated.' }
         format.json { render :show, status: :ok, location: @website_setting }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class WebsiteSettingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def website_setting_params
-      params[:website_setting]
+      params.require(:website_setting).permit(:domain_name, :color)
     end
 end

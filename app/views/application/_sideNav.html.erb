@@ -43,6 +43,13 @@
 					<%= link_to 'Create Social Links', new_social_link_path %> 
 				<% end %>
 			</li>
+			<li>
+				<% if current_user.website_setting != nil %>
+					<%= link_to 'Edit Website Settings', edit_website_setting_path(current_user.website_setting) %>
+				<% else %>
+					<%= link_to 'Create Website Settings', new_website_setting_path %> 
+				<% end %>
+			</li>
 		</ul>
 	</div>
 </div>

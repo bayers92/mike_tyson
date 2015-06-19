@@ -1,0 +1,19 @@
+<div class = "small-3 columns nav no-padding">
+	<div class = "small-12 columns text-center">
+		<div class = "logo">
+			<a href="/">
+				<%= image_tag "brandclub_logo.png" %>
+			</a>
+		</div>
+	</div>
+	<div class = "small-12 columns user-name no-padding text-center">
+		<h4> <%= current_user.email %> </h4>
+	</div>
+	<div class = "small-12 columns links text-center">
+		<% if current_user.personal_info != nil %>
+			<%= link_to 'Edit Personal Info', edit_personal_info_path(current_user.personal_info) %>
+		<% else %>
+			<%= link_to 'Create Personal Info', new_personal_info_path %> 
+		<% end %>
+	</div>
+</div>

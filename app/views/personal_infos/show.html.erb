@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<%= @personal_info.name_first %>
+<%= @personal_info.name_last %>
+<%= @personal_info.intro_paragraph %>
+
 <%= link_to 'Edit', edit_personal_info_path(@personal_info) %> |
 <%= link_to 'Back', personal_infos_path %>

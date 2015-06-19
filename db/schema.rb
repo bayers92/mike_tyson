@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618192210) do
+ActiveRecord::Schema.define(version: 20150619015503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,34 +49,21 @@ ActiveRecord::Schema.define(version: 20150618192210) do
 
   add_index "experiences", ["background_info_id"], name: "index_experiences_on_background_info_id", using: :btree
 
-  create_table "homepage_infos", force: true do |t|
-    t.string   "homepage_header"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "homepage_pic_file_name"
-    t.string   "homepage_pic_content_type"
-    t.integer  "homepage_pic_file_size"
-    t.datetime "homepage_pic_updated_at"
-    t.integer  "user_id"
-  end
-
-  add_index "homepage_infos", ["user_id"], name: "index_homepage_infos_on_user_id", using: :btree
-
   create_table "personal_infos", force: true do |t|
     t.string   "name_first"
     t.string   "name_last"
     t.text     "intro_paragraph"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "resume_file_name"
-    t.string   "resume_content_type"
-    t.integer  "resume_file_size"
-    t.datetime "resume_updated_at"
     t.string   "about_pic_file_name"
     t.string   "about_pic_content_type"
     t.integer  "about_pic_file_size"
     t.datetime "about_pic_updated_at"
     t.integer  "user_id"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
   end
 
   add_index "personal_infos", ["user_id"], name: "index_personal_infos_on_user_id", using: :btree

@@ -1,4 +1,4 @@
-<%= simple_form_for(@personal_info.user) do |f| %>
+<%= simple_form_for(current_user.build_personal_info) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">

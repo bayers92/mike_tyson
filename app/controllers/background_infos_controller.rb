@@ -24,11 +24,12 @@ class BackgroundInfosController < ApplicationController
   # POST /background_infos
   # POST /background_infos.json
   def create
-    @background_info = BackgroundInfo.new(background_info_params)
+    @user = current_user
+    @background_info = @user.create_background_info(background_info_params)
 
     respond_to do |format|
       if @background_info.save
-        format.html { redirect_to @background_info, notice: 'Background info was successfully created.' }
+        format.html { redirect_to edit_user_path(@user), notice: 'Background info was successfully created.' }
         format.json { render :show, status: :created, location: @background_info }
       else
         format.html { render :new }
@@ -40,9 +41,10 @@ class BackgroundInfosController < ApplicationController
   # PATCH/PUT /background_infos/1
   # PATCH/PUT /background_infos/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @background_info.update(background_info_params)
-        format.html { redirect_to @background_info, notice: 'Background info was successfully updated.' }
+        format.html { redirect_to edit_user_path(@user), notice: 'Background info was successfully updated.' }
         format.json { render :show, status: :ok, location: @background_info }
       else
         format.html { render :edit }
@@ -69,6 +71,6 @@ class BackgroundInfosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def background_info_params
-      params[:background_info]
+      params.require(:background_info).permit(:background_type)
     end
 end

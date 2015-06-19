@@ -10,10 +10,22 @@
 		<h4> <%= current_user.email %> </h4>
 	</div>
 	<div class = "small-12 columns links text-center">
-		<% if current_user.personal_info != nil %>
-			<%= link_to 'Edit Personal Info', edit_personal_info_path(current_user.personal_info) %>
-		<% else %>
-			<%= link_to 'Create Personal Info', new_personal_info_path %> 
-		<% end %>
+
+		<ul class = "no-bullet">
+			<li>
+				<% if current_user.personal_info != nil %>
+				<%= link_to 'Edit Personal Info', edit_personal_info_path(current_user.personal_info) %>
+				<% else %>
+				<%= link_to 'Create Personal Info', new_personal_info_path %> 
+				<% end %>
+			</li>
+			<li>
+				<% if current_user.background_info != nil %>
+				<%= link_to 'Edit Background Info', edit_background_info_path(current_user.background_info) %>
+				<% else %>
+				<%= link_to 'Create Background Info', new_background_info_path %> 
+				<% end %>
+			</li>
+		</ul>
 	</div>
 </div>

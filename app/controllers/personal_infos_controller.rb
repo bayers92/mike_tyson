@@ -40,6 +40,7 @@ class PersonalInfosController < ApplicationController
   # PATCH/PUT /personal_infos/1
   # PATCH/PUT /personal_infos/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @personal_info.update(personal_info_params)
         format.html { redirect_to edit_user_path(@user), notice: 'Personal info was successfully updated.' }

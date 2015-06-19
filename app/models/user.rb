@@ -4,12 +4,12 @@ class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-	has_many :articles
-	has_many :background_info
-	has_many :homepage_info
-	has_one :personal_info
-	has_many :photo
-	has_many :showcase
-	has_many :social_link
-	has_many :website_setting
+	has_many :articles,  autosave: true
+	has_one :background_info,  autosave: true
+	has_many :homepage_info,  autosave: true
+	has_one :personal_info,  autosave: true
+	has_many :photo,  autosave: true
+	has_many :showcase,  autosave: true
+	has_many :social_link,  autosave: true
+	has_many :website_setting,  autosave: true
 end

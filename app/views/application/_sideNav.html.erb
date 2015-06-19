@@ -13,6 +13,13 @@
 
 		<ul class = "no-bullet">
 			<li>
+				<% if current_user.homepage_info != nil %>
+					<%= link_to 'Edit Homepage Info', edit_homepage_info_path(current_user.homepage_info) %>
+				<% else %>
+					<%= link_to 'Create Homepage Info', new_homepage_info_path %> 
+				<% end %>
+			</li>
+			<li>
 				<% if current_user.personal_info != nil %>
 					<%= link_to 'Edit Personal Info', edit_personal_info_path(current_user.personal_info) %>
 				<% else %>

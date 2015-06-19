@@ -18,7 +18,7 @@ class HomepageInfosControllerTest < ActionController::TestCase
 
   test "should create homepage_info" do
     assert_difference('HomepageInfo.count') do
-      post :create, homepage_info: {  }
+      post :create, homepage_info: { homepage_display_name: @homepage_info.homepage_display_name, homepage_header: @homepage_info.homepage_header, user_id: @homepage_info.user_id }
     end
 
     assert_redirected_to homepage_info_path(assigns(:homepage_info))
@@ -35,7 +35,7 @@ class HomepageInfosControllerTest < ActionController::TestCase
   end
 
   test "should update homepage_info" do
-    patch :update, id: @homepage_info, homepage_info: {  }
+    patch :update, id: @homepage_info, homepage_info: { homepage_display_name: @homepage_info.homepage_display_name, homepage_header: @homepage_info.homepage_header, user_id: @homepage_info.user_id }
     assert_redirected_to homepage_info_path(assigns(:homepage_info))
   end
 

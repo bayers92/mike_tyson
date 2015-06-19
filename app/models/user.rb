@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
 	has_one :personal_info,  autosave: true
 	has_one :photo_link,  autosave: true
 	has_many :showcase,  autosave: true
-	has_many :social_link,  autosave: true
+	has_one :social_link,  autosave: true
 	has_many :website_setting,  autosave: true
 end

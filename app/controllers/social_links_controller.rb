@@ -24,12 +24,11 @@ class SocialLinksController < ApplicationController
   # POST /social_links
   # POST /social_links.json
   def create
-    @social_link = SocialLink.new(social_link_params)
-
+    @social_link = current_user.create_social_link(social_link_params)
     respond_to do |format|
       if @social_link.save
-        format.html { redirect_to @social_link, notice: 'Social link was successfully created.' }
-        format.json { render :show, status: :created, location: @social_link }
+          format.html { redirect_to edit_user_path(current_user), notice: 'Social Links were successfully created.' }
+          format.json { render :show, status: :created, location: @social_link }
       else
         format.html { render :new }
         format.json { render json: @social_link.errors, status: :unprocessable_entity }
@@ -42,7 +41,7 @@ class SocialLinksController < ApplicationController
   def update
     respond_to do |format|
       if @social_link.update(social_link_params)
-        format.html { redirect_to @social_link, notice: 'Social link was successfully updated.' }
+        format.html { redirect_to edit_user_path(current_user), notice: 'Social link was successfully updated.' }
         format.json { render :show, status: :ok, location: @social_link }
       else
         format.html { render :edit }
@@ -69,6 +68,6 @@ class SocialLinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def social_link_params
-      params[:social_link]
+      params.require(:social_link).permit(:link_linkedin, :link_instagram, :link_facebook, :link_twitter, :link_tumblr, :link_github, :link_alt_email)
     end
 end

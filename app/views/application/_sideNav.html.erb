@@ -36,6 +36,13 @@
 					<%= link_to 'Photos', new_photo_link_path %> 
 				<% end %>
 			</li>
+			<li>
+				<% if current_user.social_link != nil %>
+					<%= link_to 'Edit Social Links', edit_social_link_path(current_user.social_link) %>
+				<% else %>
+					<%= link_to 'Create Social Links', new_social_link_path %> 
+				<% end %>
+			</li>
 		</ul>
 	</div>
 </div>

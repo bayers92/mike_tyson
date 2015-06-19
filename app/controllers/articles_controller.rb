@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
   # GET /articles
   # GET /articles.json
@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @user = current_user
-    @article = @user.article.create(article_params)
+    @article = @user.articles.create(article_params)
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }

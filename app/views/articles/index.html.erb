@@ -1,29 +1,20 @@
-<h1>Listing articles</h1>
+<div class = "row edit-page">
+  <%= render 'application/sideNav'%>
+  <div class = "small-9 columns form-yield">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Summary</th>
-      <th>Url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.summary %></td>
-        <td><%= article.url %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <%= link_to 'New Article', new_article_path %>
+    <br/>
+    <br/>
+    <% current_user.articles.each do |article| %>
+        <%= article.title %><br/>
+        <%= article.summary %><br/>
+        <%= article.url %><br/>
+        <%= link_to 'Show', article %>
+        <%= link_to 'Edit', edit_article_path(article) %>
+        <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <br/>
+        <br/>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Article', new_article_path %>
+  </div>
+</div>

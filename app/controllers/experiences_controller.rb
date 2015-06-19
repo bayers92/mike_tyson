@@ -24,11 +24,12 @@ class ExperiencesController < ApplicationController
   # POST /experiences
   # POST /experiences.json
   def create
-    @experience = Experience.new(experience_params)
+    @background_info = current_user.background_info
+    @experience = @background_info.experiences.create(experience_params)
 
     respond_to do |format|
       if @experience.save
-        format.html { redirect_to @experience, notice: 'Experience was successfully created.' }
+        format.html { redirect_to edit_user_path(current_user), notice: 'Experience was successfully created.' }
         format.json { render :show, status: :created, location: @experience }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class ExperiencesController < ApplicationController
   def update
     respond_to do |format|
       if @experience.update(experience_params)
-        format.html { redirect_to @experience, notice: 'Experience was successfully updated.' }
+        format.html { redirect_to edit_user_path(current_user), notice: 'Experience was successfully updated.' }
         format.json { render :show, status: :ok, location: @experience }
       else
         format.html { render :edit }
@@ -69,6 +70,6 @@ class ExperiencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def experience_params
-      params[:experience]
+      params.require(:experience).permit(:url, :img)
     end
 end

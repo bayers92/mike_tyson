@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
 	has_many :articles,  autosave: true
 	has_one :background_info,  autosave: true
+	has_many :experiences, through: :background_info
 	has_many :homepage_info,  autosave: true
 	has_one :personal_info,  autosave: true
 	has_many :photo,  autosave: true

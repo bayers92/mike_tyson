@@ -2,5 +2,16 @@
 	<%= render 'application/sideNav'%>
 	<div class = "small-9 columns form-yield">
 		<%= render 'form' %>
+
+
+		<% if @background_info.experiences.count < 4 %>
+			<%= link_to 'Create New Experience', new_experience_path %>
+		<% else %>
+			<p> Four is the maximum number of experiences. </p>
+		<% end %>
+
+		<br/>
+		<br/>
+		<%= render @background_info.experiences %>
 	</div>
 </div>

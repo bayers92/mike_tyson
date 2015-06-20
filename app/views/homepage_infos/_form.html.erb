@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-  	<%= f.input :homepage_display_name %>
-    <%= f.input :homepage_header %>
-    <%= f.input :homepage_pic %>
+  	<%= f.input :homepage_display_name, label: 'Display Name:' %>
+    <%= f.input :homepage_header, label: 'Subtitle Text:' %>
+    <%= f.input :homepage_pic, label: 'Background Image:' %>
     <% if @homepage_info.homepage_pic? %>
     	<%= image_tag @homepage_info.homepage_pic.url(:med) %>
     	<br/><br/>
@@ -12,6 +12,7 @@
   </div>
 
   <div class="form-actions">
+    <br/>
     <%= f.button :submit %>
   </div>
 <% end %>

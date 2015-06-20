@@ -2,17 +2,16 @@
   <%= render 'application/sideNav'%>
   <div class = "small-9 columns form-yield">
 
-
-    <%= link_to 'New Article', new_article_path %>
+    <h4 class = "header"> Edit Reading List </h4>
+    <%= button_to "New Article", new_article_path, :class => "button", :method => :get %>
     <br/>
     <br/>
     <% current_user.articles.each do |article| %>
-        <%= article.title %><br/>
+        <h5><a href= "<%= article.url %>"><%= article.title %></a></h5>
         <%= article.summary %><br/>
-        <%= article.url %><br/>
-        <%= link_to 'Show', article %>
-        <%= link_to 'Edit', edit_article_path(article) %>
-        <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Show', article %> | 
+        <%= link_to 'Edit', edit_article_path(article) %> | 
+        <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %>
         <br/>
         <br/>
     <% end %>

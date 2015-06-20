@@ -1,1 +1,8 @@
-<%= experience.url %><br/><br/>
+<%= image_tag experience.img.url(:large) %>
+<br/>
+<%= link_to 'Edit', edit_experience_path(experience) %> | 
+<%= link_to 'Delete', experience, method: :delete, data: { confirm: 'Are you sure?' } %>
+<br/>
+<br/>
+<br/>
+<br/>

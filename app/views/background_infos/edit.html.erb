@@ -1,16 +1,18 @@
 <div class = "row edit-page">
 	<%= render 'application/sideNav'%>
 	<div class = "small-9 columns form-yield">
+		<h4 class = "header"> Edit Background Information </h4>
 		<%= render 'form' %>
+		<br/>
+		<br/>
 
 
 		<% if @background_info.experiences.count < 4 %>
 			<%= link_to 'Create New Experience', new_experience_path %>
 		<% else %>
-			<p> Four is the maximum number of experiences. </p>
+			<p> <i>Four is the maximum number of experiences... </i></p>
 		<% end %>
 
-		<br/>
 		<br/>
 		<%= render @background_info.experiences %>
 	</div>

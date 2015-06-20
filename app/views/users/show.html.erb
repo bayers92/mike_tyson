@@ -217,14 +217,14 @@
           <div class = "row blog">
             <div class = "small-12 columns">
               <h3 class = "header text-left"> Reading List </h3>
-              <ul class="no-bullet">
+              <ul class="small-block-grid-1 medium-block-grid-2 no-bullet articles data-equalizer">
                 <% @user.articles.each do |article| %>
-                  <a href= "<%= article.url %>">
-                    <li> 
+                  <li = "post data-equalizer-watch"> 
+                    <a href= "<%= article.url %>">
                       <h4> <%= article.title %> </h4>
                       <p> <%= article.summary %> </p>
-                    </li>
-                  </a>
+                    </a>
+                  </li>
                 <% end %>
               </ul>
             </div>
@@ -237,7 +237,7 @@
         <div class = "content section photos">
           <a name = "photos" data-magellan-destination="photos"></a>
           <div class = "row">
-            <div class = "small-12 small-centered columns center-text">
+            <div class = "small-12 small-centered columns">
               <h3 class = "header"> Photos </h3>
             </div>
             <div class = "small-12 small-centered columns center-text">

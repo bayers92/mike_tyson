@@ -7,18 +7,18 @@
 </style>
 <% end %>
     <div class = "heading">
-      <div class = "small-8 medium-11 columns">
+      <div class = "small-8 medium-10 columns">
         <div class = "logo">
           <a href="/">
             <%= image_tag "brandclub_logo.png" %>
           </a>
         </div>
       </div>
-      <div class = "small-4 medium-1 columns devise_links">
+      <div class = "small-4 medium-2 columns devise_links">
         <% if user_signed_in? %>
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+          <%= button_to "Logout", destroy_user_session_path, :class => "button round custom", :method => :delete %>      
         <% else %>
-          <%= link_to('Login', new_user_session_path)  %>  
+          <%= button_to "Login", new_user_session_path, :class => "button round custom" %>
         <% end %>
       </div>
     </div>

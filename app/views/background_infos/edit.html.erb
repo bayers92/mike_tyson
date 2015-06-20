@@ -5,15 +5,25 @@
 		<%= render 'form' %>
 		<br/>
 		<br/>
+		<br/>
 
+		<% if @background_info.background_type == 0 %>
+			<h4 class = "header"> Edit Background Experiences </h4>
+		<% else %>
+			<h4 class = "header"> Edit Background Education </h4>
+		<% end %>
+		<br/>
 
+		<%= render @background_info.experiences.reverse %>
 		<% if @background_info.experiences.count < 4 %>
-			<%= link_to 'Create New Experience', new_experience_path %>
+			<% if @background_info.background_type == 0 %>
+				<%= button_to "Add New Experience", new_experience_path, :class => "button", :method => :get %>
+			<% else %>
+				<%= button_to "Add New Education", new_experience_path, :class => "button", :method => :get %>
+			<% end %>
 		<% else %>
 			<p> <i>Four is the maximum number of experiences... </i></p>
 		<% end %>
-
 		<br/>
-		<%= render @background_info.experiences %>
 	</div>
 </div>

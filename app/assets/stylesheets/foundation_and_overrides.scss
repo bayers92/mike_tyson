@@ -1699,6 +1699,7 @@ a {
 .row.portfolio {
 	min-width: 100% !important;
 	max-width: 100% !important;
+	font-family: $raleway !important;
 	a {
 		.client {
 			min-width: 100% !important;
@@ -1710,63 +1711,33 @@ a {
 			vertical-align: middle;
 			height: 80vh;
 			border-bottom: solid white;
-		}
-		.columns {
-			margin-top: 20px;
-			text-align: left;
-			h2 {
-				color: white;
-			}
-			p { 
-				color: $smoke;
-			}
-		}
-		.client.goodees {
-			background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),  url('../img/goodees.jpg') no-repeat;
-			min-width: 100% !important;
-			background-size: cover;
-			background-position: top center;
+			position: relative;
+			overflow-y: hidden;
 			&:hover {
-				background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ),  url('../img/goodees.jpg') no-repeat;
-				min-width: 100% !important;
-				background-size: cover;
-				background-position: top center;
+				img {
+					-webkit-filter: brightness(.2);
+					filter: brightness(.2);
+				}
 			}
-		}
-		.client.brandClub {
-			background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),  url('../img/brandClub.jpg') no-repeat;
-			min-width: 100% !important;
-			background-size: cover;
-			background-position: top center;
-			&:hover {
-				background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ),  url('../img/brandClub.jpg') no-repeat;
-				min-width: 100% !important;
-				background-size: cover;
-				background-position: top center;
+			img {
+				min-width: 100%;
+				height: auto;
+				position: absolute;
+				top: 0;
+				left: 0;
+				-webkit-filter: brightness(.3);
+				filter: brightness(.3);
 			}
-		}
-		.client.PWF {
-			background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),  url('../img/PWF.png') no-repeat;
-			min-width: 100% !important;
-			background-size: cover;
-			background-position: top center;
-			&:hover {
-				background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ),  url('../img/PWF.png') no-repeat;
-				min-width: 100% !important;
-				background-size: cover;
-				background-position: top center;
-			}
-		}
-		.client.watermelon {
-			background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),  url('../img/watermelon.jpg') no-repeat;
-			min-width: 100% !important;
-			background-size: cover;
-			background-position: top center;
-			&:hover {
-				background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ),  url('../img/watermelon.jpg') no-repeat;
-				min-width: 100% !important;
-				background-size: cover;
-				background-position: top center;
+			.text {
+				z-index: 10;
+				margin-top: 20px;
+				text-align: left;
+				h2 {
+					color: white;
+				}
+				p { 
+					color: $smoke;
+				}
 			}
 		}
 	}

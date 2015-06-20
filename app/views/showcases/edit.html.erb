@@ -1,13 +1,18 @@
 <div class = "row edit-page">
 	<%= render 'application/sideNav'%>
 	<div class = "small-9 columns form-yield">
+		<h4 class = "header"> Edit Showcase Information </h4>
 		<%= render 'form' %>
-
-
-		<%= link_to 'Create New Project', new_project_path %>
-
 		<br/>
 		<br/>
-		<%= render @showcase.projects %>
+		<br/>
+
+
+		<% if current_user.showcase.showcase_type != nil %>
+			<%= button_to "Add New Project", new_project_path, :class => "button", :method => :get %>
+		<% end %>
+
+		<%= render @showcase.projects.reverse %>
+		<br/>
 	</div>
 </div>

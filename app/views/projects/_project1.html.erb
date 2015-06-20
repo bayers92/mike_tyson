@@ -1,8 +1,13 @@
 <div class ="row portfolio">
 <% @user.projects.each do |project| %>
-	<a href="<%= project.url %>">
+	<% if project.file2? %>
+		 <a href="<%= project.file2.url() %>">
+ 	<% else %>
+		<a href="<%= project.url %>">
+	<% end %>
 		<div class = "client">
-			<div class = "small-12 columns">
+			<%= image_tag project.file1.url %>
+			<div class = "small-12 columns text">
 				<h2> <b><%= project.title %></b> </h2>
 				<p> <%= project.paragraph %> </p>
 			</div>

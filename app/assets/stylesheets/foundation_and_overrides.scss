@@ -1934,13 +1934,22 @@ a {
 			}
 		}
 		.links {
-			
+			li {
+				a {
+				}
+				padding: 3px 3px;
+				&.active {
+					a {
+						font-weight: bold;
+					}
+				}
+			}
 		}
 	}
 	.form-yield {
 		height: 100%;
 		overflow-y: scroll;
-		padding-top: 90px;
+		padding-top: 10px;
 	}
 }
 

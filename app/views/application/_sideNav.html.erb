@@ -9,61 +9,86 @@
 	<div class = "small-12 columns user-name no-padding text-center">
 		<h4> <%= current_user.email %> </h4>
 	</div>
-	<div class = "small-12 columns links text-center">
+	<div class = "small-10 columns small-centered links">
 
 		<ul class = "no-bullet">
-			<li>
-				<% if current_user.homepage_info != nil %>
+			<% if current_user.homepage_info != nil %>
+				<li class="<%= active_class(edit_homepage_info_path(current_user.homepage_info)) %>">
 					<%= link_to 'Homepage Info', edit_homepage_info_path(current_user.homepage_info) %>
-				<% else %>
+			<% else %>
+				<li class="<%= active_class(new_homepage_info_path) %>">	
 					<%= link_to 'Homepage Info', new_homepage_info_path %> 
-				<% end %>
+			<% end %>
 			</li>
-			<li>
-				<% if current_user.personal_info != nil %>
+
+
+			<% if current_user.personal_info != nil %>
+				<li class="<%= active_class(edit_personal_info_path(current_user.personal_info)) %>">
 					<%= link_to 'Personal Info', edit_personal_info_path(current_user.personal_info) %>
-				<% else %>
+			<% else %>
+				<li class="<%= active_class(new_personal_info_path) %>">
 					<%= link_to 'Personal Info', new_personal_info_path %> 
-				<% end %>
+			<% end %>
 			</li>
-			<li>
-				<% if current_user.background_info != nil %>
+
+
+			<% if current_user.background_info != nil %>
+				<li class="<%= active_class(edit_background_info_path(current_user.background_info)) %>">
 					<%= link_to 'Background Info', edit_background_info_path(current_user.background_info) %>
-				<% else %>
+			<% else %>
+				<li class="<%= active_class(new_background_info_path) %>">
 					<%= link_to 'Background Info', new_background_info_path %> 
-				<% end %>
+			<% end %>
 			</li>
-			<li>
-				<% if current_user.showcase != nil %>
+
+
+			<% if current_user.showcase != nil %>
+				<li class="<%= active_class(edit_showcase_path(current_user.showcase) ) %>">
 					<%= link_to 'Showcase', edit_showcase_path(current_user.showcase) %>
-				<% else %>
+			<% else %>
+				<li class="<%= active_class(new_showcase_path) %>">
 					<%= link_to 'Showcase', new_showcase_path %> 
-				<% end %>
+			<% end %>
 			</li>
-			<li>
-				<%= link_to 'Reading List', articles_path %>
+
+
+			<li class="<%= active_class(articles_path) %>">
+				<%= link_to "Reading List", articles_path %>
 			</li>
-			<li>
-				<% if current_user.photo_link != nil %>
-					<%= link_to 'Photos', edit_photo_link_path(current_user.photo_link) %>
-				<% else %>
-					<%= link_to 'Photos', new_photo_link_path %> 
-				<% end %>
+
+
+
+			<% if current_user.photo_link != nil %>
+				<li class="<%= active_class(edit_photo_link_path(current_user.photo_link)) %>">
+					<%= link_to 'Photo Blog', edit_photo_link_path(current_user.photo_link) %>
+			<% else %>
+				<li class="<%= active_class(new_photo_link_path) %>">
+					<%= link_to 'Photo Blog', new_photo_link_path %> 
+			<% end %>
 			</li>
-			<li>
-				<% if current_user.social_link != nil %>
+
+
+
+			<% if current_user.social_link != nil %>
+				<li class="<%= active_class(edit_social_link_path(current_user.social_link)) %>">
 					<%= link_to 'Social Links', edit_social_link_path(current_user.social_link) %>
-				<% else %>
+			<% else %>
+				<li class="<%= active_class(new_social_link_path) %>">
 					<%= link_to 'Social Links', new_social_link_path %> 
 				<% end %>
 			</li>
-			<li>
-				<% if current_user.website_setting != nil %>
+
+
+
+			<% if current_user.website_setting != nil %>
+				<li class="<%= active_class(edit_website_setting_path(current_user.website_setting)) %>">
 					<%= link_to 'Website Settings', edit_website_setting_path(current_user.website_setting) %>
-				<% else %>
+			<% else %>
+				<li class="<%= active_class(new_website_setting_path) %>">
 					<%= link_to 'Website Settings', new_website_setting_path %> 
-				<% end %>
+			<% end %>
 			</li>
+
 		</ul>
 	</div>
 </div>

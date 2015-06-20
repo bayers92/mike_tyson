@@ -88,7 +88,17 @@
 					<%= link_to 'Website Settings', new_website_setting_path %> 
 			<% end %>
 			</li>
+		</ul>
+	</div>
 
+	<div class = "small-10 columns small-centered links account">
+		<ul class = "no-bullet">
+			<li>
+				<%= link_to "Edit Account Settings", edit_user_registration_path %>
+			</li>
+			<li>
+				<%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+			</li>
 		</ul>
 	</div>
 </div>

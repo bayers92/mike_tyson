@@ -1944,6 +1944,11 @@ a {
 					}
 				}
 			}
+			paddding-bottom: 20px;
+			&.account {
+				padding-top: 20px;
+				border-top: $charcoal solid 2px;
+			}
 		}
 	}
 	.form-yield {

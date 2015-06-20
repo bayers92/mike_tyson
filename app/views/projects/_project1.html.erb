@@ -1,0 +1,11 @@
+<div class ="row portfolio">
+<% @user.projects.each do |project| %>
+	<a href="<%= project.url %>">
+		<div class = "client">
+			<div class = "small-12 columns">
+				<h2> <b><%= project.title %></b> </h2>
+				<p> <%= project.paragraph %> </p>
+			</div>
+		</div>
+	</a>
+<% end %>

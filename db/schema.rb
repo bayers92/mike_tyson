@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619135610) do
+ActiveRecord::Schema.define(version: 20150620212659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 20150619135610) do
     t.string   "file2_title"
     t.string   "file3_title"
     t.string   "file4_title"
+    t.string   "url"
   end
 
   add_index "projects", ["showcase_id"], name: "index_projects_on_showcase_id", using: :btree

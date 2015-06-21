@@ -112,7 +112,7 @@
 
 
 			<li class = "alt">
-				<%= link_to "View Profile", user_path(current_user) %>
+				<%= link_to('View Profile', user_path(current_user), data: { no_turbolink: true }) %>
 			</li>
 		</ul>
 	</div>

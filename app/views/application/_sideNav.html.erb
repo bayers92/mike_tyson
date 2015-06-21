@@ -14,7 +14,11 @@
 		<ul class = "no-bullet">
 			<% if current_user.homepage_info != nil %>
 				<li class="<%= active_class(edit_homepage_info_path(current_user.homepage_info)) %>">
-					<%= link_to 'Homepage Info', edit_homepage_info_path(current_user.homepage_info) %>
+					<% if current_user.homepage_info.homepage_header? && current_user.homepage_info.homepage_display_name && current_user.homepage_info.homepage_pic %>
+							<%= link_to 'Homepage Info', edit_homepage_info_path(current_user.homepage_info) %> <i class="fa fa-check-square-o"></i>
+						<% else %>
+							<%= link_to 'Homepage Info', edit_homepage_info_path(current_user.homepage_info) %>
+						<% end %>
 			<% else %>
 				<li class="<%= active_class(new_homepage_info_path) %>">	
 					<%= link_to 'Homepage Info', new_homepage_info_path %> 
@@ -24,7 +28,11 @@
 
 			<% if current_user.personal_info != nil %>
 				<li class="<%= active_class(edit_personal_info_path(current_user.personal_info)) %>">
-					<%= link_to 'Personal Info', edit_personal_info_path(current_user.personal_info) %>
+					<% if current_user.personal_info.name_first? && current_user.personal_info.name_last? && current_user.personal_info.intro_paragraph? && current_user.personal_info.about_pic? && current_user.personal_info.resume? %>
+						<%= link_to 'Personal Info', edit_personal_info_path(current_user.personal_info) %> <i class="fa fa-check-square-o"></i>
+					<% else %>
+						<%= link_to 'Personal Info', edit_personal_info_path(current_user.personal_info) %>
+					<% end %>
 			<% else %>
 				<li class="<%= active_class(new_personal_info_path) %>">
 					<%= link_to 'Personal Info', new_personal_info_path %> 
@@ -34,7 +42,11 @@
 
 			<% if current_user.background_info != nil %>
 				<li class="<%= active_class(edit_background_info_path(current_user.background_info)) %>">
-					<%= link_to 'Background Info', edit_background_info_path(current_user.background_info) %>
+					<% if current_user.background_info.background_type? && current_user.experiences.count >= 1 %>
+						<%= link_to 'Background Info', edit_background_info_path(current_user.background_info) %> <i class="fa fa-check-square-o"></i>
+					<% else %>
+						<%= link_to 'Background Info', edit_background_info_path(current_user.background_info) %>
+					<% end %>
 			<% else %>
 				<li class="<%= active_class(new_background_info_path) %>">
 					<%= link_to 'Background Info', new_background_info_path %> 
@@ -44,7 +56,11 @@
 
 			<% if current_user.showcase != nil %>
 				<li class="<%= active_class(edit_showcase_path(current_user.showcase) ) %>">
-					<%= link_to 'Showcase', edit_showcase_path(current_user.showcase) %>
+					<% if current_user.showcase.showcase_type? && current_user.projects.count >= 1 %>
+						<%= link_to 'Showcase', edit_showcase_path(current_user.showcase) %> <i class="fa fa-check-square-o"></i>
+					<% else %>
+						<%= link_to 'Showcase', edit_showcase_path(current_user.showcase) %>
+					<% end %>
 			<% else %>
 				<li class="<%= active_class(new_showcase_path) %>">
 					<%= link_to 'Showcase', new_showcase_path %> 
@@ -54,6 +70,7 @@
 
 			<li class="<%= active_class(articles_path) %>">
 				<%= link_to "Reading List", articles_path %>
+				<% if current_user.articles.count >= 1 %> <i class="fa fa-check-square-o"></i> <% end %>
 			</li>
 
 
@@ -61,6 +78,7 @@
 			<% if current_user.photo_link != nil %>
 				<li class="<%= active_class(edit_photo_link_path(current_user.photo_link)) %>">
 					<%= link_to 'Photo Blog', edit_photo_link_path(current_user.photo_link) %>
+					<% if current_user.photo_link.tumblr_url? %> <i class="fa fa-check-square-o"></i> <% end %>
 			<% else %>
 				<li class="<%= active_class(new_photo_link_path) %>">
 					<%= link_to 'Photo Blog', new_photo_link_path %> 
@@ -72,6 +90,7 @@
 			<% if current_user.social_link != nil %>
 				<li class="<%= active_class(edit_social_link_path(current_user.social_link)) %>">
 					<%= link_to 'Social Links', edit_social_link_path(current_user.social_link) %>
+					<% if current_user.social_link.link_linkedin? %> <i class="fa fa-check-square-o"></i> <% end %>
 			<% else %>
 				<li class="<%= active_class(new_social_link_path) %>">
 					<%= link_to 'Social Links', new_social_link_path %> 
@@ -83,10 +102,17 @@
 			<% if current_user.website_setting != nil %>
 				<li class="<%= active_class(edit_website_setting_path(current_user.website_setting)) %>">
 					<%= link_to 'Website Settings', edit_website_setting_path(current_user.website_setting) %>
+					<% if current_user.website_setting.domain_name? && current_user.website_setting.color? %> <i class="fa fa-check-square-o"></i> <% end %>
 			<% else %>
 				<li class="<%= active_class(new_website_setting_path) %>">
 					<%= link_to 'Website Settings', new_website_setting_path %> 
 			<% end %>
+			</li>
+
+
+
+			<li class = "alt">
+				<%= link_to "View Profile", user_path(current_user) %>
 			</li>
 		</ul>
 	</div>

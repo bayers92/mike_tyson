@@ -222,9 +222,9 @@
             </div>
             <div class = "small-12 large-8 small-centered columns">
               <% if @user.social_link.link_alt_email? %>
-                <a href="<%= @user.social_link.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.social_link.link_alt_email %> </a>
+                <a href="mailto:<%= @user.social_link.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.social_link.link_alt_email %> </a>
               <% else %>
-              <a href="<%= @user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.email %> </a>
+              <a href="mailto:<%= @user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.email %> </a>
               <% end %>
             </div>    
           </div>

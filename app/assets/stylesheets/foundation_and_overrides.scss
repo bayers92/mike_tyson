@@ -1906,6 +1906,12 @@ a {
 		}
 		.links {
 			li {
+				i {
+					color: $secondary-color;
+					float: right;
+					vertical-align: middle;
+					padding-top: 7px;
+				}
 				a {
 				}
 				padding: 3px 3px;
@@ -1913,6 +1919,12 @@ a {
 					a {
 						font-weight: bold;
 					}
+				}
+			}
+			li.alt {
+				a {
+					color: $secondary-color;
+					font-weight: bold;
 				}
 			}
 			paddding-bottom: 20px;

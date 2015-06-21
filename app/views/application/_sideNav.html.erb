@@ -56,7 +56,7 @@
 
 			<% if current_user.showcase != nil %>
 				<li class="<%= active_class(edit_showcase_path(current_user.showcase) ) %>">
-					<% if current_user.showcase.showcase_type? && current_user.projects.count >= 1 %>
+					<% if current_user.showcase.showcase_type != nil && current_user.projects.count >= 1 %>
 						<%= link_to 'Showcase', edit_showcase_path(current_user.showcase) %> <i class="fa fa-check-square-o"></i>
 					<% else %>
 						<%= link_to 'Showcase', edit_showcase_path(current_user.showcase) %>

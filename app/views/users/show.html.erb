@@ -1,6 +1,10 @@
 
 <% content_for :title do %>
-  <%= @user.personal_info.name_first%>
+  <% if @user.personal_info.name_first? %>
+    <%= @user.personal_info.name_first%>
+    <% else %>
+      <%= BrandClub %>
+  <% end%>
 <% end %>
 
 

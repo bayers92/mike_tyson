@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150620212659) do
+ActiveRecord::Schema.define(version: 20150622142447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20150620212659) do
   add_index "experiences", ["background_info_id"], name: "index_experiences_on_background_info_id", using: :btree
 
   create_table "homepage_infos", force: true do |t|
-    t.string   "homepage_header"
-    t.string   "homepage_display_name"
+    t.string   "homepage_header",           default: ""
+    t.string   "homepage_display_name",     default: ""
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -64,9 +64,9 @@ ActiveRecord::Schema.define(version: 20150620212659) do
   add_index "homepage_infos", ["user_id"], name: "index_homepage_infos_on_user_id", using: :btree
 
   create_table "personal_infos", force: true do |t|
-    t.string   "name_first"
-    t.string   "name_last"
-    t.text     "intro_paragraph"
+    t.string   "name_first",             default: ""
+    t.string   "name_last",              default: ""
+    t.text     "intro_paragraph",        default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "about_pic_file_name"

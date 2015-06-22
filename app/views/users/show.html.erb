@@ -1,10 +1,5 @@
-
 <% content_for :title do %>
-  <% if @user.personal_info.name_first != '' %>
-    <%= @user.personal_info.name_first%>
-    <% else %>
-      <%= BrandClub %>
-  <% end%>
+  <%= @user.personal_info.name_first%>
 <% end %>
 
 
@@ -20,8 +15,9 @@
 </style>
 <% end %>
 
-<body>
 
+
+<body>
   <div class="off-canvas-wrap fixed" data-offcanvas>
     <div class="inner-wrap">
 
@@ -37,7 +33,7 @@
       <!-- MOBILE NAVIGATION OFFCANVAS LIST -->
       <aside class="right-off-canvas-menu" aria-hidden="true">
         <ul class="off-canvas-list">
-          <li><label><%= @user.personal_info.name_first %> <%= @user.personal_info.name_last%></label></li>
+          <li><label><%= @user.homepage_info.homepage_display_name %></label></li>
           <li><a href="#about"><i class="fa fa-user fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;About</a></li>
           <li><a href="#projects"><i class="fa fa-flask fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Projects</a></li>
           <li><a href="#blog"><i class="fa fa-newspaper-o fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Reading List</a></li>

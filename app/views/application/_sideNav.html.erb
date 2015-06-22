@@ -1,13 +1,11 @@
 <div class = "small-3 columns nav no-padding">
-	<div class = "small-12 columns text-center">
+	<div class = "small-12 columns text-center logo-column">
 		<div class = "logo">
-			<a href="/">
-				<%= image_tag "brandclub_logo.png" %>
-			</a>
+			<%= link_to image_tag("brandclub_logo.png"), "/", data: { no_turbolink: true } %>
 		</div>
 	</div>
 	<div class = "small-12 columns user-name no-padding text-center">
-		<h4> <%= current_user.email %> </h4>
+		<h4 class = "white-link"><%= link_to current_user.email, edit_user_path(current_user) %></h4>
 	</div>
 	<div class = "small-10 columns small-centered links">
 
@@ -112,7 +110,9 @@
 
 
 			<li class = "alt">
-				<%= link_to('View Profile', user_path(current_user), data: { no_turbolink: true }) %>
+				<% if valid_user(current_user) %>
+					<%= link_to('View Profile', user_path(current_user), data: { no_turbolink: true }) %>
+				<% end %>
 			</li>
 		</ul>
 	</div>

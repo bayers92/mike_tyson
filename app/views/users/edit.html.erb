@@ -1,6 +1,57 @@
 <div class = "row edit-page">
 	<%= render 'application/sideNav'%>
 	<div class = "small-9 columns form-yield">
-		<h3 class = "text-center"> Welcome to Brand Club! </h3>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div class = "row">
+			<div class = "small-12 columns">
+				<h3 class = "text-center"> <strong>Welcome to Brand Club! </strong></h3>
+			</div>
+		</div>
+		<div class = "row">
+			<div class ="small-12 columns">
+				<p> Use the links on the left to upload your personal information. </p>
+				<p> <i>You must upload information in the following areas before your profile can be created: </i></p>
+				<ul class = "bullet">
+					<% if @user.homepage_info == nil %>
+						<%= link_to 'Homepage Info', new_homepage_info_path %> <br/>
+					<% end %>
+
+					<% if @user.personal_info == nil %>
+						<%= link_to 'Personal Info', new_personal_info_path %> <br/>
+					<% end %>
+
+					<% if @user.background_info == nil %>
+						<%= link_to 'Background Info', new_background_info_path %> <br/>
+					<% end %>
+
+					<% if @user.showcase == nil %>
+						<%= link_to 'Showcase Projects', new_showcase_path %> <br/>
+					<% end %>
+
+					<% if @user.articles == nil %>
+						<%= link_to 'Reading List', new_article_path %> <br/>
+					<% end %>
+
+					<% if @user.photo_link == nil %>
+						<%= link_to 'Photo Blog', new_photo_link_path %> <br/>
+					<% end %>
+
+					<% if @user.social_link == nil %>
+						<%= link_to 'Social Media Links', new_social_link_path %> <br/>
+					<% end %>
+
+					<% if valid_user(@user) %>
+						<p class = "primary-color"> Done! <i class = "fa fa-smile-o"></i></p>
+						<br/>
+						<div class = "small-12 columns text-center">
+							<%= button_to "View Profile", user_path(current_user), :class => "button round custom2", :method => :get %>
+						</div>
+					<% end %>
+				</ul>
+			</div>
+		</div>
 	</div>
 </div>

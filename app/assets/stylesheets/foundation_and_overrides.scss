@@ -1891,17 +1891,24 @@ a {
 	.nav {
 		min-height:100%;
 		background-color: $dark-gray;
-		.logo {
-			padding-top: 20px;
-			padding-bottom: 20px;
+		.logo-column {
+			z-index: 5;
+			.logo {
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}
 		}
 		.user-name {
+			z-index: 5;
 			h4 {
 				min-width: 100%;
 				background-color: $primary-color;
 				color: white;
 				padding-top: 10px;
 				padding-bottom: 10px;
+				a {
+					color: white;
+				}
 			}
 		}
 		.links {
@@ -1979,6 +1986,18 @@ textarea {
 	}
 }
 
+.button.custom2 { 
+	background-color: rgba(0, 0, 0, 0);
+	border: $primary-color solid 2px;
+	color: $primary-color;
+	font-weight: bold;
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.1);
+		color: $primary-color;
+		border: $primary-color solid 2px;
+	}
+}
+
 .special {
 	margin: 0px !important;
 	padding: 0px !important;
@@ -1995,6 +2014,11 @@ textarea {
 	.alert-box {
 		margin-bottom: 0px !important;
 	}
+}
+
+
+.primary-color {
+	color: $primary-color;
 }
 
 @import 'foundation';

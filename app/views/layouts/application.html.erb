@@ -6,6 +6,7 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "BrandClub" %></title>
     <%= content_for?(:custom_css) ? yield(:custom_css) : "" %>
+    <%= content_for?(:custom_css_primary_color) ? yield(:custom_css_primary_color) : "" %>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 

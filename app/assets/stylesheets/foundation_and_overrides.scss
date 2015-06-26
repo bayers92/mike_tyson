@@ -1796,7 +1796,7 @@ a {
 		a {
 			color: $primary-color;
 			&:hover {
-				color: $primary-color;
+				opacity: 0.9;	
 			}
 		}
 	}
@@ -1841,6 +1841,13 @@ a {
 			width: 200px;
 			text-align: center;
 			float: none !important;		
+		}
+	}
+	.row.portfolio {
+		a {
+			.client {
+				height: 30vh;
+			}
 		}
 	}
 }
@@ -1959,7 +1966,7 @@ a {
 			a {
 				&:hover {
 					h4 {
-						color: $primary-color !important;
+						color: $primary-color;
 					}
 					p {
 						color: $primary-color;

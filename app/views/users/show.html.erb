@@ -16,6 +16,20 @@
 <% end %>
 
 
+<!-- CHANGING PRIMARY-COLOR FOR USER -->
+<% if @user.website_setting != nil %>
+  <% if @user.website_setting.color == 1 %>
+    <%= render 'primary_color1' %>
+  <% elsif @user.website_setting.color == 2 %>
+    <%= render 'primary_color2' %>
+  <% elsif @user.website_setting.color == 3 %>
+    <%= render 'primary_color3' %>
+  <% elsif @user.website_setting.color == 4 %>
+    <%= render 'primary_color4' %>
+  <% end %>
+<% end %>
+
+
 
 <body>
   <div class="off-canvas-wrap fixed" data-offcanvas>
@@ -84,7 +98,7 @@
           <a name="about" data-magellan-destination="about"></a>
           <div class = "row">
             <div class = "small-12 small-cenetered columns">
-              <h3 class = "header"> About </h3>
+              <h3 class = "header primary-color"> About </h3>
             </div>
           </div>
           <div class = "row">

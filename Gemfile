@@ -45,3 +45,4 @@ gem 'devise'
 gem 'high_voltage', '~> 2.3.0'
 gem 'cancan'
 gem 'rails_12factor', group: :production
+gem 'aws-sdk'

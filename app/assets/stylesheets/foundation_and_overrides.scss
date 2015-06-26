@@ -131,13 +131,13 @@ $light-gray: #F9F6F6;
 
 // We use these to control various global styles
 
-@import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url('//fonts.googleapis.com/css?family=Raleway');
 $raleway:'Raleway', sans-serif;
 
-@import url(http://fonts.googleapis.com/css?family=Merriweather:400,300,900);
+@import url('//fonts.googleapis.com/css?family=Merriweather:400,300,900');
 $merriweather: 'Merriweather', serif;
 
-@import url(http://fonts.googleapis.com/css?family=Pontano+Sans);
+@import url('//fonts.googleapis.com/css?family=Pontano+Sans');
 $pontano: 'Pontano Sans', sans-serif;
 
 $body-bg: $white;

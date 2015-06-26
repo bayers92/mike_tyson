@@ -1,7 +1,7 @@
 class BackgroundInfosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_background_info, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource :except => [:new]
+  load_and_authorize_resource :except => [:create, :new]
 
   # GET /background_infos
   # GET /background_infos.json

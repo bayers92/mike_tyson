@@ -1,7 +1,7 @@
 class SocialLinksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_social_link, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource :except => [:new]
+  load_and_authorize_resource :except => [:create, :new]
 
   # GET /social_links
   # GET /social_links.json

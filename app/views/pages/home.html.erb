@@ -6,27 +6,57 @@
 }
 </style>
 <% end %>
-    <div class = "heading">
-      <div class = "small-8 medium-10 columns">
-        <div class = "logo">
-          <a href="/">
-            <%= image_tag "brandclub_logo.png" %>
-          </a>
-        </div>
-      </div>
-      <div class = "small-4 medium-2 columns devise_links">
-        <% if user_signed_in? %>
-          <%= button_to "View Profile", edit_user_path(current_user), :class => "button round custom", :method => :get  %>      
-        <% else %>
-          <%= button_to "Login", new_user_session_path, :class => "button round custom" %>
-        <% end %>
-      </div>
-    </div>
+<body>
+  <div class="off-canvas-wrap fixed" data-offcanvas>
+    <div class="inner-wrap">
 
-<!-- START hero row -->
-<div class = "row hero homepage">
-	<div class = "small-12 medium-6 medium-offset-6 columns text-left title">
-	  <h1>DEFINE <br/> YOUR<br/> BRAND</h1>
-	</div>
-</div>
-<!-- END hero row -->
+      <section class="main-section">
+        <div class = "heading">
+          <div class = "small-6 medium-9 columns">
+            <div class = "logo">
+              <a href="/">
+                <%= image_tag "brandclub_logo.png" %>
+              </a>
+            </div>
+          </div>
+          <div class = "small-6 medium-3 columns devise_links text-right fixed">
+            <% if user_signed_in? %>
+            <%= button_to "View Profile", edit_user_path(current_user), :class => "button round custom", :method => :get  %>      
+            <% else %>
+            <%= button_to "Login", new_user_session_path, :class => "button round custom" %>
+            <% end %>
+          </div>
+        </div>
+
+        <!-- START hero row -->
+        <div class = "row hero">
+          <div class = "small-12 medium-6 medium-offset-6 columns text-left title">
+            <div class = "slogan">
+              <h1>DEFINE <br/> YOUR<br/> BRAND</h1>
+            </div>
+          </div>
+        </div>
+        <!-- END hero row -->
+
+        <!-- <div class ="row quote extra-padding-top">
+          <div class = "small-12 column">
+            <blockquote> 
+              <h1> "56% of all hiring managers are more impressed by a candidate’s personal website than any other personal branding tool—however, only 7% of job seekers actually have a personal website"
+            </blockquote>
+            <p> <a href="http://www.forbes.com/sites/jacquelynsmith/2013/04/26/why-every-job-seeker-should-have-a-personal-website-and-what-it-should-include/"> -Forbes.com </p></h2>
+          </div>
+        </div>
+
+        <div class = "row home2 extra-padding-top">
+          <div class ="small-3 columns line">
+          </div>
+          <div class = "small-12 columns">
+            <h1 class ="heading"> <i> Stand out from the crowd </i><h1>
+              <h5> Recruiters care about more than what is on your resume, they want to know <strong>what you are like as a person. </strong> Stand out from the crowd by showing your interests through posted articles and uploaded pictures. Rather than hiding behind private social media accounts, create a professional but personalized image to portray to recruiters.  </h5>
+          </div>
+        </div>
+ -->
+      </section> <!-- END MAIN SECTION -->
+    </div> <!-- INNER WRAP -->
+  </div> <!-- OFF CANVAS WRAP -->
+</body>

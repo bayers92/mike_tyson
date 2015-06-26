@@ -1,7 +1,7 @@
 class HomepageInfosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_homepage_info, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource :except => [:new]
+  load_and_authorize_resource :except => [:create, :new]
 
   respond_to :html
 

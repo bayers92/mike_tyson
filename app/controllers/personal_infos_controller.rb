@@ -1,7 +1,7 @@
 class PersonalInfosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_personal_info, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource :except => [:new]
+  load_and_authorize_resource :except => [:create, :new]
 
   # GET /personal_infos
   # GET /personal_infos.json

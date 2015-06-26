@@ -1,7 +1,7 @@
 class ShowcasesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_showcase, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource :except => [:new]
+  load_and_authorize_resource :except => [:create, :new]
 
   # GET /showcases
   # GET /showcases.json

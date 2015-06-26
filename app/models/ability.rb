@@ -14,8 +14,8 @@ class Ability
     can :manage, WebsiteSetting, :user_id => user.id
 
     can :manage, Article, :user => { :id => user.id }
-    can :manage, Project, :user => { :id => user.id }
-    can :manage, Experience, :user => { :id => user.id }
+    can :manage, Project, :showcase => { :id => user.id }
+    can :manage, Experience, :background_info => { :user_id => user.id }
 
 
     # Define abilities for the passed in user here. For example:

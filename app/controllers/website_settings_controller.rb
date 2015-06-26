@@ -1,7 +1,7 @@
 class WebsiteSettingsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_website_setting, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource :except => [:new]
+  load_and_authorize_resource :except => [:create, :new]
 
   # GET /website_settings
   # GET /website_settings.json

@@ -1957,6 +1957,15 @@ a {
 	ul {
 		li {
 			a {
+				&:hover {
+					h4 {
+						color: $primary-color !important;
+					}
+					p {
+						color: $primary-color;
+						opacity: 0.7;
+					}
+				}
 				h4 {
 					font-size: 1.15rem;
 					color: $dark-gray !important;
@@ -1964,6 +1973,8 @@ a {
 				p {
 					color: $medium-gray;
 					font-size: 0.9rem;
+					&:hover {
+					}
 				}
 			}
 		}

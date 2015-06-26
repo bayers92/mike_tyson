@@ -1,4 +1,5 @@
 class HomepageInfosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_homepage_info, only: [:show, :edit, :update, :destroy]
 
   respond_to :html

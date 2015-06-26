@@ -1,4 +1,5 @@
 class ShowcasesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_showcase, only: [:show, :edit, :update, :destroy]
 
   # GET /showcases

@@ -58,6 +58,11 @@
       <!-- END MOBILE NAV OFFCANVAS -->
 
       <section class="main-section">
+        <div class = "edit-profile-button-div">
+          <% if user_signed_in? %>
+            <%= button_to "Edit Profile", edit_user_path(current_user), :class => "button round custom3", :method => :get  %>      
+          <% end %>
+        </div>
 
 
         <!-- START hero row -->

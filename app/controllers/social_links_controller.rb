@@ -1,4 +1,5 @@
 class SocialLinksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_social_link, only: [:show, :edit, :update, :destroy]
 
   # GET /social_links

@@ -1,4 +1,5 @@
 class BackgroundInfosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_background_info, only: [:show, :edit, :update, :destroy]
 
   # GET /background_infos

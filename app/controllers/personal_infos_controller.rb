@@ -1,4 +1,5 @@
 class PersonalInfosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_personal_info, only: [:show, :edit, :update, :destroy]
 
   # GET /personal_infos

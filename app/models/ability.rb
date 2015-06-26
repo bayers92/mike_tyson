@@ -2,10 +2,20 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-
+    user ||= User.new
     can :manage, User, :id => user.id
-    can :manage, Article, :user => { :id => user.id }
 
+    can :manage, HomepageInfo, :user_id => user.id
+    can :manage, BackgroundInfo, :user_id => user.id
+    can :manage, PersonalInfo, :user_id => user.id
+    can :manage, PhotoLink, :user_id => user.id
+    can :manage, Showcase, :user_id => user.id
+    can :manage, SocialLink, :user_id => user.id
+    can :manage, WebsiteSetting, :user_id => user.id
+
+    can :manage, Article, :user => { :id => user.id }
+    can :manage, Project, :user => { :id => user.id }
+    can :manage, Experience, :user => { :id => user.id }
 
 
     # Define abilities for the passed in user here. For example:

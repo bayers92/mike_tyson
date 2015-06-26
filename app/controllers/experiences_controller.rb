@@ -1,6 +1,7 @@
 class ExperiencesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :except => [:new]
 
   # GET /experiences
   # GET /experiences.json

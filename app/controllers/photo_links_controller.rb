@@ -1,6 +1,7 @@
 class PhotoLinksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_photo_link, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :except => [:new]
 
   respond_to :html
 
@@ -36,7 +37,15 @@ class PhotoLinksController < ApplicationController
 
   def update
     @photo_link.update(photo_link_params)
-    respond_with(@photo_link)
+        respond_to do |format|
+      if @photo_link.save
+          format.html { redirect_to edit_user_path(current_user), notice: 'Photo Link was successfully Updated.' }
+          format.json { render :show, status: :created, location: @photo_link }
+      else
+        format.html { render :new }
+        format.json { render json: @photo_link.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy

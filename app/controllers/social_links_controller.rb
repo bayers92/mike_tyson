@@ -1,6 +1,7 @@
 class SocialLinksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_social_link, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :except => [:new]
 
   # GET /social_links
   # GET /social_links.json
@@ -56,7 +57,7 @@ class SocialLinksController < ApplicationController
   def destroy
     @social_link.destroy
     respond_to do |format|
-      format.html { redirect_to social_links_url, notice: 'Social link was successfully destroyed.' }
+      format.html { redirect_to edit_user_path(current_user), notice: 'Social link was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

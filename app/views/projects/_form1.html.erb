@@ -2,12 +2,13 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-  	<%= f.input :title, label: 'Title:' %>
-  	<%= f.input :paragraph, label: 'Description:' %>
+  	<%= f.input :title, label: 'Title:', placeholder: "The Facebook" %>
+  	<%= f.input :paragraph, label: 'Description:', placeholder: "Founder & CEO" %>
   	<%= f.input :file1, label: 'Background Image:' %>
     <br/>
-    <p><i> You can have the project image link to either a website or file: </i></p>
+    <p><i> You can have the project link to a website <strong>or</strong> a file: </i></p>
     <%= f.input :url, label: 'URL Link:' %>
+    <p> <strong> OR </strong> </p>
     <%= f.input :file2, label: 'File Link:' %>
   </div>
 

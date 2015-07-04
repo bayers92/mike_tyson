@@ -29,7 +29,7 @@ class SocialLinksController < ApplicationController
     @social_link = current_user.create_social_link(social_link_params)
     respond_to do |format|
       if @social_link.save
-          format.html { redirect_to edit_user_path(current_user), notice: 'Social Links were successfully created.' }
+          format.html { redirect_to edit_social_link_path(@social_link), notice: 'Social Links were successfully created.' }
           format.json { render :show, status: :created, location: @social_link }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class SocialLinksController < ApplicationController
   def update
     respond_to do |format|
       if @social_link.update(social_link_params)
-        format.html { redirect_to edit_user_path(current_user), notice: 'Social link was successfully updated.' }
+        format.html { redirect_to edit_social_link_path(@social_link), notice: 'Social link was successfully updated.' }
         format.json { render :show, status: :ok, location: @social_link }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class SocialLinksController < ApplicationController
   def destroy
     @social_link.destroy
     respond_to do |format|
-      format.html { redirect_to edit_user_path(current_user), notice: 'Social link was successfully destroyed.' }
+      format.html { redirect_to edit_social_link_path(@social_link), notice: 'Social link was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

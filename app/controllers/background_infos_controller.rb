@@ -31,7 +31,7 @@ class BackgroundInfosController < ApplicationController
 
     respond_to do |format|
       if @background_info.save
-        format.html { redirect_to edit_user_path(@user), notice: 'Background info was successfully created.' }
+        format.html { redirect_to edit_background_info_path(@background_info), notice: 'Background info was successfully created.' }
         format.json { render :show, status: :created, location: @background_info }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class BackgroundInfosController < ApplicationController
     @user = current_user
     respond_to do |format|
       if @background_info.update(background_info_params)
-        format.html { redirect_to edit_user_path(@user), notice: 'Background info was successfully updated.' }
+        format.html { redirect_to edit_background_info_path(@background_info), notice: 'Background info was successfully updated.' }
         format.json { render :show, status: :ok, location: @background_info }
       else
         format.html { render :edit }

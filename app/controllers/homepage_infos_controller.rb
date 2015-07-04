@@ -39,7 +39,7 @@ class HomepageInfosController < ApplicationController
     @homepage_info.update(homepage_info_params)
     respond_to do |format|
       if @homepage_info.save
-          format.html { redirect_to edit_user_path(current_user), notice: 'Homepage Info was successfully updated.' }
+          format.html { redirect_to edit_homepage_info_path(current_user.homepage_info), notice: 'Homepage Info was successfully updated.' }
           format.json { render :show, status: :created, location: @homepage_info }
       else
         format.html { render :new }

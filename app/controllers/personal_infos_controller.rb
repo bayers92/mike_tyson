@@ -3,6 +3,8 @@ class PersonalInfosController < ApplicationController
   before_action :set_personal_info, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource :except => [:create, :new]
 
+  respond_to :html
+  
   # GET /personal_infos
   # GET /personal_infos.json
   def index

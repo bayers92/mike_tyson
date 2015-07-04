@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to edit_user_path(current_user), notice: 'Project was successfully created.' }
+        format.html { redirect_to edit_showcase_path(@showcase), notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -43,9 +43,10 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+    @showcase = current_user.showcase
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to edit_user_path(current_user), notice: 'Project was successfully updated.' }
+        format.html { redirect_to edit_showcase_path(@showcase), notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -57,9 +58,10 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+    @showcase = current_user.showcase
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to edit_user_path(current_user), notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to edit_showcase_path(@showcase), notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

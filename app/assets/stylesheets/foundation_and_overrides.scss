@@ -131,14 +131,20 @@ $light-gray: #F9F6F6;
 
 // We use these to control various global styles
 
-@import url('//fonts.googleapis.com/css?family=Raleway');
-$raleway:'Raleway', sans-serif;
+// @import url('//fonts.googleapis.com/css?family=Raleway');
+// $raleway:'Raleway', sans-serif;
 
 @import url('//fonts.googleapis.com/css?family=Merriweather:400,300,900');
 $merriweather: 'Merriweather', serif;
 
 @import url('//fonts.googleapis.com/css?family=Pontano+Sans');
 $pontano: 'Pontano Sans', sans-serif;
+
+// @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:600);
+// $sans_pro: 'Source Sans Pro', sans-serif;
+
+// @import url(http://fonts.googleapis.com/css?family=EB+Garamond);
+// $garamond: 'EB Garamond', serif;
 
 $body-bg: $white;
 $body-font-color: rgba(0, 0, 0, 0.8);
@@ -212,7 +218,7 @@ $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (m
 // $include-html-type-classes: $include-html-classes;
 
 // We use these to control header font styles
-// $header-font-family: $body-font-family;
+$header-font-family: $pontano;
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: normal;
 // $header-line-height: 1.4;
@@ -1691,7 +1697,7 @@ a {
 .row.portfolio {
 	min-width: 100% !important;
 	max-width: 100% !important;
-	font-family: $raleway !important;
+	// font-family: $raleway !important;
 	a {
 		.client {
 			min-width: 100% !important;
@@ -1773,7 +1779,7 @@ a {
 	height: 100vh;
 	width: 100vw;
 	h1 {
-		font-family: $raleway;
+		// font-family: $raleway;
 		font-size: 3.5rem;
 	}
 	.logo {
@@ -1945,7 +1951,7 @@ a {
 	.form-yield {
 		height: 100%;
 		overflow-y: scroll;
-		padding-top: 10px;
+		padding-top: 80px;
 	}
 }
 
@@ -2091,4 +2097,22 @@ textarea {
 	}
 }
 
+
+.simple_form .field_with_hint input{
+  margin-bottom: 0;
+  &:hover~.hint{
+    display: block;
+  }
+}
+
+.simple_form .hint {
+  display: none;
+  padding: 0.375rem 0.5625rem;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  font-weight: normal;
+  font-style: italic;
+  background: #a0d3e8;
+  color: white;
+}
 @import 'foundation';

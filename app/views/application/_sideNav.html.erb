@@ -26,7 +26,7 @@
 
 			<% if current_user.personal_info != nil %>
 				<li class="<%= active_class(edit_personal_info_path(current_user.personal_info)) %>">
-					<% if current_user.personal_info.name_first? && current_user.personal_info.name_last? && current_user.personal_info.intro_paragraph? && current_user.personal_info.about_pic? && current_user.personal_info.resume? %>
+					<% if current_user.personal_info.intro_paragraph? && current_user.personal_info.about_pic? && current_user.personal_info.resume? %>
 						<%= link_to 'Personal Info', edit_personal_info_path(current_user.personal_info) %> <i class="fa fa-check-square-o"></i>
 					<% else %>
 						<%= link_to 'Personal Info', edit_personal_info_path(current_user.personal_info) %>
@@ -40,7 +40,7 @@
 
 			<% if current_user.background_info != nil %>
 				<li class="<%= active_class(edit_background_info_path(current_user.background_info)) %>">
-					<% if current_user.background_info.background_type? && current_user.experiences.count >= 1 %>
+					<% if current_user.background_info.background_type != nil && current_user.experiences.count >= 1 %>
 						<%= link_to 'Background Info', edit_background_info_path(current_user.background_info) %> <i class="fa fa-check-square-o"></i>
 					<% else %>
 						<%= link_to 'Background Info', edit_background_info_path(current_user.background_info) %>

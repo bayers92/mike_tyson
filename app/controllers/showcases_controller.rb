@@ -30,7 +30,7 @@ class ShowcasesController < ApplicationController
 
     respond_to do |format|
       if @showcase.save
-        format.html { redirect_to edit_user_path(current_user), notice: 'Showcase was successfully created.' }
+        format.html { redirect_to edit_showcase_path(@showcase), notice: 'Showcase was successfully created.' }
         format.json { render :show, status: :created, location: @showcase }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class ShowcasesController < ApplicationController
   def update
     respond_to do |format|
       if @showcase.update(showcase_params)
-        format.html { redirect_to edit_user_path(current_user), notice: 'Showcase was successfully updated.' }
+        format.html { redirect_to edit_showcase_path(@showcase), notice: 'Showcase was successfully updated.' }
         format.json { render :show, status: :ok, location: @showcase }
       else
         format.html { render :edit }

@@ -3,6 +3,8 @@ class ExperiencesController < ApplicationController
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource :except => [:create, :new]
 
+  respond_to :html
+
   # GET /experiences
   # GET /experiences.json
   def index
@@ -26,6 +28,7 @@ class ExperiencesController < ApplicationController
   # POST /experiences
   # POST /experiences.json
   def create
+    @background_info = current_user.background_info
     @experience = @background_info.experiences.create(experience_params)
 
     respond_to do |format|

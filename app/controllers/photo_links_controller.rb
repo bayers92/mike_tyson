@@ -26,7 +26,7 @@ class PhotoLinksController < ApplicationController
     @photo_link = current_user.create_photo_link(photo_link_params)
     respond_to do |format|
       if @photo_link.save
-          format.html { redirect_to edit_user_path(current_user), notice: 'Photo Link was successfully created.' }
+          format.html { redirect_to edit_photo_link_path(@photo_link), notice: 'Photo Link was successfully created.' }
           format.json { render :show, status: :created, location: @photo_link }
       else
         format.html { render :new }
@@ -39,7 +39,7 @@ class PhotoLinksController < ApplicationController
     @photo_link.update(photo_link_params)
         respond_to do |format|
       if @photo_link.save
-          format.html { redirect_to edit_user_path(current_user), notice: 'Photo Link was successfully Updated.' }
+          format.html { redirect_to edit_photo_link_path(@photo_link), notice: 'Photo Link was successfully Updated.' }
           format.json { render :show, status: :created, location: @photo_link }
       else
         format.html { render :new }

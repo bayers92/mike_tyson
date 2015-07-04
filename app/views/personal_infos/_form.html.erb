@@ -2,15 +2,13 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-  	    <%= f.input :name_first, label: 'First Name:' %>
-  	    <%= f.input :name_last, label: 'Last Name:' %>
   	    <%= f.input :about_pic, label: 'Headshot Picture:' %>
         <% if @personal_info.about_pic? %>
           <%= image_tag @personal_info.about_pic.url(:med) %>
           <br/><br/>
         <% end %>
-  	    <%= f.input :intro_paragraph, label: 'Intro paragraph:' %>
-  	    <%= f.input :resume, label: 'Resume:' %>
+  	    <%= f.input :intro_paragraph, label: 'Intro Paragraph', placeholder: "Thomas Edward Patrick 'Tom' Brady, Jr. (born August 3, 1977), nicknamed Tom Terrific, is an American football quarterback for the New England Patriots of the National Football League (NFL). After playing college football for the University of Michigan, Tom Brady was drafted by the Patriots in the sixth round of the 2000 NFL draft.... " %>
+  	    <%= f.input :resume, label: 'Resume: (most be PDF file)' %>
         <% if @personal_info.resume? %>
           <a href = "<%= @personal_info.resume.url() %>"><i class="fa fa-paperclip fa-1x"></i> &nbsp; View Full Resume </a><br/><br/>
         <% end %>

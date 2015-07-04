@@ -1229,12 +1229,12 @@ $tabbar-hamburger-icon-gap: 10px;
 // We use this to control the definition
 // $sub-nav-font-family: $body-font-family;
 // $sub-nav-font-size: rem-calc(14);
-// $sub-nav-font-color: $aluminum;
+$sub-nav-font-color: $aluminum;
 // $sub-nav-font-weight: $font-weight-normal;
 // $sub-nav-text-decoration: none;
 // $sub-nav-padding: rem-calc(3 16);
 // $sub-nav-border-radius: 3px;
-// $sub-nav-font-color-hover: scale-color($sub-nav-font-color, $lightness: -25%);
+$sub-nav-font-color-hover: scale-color($sub-nav-font-color, $lightness: -25%);
 
 // We use these to control the active item styles
 // $sub-nav-active-font-weight: $font-weight-normal;
@@ -1671,29 +1671,6 @@ a {
 	display: none; 
 }
 
-#loader {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 80px;
-	height: auto;
-	margin-left: -40px;
-	margin-top: -40px;
-}
-
-#loading_title{
-	text-align: center;
-	color: $primary-color;
-	position: absolute;
-	top: 35%;
-	height: 10%;
-	width: 80%;
-	margin-left: 10%;
-	margin-right: 10%;
-	z-index: 999;
-}
-
-
 .row.portfolio {
 	min-width: 100% !important;
 	max-width: 100% !important;
@@ -2114,5 +2091,27 @@ textarea {
   font-style: italic;
   background: #a0d3e8;
   color: white;
+}
+
+#loader {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 80px;
+	height: auto;
+	margin-left: -40px;
+	margin-top: -40px;
+}
+
+#loading_title{
+	text-align: center;
+	color: $primary-color;
+	position: absolute;
+	top: 35%;
+	height: 10%;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	z-index: 999;
 }
 @import 'foundation';

@@ -18,6 +18,21 @@
 $(document).foundation();
 
 
-$(".off-canvas-list a").on("click.toggleCanvas", function(){
-  $(".exit-off-canvas").click();
+// offcanvas nav preferences
+$(document).foundation({
+  offcanvas : {
+    // Sets method in which offcanvas opens.
+    // [ move | overlap_single | overlap ]
+    open_method: 'move', 
+    // Should the menu close when a menu link is clicked?
+    // [ true | false ]
+    close_on_click : true
+  }
+});
+
+$(function() {
+    // Animate loader off screen
+    $("#loading_page").delay(2000).animate({
+      top: -1000
+    }, 400);
 });

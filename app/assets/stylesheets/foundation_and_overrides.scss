@@ -1782,8 +1782,8 @@ a {
 // OFFCANVAS NAV BAR FIX START
 @media #{$small-only} {
 	.row {
-		padding-bottom: 15px !important;
-		padding-top: 15px !important;
+		padding-bottom: 0px !important;
+		padding-top: 0px !important;
 	}
 	.content {
 		margin-top: 0px !important;

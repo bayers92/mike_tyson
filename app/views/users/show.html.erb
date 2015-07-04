@@ -45,7 +45,7 @@
 <body>
 
     <div class = "loading_page" id ="loading_page">
-    <h2 id = "loading_title"> <%= current_user.homepage_info.homepage_display_name %> </h2>
+    <h2 id = "loading_title"> <%= @user.homepage_info.homepage_display_name %> </h2>
     <div id = "loader">
       <%= image_tag "loader.gif" %>
     </div>

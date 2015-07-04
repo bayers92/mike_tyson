@@ -1872,6 +1872,7 @@ a {
 	overflow-y: hidden;
 	.nav {
 		height:100%;
+		min-height: 100vh;
 		background-color: $dark-gray;
 		overflow-y: scroll;
 		.logo-column {

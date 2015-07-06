@@ -13,7 +13,7 @@
             <!-- MOBILE NAVIGATION OFFCANVAS LIST -->
       <aside class="right-off-canvas-menu" aria-hidden="true">
 		<ul class="off-canvas-list">
-			<li><label><%= current_user.homepage_info.homepage_display_name %></label></li>
+			<li><label><%= current_user.email %></label></li>
 			<li>
 	          	<% if current_user.homepage_info != nil %> 
 	          		<%= link_to 'Homepage Info', edit_homepage_info_path(current_user.homepage_info) %> 
@@ -70,6 +70,9 @@
       </aside>
       <!-- END MOBILE NAV OFFCANVAS -->
 </div>
+
+
+
 
 
 

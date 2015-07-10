@@ -22,7 +22,7 @@
   						<% end %>
   					</li>
   					<li>
-  						<% if current_user.background_info != nil %> 
+  						<% if current_user.personal_info != nil %> 
   						<%= link_to 'Personal Info', edit_personal_info_path(current_user.personal_info), data: { no_turbolink: true } %> 
   						<% else %> 
   						<%= link_to 'Personal Info', new_personal_info_path, data: { no_turbolink: true } %>  

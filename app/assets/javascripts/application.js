@@ -34,5 +34,14 @@ $(function() {
     // Animate loader off screen
     $("#loading_page").delay(2000).animate({
       top: -1000
-    }, 400);
+    }, 200);
 });
+
+
+
+$(document).ready(function(){
+  setTimeout(function(){
+    // $('.alert-box').remove();
+    $('.close').click();
+  }, 3000);
+ });

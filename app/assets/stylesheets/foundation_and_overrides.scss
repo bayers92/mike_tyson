@@ -1472,6 +1472,7 @@ $topbar-height: 60px;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	margin-bottom: 30px; 
+	margin-top: 5px;
 	a {
 		color: $dark-gray;
 		&:hover {
@@ -2037,8 +2038,12 @@ textarea {
 	// margin-left: 35%;
 	text-align: center;
 	// margin-top: 20px;
+    height: 40px;
+    margin-bottom: -50px;
 	.alert-box {
 		margin-bottom: 0px !important;
+		padding-top: 5px;
+		padding-bottom: 5px;
 	}
 }
 
@@ -2238,6 +2243,34 @@ body {
 
 .edit-content-section {
 	padding-top: 40px;
+}
+
+#instructModal {
+	.lead-p {
+		font-size: 1.1rem;
+		color: $dark-gray;
+	}
+	.section-header {
+		font-weight: bold;
+		margin-bottom: 0px;
+	}
+	.section-text {
+
+	}
+	table {
+		.good {	
+			color: green;
+		}
+		.bad {
+			color: red;
+		}
+	}
+	.technicals {
+		color: $medium-gray;
+		text-transform: italic;
+		margin: 0 0 0 0;
+		font-size: 0.8rem;
+	}
 }
 
 @import 'foundation';

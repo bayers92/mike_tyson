@@ -2,23 +2,88 @@
 	<%= render 'application/sideNav'%>
 	<div class = "small-12 medium-9 columns form-yield no-padding">
 		<%= render 'application/topNav' %>
-	    <%= render 'application/alerts' %>
+		<%= render 'application/alerts' %>
 
 		<div class = "small-12 medium-9 columns edit-content-section">
-		<div class = "edit-info-header">
-			<h4> Edit Homepage Information </h4>
-			<a href="#" data-reveal-id="myModal">
-				<i class="fa fa-question-circle"></i>&nbsp;Instructions
-			</a>
+			<div class = "edit-info-header">
+				<h4> Edit Landing Page </h4>
+				<a href="#" data-reveal-id="instructModal">
+					<i class="fa fa-question-circle"></i>&nbsp;Instructions
+				</a>
+			</div>
+
+			<%= render 'form' %>
 		</div>
 
+		<div id="instructModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" style="top: 45px;height: 90vh;overflow-y: scroll;">
 
-		<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-		  <h2 id="modalTitle">Homepage Info</h2>
-		  <p class="lead">What should I put in this section?</p>
-		  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-		  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+			<h2 id="modalTitle">Landing Page</h2>
+
+			<p class="lead-p">This section is the first screen that appears on your website. It consists of your name and a personal slogan on top of a full screen background image. The key to an effective landing screen is to make it interesting enough that visitors want to scroll down to learn more about you, but professional enough to signal to recruiters that this isn’t some other version of a Facebook profile. Below are suggestions on how to navigate this fine line:</p>
+
+			<p class = "section-header"> Display Name: </p>
+			<p class = "section-content"> This is an easy one to start, just enter your name. Full name, no nicknames, no funny business.  </p>
+			<table>
+				<thead>
+					<tr>
+						<th class = "good">Good Examples</th>
+						<th class = "bad">Bad Examples</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class = "good">Bruce Manning</td>
+						<td class = "bad">Frank the Tank</td>
+					</tr>
+					<tr>
+						<td class = "good">Mike Corning</td>
+						<td class = "bad">Lil' Young Moneyz</td>
+					</tr>
+					<tr>
+						<td class = "good">Jake Smith</td>
+						<td class = "bad">Bathtub</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<br/>
+
+
+			<p class = "section-header"> Personal Slogan: </p>
+			<p class = "section-content"> Think of your personal slogan as describing your interests in 5 words or less. The slogan should depict a big picture of your area of interest. Again, try to come up with something engaging but professional. When in doubt, go with the title of your concentration.  </p>
+			<table>
+				<thead>
+					<tr>
+						<th class = "good">Good Examples</th>
+						<th class = "bad">Bad Examples</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class = "good">Management Consulting</td>
+						<td class = "bad">Donuts and Lemonade</td>
+					</tr>
+					<tr>
+						<td class = "good">Pricing &amp; Strategy</td>
+						<td class = "bad">I love lamp.</td>
+					</tr>
+					<tr>
+						<td class = "good">Big Data | Technology</td>
+						<td class = "bad">Work hard, Play hard</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<br/>
+
+			<p class = "section-header"> Background Image: </p>
+			<p class = "section-content"> This will be the fullscreen image displayed on your landing page. It is absolutely paramount that this picture displays a professional image to set the tone for the rest of your website. If you don't have any images that immediately come to mind, search the web for a good looking animal portrait or landscape image of a location you enjoy and would enjoy talking about with a recruiter.   </p>
+			<p class ="technicals">Accepted file types: jpeg, png</p>
+			<p class ="technicals">Maximum file size: 1mb</p>
+
+
+
+			<a class="close-reveal-modal" aria-label="Close">&#215;</a>
 		</div>
-		<%= render 'form' %>
 	</div>
 </div>

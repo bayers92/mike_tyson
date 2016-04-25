@@ -16,9 +16,9 @@
   					<li><label><%= current_user.email %></label></li>
   					<li>
   						<% if current_user.homepage_info != nil %> 
-  						<%= link_to 'Homepage Info', edit_homepage_info_path(current_user.homepage_info), data: { no_turbolink: true } %> 
+  						<%= link_to 'Landing Page', edit_homepage_info_path(current_user.homepage_info), data: { no_turbolink: true } %> 
   						<% else %> 
-  						<%= link_to 'Homepage Info', new_homepage_info_path, data: { no_turbolink: true } %>  
+  						<%= link_to 'Landing Page', new_homepage_info_path, data: { no_turbolink: true } %>  
   						<% end %>
   					</li>
   					<li>
@@ -100,10 +100,10 @@
       <ul class = "no-bullet">
        <% if current_user.homepage_info != nil %>
        <li class="<%= active_class(edit_homepage_info_path(current_user.homepage_info)) %>">
-        <i class="fa fa-home"></i><%= link_to 'Homepage Info', edit_homepage_info_path(current_user.homepage_info) %>
+        <i class="fa fa-home"></i><%= link_to 'Landing Page', edit_homepage_info_path(current_user.homepage_info) %>
         <% else %>
         <li class="<%= active_class(new_homepage_info_path) %>">	
-         <i class="fa fa-home"></i><%= link_to 'Homepage Info', new_homepage_info_path %> 
+         <i class="fa fa-home"></i><%= link_to 'Landing Page', new_homepage_info_path %> 
          <% end %>
        </li>
 

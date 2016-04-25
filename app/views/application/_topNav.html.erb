@@ -1,15 +1,18 @@
-<nav class="top-bar" id="edit-page-nav" data-topbar role="navigation">
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="active"><a href="#">Right Button Active</a></li>
-      <li class="has-dropdown">
-        <a href="#">Right Button Dropdown</a>
-        <ul class="dropdown">
-          <li><a href="#">First link in dropdown</a></li>
-          <li class="active"><a href="#">Active link in dropdown</a></li>
-        </ul>
-      </li>
-    </ul>
-  </section>
-</nav>
+<div class ="small-9 columns show-for-medium-up no-padding" id="edit-page-nav">
+  <div class = "small-6 small-offset-6 columns nav-content">
+
+	<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown right"><i class="fa fa-user" aria-hidden="true"></i>&thinsp;<%= current_user.email %>&nbsp;&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></button><br>
+	<ul id="drop1" data-dropdown-content class="f-dropdown right" aria-hidden="true">
+	  <li><%= link_to "Edit Account Settings", edit_user_registration_path %></li>
+	  <li> <%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+	</ul>
+
+
+
+<!-- 	 <p class = "right"><i class="fa fa-user" aria-hidden="true"></i><%= link_to current_user.email, edit_user_path(current_user) %></p> -->
+  </div>
+</div>
+
+
+<div id = "edit-nav-filler">
+</div>

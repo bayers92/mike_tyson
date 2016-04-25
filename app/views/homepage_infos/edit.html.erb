@@ -1,7 +1,24 @@
 <div class = "row edit-page">
 	<%= render 'application/sideNav'%>
-	<div class = "small-12 medium-9 columns form-yield">
-		<h4 class = "header"> Edit Homepage Information </h4>
+	<div class = "small-12 medium-9 columns form-yield no-padding">
+		<%= render 'application/topNav' %>
+	    <%= render 'application/alerts' %>
+
+		<div class = "small-12 medium-9 columns edit-content-section">
+		<div class = "edit-info-header">
+			<h4> Edit Homepage Information </h4>
+			<a href="#" data-reveal-id="myModal">
+				<i class="fa fa-question-circle"></i>&nbsp;Instructions
+			</a>
+		</div>
+
+
+		<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+		  <h2 id="modalTitle">Homepage Info</h2>
+		  <p class="lead">What should I put in this section?</p>
+		  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+		  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+		</div>
 		<%= render 'form' %>
 	</div>
 </div>

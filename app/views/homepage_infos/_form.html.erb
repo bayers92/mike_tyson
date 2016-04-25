@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
   	<%= f.input :homepage_display_name, label: 'Display Name:', placeholder: 'Tom Brady' %>
-    <%= f.input :homepage_header, label: 'Personal Slogan:', placeholder: 'Patriots | Football | Gisele' %>
+    <%= f.input :homepage_header, label: 'Personal Slogan:', placeholder: 'Patriots | Football | Family' %>
     <%= f.input :homepage_pic, label: 'Background Image:' %>
     <% if @homepage_info.homepage_pic? %>
     	<%= image_tag @homepage_info.homepage_pic.url(:med) %>

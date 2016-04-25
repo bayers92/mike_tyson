@@ -92,8 +92,8 @@
          <%= link_to image_tag("brandclub_logo.png"), "/", data: { no_turbolink: true } %>
        </div>
      </div>
-     <div class = "small-12 columns user-name no-padding text-center">
-      <h4 class = "white-link"><%= link_to current_user.email, edit_user_path(current_user) %></h4>
+     <div class = "small-12 columns heading no-padding">
+      <h5> <%= link_to "Website Content", edit_user_path(current_user) %></h5>
     </div>
     <div class = "small-10 columns small-centered links">
 
@@ -185,7 +185,7 @@
            </ul>
          </div>
 
-         <div class = "small-10 columns small-centered links account">
+         <!-- <div class = "small-10 columns small-centered links account">
            <ul class = "no-bullet">
             <li>
              <%= link_to "Edit Account Settings", edit_user_registration_path %>
@@ -194,5 +194,5 @@
              <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
            </li>
          </ul>
-       </div>
+       </div> -->
      </div>

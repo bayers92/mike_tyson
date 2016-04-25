@@ -1465,13 +1465,19 @@ $topbar-height: 60px;
 // $include-legacy-visibility-classes: true;
 // $include-accessibility-classes: true;
 
-.header {
+.edit-info-header {
 	text-align: left;
 	border-left: 5px $primary-color solid;
 	padding-left: 50px;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	margin-bottom: 30px; 
+	a {
+		color: $dark-gray;
+		&:hover {
+			color: $medium-gray;
+		}
+	}
 }
 
 .center-text {
@@ -1899,6 +1905,19 @@ a {
 				}
 			}
 		}
+		.heading {
+			margin-top: 30px;
+			margin-bottom: 15px;
+			text-transform: uppercase;
+			z-index: 999999;
+			a {
+				color: #6B6F77;
+				padding-left: 30px;
+				&:hover {
+					color: $light-gray;
+				}
+			}
+		}
 		.links {
 			li {
 				i {
@@ -1909,11 +1928,15 @@ a {
 					padding-right: 10px;
 				}
 				a {
+					color: #A1A3A8 !important;
+					&:hover {
+						color: $light-gray !important;
+					}
 				}
-				padding: 3px 3px;
+				padding: 10px 10px;
 				&.active {
 					a {
-						font-weight: bold;
+						color: $light-gray !important;
 					}
 				}
 			}
@@ -2007,13 +2030,13 @@ textarea {
 }
 
 .flash-message {
-	z-index: 99999999999;
+	// z-index: 99999999999;
 	opacity: 0.7;
-	width: 30%;
-	position: fixed;
-	margin-left: 35%;
+	width: 100%;
+	// position: fixed;
+	// margin-left: 35%;
 	text-align: center;
-	margin-top: 20px;
+	// margin-top: 20px;
 	.alert-box {
 		margin-bottom: 0px !important;
 	}
@@ -2184,6 +2207,37 @@ body {
 
 #edit-page-nav {
 	box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+	margin-bottom: 20px;
+	position: fixed;
+	background-color: white;
+	z-index: 99;
+	height: 60px;
+	.nav-content {
+		padding-top: 5px;
+		color: $primary-color;
+		float: right !important;
+		.button {
+			color: $primary-color;
+		    background-color: white;
+		    border: 2px solid $primary-color;
+		    padding: 12px;
+			a {
+				color: $primary-color;
+			}
+		}
+		a {
+			color: $primary-color;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+	}
+}
+#edit-nav-filler {
+	min-height: 60px;
+}
+
+.edit-content-section {
+	padding-top: 40px;
 }
 
 @import 'foundation';

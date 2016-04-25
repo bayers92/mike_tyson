@@ -1,7 +1,12 @@
 <div class = "row edit-page">
 	<%= render 'application/sideNav'%>
-	<div class = "small-12 medium-9 columns form-yield">
-		<h4 class = "header"> Edit Social Media Links </h4>
-		<%= render 'form' %>
+	<div class = "small-12 medium-9 columns form-yield no-padding">
+		<%= render 'application/topNav' %>
+	    <%= render 'application/alerts' %>
+
+		<div class = "small-12 medium-9 columns edit-content-section">
+			<h4 class = "header"> Edit Social Media Links </h4>
+			<%= render 'form' %>
+		</div>
 	</div>
 </div>

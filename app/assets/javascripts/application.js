@@ -13,10 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
 //= require_tree .
 $(document).foundation();
-
+//= require turbolinks
 
 // offcanvas nav preferences
 $(document).foundation({

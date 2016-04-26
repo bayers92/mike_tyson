@@ -1487,7 +1487,7 @@ $topbar-height: 60px;
 
 .content {
 	padding-top: 60px;
-	padding-bottom: 60px;
+	padding-bottom: 0px;
 }
 
 .content.insta {
@@ -1785,6 +1785,17 @@ a {
 }
 
 
+@media #{$medium-only} {
+	.content {
+		margin-top: 0px !important;
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	.client {
+		height: 40vh !important;
+	}
+}
+
 // 
 // OFFCANVAS NAV BAR FIX START
 @media #{$small-only} {
@@ -1794,6 +1805,8 @@ a {
 	}
 	.content {
 		margin-top: 0px !important;
+		padding-top: 0px;
+		padding-bottom: 0px;
 	}
 	body,html{
 		height:100%;
@@ -1808,7 +1821,9 @@ a {
 		height: 100%; overflow:scroll;
 		-webkit-overflow-scrolling: touch;
 	}
-
+	.header {
+		margin-top: 50px;
+	}
 	#instafeed {
 		text-align: center !important;
 		img {
@@ -1821,6 +1836,7 @@ a {
 			margin-left: auto;
 			margin-right: auto;
 			width: 200px;
+			height: auto;
 			text-align: center;
 			float: none !important;		
 		}
@@ -2282,10 +2298,13 @@ body {
 }
 
 .alt-text {
-	color: $dark-gray;
+	color: $dark-gray !important;
 	text-transform: italic;
 	font-size: 0.95rem;
-	margin: 0.5;
+}
+
+.dark-gray {
+	color: $dark-gray !important;
 }
 
 @import 'foundation';

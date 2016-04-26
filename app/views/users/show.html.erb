@@ -191,7 +191,9 @@
           <div class = "row blog">
             <div class = "small-12 columns">
               <h3 class = "header text-left"> Reading List </h3>
-              <ul class="small-block-grid-1 medium-block-grid-2 no-bullet articles data-equalizer">
+              <h5 class = "dark-gray"><i> Articles from around the web that I've found interesting </i> </h5>
+              <br/>
+              <ul class="small-block-grid-1 medium-block-grid-1 no-bullet articles data-equalizer">
                 <% @user.articles.each do |article| %>
                   <li = "post data-equalizer-watch"> 
                     <a href= "<%= article.url %>">

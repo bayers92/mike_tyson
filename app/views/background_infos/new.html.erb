@@ -2,10 +2,20 @@
 	<%= render 'application/sideNav'%>
 	<div class = "small-12 medium-9 columns form-yield no-padding">
 		<%= render 'application/topNav' %>
-	    <%= render 'application/alerts' %>
+		<%= render 'application/alerts' %>
 
 		<div class = "small-12 medium-9 columns edit-content-section">
-		<h4 class = "header"> Upload Background Information </h4>
-		<%= render 'form' %>
+			<div class = "edit-info-header">
+				<h4> Edit Background Info </h4>
+				<a href="#" data-reveal-id="instructModal">
+					<i class="fa fa-question-circle"></i>&nbsp;Instructions
+				</a>
+			</div>
+
+			<%= render 'form' %>
+
+			<%= render 'application/instructions_background_info' %>
+
+		</div>
 	</div>
 </div>

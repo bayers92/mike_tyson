@@ -2,32 +2,66 @@
 	<%= render 'application/sideNav'%>
 	<div class = "small-12 medium-9 columns form-yield no-padding">
 		<%= render 'application/topNav' %>
-	    <%= render 'application/alerts' %>
+		<%= render 'application/alerts' %>
 
 		<div class = "small-12 medium-9 columns edit-content-section">
-		<h4 class = "header"> Edit Background Information </h4>
-		<%= render 'form' %>
-		<br/>
-		<br/>
-		<br/>
+			<div class = "edit-info-header">
+				<h4> Edit Background Info </h4>
+				<a href="#" data-reveal-id="instructModal">
+					<i class="fa fa-question-circle"></i>&nbsp;Instructions
+				</a>
+			</div>
 
-		<% if @background_info.background_type == 0 %>
-			<h4 class = "header"> Prior Experience </h4>
-		<% else %>
-			<h4 class = "header"> Prior Education </h4>
-		<% end %>
-		<br/>
+			<%= render 'form' %>
+			<br/>
+			<br/>
+			<br/>
 
-		<%= render @background_info.experiences.reverse %>
-		<% if @background_info.experiences.count < 4 %>
 			<% if @background_info.background_type == 0 %>
-				<%= button_to "Add New Experience", new_experience_path, :class => "button", :method => :get %>
+			<h4 class = "edit-info-header"> Prior Experience </h4>
 			<% else %>
-				<%= button_to "Add New Education", new_experience_path, :class => "button", :method => :get %>
+			<h4 class = "edit-info-header"> Prior Education </h4>
 			<% end %>
-		<% else %>
-			<p> <i>Four is the maximum number of experiences... </i></p>
-		<% end %>
-		<br/>
+			<br/>
+
+			<%= render @background_info.experiences.reverse %>
+			<% if @background_info.experiences.count < 4 %>
+			<% if @background_info.background_type == 0 %>
+			<%= button_to "Add New Experience", new_experience_path, :class => "button", :method => :get %>
+			<% else %>
+			<%= button_to "Add New Education", new_experience_path, :class => "button", :method => :get %>
+			<% end %>
+			<% else %>
+			<p class = "alt-text">Four is the maximum number of experiences. </p>
+			<% end %>
+			<br/>
+
+
+			<div id="instructModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" style="top: 45px;height: 90vh;overflow-y: scroll;">
+
+				<h2 id="modalTitle"> Background Info Instructions</h2>
+
+				<p class="lead-p">This section allows you to visually highlight your past education or experiences. No text is required. Use this opportunity to display the logos of companies or institutions that you have been affiliated with in the past.  </p>
+
+				<p class = "section-header"> Instructions: </p>
+				<p class = "section-content"> 
+					This is the easiest section by far.
+					<ol>
+						<li> Select if you want the title of this section to be 'Prior Experience' or 'Prior Education'. Choose whichever fits best with your situation. Choose experience if you want to upload both companies and schools.
+						</li>
+						<li> Upload logos of the companies/institutions. Google search is the easiest way to find the logos. Keep searching until you find logos with white backgrounds - it makes your website looks much better. Crop images to be square for best results. Copy and paste a relevant URL for that experience (i.e., website of company or degree program)
+							<p class ="example">
+								Accepted file types: jpeg, png<br/>
+								Maximum file size: 400kb <br/>
+								Optimal dimensions: 200 x 200 pixels
+							</p>
+						</li>
+				</p>
+
+
+
+				<a class="close-reveal-modal" aria-label="Close">&#215;</a>
+			</div>
+		</div>
 	</div>
 </div>

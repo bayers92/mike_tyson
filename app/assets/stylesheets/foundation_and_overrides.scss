@@ -2249,7 +2249,7 @@ body {
 	.lead-p {
 		font-size: 1.1rem;
 		color: $dark-gray;
-	    border-left: 4px solid $dark-gray;
+	    border-left: 4px solid $primary-color;
 	    padding-left: 20px;
 	}
 	.section-header {
@@ -2270,9 +2270,22 @@ body {
 	.technicals {
 		color: $medium-gray;
 		text-transform: italic;
-		margin: 0 0 0 0;
 		font-size: 0.8rem;
+		margin-top: -15px;
 	}
+	.example {
+		color: $medium-gray;
+		text-transform: italic;
+		font-size: 0.8rem;
+		margin: 0 0 0 0;
+	}
+}
+
+.alt-text {
+	color: $dark-gray;
+	text-transform: italic;
+	font-size: 0.95rem;
+	margin: 0.5;
 }
 
 @import 'foundation';

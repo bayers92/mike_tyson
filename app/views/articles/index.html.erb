@@ -1,3 +1,4 @@
+
 <div class = "row edit-page">
     <%= render 'application/sideNav'%>
     <div class = "small-12 medium-9 columns form-yield no-padding">
@@ -5,8 +6,12 @@
         <%= render 'application/alerts' %>
 
         <div class = "small-12 medium-9 columns edit-content-section">
-
-    <h4 class = "header"> Edit Reading List </h4>
+            <div class = "edit-info-header">
+                <h4> Edit Reading List </h4>
+                <a href="#" data-reveal-id="instructModal">
+                    <i class="fa fa-question-circle"></i>&nbsp;Instructions
+                </a>
+            </div>
     <%= button_to "New Article", new_article_path, :class => "button", :method => :get %>
     <br/>
     <br/>
@@ -19,6 +24,7 @@
         </small>
         <br/>
         <br/>
+         <%= render 'application/instructions_reading_list' %>
     <% end %>
   </div>
 </div>

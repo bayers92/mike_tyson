@@ -1,11 +1,18 @@
-<div class = "row edit-page">
-	<%= render 'application/sideNav'%>
-	<div class = "small-12 medium-9 columns form-yield no-padding">
-		<%= render 'application/topNav' %>
-	    <%= render 'application/alerts' %>
 
-		<div class = "small-12 medium-9 columns edit-content-section">
-		<h4 class = "header"> Create New Article </h4>
+<div class = "row edit-page">
+    <%= render 'application/sideNav'%>
+    <div class = "small-12 medium-9 columns form-yield no-padding">
+        <%= render 'application/topNav' %>
+        <%= render 'application/alerts' %>
+
+        <div class = "small-12 medium-9 columns edit-content-section">
+            <div class = "edit-info-header">
+                <h4> Create New Article</h4>
+                <a href="#" data-reveal-id="instructModal">
+                    <i class="fa fa-question-circle"></i>&nbsp;Instructions
+                </a>
+            </div>
 		<%= render 'form' %>
+		<%= render 'application/instructions_articles' %>
 	</div>
 </div>

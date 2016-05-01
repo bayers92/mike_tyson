@@ -2311,4 +2311,9 @@ body {
 // 	border-left: 5px $primary-color solid;
 // }
 
+
+// Block Tumblr Links
+.tmblr-iframe--desktop-logged-in-controls.iframe-controls--desktop {
+	display: none !important;
+}
 @import 'foundation';

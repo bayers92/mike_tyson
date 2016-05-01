@@ -9,6 +9,7 @@
 <body>
   <div class="off-canvas-wrap fixed" data-offcanvas>
     <div class="inner-wrap">
+          <%= render 'application/alerts' %>
 
       <section class="main-section">
         <div class = "heading">
@@ -23,7 +24,7 @@
             <% if user_signed_in? %>
             <%= button_to "View Profile", edit_user_path(current_user), :class => "button round custom", :method => :get  %>      
             <% else %>
-            <%= button_to "Login", new_user_session_path, :class => "button round custom" %>
+            <%= button_to "Login", new_user_session_path, :class => "button round custom",  method: :get %>
             <% end %>
           </div>
         </div>

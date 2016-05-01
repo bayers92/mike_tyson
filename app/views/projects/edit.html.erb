@@ -4,13 +4,17 @@
 		<%= render 'application/topNav' %>
 	    <%= render 'application/alerts' %>
 
-		<div class = "small-12 medium-9 columns edit-content-section">
-		<% if current_user.showcase.showcase_type != nil %>
-			<% if current_user.showcase.showcase_type == 1 %>
-				<%= render 'form1' %>
-			<% else %>
-				<%= render 'form0' %>
-			<% end %>
-		<% end %>
+	    <div class = "small-12 medium-9 columns edit-content-section">
+			<div class = "edit-info-header">
+				<h4> Edit Project Info </h4>
+				<a href="#" data-reveal-id="instructModal">
+					<i class="fa fa-info-circle"></i>&nbsp;Instructions
+				</a>
+			</div>
+
+			<%= render 'form0' %>
+
+			<%= render 'application/instructions_project' %>
+		</div>
 	</div>
 </div>

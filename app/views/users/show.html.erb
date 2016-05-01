@@ -176,11 +176,7 @@
               <h3 class = "header"> Projects </h3>
             </div>
           </div>
-          <% if @user.showcase.showcase_type == 0 %>
-            <%= render 'projects/project0' %>
-          <% else %>
-            <%= render 'projects/project1' %>
-          <% end %>
+          <%= render 'projects/project0' %>
         </div>
             <!-- END PROJECT SECTION -->
 

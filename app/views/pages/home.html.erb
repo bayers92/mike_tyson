@@ -6,13 +6,64 @@
 }
 </style>
 <% end %>
+
+
+
+  <!-- LOADING GRAPHIC PAGE -->
+<style>
+  /* This only works with JavaScript, 
+     if it's not present, don't show loader */
+  .no-js #loading_page { display: none;  }
+  .js .loading_page { display: block; background-color: white; position: absolute; left: 0px; top: 0px; height: 100%; width: 100%; z-index: 99999;}
+</style>
+
+
+
+
+
 <body>
+
+    <div class = "loading_page" id ="loading_page">
+    <h2 id = "loading_title"> BRANDCLUB </h2>
+    <div id = "loader">
+      <%= image_tag "loader.gif" %>
+    </div>
+  </div>
+
+
   <div class="off-canvas-wrap fixed" data-offcanvas>
     <div class="inner-wrap">
-          <%= render 'application/alerts' %>
+
+      <!-- MOBILE NAV BAR -->
+      <div class = "fixed">
+        <nav class="tab-bar show-for-small-only">
+          <section class="right-small">
+            <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          </section>
+        </nav>
+      </div>
+
+      <!-- MOBILE NAVIGATION OFFCANVAS LIST -->
+      <aside class="right-off-canvas-menu" aria-hidden="true">
+        <ul class="off-canvas-list">
+          <li><label></label></li>
+          <li><a href="#about"><i class="fa fa-user fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;About</a></li>
+          <li><a href="#projects"><i class="fa fa-flask fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Projects</a></li>
+          <li><a href="#blog"><i class="fa fa-newspaper-o fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Reading List</a></li>
+          <li><a href="#photos"><i class="fa fa-instagram fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Photos</a></li>
+          <li><a href="mailto:hi@brandclub.co"><i class="fa fa-envelope-o fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Contact</a></li>
+        </ul>
+      </aside>
+      <!-- END MOBILE NAV OFFCANVAS -->
+
+
 
       <section class="main-section">
-        <div class = "heading">
+      <%= render 'application/alerts' %>
+
+
+        <!-- START DESKTOP NAVIGATION -->
+        <div class = "heading show-for-medium-up">
           <div class = "small-6 medium-9 columns">
             <div class = "logo">
               <a href="/">
@@ -28,36 +79,69 @@
             <% end %>
           </div>
         </div>
+        <!-- END NAVIGATION -->
+
+
+
 
         <!-- START hero row -->
         <div class = "row hero">
-          <div class = "small-12 medium-6 medium-offset-6 columns text-left title">
-            <div class = "slogan">
-              <h1>DEFINE <br/> YOUR<br/> BRAND</h1>
-            </div>
+          <div class = "small-12 medium-offset-6 medium-3 columns small-text-center medium-text-left logo">
+            <a href="#about">
+              <h1 class = "opening">DEFINE <br/>YOUR<br/> BRAND<br/></h1>
+            </a>
           </div>
         </div>
         <!-- END hero row -->
 
-        <!-- <div class ="row quote extra-padding-top">
-          <div class = "small-12 column">
-            <blockquote> 
-              <h1> "56% of all hiring managers are more impressed by a candidate’s personal website than any other personal branding tool—however, only 7% of job seekers actually have a personal website"
-            </blockquote>
-            <p> <a href="http://www.forbes.com/sites/jacquelynsmith/2013/04/26/why-every-job-seeker-should-have-a-personal-website-and-what-it-should-include/"> -Forbes.com </p></h2>
-          </div>
-        </div>
 
-        <div class = "row home2 extra-padding-top">
-          <div class ="small-3 columns line">
-          </div>
-          <div class = "small-12 columns">
-            <h1 class ="heading"> <i> Stand out from the crowd </i><h1>
-              <h5> Recruiters care about more than what is on your resume, they want to know <strong>what you are like as a person. </strong> Stand out from the crowd by showing your interests through posted articles and uploaded pictures. Rather than hiding behind private social media accounts, create a professional but personalized image to portray to recruiters.  </h5>
+        <!-- START ABOUT SECTION -->
+
+        <div class ="content section">
+          
+        </div>
+        <!-- END ABOUT SECTION   -->
+
+
+
+        <!-- START PROJECT SECTION -->
+        <div class = "content section">
+          
+        </div>
+            <!-- END PROJECT SECTION -->
+
+
+        <!-- START BLOG SECTION -->
+        <div class = "content section blog">
+          
+        </div>
+        <!-- END BLOG SECTION -->
+
+
+        <!-- START INSTAGRAM SECTION -->
+        <div class = "content section photos">
+          
+        </div>
+        <!-- END INSTAGRAM SECTION -->
+
+        <!-- START FOOTER SECTION -->
+        <div class = "footer section">
+          <div class = "row">
+            <div class = "small-12 large-4 small-centered columns">
+              <div class = "icons">
+
+               
+              </div>
+            </div>
+            <div class = "small-12 large-8 small-centered columns">
+              <a href="mailto:hi@brandclub.co"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; hi@brandclub.co </a>
+            </div>    
           </div>
         </div>
- -->
-      </section> <!-- END MAIN SECTION -->
-    </div> <!-- INNER WRAP -->
-  </div> <!-- OFF CANVAS WRAP -->
-</body>
+        <!-- END FOOTER SECTION -->
+      </section> 
+      <!-- END MAIN SECTION -->
+      <a class="exit-off-canvas"></a>
+    </div>
+    <!-- END OFF-CANVAS WRAP -->
+  </body>

@@ -46,11 +46,15 @@
       <!-- MOBILE NAVIGATION OFFCANVAS LIST -->
       <aside class="right-off-canvas-menu" aria-hidden="true">
         <ul class="off-canvas-list">
-          <li><label></label></li>
-          <li><a href="#about"><i class="fa fa-user fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;About</a></li>
-          <li><a href="#projects"><i class="fa fa-flask fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Projects</a></li>
-          <li><a href="#blog"><i class="fa fa-newspaper-o fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Reading List</a></li>
-          <li><a href="#photos"><i class="fa fa-instagram fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Photos</a></li>
+        <li><label class = "text-center primary-color">BRANDCLUB</label></li>
+        <li>
+          <% if user_signed_in? %>
+          <%= link_to('User Logout', destroy_user_session_path, :method => :delete) %>        
+          <% else %>
+          <span class ="primary-color-background"><%= link_to('<i class="fa fa-user fa-1x"></i> &nbsp;&nbsp;&nbsp;&nbsp;Login'.html_safe, new_user_session_path)  %></span> 
+          <span class ="primary-color"><%= link_to('<i class="fa fa-plus-square fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Sign up'.html_safe, new_user_registration_path) %> </span>
+          <% end %>
+        </li>
           <li><a href="mailto:hi@brandclub.co"><i class="fa fa-envelope-o fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Contact</a></li>
         </ul>
       </aside>
@@ -63,19 +67,26 @@
 
 
         <!-- START DESKTOP NAVIGATION -->
+        <div class = "small-12 columns heading-padding show-for-medium-up"></div>
         <div class = "heading show-for-medium-up">
-          <div class = "small-6 medium-9 columns">
+          <div class = "small-6 medium-6 columns">
             <div class = "logo">
               <a href="/">
-                <%= image_tag "brandclub_logo.png" %>
+                <%= image_tag "brandclub_logo_white.png" %>
               </a>
             </div>
           </div>
-          <div class = "small-6 medium-3 columns devise_links text-right fixed">
+          <div class = "small-6 medium-6 columns devise_links text-right fixed">
             <% if user_signed_in? %>
-            <%= button_to "View Profile", edit_user_path(current_user), :class => "button round custom", :method => :get  %>      
+
+              <%= button_to "Logout", destroy_user_session_path, :class => "button alt2 right",  method: :delete %>
+              <%= button_to "View Profile", edit_user_path(current_user), :class => "button alt right", :method => :get  %>
+
             <% else %>
-            <%= button_to "Login", new_user_session_path, :class => "button round custom",  method: :get %>
+
+              <%= button_to "Login", new_user_session_path, :class => "button alt2 right",  method: :get %>
+              <%= button_to "Sign Up", new_user_path, :class => "button alt right",  method: :get %>
+
             <% end %>
           </div>
         </div>
@@ -95,37 +106,8 @@
         <!-- END hero row -->
 
 
-        <!-- START ABOUT SECTION -->
-
-        <div class ="content section">
-          
-        </div>
-        <!-- END ABOUT SECTION   -->
-
-
-
-        <!-- START PROJECT SECTION -->
-        <div class = "content section">
-          
-        </div>
-            <!-- END PROJECT SECTION -->
-
-
-        <!-- START BLOG SECTION -->
-        <div class = "content section blog">
-          
-        </div>
-        <!-- END BLOG SECTION -->
-
-
-        <!-- START INSTAGRAM SECTION -->
-        <div class = "content section photos">
-          
-        </div>
-        <!-- END INSTAGRAM SECTION -->
-
         <!-- START FOOTER SECTION -->
-        <div class = "footer section">
+        <!-- <div class = "footer section">
           <div class = "row">
             <div class = "small-12 large-4 small-centered columns">
               <div class = "icons">
@@ -137,7 +119,7 @@
               <a href="mailto:hi@brandclub.co"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; hi@brandclub.co </a>
             </div>    
           </div>
-        </div>
+        </div> -->
         <!-- END FOOTER SECTION -->
       </section> 
       <!-- END MAIN SECTION -->

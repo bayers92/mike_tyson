@@ -42,5 +42,5 @@ $(document).ready(function(){
   setTimeout(function(){
     // $('.alert-box').remove();
     $('.close').click();
-  }, 3000);
+  }, 1000);
  });

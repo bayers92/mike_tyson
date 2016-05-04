@@ -9,121 +9,183 @@
 
 
 
-  <!-- LOADING GRAPHIC PAGE -->
+<!-- LOADING GRAPHIC PAGE -->
 <style>
   /* This only works with JavaScript, 
-     if it's not present, don't show loader */
+  if it's not present, don't show loader */
   .no-js #loading_page { display: none;  }
   .js .loading_page { display: block; background-color: white; position: absolute; left: 0px; top: 0px; height: 100%; width: 100%; z-index: 99999;}
-</style>
+  </style>
 
 
 
 
 
-<body>
+  <body>
 
     <div class = "loading_page" id ="loading_page">
-    <h2 id = "loading_title"> BRANDCLUB </h2>
-    <div id = "loader">
-      <%= image_tag "loader.gif" %>
-    </div>
-  </div>
-
-
-  <div class="off-canvas-wrap fixed" data-offcanvas>
-    <div class="inner-wrap">
-
-      <!-- MOBILE NAV BAR -->
-      <div class = "fixed">
-        <nav class="tab-bar show-for-small-only">
-          <section class="right-small">
-            <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-          </section>
-        </nav>
+      <h2 id = "loading_title"> BRANDCLUB </h2>
+      <div id = "loader">
+        <%= image_tag "loader.gif" %>
       </div>
-
-      <!-- MOBILE NAVIGATION OFFCANVAS LIST -->
-      <aside class="right-off-canvas-menu" aria-hidden="true">
-        <ul class="off-canvas-list">
-        <li><label class = "text-center primary-color">BRANDCLUB</label></li>
-        <li>
-          <% if user_signed_in? %>
-          <%= link_to('User Logout', destroy_user_session_path, :method => :delete) %>        
-          <% else %>
-          <span class ="primary-color-background"><%= link_to('<i class="fa fa-user fa-1x"></i> &nbsp;&nbsp;&nbsp;&nbsp;Login'.html_safe, new_user_session_path)  %></span> 
-          <span class ="primary-color"><%= link_to('<i class="fa fa-plus-square fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Sign up'.html_safe, new_user_registration_path) %> </span>
-          <% end %>
-        </li>
-          <li><a href="mailto:hi@brandclub.co"><i class="fa fa-envelope-o fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Contact</a></li>
-        </ul>
-      </aside>
-      <!-- END MOBILE NAV OFFCANVAS -->
+    </div>
 
 
+    <div class="off-canvas-wrap fixed" data-offcanvas>
+      <div class="inner-wrap">
 
-      <section class="main-section">
-      <%= render 'application/alerts' %>
+        <!-- MOBILE NAV BAR -->
+        <div class = "fixed">
+          <nav class="tab-bar show-for-small-only">
+            <section class="right-small">
+              <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+            </section>
+          </nav>
+        </div>
+
+        <!-- MOBILE NAVIGATION OFFCANVAS LIST -->
+        <aside class="right-off-canvas-menu" aria-hidden="true">
+          <ul class="off-canvas-list">
+            <li><label class = "text-center primary-color">BRANDCLUB</label></li>
+            <li>
+              <% if user_signed_in? %>
+              <%= link_to('User Logout', destroy_user_session_path, :method => :delete) %>        
+              <% else %>
+              <span class ="primary-color-background"><%= link_to('<i class="fa fa-user fa-1x"></i> &nbsp;&nbsp;&nbsp;&nbsp;Login'.html_safe, new_user_session_path)  %></span> 
+              <span class ="primary-color"><%= link_to('<i class="fa fa-plus-square fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Sign up'.html_safe, new_user_registration_path) %> </span>
+              <% end %>
+            </li>
+            <li><a href="mailto:hi@brandclub.co"><i class="fa fa-envelope-o fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Contact</a></li>
+          </ul>
+        </aside>
+        <!-- END MOBILE NAV OFFCANVAS -->
 
 
-        <!-- START DESKTOP NAVIGATION -->
-        <div class = "small-12 columns heading-padding show-for-medium-up"></div>
-        <div class = "heading show-for-medium-up">
-          <div class = "small-6 medium-6 columns">
-            <div class = "logo">
-              <a href="/">
-                <%= image_tag "brandclub_logo_white.png" %>
-              </a>
+
+        <section class="main-section">
+          <%= render 'application/alerts' %>
+
+
+          <!-- START DESKTOP NAVIGATION -->
+          <!-- <div class = "small-12 columns heading-padding show-for-medium-up"></div> -->
+          <div class = "heading show-for-medium-up" id = "heading">
+            <div class = "small-6 medium-6 columns">
+              <div class = "logo">
+                <a href="/">
+                  <%= image_tag "brandclub_logo_white.png" %>
+                </a>
+              </div>
             </div>
-          </div>
-          <div class = "small-6 medium-6 columns devise_links text-right fixed">
-            <% if user_signed_in? %>
+            <div class = "small-6 medium-6 columns devise_links text-right fixed">
+              <% if user_signed_in? %>
 
               <%= button_to "Logout", destroy_user_session_path, :class => "button alt2 right",  method: :delete %>
               <%= button_to "View Profile", edit_user_path(current_user), :class => "button alt right", :method => :get  %>
 
-            <% else %>
+              <% else %>
 
               <%= button_to "Login", new_user_session_path, :class => "button alt2 right",  method: :get %>
               <%= button_to "Sign Up", new_user_path, :class => "button alt right",  method: :get %>
 
-            <% end %>
+              <% end %>
+            </div>
           </div>
-        </div>
-        <!-- END NAVIGATION -->
+          <!-- END NAVIGATION -->
 
 
 
 
-        <!-- START hero row -->
-        <div class = "row hero">
-          <div class = "small-12 medium-offset-6 medium-3 columns small-text-center medium-text-left logo">
-            <a href="#about">
-              <h1 class = "opening">DEFINE <br/>YOUR<br/> BRAND<br/></h1>
-            </a>
+          <!-- START hero row -->
+          <div class = "row hero">
+            <div class = "small-12 medium-offset-6 medium-3 columns small-text-center medium-text-left logo">
+              <a href="#about">
+                <h1 class = "opening">DEFINE <br/>YOUR<br/> BRAND<br/></h1>
+              </a>
+            </div>
           </div>
-        </div>
-        <!-- END hero row -->
+          <!-- END hero row -->
+
+          <div class = "homepage-content">
 
 
-        <!-- START FOOTER SECTION -->
-        <!-- <div class = "footer section">
-          <div class = "row">
-            <div class = "small-12 large-4 small-centered columns">
-              <div class = "icons">
+            <!-- Start About Section -->
+            <a name="about" data-magellan-destination="about"></a>
+            <!-- START ABOUT SECTION -->
+            <div class ="content section">
+              <div class = "row">
+                <div class = "small-12 small-cenetered columns">
+                  <h3 class = "edit-info-header "> BrandClub is a platform that allows students to better portray themselves to potential employers.</h3>
+                </div>
+              </div>
 
-               
+              <div class = "row mission">
+                <div class = "small-12 medium-4 columns text-center">
+                  <div class = "mission-box">
+                    <i class="fa fa-check fa-5x"></i><br/>
+                    <h5>Skill Set</h5>
+                    <p> Upload projects to demonstrate relevant skills and capabilities to prove to employers you are ready for the job. </p>
+                  </div>
+                </div>
+                <div class = "small-12 medium-4 columns text-center">
+                  <div class = "mission-box">
+                    <i class="fa fa-comments fa-5x"></i><br/>
+                    <h5>Personality</h5>
+                    <p> Include photos and a reading list to show your diverse interests, have conversation starters, and pass the airport test. </p>
+                  </div>
+                </div>
+                <div class = "small-12 medium-4 columns text-center">
+                  <div class = "mission-box">
+                    <i class="fa fa-comments fa-5x"></i><br/>
+                    <h5>Communication</h5>
+                    <p> Learning to communicate your story in a concise and compelling manner is an integral part to the BrandClub process. </p>
+                  </div>
+                </div>
+              </div>
+              <!-- END ABOUT SECTION -->
+
+              <!-- START SECOND SECTION -->
+              <div class = "row bg2 no-padding">
+                <div class = "row">
+                  <div clas = "row second">
+                    <div class = "small-10 medium-4 medium-offset-2 columns small-centered medium-uncentered ">
+                      <a class="th" href="http://moshaikh.com">
+                        <%= image_tag "mo_about.jpg" %>
+                      </a>
+                    </div>
+                    <div class ="small-11 medium-5 medium-offset-6 small-centered columns text-right">
+                      <h1 class = "text-right"> Give your students an edge. </h1><br/>
+                      <h5> LinkedIn is a recruiter's tool. Resumes are ubiquitous. Students need a way to differentiate themselves. BrandClub allows individuals to make a unique and lasting impression to stand out from the crowd. </h5> 
+                      <br/>
+                      <h5 class = "text-left"> <a href="http://moshaikh.com">&nbsp; <i class="fa fa-arrow-left fa-1x"></i> &nbsp;&nbsp;<i>See an example</i></a></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END SECOND SECTION   -->
+
+
+              <!-- START FOOTER SECTION -->
+              <div class = "footer section">
+                <div class = "row">
+                  <div class = "small-12 large-4 small-centered columns">
+                    <div class = "icons">
+
+
+                    </div>
+                  </div>
+                  <div class = "small-12 large-8 small-centered columns">
+                    <a href="mailto:hi@brandclub.co"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; hi@brandclub.co </a>
+                  </div>    
+                </div>
               </div>
             </div>
-            <div class = "small-12 large-8 small-centered columns">
-              <a href="mailto:hi@brandclub.co"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; hi@brandclub.co </a>
-            </div>    
           </div>
-        </div> -->
-        <!-- END FOOTER SECTION -->
-      </section> 
-      <!-- END MAIN SECTION -->
-      <a class="exit-off-canvas"></a>
+          <!-- END FOOTER SECTION -->
+        </section> 
+      </div>
     </div>
-    <!-- END OFF-CANVAS WRAP -->
-  </body>
+    <!-- END MAIN SECTION -->
+    <a class="exit-off-canvas"></a>
+  </div>
+  <!-- END OFF-CANVAS WRAP -->
+</body>

@@ -1874,6 +1874,7 @@ a {
 	position: fixed;
 	width: 100vw;
 	z-index: 4;
+	height: 90px;
 	.logo {
 		padding-top: 30px;
 		padding-left: 30px;
@@ -1989,7 +1990,9 @@ a {
 }
 
 .no-padding {
-	padding: 0px !important;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	max-width: none !important;
 }
 
 
@@ -2321,6 +2324,31 @@ body {
 // 	border-left: 5px $primary-color solid;
 // }
 
+.mission {
+	color: $dark-gray !important;
+}
+.bg2 {
+	background-color: $dark-gray;
+	h3, h5, i, h2, h1, h4, p, a {
+		color: white !important;
+	}
+	a {
+		&:hover {
+			color: $primary-color !important;
+		}
+	}
+	padding-top: 80px;
+    padding-bottom: 80px;
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+
+}
+.second {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	
+}
+
 
 // Block Tumblr Links
 .tmblr-iframe--desktop-logged-in-controls.iframe-controls--desktop {
@@ -2402,6 +2430,10 @@ body {
 		color: white !important;
 		background-color: $secondary-color !important;
 	}
+}
+
+.homepage-content {
+	z-index: -2;
 }
 
 @import 'foundation';

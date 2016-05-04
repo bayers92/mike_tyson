@@ -42,5 +42,11 @@ $(document).ready(function(){
   setTimeout(function(){
     // $('.alert-box').remove();
     $('.close').click();
-  }, 1000);
+  }, 2000);
  });
+
+
+var $heading = $('#heading');
+$(document).scroll(function() {
+    $heading.css({background: $(this).scrollTop()>400 ? "#FA584F":"rgba(0,0,0,0)"});
+});

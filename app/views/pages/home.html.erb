@@ -153,15 +153,34 @@
                       </a>
                     </div>
                     <div class ="small-11 medium-5 medium-offset-6 small-centered columns text-right">
-                      <h1 class = "text-right"> Give your students an edge. </h1><br/>
-                      <h5> LinkedIn is a recruiter's tool. Resumes are ubiquitous. Students need a way to differentiate themselves. BrandClub allows individuals to make a unique and lasting impression to stand out from the crowd. </h5> 
+                      <h1 class = "small-text-center medium-text-right"> Give your students an edge. </h1><br/>
+                      <h5 class = "small-text-center medium-text-right"> LinkedIn is a recruiter's tool. Resumes are ubiquitous. Students need a way to differentiate themselves. BrandClub allows individuals to make a unique and lasting impression to stand out from the crowd. </h5> 
                       <br/>
-                      <h5 class = "text-left"> <a href="http://moshaikh.com">&nbsp; <i class="fa fa-arrow-left fa-1x"></i> &nbsp;&nbsp;<i>See an example</i></a></h5>
+                      <h5 class = "text-left show-for-medium-up"> <a href="http://moshaikh.com">&nbsp; <i class="fa fa-arrow-left fa-1x"></i> &nbsp;&nbsp;<i>See an example</i></a></h5>
                     </div>
                   </div>
                 </div>
               </div>
               <!-- END SECOND SECTION   -->
+
+              <!-- START CONTACT -->
+                <div class ="small-12 medium-10 small-centered columns text-left" id="info">
+                  <form method="POST" name="contactform" action="contact-form-handler.php">
+                    <fieldset>
+                      <legend> <a href="mailto:hi@brandclub.co"> hi@brandclub.co </a></legend>
+                      <div class ="row">
+                        <div class="small-12 medium-4 medium-offset-2 columns small-centered medium-uncentered text-right">
+                          <input type="text" class = "height-45" name="email" placeholder="Email" />
+                        </div>
+                        <div class ="small-12 medium-6 small-centered medium-uncentered columns small-text-center medium-text-left">
+                          <input class="button small large-6" type="submit" value = "Request Demo" />
+                        </div>
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+              <!-- END CONTACT -->
 
 
               <!-- START FOOTER SECTION -->
@@ -169,10 +188,12 @@
                 <div class = "row">
                   <div class = "small-12 large-4 small-centered columns">
                     <div class = "icons">
-
-
+                      <div class = "logo">
+                <a href="/">
+                  <%= image_tag "brandclub_logo_gray.png" %>
+                </a>
+              </div>
                     </div>
-                  </div>
                   <div class = "small-12 large-8 small-centered columns">
                     <a href="mailto:hi@brandclub.co"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; hi@brandclub.co </a>
                   </div>    

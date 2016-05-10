@@ -1730,7 +1730,7 @@ a {
 	}
 }
 
-.row {
+.main-section {
 	padding-bottom: 30px !important;
 	padding-top: 30px !important;
 }
@@ -1918,9 +1918,10 @@ a {
 			height: 60px;
 			background-color: #373C47;
 			box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
-			.logo {
-				padding-top: 5px;
-				padding-bottom: 5px;
+			.logo img{
+				padding-top: 10px;
+				padding-bottom: 10px;
+				height: 60px;
 			}
 		}
 		.user-name {
@@ -1938,7 +1939,7 @@ a {
 				}
 			}
 		}
-		.heading {
+		.home-link {
 			margin-top: 30px;
 			margin-bottom: 15px;
 			text-transform: uppercase;
@@ -2312,6 +2313,9 @@ body {
 		text-transform: italic;
 		font-size: 0.8rem;
 		margin: 0 0 0 0;
+		a {
+			color: $primary-color !important;
+		}
 	}
 }
 

@@ -126,21 +126,38 @@
               <h3 class = "header"> About </h3>
             </div>
           </div>
-          <div class = "row">
-            <div class = "small-12 small-centered columns">
-              <div class = "pic about">
-                <img src="<%= @user.personal_info.about_pic.url() %>">
+
+          <!-- Horizontal Photo Start -->
+          <% if @user.personal_info.vertical == 0 %>
+            <div class = "row">
+              <div class = "small-12 small-centered columns">
+                <div class = "pic about">
+                  <img src="<%= @user.personal_info.about_pic.url() %>">
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class = "row">
-            <div class ="small-12 small-centered columns">
-              <p>
-                <%= @user.personal_info.intro_paragraph %>
-              </p>
+            <div class = "row">
+              <div class ="small-12 small-centered columns">
+                <p>
+                  <%= @user.personal_info.intro_paragraph %>
+                </p>
+              </div>
             </div>
-          </div>
+
+            <!-- Vertical Photo Start -->
+          <% else %>
+            <div class = "row">
+              <div class = "small-12 medium-4 columns">
+                <img src="<%= @user.personal_info.about_pic.url() %>">
+              </div>
+              <div class ="small-12 small-centered columns">
+                <p>
+                  <%= @user.personal_info.intro_paragraph %>
+                </p>
+              </div>
+            </div>
+          <% end %>
 
           <div class = "row">
             <div class = "small-12 small-centered columns">

@@ -1467,16 +1467,20 @@ $topbar-height: 60px;
 
 .edit-info-header {
 	text-align: left;
-	border-left: 5px $primary-color solid;
+	border-left: 5px #FA584F solid;
+	color: #FA584F !important;
 	padding-left: 50px;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	margin-bottom: 30px; 
 	margin-top: 5px;
+	h4 {
+		color: #FA584F !important;
+	}
 	a {
-		color: $dark-gray;
+		color: $dark-gray !important;
 		&:hover {
-			color: $medium-gray;
+			color: $medium-gray !important;
 		}
 	}
 }
@@ -1945,10 +1949,10 @@ a {
 			text-transform: uppercase;
 			z-index: 999999;
 			a {
-				color: #6B6F77;
+				color: #6B6F77 !important;
 				padding-left: 30px;
 				&:hover {
-					color: $light-gray;
+					color: $light-gray !important;
 				}
 			}
 		}
@@ -2386,7 +2390,7 @@ body {
 	}
 }
 .button.alt2 {
-	color: $white;
+	color: $white !important;
     background-color: rgba(255,255,255,0);
     border: 2px solid $white;
     padding-top: 15px;
@@ -2400,6 +2404,25 @@ body {
 	}
 	&:hover {
 		background-color: $primary-color;
+	}
+
+}
+.button.alt3 {
+	color: #FA584F !important;
+    background-color: rgba(255,255,255,0);
+    border: 2px solid #FA584F;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+	a {
+		color: #FA584F !important;
+	}
+	&:hover {
+		background-color: #FA584F !important;
+		color: white !important;
 	}
 
 }
@@ -2449,4 +2472,12 @@ body {
 	height: 45px !important;
 }
 
+#previewModal {
+	padding: 0px !important;
+}
+
+.preview-button {
+	background-color: white;
+	border: 2px $primary-color solid;
+}
 @import 'foundation';

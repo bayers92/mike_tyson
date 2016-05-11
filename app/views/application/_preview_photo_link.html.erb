@@ -1,0 +1,99 @@
+<div id="previewModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" style="top: 45px;height: 90vh;overflow-y: scroll;">
+
+<% @user = current_user %>
+
+<% content_for :title do %>
+  <%= @user.homepage_info.homepage_display_name%>
+<% end %>
+
+
+<% content_for :custom_css do %> 
+<style>
+.heading {
+    display: none !important;
+}
+.row.hero {
+  background: url("<%= @user.homepage_info.homepage_pic.url() %>") no-repeat center center fixed;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url("<%= @user.homepage_info.homepage_pic.url() %>");
+}
+</style>
+<% end %>
+
+
+<!-- CHANGING PRIMARY-COLOR FOR USER -->
+<% if @user.website_setting != nil %>
+  <% if @user.website_setting.color == 1 %>
+    <%= render 'primary_color1' %>
+  <% elsif @user.website_setting.color == 2 %>
+    <%= render 'primary_color2' %>
+  <% elsif @user.website_setting.color == 3 %>
+    <%= render 'primary_color3' %>
+  <% elsif @user.website_setting.color == 4 %>
+    <%= render 'primary_color4' %>
+  <% end %>
+<% end %>
+
+
+  <!-- LOADING GRAPHIC PAGE -->
+<style>
+  /* This only works with JavaScript, 
+     if it's not present, don't show loader */
+  .no-js #loading_page { display: none;  }
+  .js .loading_page { display: block; background-color: white; position: absolute; left: 0px; top: 0px; height: 100%; width: 100%; z-index: 99999;}
+</style>
+
+
+
+
+
+<body>
+
+
+  <div class="off-canvas-wrap fixed" data-offcanvas>
+    <div class="inner-wrap">
+
+
+      <section class="main-section">
+
+
+        <!-- START INSTAGRAM SECTION -->
+        <div class = "content section photos">
+          <a name = "photos" data-magellan-destination="photos"></a>
+          <div class = "row">
+            <div class = "small-12 small-centered columns">
+              <h3 class = "header"> Photos </h3>
+            </div>
+            <div class = "small-12 small-centered columns center-text">
+              <ul class="no-bullet">
+                <script type="text/javascript" src="//<%= @user.photo_link.tumblr_url %>.tumblr.com/js"></script>
+              </ul>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "small-12 columns">
+              <p class = "small"> <a href="http://<%= @user.photo_link.tumblr_url %>.tumblr.com"> View more photos <i class="fa fa-arrow-right"></i></a> </p>
+            </div>
+          </div>
+        </div>
+        <!-- END INSTAGRAM SECTION -->
+
+      
+
+
+
+
+      </section> 
+      <!-- END MAIN SECTION -->
+      <a class="exit-off-canvas"></a>
+    </div>
+    <!-- END OFF-CANVAS WRAP -->
+  </body>
+
+
+
+
+
+
+
+	<a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

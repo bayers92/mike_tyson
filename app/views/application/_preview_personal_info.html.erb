@@ -1,0 +1,105 @@
+<div id="previewModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" style="top: 45px;height: 90vh;overflow-y: scroll;">
+
+<% @user = current_user %>
+
+<% content_for :title do %>
+  <%= @user.homepage_info.homepage_display_name%>
+<% end %>
+
+
+<% content_for :custom_css do %> 
+<style>
+.heading {
+    display: none !important;
+}
+.row.hero {
+  background: url("<%= @user.homepage_info.homepage_pic.url() %>") no-repeat center center fixed;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url("<%= @user.homepage_info.homepage_pic.url() %>");
+}
+</style>
+<% end %>
+
+
+<!-- CHANGING PRIMARY-COLOR FOR USER -->
+<% if @user.website_setting != nil %>
+  <% if @user.website_setting.color == 1 %>
+    <%= render 'primary_color1' %>
+  <% elsif @user.website_setting.color == 2 %>
+    <%= render 'primary_color2' %>
+  <% elsif @user.website_setting.color == 3 %>
+    <%= render 'primary_color3' %>
+  <% elsif @user.website_setting.color == 4 %>
+    <%= render 'primary_color4' %>
+  <% end %>
+<% end %>
+
+
+  <!-- LOADING GRAPHIC PAGE -->
+<style>
+  /* This only works with JavaScript, 
+     if it's not present, don't show loader */
+  .no-js #loading_page { display: none;  }
+  .js .loading_page { display: block; background-color: white; position: absolute; left: 0px; top: 0px; height: 100%; width: 100%; z-index: 99999;}
+</style>
+
+
+
+
+
+<body>
+
+
+  <div class="off-canvas-wrap fixed" data-offcanvas>
+    <div class="inner-wrap">
+
+
+      <section class="main-section">
+
+ <!-- START ABOUT SECTION -->
+
+        <div class ="content section">
+          <a name="about" data-magellan-destination="about"></a>
+          <div class = "row">
+            <div class = "small-12 small-cenetered columns">
+              <h3 class = "header"> About </h3>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "small-12 small-centered columns">
+              <div class = "pic about">
+                <img src="<%= @user.personal_info.about_pic.url() %>">
+              </div>
+            </div>
+          </div>
+
+          <div class = "row">
+            <div class ="small-12 small-centered columns">
+              <p>
+                <%= @user.personal_info.intro_paragraph %>
+              </p>
+            </div>
+          </div>
+
+          <div class = "row">
+            <div class = "small-12 small-centered columns">
+              <a href = "<%= @user.personal_info.resume.url() %>"><i class="fa fa-paperclip fa-2x"></i> &nbsp; View Full Resume </a><br/><br/>
+            </div>
+          </div>
+
+        </div>
+        <!-- END ABOUT SECTION   -->
+      </section> 
+      <!-- END MAIN SECTION -->
+      <a class="exit-off-canvas"></a>
+    </div>
+    <!-- END OFF-CANVAS WRAP -->
+  </body>
+
+
+
+
+
+
+
+	<a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

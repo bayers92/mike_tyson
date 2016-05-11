@@ -1,0 +1,94 @@
+<div id="previewModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" style="top: 45px;height: 90vh;overflow-y: scroll;">
+
+<% @user = current_user %>
+
+<% content_for :title do %>
+  <%= @user.homepage_info.homepage_display_name%>
+<% end %>
+
+
+<% content_for :custom_css do %> 
+<style>
+.heading {
+    display: none !important;
+}
+.row.hero {
+  background: url("<%= @user.homepage_info.homepage_pic.url() %>") no-repeat center center fixed;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url("<%= @user.homepage_info.homepage_pic.url() %>");
+}
+</style>
+<% end %>
+
+
+<!-- CHANGING PRIMARY-COLOR FOR USER -->
+<% if @user.website_setting != nil %>
+  <% if @user.website_setting.color == 1 %>
+    <%= render 'primary_color1' %>
+  <% elsif @user.website_setting.color == 2 %>
+    <%= render 'primary_color2' %>
+  <% elsif @user.website_setting.color == 3 %>
+    <%= render 'primary_color3' %>
+  <% elsif @user.website_setting.color == 4 %>
+    <%= render 'primary_color4' %>
+  <% end %>
+<% end %>
+
+
+  <!-- LOADING GRAPHIC PAGE -->
+<style>
+  /* This only works with JavaScript, 
+     if it's not present, don't show loader */
+  .no-js #loading_page { display: none;  }
+  .js .loading_page { display: block; background-color: white; position: absolute; left: 0px; top: 0px; height: 100%; width: 100%; z-index: 99999;}
+</style>
+
+
+
+
+
+<body>
+
+
+  <div class="off-canvas-wrap fixed" data-offcanvas>
+    <div class="inner-wrap">
+
+
+      <section class="main-section">
+      	
+
+
+        <!-- START hero row -->
+        <div class = "row hero">
+          <div class = "small-12 columns text-center logo">
+            <a href="#about">
+              <h1><%= @user.homepage_info.homepage_display_name %></h1>
+              <h3><%= @user.homepage_info.homepage_header %></h3>
+            </a>
+          </div>
+          <div class = "small-12 small-centered columns text-center arrow">
+            <a href="#about"><i class="fa fa-angle-double-down fa-4x"></i></a>
+          </div>
+        </div>
+        <!-- END hero row -->
+
+
+
+
+
+   
+        <!-- END FOOTER SECTION -->
+      </section> 
+      <!-- END MAIN SECTION -->
+      <a class="exit-off-canvas"></a>
+    </div>
+    <!-- END OFF-CANVAS WRAP -->
+  </body>
+
+
+
+
+
+
+
+	<a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

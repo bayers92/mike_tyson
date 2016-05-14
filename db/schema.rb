@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511222317) do
+ActiveRecord::Schema.define(version: 20160514191334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,22 @@ ActiveRecord::Schema.define(version: 20160511222317) do
     t.integer  "resume_file_size"
     t.datetime "resume_updated_at"
     t.boolean  "vertical",               default: false
+    t.string   "exp1_file_name"
+    t.string   "exp1_content_type"
+    t.integer  "exp1_file_size"
+    t.datetime "exp1_updated_at"
+    t.string   "exp2_file_name"
+    t.string   "exp2_content_type"
+    t.integer  "exp2_file_size"
+    t.datetime "exp2_updated_at"
+    t.string   "exp3_file_name"
+    t.string   "exp3_content_type"
+    t.integer  "exp3_file_size"
+    t.datetime "exp3_updated_at"
+    t.string   "exp4_file_name"
+    t.string   "exp4_content_type"
+    t.integer  "exp4_file_size"
+    t.datetime "exp4_updated_at"
   end
 
   add_index "personal_infos", ["user_id"], name: "index_personal_infos_on_user_id", using: :btree
@@ -127,6 +143,12 @@ ActiveRecord::Schema.define(version: 20160511222317) do
 
   add_index "projects", ["showcase_id"], name: "index_projects_on_showcase_id", using: :btree
 
+  create_table "schools", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "showcases", force: true do |t|
     t.integer  "showcase_type"
     t.datetime "created_at"
@@ -168,11 +190,13 @@ ActiveRecord::Schema.define(version: 20160511222317) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.integer  "school_id"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["school_id"], name: "index_users_on_school_id", using: :btree
 
   create_table "website_settings", force: true do |t|
     t.string   "domain_name"

@@ -57,7 +57,12 @@
 
       <section class="main-section">
 
- <!-- START ABOUT SECTION -->
+
+
+
+
+
+        <!-- START ABOUT SECTION -->
 
         <div class ="content section">
           <a name="about" data-magellan-destination="about"></a>
@@ -66,21 +71,38 @@
               <h3 class = "header"> About </h3>
             </div>
           </div>
-          <div class = "row">
-            <div class = "small-12 small-centered columns">
-              <div class = "pic about">
-                <img src="<%= @user.personal_info.about_pic.url() %>">
+
+          <!-- Horizontal Photo Start -->
+          <% if @user.personal_info.vertical == false %>
+            <div class = "row">
+              <div class = "small-12 small-centered columns">
+                <div class = "pic about">
+                  <img src="<%= @user.personal_info.about_pic.url() %>">
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class = "row">
-            <div class ="small-12 small-centered columns">
-              <p>
-                <%= @user.personal_info.intro_paragraph %>
-              </p>
+            <div class = "row">
+              <div class ="small-12 small-centered columns">
+                <p>
+                  <%= @user.personal_info.intro_paragraph %>
+                </p>
+              </div>
             </div>
-          </div>
+
+            <!-- Vertical Photo Start -->
+          <% else %>
+            <div class = "row">
+              <div class = "small-12 medium-4 columns">
+                <img src="<%= @user.personal_info.about_pic.url() %>">
+              </div>
+              <div class ="small-12 small-centered columns">
+                <p>
+                  <%= @user.personal_info.intro_paragraph %>
+                </p>
+              </div>
+            </div>
+          <% end %>
 
           <div class = "row">
             <div class = "small-12 small-centered columns">
@@ -88,8 +110,52 @@
             </div>
           </div>
 
+
+          <div class = "row pastExperience">
+            <div class = "small-12 small-centered columns">
+              <% if @user.personal_info.exp1_file_name != nil %>
+                <h4 class = "header"> Prior Experience </h4>
+                <div class = "small-12 medium-3 columns experience_img">
+                  <%= image_tag @user.personal_info.exp1.url(:large) %>
+                </div>
+              <% end %>
+
+              <% if @user.personal_info.exp2_file_name != nil %>
+                <div class = "small-12 medium-3 columns experience_img">
+                  <%= image_tag @user.personal_info.exp2.url(:large) %>
+                </div>
+              <% end %>
+
+
+              <% if @user.personal_info.exp3_file_name != nil %>
+                <div class = "small-12 medium-3 columns experience_img">
+                  <%= image_tag @user.personal_info.exp3.url(:large) %>
+                </div>
+              <% end %>
+
+
+              <% if @user.personal_info.exp4_file_name != nil %>
+                <div class = "small-12 medium-3 columns experience_img">
+                  <%= image_tag @user.personal_info.exp4.url(:large) %>
+                </div>
+              <% end %>
+
+
+            </div>
+          </div>
         </div>
         <!-- END ABOUT SECTION   -->
+
+
+
+
+
+
+
+
+
+
+
       </section> 
       <!-- END MAIN SECTION -->
       <a class="exit-off-canvas"></a>

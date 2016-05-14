@@ -28,13 +28,13 @@
   						<%= link_to 'Personal Info', new_personal_info_path, data: { no_turbolink: true } %>  
   						<% end %>
   					</li>
-  					<li>
+<!--   					<li>
   						<% if current_user.background_info != nil %> 
   						<%= link_to 'Background Info', edit_background_info_path(current_user.background_info), data: { no_turbolink: true } %> 
   						<% else %> 
   						<%= link_to 'Background Info', new_background_info_path, data: { no_turbolink: true } %>  
   						<% end %>
-  					</li>
+  					</li> -->
   					<li>
   						<% if current_user.showcase != nil %> 
   						<%= link_to 'Showcase', edit_showcase_path(current_user.showcase), data: { no_turbolink: true } %> 
@@ -118,14 +118,14 @@
         </li>
 
 
-        <% if current_user.background_info != nil %>
+<!--         <% if current_user.background_info != nil %>
         <li class="<%= active_class(edit_background_info_path(current_user.background_info)) %>">
           <i class="fa fa-history"></i><%= link_to 'Background Info', edit_background_info_path(current_user.background_info) %>
           <% else %>
           <li class="<%= active_class(new_background_info_path) %>">
            <i class="fa fa-history"></i><%= link_to 'Background Info', new_background_info_path %> 
            <% end %>
-         </li>
+         </li> -->
 
 
          <% if current_user.showcase != nil %>

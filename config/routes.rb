@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :schools
+
   resources :photo_links
 
   devise_for :users

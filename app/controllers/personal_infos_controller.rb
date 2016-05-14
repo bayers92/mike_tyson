@@ -32,7 +32,7 @@ class PersonalInfosController < ApplicationController
     @personal_info = @user.create_personal_info(personal_info_params)
     respond_to do |format|
       if @personal_info.save
-          format.html { redirect_to edit_user_path(@user), notice: 'Personal Info was successfully created.' }
+          format.html { redirect_to edit_personal_info_path(current_user.personal_info), notice: 'Personal Info was successfully created.' }
           format.json { render :show, status: :created, location: @personal_info }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class PersonalInfosController < ApplicationController
     @user = current_user
     respond_to do |format|
       if @personal_info.update(personal_info_params)
-        format.html { redirect_to edit_user_path(@user), notice: 'Personal info was successfully updated.' }
+        format.html { redirect_to edit_personal_info_path(current_user.personal_info), notice: 'Personal info was successfully updated.' }
         format.json { render :show, status: :ok, location: @personal_info }
       else
         format.html { render :edit }
@@ -74,6 +74,6 @@ class PersonalInfosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def personal_info_params
-       params.require(:personal_info).permit(:name_first, :name_last, :intro_paragraph, :about_pic, :resume, :vertical)
+       params.require(:personal_info).permit(:name_first, :name_last, :intro_paragraph, :about_pic, :resume, :vertical, :exp1, :exp2, :exp3, :exp4)
     end
 end

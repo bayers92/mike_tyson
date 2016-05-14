@@ -30,7 +30,7 @@ class WebsiteSettingsController < ApplicationController
 
     respond_to do |format|
       if @website_setting.save
-        format.html { redirect_to edit_user_path(current_user), notice: 'Website setting was successfully created.' }
+        format.html { redirect_to edit_website_setting_path(current_user.website_setting), notice: 'Website setting was successfully created.' }
         format.json { render :show, status: :created, location: @website_setting }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class WebsiteSettingsController < ApplicationController
   def update
     respond_to do |format|
       if @website_setting.update(website_setting_params)
-        format.html { redirect_to edit_user_path(current_user), notice: 'Website setting was successfully updated.' }
+        format.html { redirect_to edit_website_setting_path(current_user.website_setting), notice: 'Website setting was successfully updated.' }
         format.json { render :show, status: :ok, location: @website_setting }
       else
         format.html { render :edit }

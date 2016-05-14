@@ -7,12 +7,37 @@
           <%= image_tag @personal_info.about_pic.url(:med) %>
           <br/><br/>
         <% end %>
-        <%= f.input :vertical, inline_label: 'Vertical Orientation' %>
+        <%= f.input :vertical, inline_label: 'Vertical Photo' %>
         <br/>
   	    <%= f.input :intro_paragraph, label: 'Intro Paragraph', placeholder: "Thomas Edward Patrick 'Tom' Brady, Jr. (born August 3, 1977), nicknamed Tom Terrific, is an American football quarterback for the New England Patriots of the National Football League (NFL). After playing college football for the University of Michigan, Tom Brady was drafted by the Patriots in the sixth round of the 2000 NFL draft.... " %>
-  	    <%= f.input :resume, label: 'Resume: (most be PDF file)' %>
+        <br/>
+  	    <%= f.input :resume, label: 'Resume: (must be PDF file)' %>
         <% if @personal_info.resume? %>
-          <a href = "<%= @personal_info.resume.url() %>"><i class="fa fa-paperclip fa-1x"></i> &nbsp; View Full Resume </a><br/><br/>
+          <a href = "<%= @personal_info.resume.url() %>"><i class="fa fa-paperclip fa-1x"></i> &nbsp; View Full Resume </a><br/><br/><br/>
+        <% end %>
+
+        <%= f.input :exp1, label: "Logo of past experience 1:", as: :file%>
+        <% if @personal_info.exp1? %>
+          <%= image_tag @personal_info.exp1.url(:med) %>
+          <br/><br/>
+        <% end %>
+
+        <%= f.input :exp2, label: "Logo of past experience 2:", as: :file%>
+        <% if @personal_info.exp2? %>
+          <%= image_tag @personal_info.exp2.url(:med) %>
+          <br/><br/>
+        <% end %>
+
+        <%= f.input :exp3, label: "Logo of past experience 3:", as: :file%>
+        <% if @personal_info.exp3? %>
+          <%= image_tag @personal_info.exp3.url(:med) %>
+          <br/><br/>
+        <% end %>
+
+        <%= f.input :exp4, label: "Logo of past experience 4:", as: :file%>
+        <% if @personal_info.exp4? %>
+          <%= image_tag @personal_info.exp4.url(:med) %>
+          <br/><br/>
         <% end %>
   </div>
 

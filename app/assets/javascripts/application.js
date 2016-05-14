@@ -58,23 +58,27 @@ $(document).ready(function(){
         $("#articles").hide();
         $("#photos").hide();
         $("#students").hide();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
     });
     $("#articles-link").click(function(){
         $("#projects").hide();
         $("#articles").show();
         $("#photos").hide();
         $("#students").hide();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
     });
     $("#photos-link").click(function(){
         $("#projects").hide();
         $("#articles").hide();
         $("#photos").show();
         $("#students").hide();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
     });
     $("#students-link").click(function(){
         $("#projects").hide();
         $("#articles").hide();
         $("#photos").hide();
         $("#students").show();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
     });
 });

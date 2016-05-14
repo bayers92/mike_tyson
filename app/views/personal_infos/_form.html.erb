@@ -13,7 +13,7 @@
         <br/>
   	    <%= f.input :resume, label: 'Resume: (must be PDF file)' %>
         <% if @personal_info.resume? %>
-          <a href = "<%= @personal_info.resume.url() %>"><i class="fa fa-paperclip fa-1x"></i> &nbsp; View Full Resume </a><br/><br/><br/>
+          <a href = "<%= @personal_info.resume.url() %>" id="resume"><i class="fa fa-paperclip fa-1x"></i> &nbsp; View Full Resume </a><br/><br/><br/>
         <% end %>
 
         <%= f.input :exp1, label: "Logo of past experience 1:" %>

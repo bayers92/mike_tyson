@@ -2282,6 +2282,9 @@ body {
 
 .edit-content-section {
 	padding-top: 40px;
+	#resume {
+		color: #FA584F !important;
+	}
 }
 
 #instructModal {
@@ -2480,4 +2483,18 @@ body {
 	background-color: white;
 	border: 2px $primary-color solid;
 }
+
+#modalTitle {
+	color: #FA584F !important;
+}
+
+#projects {
+	a {
+		color: #FA584F !important;
+	}
+	h1, h2, h3, h4, h5, p {
+		color: $dark-gray !important;
+	}
+}
+
 @import 'foundation';

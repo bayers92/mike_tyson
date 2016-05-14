@@ -1,69 +1,67 @@
 <% @school.projects.each do |project| %>
-<div class = "row">
-  <div class = "small-12 small-centered columns instance">
-    <h5> <%= link_to project.showcase.user.homepage_info.homepage_display_name, user_path(project.showcase.user)  %> </h5>
-    <h4> <%= project.title %> </h4>
-    <p> <%= project.paragraph %></p>
+<div class = "small-12 small-centered columns instance">
+  <h5> <%= link_to project.showcase.user.homepage_info.homepage_display_name, user_path(project.showcase.user)  %> </h5>
+  <h4> <%= project.title %> </h4>
+  <p> <%= project.paragraph %></p>
 
-    <% if project.file1? %>
-    <a href="<%= project.file1.url() %>">
-      <% if project.file1_type == 0 %>
-      <i class="fa fa-file-word-o fa-2x"></i> 
-      <% elsif project.file1_type == 1 %>
-      <i class="fa fa-file-excel-o fa-2x"></i> 
-      <% elsif project.file1_type == 2 %>
-      <i class="fa fa-file-powerpoint-o fa-2x"></i> 
-      <% else %>
-      <i class="fa fa-file-pdf-o fa-2x"></i> 
-      <% end %>
-      &nbsp; <%= project.file1_title %>
-    </a><br/>
+  <% if project.file1? %>
+  <a href="<%= project.file1.url() %>">
+    <% if project.file1_type == 0 %>
+    <i class="fa fa-file-word-o fa-2x"></i> 
+    <% elsif project.file1_type == 1 %>
+    <i class="fa fa-file-excel-o fa-2x"></i> 
+    <% elsif project.file1_type == 2 %>
+    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+    <% else %>
+    <i class="fa fa-file-pdf-o fa-2x"></i> 
     <% end %>
-
-    <% if project.file2? %>
-    <a href="<%= project.file1.url() %>">
-      <% if project.file2_type == 0 %>
-      <i class="fa fa-file-word-o fa-2x"></i> 
-      <% elsif project.file2_type == 1 %>
-      <i class="fa fa-file-excel-o fa-2x"></i> 
-      <% elsif project.file2_type == 2 %>
-      <i class="fa fa-file-powerpoint-o fa-2x"></i> 
-      <% else %>
-      <i class="fa fa-file-pdf-o fa-2x"></i> 
-      <% end %>
-      &nbsp; <%= project.file2_title %>
-    </a><br/>
-    <% end %>
-
-    <% if project.file3? %>
-    <a href="<%= project.file1.url() %>">
-      <% if project.file3_type == 0 %>
-      <i class="fa fa-file-word-o fa-2x"></i> 
-      <% elsif project.file3_type == 1 %>
-      <i class="fa fa-file-excel-o fa-2x"></i> 
-      <% elsif project.file3_type == 2 %>
-      <i class="fa fa-file-powerpoint-o fa-2x"></i> 
-      <% else %>
-      <i class="fa fa-file-pdf-o fa-2x"></i> 
-      <% end %>
-      &nbsp; <%= project.file3_title %>
-    </a><br/>
-    <% end %>
-
-    <% if project.file4? %>
-    <a href="<%= project.file1.url() %>">
-      <% if project.file4_type == 0 %>
-      <i class="fa fa-file-word-o fa-2x"></i> 
-      <% elsif project.file4_type == 1 %>
-      <i class="fa fa-file-excel-o fa-2x"></i> 
-      <% elsif project.file4_type == 2 %>
-      <i class="fa fa-file-powerpoint-o fa-2x"></i> 
-      <% else %>
-      <i class="fa fa-file-pdf-o fa-2x"></i> 
-      <% end %>
-      &nbsp; <%= project.file4_title %>
-    </a><br/>
-    <% end %>
-  </div>
-</div>
+    &nbsp; <%= project.file1_title %>
+  </a><br/>
   <% end %>
+
+  <% if project.file2? %>
+  <a href="<%= project.file1.url() %>">
+    <% if project.file2_type == 0 %>
+    <i class="fa fa-file-word-o fa-2x"></i> 
+    <% elsif project.file2_type == 1 %>
+    <i class="fa fa-file-excel-o fa-2x"></i> 
+    <% elsif project.file2_type == 2 %>
+    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+    <% else %>
+    <i class="fa fa-file-pdf-o fa-2x"></i> 
+    <% end %>
+    &nbsp; <%= project.file2_title %>
+  </a><br/>
+  <% end %>
+
+  <% if project.file3? %>
+  <a href="<%= project.file1.url() %>">
+    <% if project.file3_type == 0 %>
+    <i class="fa fa-file-word-o fa-2x"></i> 
+    <% elsif project.file3_type == 1 %>
+    <i class="fa fa-file-excel-o fa-2x"></i> 
+    <% elsif project.file3_type == 2 %>
+    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+    <% else %>
+    <i class="fa fa-file-pdf-o fa-2x"></i> 
+    <% end %>
+    &nbsp; <%= project.file3_title %>
+  </a><br/>
+  <% end %>
+
+  <% if project.file4? %>
+  <a href="<%= project.file1.url() %>">
+    <% if project.file4_type == 0 %>
+    <i class="fa fa-file-word-o fa-2x"></i> 
+    <% elsif project.file4_type == 1 %>
+    <i class="fa fa-file-excel-o fa-2x"></i> 
+    <% elsif project.file4_type == 2 %>
+    <i class="fa fa-file-powerpoint-o fa-2x"></i> 
+    <% else %>
+    <i class="fa fa-file-pdf-o fa-2x"></i> 
+    <% end %>
+    &nbsp; <%= project.file4_title %>
+  </a><br/>
+  <% end %>
+</div>
+<% end %>

@@ -16,25 +16,25 @@
           <a href = "<%= @personal_info.resume.url() %>"><i class="fa fa-paperclip fa-1x"></i> &nbsp; View Full Resume </a><br/><br/><br/>
         <% end %>
 
-        <%= f.input :exp1, label: "Logo of past experience 1:", as: :file%>
+        <%= f.input :exp1, label: "Logo of past experience 1:" %>
         <% if @personal_info.exp1? %>
           <%= image_tag @personal_info.exp1.url(:med) %>
           <br/><br/>
         <% end %>
 
-        <%= f.input :exp2, label: "Logo of past experience 2:", as: :file%>
+        <%= f.input :exp2, label: "Logo of past experience 2:" %>
         <% if @personal_info.exp2? %>
           <%= image_tag @personal_info.exp2.url(:med) %>
           <br/><br/>
         <% end %>
 
-        <%= f.input :exp3, label: "Logo of past experience 3:", as: :file%>
+        <%= f.input :exp3, label: "Logo of past experience 3:" %>
         <% if @personal_info.exp3? %>
           <%= image_tag @personal_info.exp3.url(:med) %>
           <br/><br/>
         <% end %>
 
-        <%= f.input :exp4, label: "Logo of past experience 4:", as: :file%>
+        <%= f.input :exp4, label: "Logo of past experience 4:" %>
         <% if @personal_info.exp4? %>
           <%= image_tag @personal_info.exp4.url(:med) %>
           <br/><br/>

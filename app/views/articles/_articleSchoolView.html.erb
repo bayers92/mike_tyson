@@ -1,0 +1,10 @@
+<% @school.articles.each do |article| %>
+<div class = "small-12 small-centered columns instance">
+
+    <h5> <%= link_to article.user.homepage_info.homepage_display_name, user_path(article.user)  %> </h5>
+    <a href= "<%= article.url %>">
+      <h3> <%= article.title %> </h3>
+      <p style ="color: gray !important;"> <%= article.summary %> </p>
+    </a>
+</div>
+<% end %>

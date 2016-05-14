@@ -1,6 +1,7 @@
 <% @school.projects.each do |project| %>
 <div class = "row">
   <div class = "small-12 small-centered columns instance">
+    <h5> <%= link_to project.showcase.user.homepage_info.homepage_display_name, user_path(project.showcase.user)  %> </h5>
     <h4> <%= project.title %> </h4>
     <p> <%= project.paragraph %></p>
 

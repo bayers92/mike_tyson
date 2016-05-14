@@ -2497,4 +2497,46 @@ body {
 	}
 }
 
+#school-page {
+	padding: 0px !important;
+	margin: 0px !important;
+	background-color: #F5F5F5;
+	min-height: 100vh;
+	.top-spacer {
+		height: 200px;
+	}
+	.top {
+		background-color: $secondary-color;
+	    position: fixed;
+	    width: 100vw;
+	    margin: 0;
+        // padding-top: 40px;
+	    padding-bottom: 0px;
+	    z-index: 99;
+		h1 {
+			color: white !important;
+		}
+		.top-nav {
+			padding-top: 20px;
+			margin-top: 20px;
+			background-color: $primary-color;
+			a {
+				color: white !important;
+			}
+		}
+	}
+	.instance {
+	    background-color: white;
+	    padding: 20px;
+	    -moz-border-radius: 10px;
+	    -webkit-border-radius: 10px;
+	    border-radius: 10px;
+	    -khtml-border-radius: 10px;
+	    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+	    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+	    margin-top: 1rem;
+	    margin-bottom: 1rem;
+	}
+}
+
 @import 'foundation';

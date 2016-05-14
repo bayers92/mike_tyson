@@ -1,5 +1,48 @@
-<p id="notice"><%= notice %></p>
+<style>
+  h1, h2, h3, h4, h5, h6, p {
+  	color: <%= @school.color1 %> !important;
+  }
+  a {
+  	color: <%= @school.color2 %> !important;
+  }
+</style>
 
-<%= @school.name %>
-<%= link_to 'Edit', edit_school_path(@school) %> |
-<%= link_to 'Back', schools_path %>
+<body>
+
+	<div class = "row no-padding" id ="school-page">
+
+		<!-- START TOP SECTION -->
+		<div class = "row no-padding top" style = "background-color:<%=@school.color2%>">
+			<div class = "small-12 columns small-centered text-center">
+				<%= image_tag @school.logo.url(:med) %>
+			</div>
+			<div class = "show-for-medium-up">
+				<div class = "row top-nav" style = "background-color:<%=@school.color1%>">
+					<div class = "small-3 columns text-center">
+						<a href="#projects">Projects </a>
+					</div>
+					<div class = "small-3 columns text-center">
+						<a href="#articles">Articles </a>
+					</div>
+					<div class = "small-3 columns text-center">
+						<a href="#photos">Photos </a>
+					</div>
+					<div class = "small-3 columns text-center">
+						<a href="#students">Students </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END TOP SECTION -->
+		<!-- TOP SECTION SPACER -->
+		<div class = "top-spacer"></div>
+
+
+		<!-- START CONTENT SECTION -->
+		<div class = "small-12 medium-6 columns small-centered">
+			<%= render 'projects/projectSchoolView' %>
+		</div>
+		<!-- END CONTENT SECTION -->
+	</div>
+
+</body>

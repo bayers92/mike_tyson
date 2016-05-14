@@ -42,6 +42,6 @@ class SchoolsController < ApplicationController
     end
 
     def school_params
-      params[:school].permit(:name)
+      params[:school].permit(:name, :logo, :color1, :color2)
     end
 end

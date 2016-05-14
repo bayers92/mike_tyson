@@ -2,15 +2,17 @@
   h1, h2, h3, h4, h5, h6, p {
   	color: <%= @school.color1 %> !important;
   }
-  a {
+  #projects a, a {
   	color: <%= @school.color2 %> !important;
   }
+  #students a {
+  	color: <%= @school.color1 %> !important;
+  }
+
 </style>
 
 <body>
-
 	<div class = "row no-padding" id ="school-page">
-
 		<!-- START TOP SECTION -->
 		<div class = "row no-padding top" style = "background-color:<%=@school.color2%>">
 			<div class = "small-12 columns small-centered text-center">
@@ -19,16 +21,16 @@
 			<div class = "show-for-medium-up">
 				<div class = "row top-nav" style = "background-color:<%=@school.color1%>">
 					<div class = "small-3 columns text-center">
-						<a href="#projects">Projects </a>
+						<a href="#projects" id ="project-link">Projects </a>
 					</div>
 					<div class = "small-3 columns text-center">
-						<a href="#articles">Articles </a>
+						<a href="#articles" id = "articles-link">Articles </a>
 					</div>
 					<div class = "small-3 columns text-center">
-						<a href="#photos">Photos </a>
+						<a href="#photos" id = "photos-link">Photos </a>
 					</div>
 					<div class = "small-3 columns text-center">
-						<a href="#students">Students </a>
+						<a href="#students" id = "students-link">Students </a>
 					</div>
 				</div>
 			</div>
@@ -39,8 +41,24 @@
 
 
 		<!-- START CONTENT SECTION -->
-		<div class = "small-12 medium-6 columns small-centered">
-			<%= render 'projects/projectSchoolView' %>
+		<div id="projects">
+			<div class = "small-12 medium-6 columns small-centered">
+				<%= render 'projects/projectSchoolView' %>
+			</div>
+		</div>
+
+		<div id="articles" style="display:none">
+			<p> coming soon </p>
+		</div>
+
+		<div id="photos" style="display:none">
+			<p> coming soon </p>
+		</div>
+
+		<div id="students" style="display:none">
+			<div class = "small-12 medium-6 columns small-centered">
+				<%= render 'users/userSchoolView' %>
+			</div>
 		</div>
 		<!-- END CONTENT SECTION -->
 	</div>

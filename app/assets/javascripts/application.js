@@ -50,3 +50,31 @@ var $heading = $('#heading');
 $(document).scroll(function() {
     $heading.css({background: $(this).scrollTop()>400 ? "#FA584F":"rgba(0,0,0,0)"});
 });
+
+
+$(document).ready(function(){
+    $("#project-link").click(function(){
+        $("#projects").show();
+        $("#articles").hide();
+        $("#photos").hide();
+        $("#students").hide();
+    });
+    $("#articles-link").click(function(){
+        $("#projects").hide();
+        $("#articles").show();
+        $("#photos").hide();
+        $("#students").hide();
+    });
+    $("#photos-link").click(function(){
+        $("#projects").hide();
+        $("#articles").hide();
+        $("#photos").show();
+        $("#students").hide();
+    });
+    $("#students-link").click(function(){
+        $("#projects").hide();
+        $("#articles").hide();
+        $("#photos").hide();
+        $("#students").show();
+    });
+});

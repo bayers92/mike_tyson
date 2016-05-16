@@ -19,21 +19,23 @@
 </style>
 <% end %>
 
-
 <!-- CHANGING PRIMARY-COLOR FOR USER -->
 <% if @user.website_setting != nil %>
-  <% if @user.website_setting.color == 1 %>
-    <%= render 'primary_color1' %>
-  <% elsif @user.website_setting.color == 2 %>
-    <%= render 'primary_color2' %>
-  <% elsif @user.website_setting.color == 3 %>
-    <%= render 'primary_color3' %>
-  <% elsif @user.website_setting.color == 4 %>
-    <%= render 'primary_color4' %>
-  <% elsif @user.website_setting.color == 5 %>
-    <%= render 'primary_color5' %>
-  <% end %>
+<% if @user.website_setting.color == 0 %>
+<%= render 'primary_color0' %>
+<% elsif @user.website_setting.color == 1 %>
+<%= render 'primary_color1' %>
+<% elsif @user.website_setting.color == 2 %>
+<%= render 'primary_color2' %>
+<% elsif @user.website_setting.color == 3 %>
+<%= render 'primary_color3' %>
+<% elsif @user.website_setting.color == 4 %>
+<%= render 'primary_color4' %>
+<% elsif @user.website_setting.color == 5 %>
+<%= render 'primary_color5' %>
 <% end %>
+<% end %>
+
 
 
   <!-- LOADING GRAPHIC PAGE -->

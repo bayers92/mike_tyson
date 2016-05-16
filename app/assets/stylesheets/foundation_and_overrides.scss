@@ -2546,7 +2546,9 @@ body {
 	height: 100vh;
 	overflow-y: scroll;
 	#projects, #articles, #students, #photos {
-		padding-top: 60px;
+		h3 {
+			color: $dark-gray !important;
+		}
 	}
 }
 

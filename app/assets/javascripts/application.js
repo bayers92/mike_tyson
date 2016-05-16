@@ -85,23 +85,37 @@ $(document).scroll(function() {
 // });
 
 $(document).ready(function(){
-    $(window.location.hash).show();
-    $("html, body").animate({ scrollTop: 0 }, "slow");
+    if ((window.location.hash) != '' ) {
+        $("#projects").hide();
+        $("#articles").hide();
+        $("#photos").hide();
+        $("#students").hide();
+        $(window.location.hash).show();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        $(".news-feed-container").animate({ scrollTop: 0 }, "slow");
+        $("#projects-user-link").removeClass("active-link");
+        $("#students-user-link").removeClass("active-link");
+        $("#articles-user-link").removeClass("active-link");
+        $("#photos-user-link").removeClass("active-link");
+        $(window.location.hash+"-user-link").addClass("active-link");
+    };
 });
 
 $(window).on('hashchange',function(){ 
-    $("#projects").hide();
-    $("#articles").hide();
-    $("#photos").hide();
-    $("#students").hide();
-    $(window.location.hash).show();
-    $("html, body").animate({ scrollTop: 0 }, "slow");
-    $(".news-feed-container").animate({ scrollTop: 0 }, "slow");
-    $("#projects-user-link").removeClass("active-link");
-    $("#students-user-link").removeClass("active-link");
-    $("#articles-user-link").removeClass("active-link");
-    $("#photos-user-link").removeClass("active-link");
-    $(window.location.hash+"-user-link").addClass("active-link");
+    if ((window.location.hash) != '' ) {
+        $("#projects").hide();
+        $("#articles").hide();
+        $("#photos").hide();
+        $("#students").hide();
+        $(window.location.hash).show();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        $(".news-feed-container").animate({ scrollTop: 0 }, "slow");
+        $("#projects-user-link").removeClass("active-link");
+        $("#students-user-link").removeClass("active-link");
+        $("#articles-user-link").removeClass("active-link");
+        $("#photos-user-link").removeClass("active-link");
+        $(window.location.hash+"-user-link").addClass("active-link");
+    };
 });
 
 

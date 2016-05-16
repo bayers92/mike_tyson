@@ -52,33 +52,85 @@ $(document).scroll(function() {
 });
 
 
+
+
+// $(document).ready(function(){
+//     var showThis = window.location.hash;
+//     if ((showThis) == ("#projects")) {
+//         $("#projects").show();
+//         $("#articles").hide();
+//         $("#photos").hide();
+//         $("#students").hide();
+//         $("html, body").animate({ scrollTop: 0 }, "slow");
+//     } else if ((showThis) == ("#articles")) {
+//         $("#projects").hide();
+//         $("#articles").show();
+//         $("#photos").hide();
+//         $("#students").hide();
+//         $("html, body").animate({ scrollTop: 0 }, "slow");
+//     } else if ((showThis) == ("#photos")) {
+//         $("#projects").hide();
+//         $("#articles").hide();
+//         $("#photos").show();
+//         $("#students").hide();
+//         $("html, body").animate({ scrollTop: 0 }, "slow");
+//     }
+//     else {
+//         $("#projects").hide();
+//         $("#articles").hide();
+//         $("#photos").hide();
+//         $("#students").show();
+//         $("html, body").animate({ scrollTop: 0 }, "slow");
+//     };
+// });
+
 $(document).ready(function(){
-    $("#project-link").click(function(){
-        $("#projects").show();
-        $("#articles").hide();
-        $("#photos").hide();
-        $("#students").hide();
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-    });
-    $("#articles-link").click(function(){
-        $("#projects").hide();
-        $("#articles").show();
-        $("#photos").hide();
-        $("#students").hide();
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-    });
-    $("#photos-link").click(function(){
-        $("#projects").hide();
-        $("#articles").hide();
-        $("#photos").show();
-        $("#students").hide();
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-    });
-    $("#students-link").click(function(){
-        $("#projects").hide();
-        $("#articles").hide();
-        $("#photos").hide();
-        $("#students").show();
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-    });
+    $(window.location.hash).show();
+    $("html, body").animate({ scrollTop: 0 }, "slow");
 });
+
+$(window).on('hashchange',function(){ 
+    $("#projects").hide();
+    $("#articles").hide();
+    $("#photos").hide();
+    $("#students").hide();
+    $(window.location.hash).show();
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    $(".news-feed-container").animate({ scrollTop: 0 }, "slow");
+    $("#projects-user-link").removeClass("active-link");
+    $("#students-user-link").removeClass("active-link");
+    $("#articles-user-link").removeClass("active-link");
+    $("#photos-user-link").removeClass("active-link");
+    $(window.location.hash+"-user-link").addClass("active-link");
+});
+
+
+// $("#project-link").click(function(){
+//     $("#projects").hide();
+//     $("#articles").hide();
+//     $("#photos").hide();
+//     $("#students").hide();
+//     $(window.location.hash).show();
+//     $("html, body").animate({ scrollTop: 0 }, "slow");
+// });
+// $("#articles-link").click(function(){
+//     $("#projects").hide();
+//     $("#articles").show();
+//     $("#photos").hide();
+//     $("#students").hide();
+//     $("html, body").animate({ scrollTop: 0 }, "slow");
+// });
+// $("#photos-link").click(function(){
+//     $("#projects").hide();
+//     $("#articles").hide();
+//     $("#photos").show();
+//     $("#students").hide();
+//     $("html, body").animate({ scrollTop: 0 }, "slow");
+// });
+// $("#students-link").click(function(){
+//     $("#projects").hide();
+//     $("#articles").hide();
+//     $("#photos").hide();
+//     $("#students").show();
+//     $("html, body").animate({ scrollTop: 0 }, "slow");
+// });

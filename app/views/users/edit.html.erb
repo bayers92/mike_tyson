@@ -2,56 +2,40 @@
 	<%= render 'application/sideNav'%>
 	<div class = "small-12 medium-9 columns form-yield no-padding">
 		<%= render 'application/topNav' %>
-	    <%= render 'application/alerts' %>
+		<%= render 'application/alerts' %>
 
-		<div class = "small-12 medium-12 columns edit-content-section">
-			<div class = "row">
-				<div class = "small-12 columns">
-					<h3 class = "text-center"> <strong>Welcome to Brand Club! </strong></h3>
+		<div class = "small-12 medium-12 columns">
+			<div class = "row scrollTop">
+				<div class = "small-12 medium-8 small-centered medium-uncentered columns news-feed-container">
+					<div id="projects" style="display:none">
+						<%= render 'projects/projectUserView' %>
+					</div>
+					<div id="articles" style="display:none">
+						<%= render 'articles/articleUserView' %>
+
+					</div>
+					<div id="photos" style="display:none">
+						<p>coming soon</p>
+					</div>
+					<div id="students" style="display:none">
+						<%= render 'users/userUserView' %>
+					</div>
 				</div>
-			</div>
-			<div class = "row">
-				<div class ="small-12 columns">
-					<p> Use the links on the left to upload your personal information. </p>
-<!-- 					<p> <i>You must upload information in the following areas before your profile can be created: </i></p>
-					<ul class = "bullet">
-						<% if @user.homepage_info == nil %>
-							<%= link_to 'Homepage Info', new_homepage_info_path %> <br/>
-						<% end %>
-
-						<% if @user.personal_info == nil %>
-							<%= link_to 'Personal Info', new_personal_info_path %> <br/>
-						<% end %>
-
-						<% if @user.background_info == nil %>
-							<%= link_to 'Background Info', new_background_info_path %> <br/>
-						<% end %>
-
-						<% if @user.showcase == nil %>
-							<%= link_to 'Showcase Projects', new_showcase_path %> <br/>
-						<% end %>
-
-						<% if @user.articles == nil %>
-							<%= link_to 'Reading List', new_article_path %> <br/>
-						<% end %>
-
-						<% if @user.photo_link == nil %>
-							<%= link_to 'Photo Blog', new_photo_link_path %> <br/>
-						<% end %>
-
-						<% if @user.social_link == nil %>
-							<%= link_to 'Social Media Links', new_social_link_path %> <br/>
-						<% end %>
-					</ul> -->
-
-					<% if valid_user(@user) %>
-						<p class = "primary-color"> Done! <i class = "fa fa-smile-o"></i></p>
-						<br/>
-						<div class = "small-12 columns text-center">
-							<%= button_to "View Profile", user_path(current_user), :class => "button round custom2", :method => :get %>
+				<div class = "show-for-medium-up medium-4 columns selector-container">
+					<div class = "options-list instance text-center">
+						<div class = "link" id = "projects-user-link">
+							<a href="#projects">Projects </a>
 						</div>
-					<% end %>
-
+						<div class = "link" id = "articles-user-link">
+							<a href="#articles">Articles </a>
+						</div>
+						<div class = "link" id = "photos-user-link">
+							<a href="#photos">Photos </a>
+						</div>
+						<div class = "link" id = "students-user-link">
+							<a href="#students">Students </a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

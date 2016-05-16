@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :social_links
   resources :website_settings
 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

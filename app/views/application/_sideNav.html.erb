@@ -35,13 +35,10 @@
   						<%= link_to 'Background Info', new_background_info_path, data: { no_turbolink: true } %>  
   						<% end %>
   					</li> -->
-  					<li>
-  						<% if current_user.showcase != nil %> 
-  						<%= link_to 'Showcase', edit_showcase_path(current_user.showcase), data: { no_turbolink: true } %> 
-  						<% else %> 
-  						<%= link_to 'Showcase', new_showcase_path, data: { no_turbolink: true } %>  
-  						<% end %>
-  					</li>
+            <li>
+              <%= link_to "Projects", projects_path, data: { no_turbolink: true } %>
+            </li>
+
   					<li>
   						<%= link_to "Reading List", articles_path, data: { no_turbolink: true } %>
   					</li>
@@ -124,13 +121,9 @@
          </li> -->
 
 
-         <% if current_user.showcase != nil %>
-         <li class="<%= active_class(edit_showcase_path(current_user.showcase) ) %>">
-           <i class="fa fa-folder-open-o"></i><%= link_to 'Showcase', edit_showcase_path(current_user.showcase) %>
-           <% else %>
-           <li class="<%= active_class(new_showcase_path) %>">
-            <i class="fa fa-folder-open-o"></i><%= link_to 'Showcase', new_showcase_path %> 
-            <% end %>
+
+          <li class="<%= active_class(projects_path) %>">
+            <i class="fa fa-folder-open-o"></i><%= link_to "Projects", projects_path %>
           </li>
 
 

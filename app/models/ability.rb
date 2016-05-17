@@ -10,11 +10,12 @@ class Ability
     can :manage, PersonalInfo, :user_id => user.id
     can :manage, PhotoLink, :user_id => user.id
     can :manage, Showcase, :user_id => user.id
+    can :manage, Project, :user_id => user.id
+    can :manage, Photo, :user_id => user.id
     can :manage, SocialLink, :user_id => user.id
     can :manage, WebsiteSetting, :user_id => user.id
 
     can :manage, Article, :user => { :id => user.id }
-    can :manage, Project, :showcase => { :id => user.id }
     can :manage, Experience, :background_info => { :user_id => user.id }
 
 

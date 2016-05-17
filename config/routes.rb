@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :photo_links
 
   devise_for :users
+
   resources :articles
   resources :users
   resources :background_infos
@@ -16,6 +17,8 @@ Rails.application.routes.draw do
   resources :showcases
   resources :social_links
   resources :website_settings
+  resources :photos
+  resources :schools
 
 
   # The priority is based upon order of creation: first created -> highest priority.

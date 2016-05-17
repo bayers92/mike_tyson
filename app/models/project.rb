@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-	belongs_to :showcase
+	belongs_to :user
 
 	has_attached_file :file1
 	has_attached_file :file2

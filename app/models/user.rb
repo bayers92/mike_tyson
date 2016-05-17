@@ -10,8 +10,7 @@ class User < ActiveRecord::Base
 	has_one :homepage_info,  autosave: true
 	has_one :personal_info,  autosave: true
 	has_one :photo_link,  autosave: true
-	has_one :showcase,  autosave: true
-	has_many :projects, through: :showcase
+	has_many :projects, autosave: true
 	has_one :social_link,  autosave: true
 	has_one :website_setting,  autosave: true
 

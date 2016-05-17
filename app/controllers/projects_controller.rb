@@ -26,12 +26,12 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @showcase = current_user.showcase
-    @project = @showcase.projects.create(project_params)
+    @user = current_user
+    @project = @user.projects.create(project_params)
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to edit_showcase_path(@showcase), notice: 'Project was successfully created.' }
+        format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -43,10 +43,10 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-    @showcase = current_user.showcase
+    @user = current_user
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to edit_showcase_path(@showcase), notice: 'Project was successfully updated.' }
+        format.html { redirect_to projects_path, notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -58,10 +58,10 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @showcase = current_user.showcase
+    @user = current_user
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to edit_showcase_path(@showcase), notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to projects_path, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -74,6 +74,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :paragraph, :file1, :file2, :file3, :file4, :url)
+      params.require(:project).permit(:title, :paragraph, :file1, :file2, :file3, :file4, :url, :file1_title, :file2_title, :file3_title, :file4_title, :file1_type, :file2_type, :file3_type, :file4_type)
     end
 end

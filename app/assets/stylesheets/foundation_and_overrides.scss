@@ -1916,7 +1916,7 @@ a {
 	.nav {
 		background-color: #2D323E;
 		height:100vh;
-		overflow-y: scroll;
+		// overflow-y: scroll;
 		.logo-column {
 			z-index: 5;
 			height: 60px;
@@ -2544,7 +2544,7 @@ body {
 
 .news-feed-container {
 	height: 100vh;
-	overflow-y: scroll;
+	// overflow-y: scroll;
 	#projects, #articles, #students, #photos {
 		h3 {
 			color: $dark-gray !important;

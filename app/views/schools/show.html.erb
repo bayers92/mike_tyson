@@ -2,9 +2,15 @@
   h1, h2, h3, h4, h5, h6, p {
   	color: <%= @school.color1 %> !important;
   }
+  <% if @school.color2 != "#FFFFFF" %>
   #projects a, a {
   	color: <%= @school.color2 %> !important;
   }
+  <% else %>
+  #projects a, a {
+  	color: <%= @school.color1 %> !important;
+  }
+  <% end %>
   #students a {
   	color: <%= @school.color1 %> !important;
   }

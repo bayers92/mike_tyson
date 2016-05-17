@@ -1,6 +1,6 @@
-<h3 class = "edit-info-header"> Recent Classmate Articles </h3>
+<h3 class = "edit-info-header"> Classmate Articles </h3>
 
-<% @user.school.articles.each do |article| %>
+<% @user.school.articles.order("RANDOM()").each do |article| %>
 <div class = "small-12 small-centered columns instance">
 
     <h5> <%= link_to article.user.homepage_info.homepage_display_name, user_path(article.user)  %> </h5>

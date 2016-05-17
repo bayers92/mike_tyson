@@ -1,6 +1,6 @@
 <div class = "small-12 columns top-padding text-center">
 	<ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
-		<% @school.photos.each do |photo| %>
+		<% @school.photos.order("RANDOM()").each do |photo| %>
 		<% if photo.user.homepage_info != nil %>
 			<li>
 				<h5> <%= link_to photo.user.homepage_info.homepage_display_name, user_path(photo.user)  %> </h5>

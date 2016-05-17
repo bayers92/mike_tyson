@@ -1,4 +1,4 @@
-<% @school.projects.each do |project| %>
+<% @school.projects.order("RANDOM()").each do |project| %>
 <div class = "small-12 small-centered columns instance">
   <h5> <%= link_to project.user.homepage_info.homepage_display_name, user_path(project.user)  %> </h5>
   <h4> <%= project.title %> </h4>

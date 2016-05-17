@@ -1,4 +1,4 @@
-<% @school.users.each do |user| %>
+<% @school.users.order("RANDOM()").each do |user| %>
   <% if user.personal_info %>
     <div class = "small-12 small-centered columns instance">
 

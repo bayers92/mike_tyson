@@ -1,6 +1,8 @@
+<h3 class = "edit-info-header"> Classmate Photos </h3>
+
 <div class = "small-12 columns">
 	<ul class="small-block-grid-1 medium-block-grid-3">
-		<% @user.school.photos.each do |photo| %>
+		<% @user.school.photos.order("RANDOM()").each do |photo| %>
 		<li>
 			<%= image_tag photo.image(:large) %><br/>
 		</li>

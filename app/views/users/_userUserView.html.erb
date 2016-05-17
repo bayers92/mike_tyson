@@ -1,6 +1,6 @@
 <h3 class = "edit-info-header">  Classmate Profiles </h3>
 
-<% @user.school.users.each do |user| %>
+<% @user.school.users.order("RANDOM()").each do |user| %>
   <% if user.personal_info != nil %>
       <div class = "small-12 small-centered columns instance">
 

@@ -255,8 +255,8 @@
               </div>
               <div class = "small-12 columns">
                 <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
-                  <% if current_user.photos != nil %>
-                    <% current_user.photos.each do |photo| %>
+                  <% if @user.photos != nil %>
+                    <% @user.photos.each do |photo| %>
                       <li>
                         <%= image_tag photo.image(:large) %><br/>
                       </li>

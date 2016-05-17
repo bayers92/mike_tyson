@@ -1,0 +1,14 @@
+<%= simple_form_for(@photo) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  	<%= f.input :image %>
+  </div>
+	<% if @photo.image? %>
+	  <%= image_tag @photo.image(:large) %>
+	  <br/><br/>
+	<% end %>
+  <div class="form-actions">
+    <%= f.button :submit, "Upload" %>
+  </div>
+<% end %>

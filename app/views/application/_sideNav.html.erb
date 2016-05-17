@@ -45,13 +45,9 @@
   					<li>
   						<%= link_to "Reading List", articles_path, data: { no_turbolink: true } %>
   					</li>
-  					<li>
-  						<% if current_user.photo_link != nil %> 
-  						<%= link_to 'Photo List', edit_photo_link_path(current_user.photo_link), data: { no_turbolink: true } %> 
-  						<% else %> 
-  						<%= link_to 'Photo List', new_photo_link_path, data: { no_turbolink: true } %>  
-  						<% end %>
-  					</li>
+            <li>
+              <%= link_to "Photos", edit_photo_path(current_user.photos), data: { no_turbolink: true } %>
+            </li>
   					<li>
   						<% if current_user.social_link != nil %> 
   						<%= link_to 'Social Links', edit_social_link_path(current_user.social_link), data: { no_turbolink: true } %> 
@@ -142,16 +138,9 @@
             <i class="fa fa-newspaper-o"></i><%= link_to "Reading List", articles_path %>
           </li>
 
-
-
-          <% if current_user.photo_link != nil %>
-          <li class="<%= active_class(edit_photo_link_path(current_user.photo_link)) %>">
-            <i class="fa fa-picture-o"></i> <%= link_to 'Photo Blog', edit_photo_link_path(current_user.photo_link) %>
-            <% else %>
-            <li class="<%= active_class(new_photo_link_path) %>">
-             <i class="fa fa-picture-o"></i> <%= link_to 'Photo Blog', new_photo_link_path %> 
-             <% end %>
-           </li>
+          <li class="<%= active_class(photos_path) %>">
+            <i class="fa fa-picture-o"></i><%= link_to "Photos", photos_path %>
+          </li>
 
 
 

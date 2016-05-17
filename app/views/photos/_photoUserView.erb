@@ -1,0 +1,9 @@
+<div class = "small-12 columns">
+	<ul class="small-block-grid-1 medium-block-grid-3">
+		<% @user.school.photos.each do |photo| %>
+		<li>
+			<%= image_tag photo.image(:large) %><br/>
+		</li>
+		<% end %>
+	</ul>
+</div>

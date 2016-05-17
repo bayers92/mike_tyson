@@ -1,0 +1,39 @@
+<div class = "row edit-page">
+    <%= render 'application/sideNav'%>
+    <div class = "small-12 medium-9 columns form-yield no-padding">
+        <%= render 'application/topNav' %>
+        <%= render 'application/alerts' %>
+
+        <div class = "small-12 medium-9 columns edit-content-section">
+            <div class = "edit-info-header">
+                <h4> Photos</h4>
+                <a href="#" data-reveal-id="instructModal">
+                    <i class="fa fa-info-circle"></i>&nbsp;Instructions
+                </a>
+            </div>
+        </div>
+
+        <div class = "small-12 columns">
+          <%= button_to "New Photo", new_photo_path, :class => "button", :method => :get %>
+          <br/>
+          <br/>
+        </div>
+
+        <div class = "small-12 columns">
+        <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+        <% current_user.photos.each do |photo| %>
+          <li>
+            <%= image_tag photo.image(:large) %><br/>
+            <small>
+                <%= link_to 'Edit', edit_photo_path(photo) %> | 
+                <%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </small>
+            <br/>
+            <br/>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    <%= render 'application/instructions_photo' %>
+  </div>
+</div>

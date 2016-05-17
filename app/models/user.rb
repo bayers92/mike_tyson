@@ -15,5 +15,7 @@ class User < ActiveRecord::Base
 	has_one :social_link,  autosave: true
 	has_one :website_setting,  autosave: true
 
+	has_many :photos, autosave: true
+
 	belongs_to :school
 end

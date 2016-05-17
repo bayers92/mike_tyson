@@ -1844,10 +1844,12 @@ a {
 		.experience_img {
 			margin-left: auto;
 			margin-right: auto;
-			width: 200px;
+			width: 100%;
 			height: auto;
 			text-align: center;
-			float: none !important;		
+			float: none !important;	
+			padding-top: 20px;
+			padding-bottom: 20px;	
 		}
 	}
 	.row.portfolio {

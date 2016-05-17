@@ -173,30 +173,30 @@
 
 
             <div class = "row pastExperience">
-              <div class = "small-12 small-centered columns">
+              <div class = "small-12 small-centered columns text-center">
                 <% if @user.personal_info.exp1_file_name != nil %>
-                <h4 class = "header"> Prior Experience </h4>
-                <div class = "small-12 medium-3 columns experience_img">
+                <h4 class = "header text-left"> Prior Experience </h4>
+                <div class = "small-12 medium-4 columns experience_img">
                   <%= image_tag @user.personal_info.exp1.url(:large) %>
                 </div>
                 <% end %>
 
                 <% if @user.personal_info.exp2_file_name != nil %>
-                <div class = "small-12 medium-3 columns experience_img">
+                <div class = "small-12 medium-4 columns experience_img">
                   <%= image_tag @user.personal_info.exp2.url(:large) %>
                 </div>
                 <% end %>
 
 
                 <% if @user.personal_info.exp3_file_name != nil %>
-                <div class = "small-12 medium-3 columns experience_img">
+                <div class = "small-12 medium-4 columns experience_img">
                   <%= image_tag @user.personal_info.exp3.url(:large) %>
                 </div>
                 <% end %>
 
 
                 <% if @user.personal_info.exp4_file_name != nil %>
-                <div class = "small-12 medium-3 columns experience_img">
+                <div class = "small-12 medium-4 columns experience_img end ">
                   <%= image_tag @user.personal_info.exp4.url(:large) %>
                 </div>
                 <% end %>

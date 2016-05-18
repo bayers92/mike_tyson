@@ -47,6 +47,23 @@ class PersonalInfosController < ApplicationController
     @user = current_user
     respond_to do |format|
       if @personal_info.update(personal_info_params)
+        if @personal_info.remove_exp1 == true
+            @personal_info.exp1 = nil
+            @personal_info.remove_exp1 = false
+        end
+        if @personal_info.remove_exp2 == true
+            @personal_info.exp2 = nil
+            @personal_info.remove_exp2 = false
+        end
+        if @personal_info.remove_exp3 == true
+            @personal_info.exp3 = nil
+            @personal_info.remove_exp3 = false
+        end
+        if @personal_info.remove_exp4 == true
+            @personal_info.exp4 = nil
+            @personal_info.remove_exp4 = false
+        end
+        @personal_info.save
         format.html { redirect_to edit_personal_info_path(current_user.personal_info), notice: 'Personal info was successfully updated.' }
         format.json { render :show, status: :ok, location: @personal_info }
       else
@@ -66,6 +83,16 @@ class PersonalInfosController < ApplicationController
     end
   end
 
+  def delete_exp
+   @user = current_user
+   @user.exp1 = nil
+   @user.save
+   respond_to do |format|
+     format.html { redirect_to edit_personal_info_path(current_user.personal_info), notice: 'Info was successfully updated.' }
+     format.json { render :show, status: :ok, location: @user }
+   end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_personal_info
@@ -74,6 +101,6 @@ class PersonalInfosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def personal_info_params
-       params.require(:personal_info).permit(:name_first, :name_last, :intro_paragraph, :about_pic, :resume, :vertical, :exp1, :exp2, :exp3, :exp4)
+       params.require(:personal_info).permit(:name_first, :name_last, :intro_paragraph, :about_pic, :resume, :vertical, :exp1, :exp2, :exp3, :exp4, :remove_exp1, :remove_exp2, :remove_exp3, :remove_exp4)
     end
 end

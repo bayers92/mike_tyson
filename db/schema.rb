@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517152708) do
+ActiveRecord::Schema.define(version: 20160518002113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,10 @@ ActiveRecord::Schema.define(version: 20160517152708) do
     t.string   "exp4_content_type"
     t.integer  "exp4_file_size"
     t.datetime "exp4_updated_at"
+    t.boolean  "remove_exp1",            default: false
+    t.boolean  "remove_exp2",            default: false
+    t.boolean  "remove_exp3",            default: false
+    t.boolean  "remove_exp4",            default: false
   end
 
   add_index "personal_infos", ["user_id"], name: "index_personal_infos_on_user_id", using: :btree

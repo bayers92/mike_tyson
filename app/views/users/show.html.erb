@@ -154,8 +154,8 @@
             <!-- Vertical Photo Start -->
             <% else %>
             <div class = "row">
-              <div class = "small-12 medium-3 columns">
-                <img src="<%= @user.personal_info.about_pic.url(:large) %>">
+              <div class = "small-text-center medium-text-left">
+                <img src="<%= @user.personal_info.about_pic.url(:large) %>" class = "user-about-photo">
               </div>
               <div class ="small-12 small-centered columns">
                 <p>

@@ -1840,6 +1840,9 @@ a {
 			width: 150px !important;
 		}
 	}
+	.user-about-photo {
+		float: none !important;
+	}
 	.pastExperience {
 		.experience_img {
 			margin-left: auto;
@@ -2573,5 +2576,11 @@ body {
 
 .top-padding {
 	padding-top: 30px;
+}
+
+.user-about-photo {
+    float: left;
+    padding-right: 30px;
+    padding-left: 15px;
 }
 @import 'foundation';

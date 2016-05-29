@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :demos
+
   devise_for :admins
   resources :photos
 

@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :admins
   resources :photos
 
   resources :schools
 
   resources :photo_links
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
 
   resources :articles
   resources :users

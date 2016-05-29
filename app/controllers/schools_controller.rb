@@ -1,4 +1,5 @@
 class SchoolsController < ApplicationController
+  before_action :authenticate_admin!, except: [:show]
   before_action :set_school, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -42,6 +43,6 @@ class SchoolsController < ApplicationController
     end
 
     def school_params
-      params[:school].permit(:name, :logo, :color1, :color2)
+      params[:school].permit(:name, :logo, :color1, :color2, :domain)
     end
 end

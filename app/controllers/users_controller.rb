@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :except => [:show]
+  before_action :authenticate_person!, :except => [:show]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :require_login, only: [:new, :create, :show]
   load_and_authorize_resource :except => [:create, :new, :show]
+  before_filter :verify_email, :except => [:show]
 
   # GET /users
   # GET /users.json
@@ -29,11 +30,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         @showcase = Showcase.create
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to edit_user_path(@user), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -74,30 +74,10 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:domain_name, :name_first, :name_last, :homepage_header, :homepage_pic, 
-        :about_pic, :intro_paragraph, :resume, 
-        :background_type, 
-        :background_img1, :background_img2, :background_img3, :background_img4, 
-        :background_link1, :background_link2, :background_link3, :background_link4, 
-        :showcase_type, 
-        :project1_title, :project1_paragraph, 
-        :project1_file1, :project1_file1_title, :project1_file1_type, 
-        :project1_file2, :project1_file2_title, :project1_file2_type,
-        :project1_file3, :project1_file3_title, :project1_file3_type,
-        :project2_title, :project2_paragraph, 
-        :project2_file1, :project2_file1_title, :project2_file1_type,
-        :project2_file2, :project2_file2_title, :project2_file2_type,
-        :project2_file3, :project2_file3_title, :project2_file3_type,
-        :project3_title, :project3_paragraph, 
-        :project3_file1, :project3_file1_title, :project3_file1_type,
-        :project3_file2, :project3_file2_title, :project3_file2_type,
-        :project3_file3, :project3_file3_title, :project3_file3_type,
-        :project4_title, :project4_paragraph, 
-        :project4_file1, :project4_file1_title, :project4_file1_type,
-        :project4_file2, :project4_file2_title, :project4_file2_type,
-        :project4_file3, :project4_file3_title, :project4_file3_type,
-        :tumblr_url,
-        :link_linkedin, :link_facebook, :link_twitter, :link_instagram, :link_tumblr, :link_github, :link_alt_email
-        )
+      params.require(:user).permit(:school_id)
+    end
+
+    def verify_email
+      redirect_to(root_path) unless current_user.email.include?(current_user.school.domain)
     end
 end

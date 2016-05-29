@@ -13,24 +13,24 @@
   			<!-- MOBILE NAVIGATION OFFCANVAS LIST -->
   			<aside class="right-off-canvas-menu" aria-hidden="true">
   				<ul class="off-canvas-list">
-  					<li><label><%= current_user.email %></label></li>
+  					<li><label><%= @user.email %></label></li>
   					<li>
-  						<% if current_user.homepage_info != nil %> 
-  						<%= link_to 'Landing Page', edit_homepage_info_path(current_user.homepage_info), data: { no_turbolink: true } %> 
+  						<% if @user.homepage_info != nil %> 
+  						<%= link_to 'Landing Page', edit_homepage_info_path(@user.homepage_info), data: { no_turbolink: true } %> 
   						<% else %> 
   						<%= link_to 'Landing Page', new_homepage_info_path, data: { no_turbolink: true } %>  
   						<% end %>
   					</li>
   					<li>
-  						<% if current_user.personal_info != nil %> 
-  						<%= link_to 'Personal Info', edit_personal_info_path(current_user.personal_info), data: { no_turbolink: true } %> 
+  						<% if @user.personal_info != nil %> 
+  						<%= link_to 'Personal Info', edit_personal_info_path(@user.personal_info), data: { no_turbolink: true } %> 
   						<% else %> 
   						<%= link_to 'Personal Info', new_personal_info_path, data: { no_turbolink: true } %>  
   						<% end %>
   					</li>
 <!--   					<li>
-  						<% if current_user.background_info != nil %> 
-  						<%= link_to 'Background Info', edit_background_info_path(current_user.background_info), data: { no_turbolink: true } %> 
+  						<% if @user.background_info != nil %> 
+  						<%= link_to 'Background Info', edit_background_info_path(@user.background_info), data: { no_turbolink: true } %> 
   						<% else %> 
   						<%= link_to 'Background Info', new_background_info_path, data: { no_turbolink: true } %>  
   						<% end %>
@@ -43,25 +43,25 @@
   						<%= link_to "Reading List", articles_path, data: { no_turbolink: true } %>
   					</li>
             <li>
-              <%= link_to "Photos", edit_photo_path(current_user.photos), data: { no_turbolink: true } %>
+              <%= link_to "Photos", edit_photo_path(@user.photos), data: { no_turbolink: true } %>
             </li>
   					<li>
-  						<% if current_user.social_link != nil %> 
-  						<%= link_to 'Social Links', edit_social_link_path(current_user.social_link), data: { no_turbolink: true } %> 
+  						<% if @user.social_link != nil %> 
+  						<%= link_to 'Social Links', edit_social_link_path(@user.social_link), data: { no_turbolink: true } %> 
   						<% else %> 
   						<%= link_to 'Social Links', new_social_link_path, data: { no_turbolink: true } %>  
   						<% end %>
   					</li>
   					<li>
-  						<% if current_user.website_setting != nil %> 
-  						<%= link_to 'Website Settings', edit_website_setting_path(current_user.website_setting), data: { no_turbolink: true } %> 
+  						<% if @user.website_setting != nil %> 
+  						<%= link_to 'Website Settings', edit_website_setting_path(@user.website_setting), data: { no_turbolink: true } %> 
   						<% else %> 
   						<%= link_to 'Website Settings', new_website_setting_path, data: { no_turbolink: true } %>  
   						<% end %>
   					</li>
             <li class = "alt">
-              <% if valid_user(current_user) %>
-              <i></i><i></i><%= link_to('View Profile', user_path(current_user), data: { no_turbolink: true }) %>
+              <% if valid_user(@user) %>
+              <i></i><i></i><%= link_to('View Profile', user_path(@user), data: { no_turbolink: true }) %>
               <% end %>
             </li>
 
@@ -86,14 +86,14 @@
        </div>
      </div>
      <div class = "small-12 columns home-link no-padding">
-      <h5> <%= link_to "Website Content", edit_user_path(current_user) %></h5>
+      <h5> <%= link_to "Website Content", edit_user_path(@user) %></h5>
     </div>
     <div class = "small-10 columns small-centered links">
 
       <ul class = "no-bullet">
-       <% if current_user.homepage_info != nil %>
-       <li class="<%= active_class(edit_homepage_info_path(current_user.homepage_info)) %>">
-        <i class="fa fa-home"></i><%= link_to 'Landing Page', edit_homepage_info_path(current_user.homepage_info) %>
+       <% if @user.homepage_info != nil %>
+       <li class="<%= active_class(edit_homepage_info_path(@user.homepage_info)) %>">
+        <i class="fa fa-home"></i><%= link_to 'Landing Page', edit_homepage_info_path(@user.homepage_info) %>
         <% else %>
         <li class="<%= active_class(new_homepage_info_path) %>">	
          <i class="fa fa-home"></i><%= link_to 'Landing Page', new_homepage_info_path %> 
@@ -101,9 +101,9 @@
        </li>
 
 
-       <% if current_user.personal_info != nil %>
-       <li class="<%= active_class(edit_personal_info_path(current_user.personal_info)) %>">
-         <i class="fa fa-user"></i> <%= link_to 'Personal Info', edit_personal_info_path(current_user.personal_info) %>
+       <% if @user.personal_info != nil %>
+       <li class="<%= active_class(edit_personal_info_path(@user.personal_info)) %>">
+         <i class="fa fa-user"></i> <%= link_to 'Personal Info', edit_personal_info_path(@user.personal_info) %>
          <% else %>
          <li class="<%= active_class(new_personal_info_path) %>">
           <i class="fa fa-user"></i><%= link_to 'Personal Info', new_personal_info_path %> 
@@ -111,9 +111,9 @@
         </li>
 
 
-<!--         <% if current_user.background_info != nil %>
-        <li class="<%= active_class(edit_background_info_path(current_user.background_info)) %>">
-          <i class="fa fa-history"></i><%= link_to 'Background Info', edit_background_info_path(current_user.background_info) %>
+<!--         <% if @user.background_info != nil %>
+        <li class="<%= active_class(edit_background_info_path(@user.background_info)) %>">
+          <i class="fa fa-history"></i><%= link_to 'Background Info', edit_background_info_path(@user.background_info) %>
           <% else %>
           <li class="<%= active_class(new_background_info_path) %>">
            <i class="fa fa-history"></i><%= link_to 'Background Info', new_background_info_path %> 
@@ -137,9 +137,9 @@
 
 
 
-           <% if current_user.social_link != nil %>
-           <li class="<%= active_class(edit_social_link_path(current_user.social_link)) %>">
-             <i class="fa fa-linkedin"></i><%= link_to 'Social Links', edit_social_link_path(current_user.social_link) %>
+           <% if @user.social_link != nil %>
+           <li class="<%= active_class(edit_social_link_path(@user.social_link)) %>">
+             <i class="fa fa-linkedin"></i><%= link_to 'Social Links', edit_social_link_path(@user.social_link) %>
              <% else %>
              <li class="<%= active_class(new_social_link_path) %>">
               <i class="fa fa-linkedin"></i><%= link_to 'Social Links', new_social_link_path %> 
@@ -148,9 +148,9 @@
 
 
 
-            <% if current_user.website_setting != nil %>
-            <li class="<%= active_class(edit_website_setting_path(current_user.website_setting)) %>">
-              <i class="fa fa-cog"></i><%= link_to 'Website Settings', edit_website_setting_path(current_user.website_setting) %>
+            <% if @user.website_setting != nil %>
+            <li class="<%= active_class(edit_website_setting_path(@user.website_setting)) %>">
+              <i class="fa fa-cog"></i><%= link_to 'Website Settings', edit_website_setting_path(@user.website_setting) %>
               <% else %>
               <li class="<%= active_class(new_website_setting_path) %>">
                <i class="fa fa-cog"></i><%= link_to 'Website Settings', new_website_setting_path %> 
@@ -160,8 +160,8 @@
 
 
              <li class = "alt">
-               <% if valid_user(current_user) %>
-               <i></i><i></i><%= link_to('View Profile', user_path(current_user), data: { no_turbolink: true }) %>
+               <% if valid_user(@user) %>
+               <i></i><i></i><%= link_to('View Profile', user_path(@user), data: { no_turbolink: true }) %>
                <% end %>
              </li>
            </ul>

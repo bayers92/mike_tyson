@@ -31,7 +31,7 @@ $(document).foundation({
 
 $(function() {
     // Animate loader off screen
-    $("#loading_page").delay(2000).animate({
+    $("#loading_page").delay(1000).animate({
       top: -1000
     }, 200);
 });

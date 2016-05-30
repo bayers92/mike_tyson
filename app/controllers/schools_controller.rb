@@ -5,7 +5,7 @@ class SchoolsController < ApplicationController
   respond_to :html
 
   def index
-    @schools = School.all
+    @schools = School.all.order('name ASC')
     respond_with(@schools)
   end
 

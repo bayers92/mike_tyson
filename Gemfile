@@ -50,4 +50,5 @@ gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
     gem 'railroady'
+    gem 'foreman'
 end

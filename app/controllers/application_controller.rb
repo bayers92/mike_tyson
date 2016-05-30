@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
       edit_user_path(user.id)
   end
 
+     def after_sign_in_path_for(admin)
+    # check for the class of the object to determine what type it is
+      schools_path
+  end
+
 	rescue_from CanCan::AccessDenied do |exception|
 	    redirect_to root_url, :alert => exception.message
 	end

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :demos
 
-  devise_for :admins
+  devise_for :admins, controllers: { registrations: "admins/registrations" }
+
   resources :photos
 
   resources :schools

@@ -15,7 +15,7 @@
         <% if @personal_info.resume? %>
           <a href = "<%= @personal_info.resume.url() %>" id="resume"><i class="fa fa-paperclip fa-1x"></i> &nbsp; View Full Resume </a><br/><br/><br/>
         <% end %>
-
+        <br/>
         <%= f.input :exp1, label: "Logo of past experience 1:" %>
         <% if @personal_info.exp1? %>
           <%= image_tag @personal_info.exp1.url(:med) %>
@@ -48,6 +48,8 @@
   <div class="form-actions">
     <br/>
     <%= f.button :submit, 'Save' %>
-    <a href="#" data-reveal-id="previewModal" class = "button alt3">Preview</a>
+    <% if current_user.personal_info != nil %>
+      <a href="#" data-reveal-id="previewModal" class = "button alt3">View</a>
+    <% end %>
   </div>
 <% end %>

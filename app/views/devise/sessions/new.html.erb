@@ -14,8 +14,9 @@
 		    <%= f.button :submit, "Log in" %>
 		  </div>
 		<% end %>
-
-		<%= render "devise/shared/links" %>
+		<% if resource.class != Admin %>
+			<%= render "devise/shared/links" %>
+		<% end %>
 	</div>
 
 </div>

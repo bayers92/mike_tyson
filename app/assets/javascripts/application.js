@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require simple_form_extension
 //= require_tree .
 $(document).foundation();
 //= require turbolinks
@@ -119,32 +120,8 @@ $(window).on('hashchange',function(){
 });
 
 
-// $("#project-link").click(function(){
-//     $("#projects").hide();
-//     $("#articles").hide();
-//     $("#photos").hide();
-//     $("#students").hide();
-//     $(window.location.hash).show();
-//     $("html, body").animate({ scrollTop: 0 }, "slow");
-// });
-// $("#articles-link").click(function(){
-//     $("#projects").hide();
-//     $("#articles").show();
-//     $("#photos").hide();
-//     $("#students").hide();
-//     $("html, body").animate({ scrollTop: 0 }, "slow");
-// });
-// $("#photos-link").click(function(){
-//     $("#projects").hide();
-//     $("#articles").hide();
-//     $("#photos").show();
-//     $("#students").hide();
-//     $("html, body").animate({ scrollTop: 0 }, "slow");
-// });
-// $("#students-link").click(function(){
-//     $("#projects").hide();
-//     $("#articles").hide();
-//     $("#photos").hide();
-//     $("#students").show();
-//     $("html, body").animate({ scrollTop: 0 }, "slow");
-// });
+$(function() {
+    $("#DomainSearchBox").click(function(e) {
+        e.preventDefault();
+    });
+});

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :require_login, only: [:new, :create, :show]
   load_and_authorize_resource :except => [:create, :new, :show]
-  before_filter :verify_email, :except => [:show]
+  # before_filter :verify_email, :except => [:show]
 
   # GET /users
   # GET /users.json
@@ -33,6 +33,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         @showcase = Showcase.create
+        @homepage_info = HomepageInfo.create
+        @personal_info = PersonalInfo.create
+        @social_link = SocialLink.create
         format.html { redirect_to edit_user_path(@user), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else

@@ -46,9 +46,10 @@ gem 'high_voltage', '~> 2.3.0'
 gem 'cancan'
 gem 'rails_12factor', group: :production
 gem 'aws-sdk', '< 2.0'
-
+gem 'simple_form_extension'
 
 group :development, :test do
     gem 'railroady'
     gem 'foreman'
 end
+gem "redactor-rails", github: "glyph-fr/redactor-rails"

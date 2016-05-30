@@ -4,7 +4,7 @@
   <div class="form-inputs">
   	<%= f.input :homepage_display_name, label: 'Display Name:', placeholder: 'Tom Brady' %>
     <%= f.input :homepage_header, label: 'Personal Slogan:', placeholder: 'Patriots | Football | Family' %>
-    <%= f.input :homepage_pic, label: 'Background Image:' %>
+    <%= f.input :homepage_pic, label: 'Background Image:', as: :image %>
     <% if @homepage_info.homepage_pic? %>
     	<%= image_tag @homepage_info.homepage_pic.url(:med) %>
     	<br/><br/>
@@ -13,7 +13,9 @@
 
   <div class="form-actions">
     <br/>
-   <%= f.button :submit, 'Save' %>        
-   <a href="#" data-reveal-id="previewModal" class = "button alt3">Preview</a>
+   <%= f.button :submit, 'Save' %>   
+   <% if current_user.homepage_info != nil %>     
+     <a href="#" data-reveal-id="previewModal" class = "button alt3">View</a>
+   <% end %>
   </div>
 <% end %>

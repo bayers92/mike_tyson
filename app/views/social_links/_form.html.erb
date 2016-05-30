@@ -13,6 +13,8 @@
 
   <div class="form-actions">
    <%= f.button :submit, 'Save' %>
-   <a href="#" data-reveal-id="previewModal" class = "button alt3">Preview</a>
+   <% if current_user.social_link != nil %>
+     <a href="#" data-reveal-id="previewModal" class = "button alt3">View</a>
+   <% end %>
   </div>
 <% end %>

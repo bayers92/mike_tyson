@@ -13,8 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require simple_form_extension
 //= require_tree .
+
+
 $(document).foundation();
 //= require turbolinks
 

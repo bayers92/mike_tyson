@@ -15,7 +15,11 @@
         <% if @personal_info.resume? %>
           <a href = "<%= @personal_info.resume.url() %>" id="resume"><i class="fa fa-paperclip fa-1x"></i> &nbsp; View Full Resume </a><br/><br/><br/>
         <% end %>
+        <br/><br/><br/>
+        
+        <p class = "suggest"> Go to each company's LinkedIn profile and download their profile logo. These images are already the correct size so you will not have to do any cropping! </p>
         <br/>
+
         <%= f.input :exp1, label: "Logo of past experience 1:" %>
         <% if @personal_info.exp1? %>
           <%= image_tag @personal_info.exp1.url(:med) %>
@@ -26,21 +30,21 @@
         <%= f.input :exp2, label: "Logo of past experience 2:" %>
         <% if @personal_info.exp2? %>
           <%= image_tag @personal_info.exp2.url(:med) %>
-          <%= f.input :remove_exp1, inline_label: 'Delete Experience' %>
+          <%= f.input :remove_exp2, inline_label: 'Delete Experience' %>
         <% end %>
         <br/><br/>
 
         <%= f.input :exp3, label: "Logo of past experience 3:" %>
         <% if @personal_info.exp3? %>
           <%= image_tag @personal_info.exp3.url(:med) %>
-          <%= f.input :remove_exp1, inline_label: 'Delete Experience' %>
+          <%= f.input :remove_exp3, inline_label: 'Delete Experience' %>
         <% end %>
         <br/><br/>
 
         <%= f.input :exp4, label: "Logo of past experience 4:" %>
         <% if @personal_info.exp4? %>
           <%= image_tag @personal_info.exp4.url(:med) %>
-          <%= f.input :remove_exp1, inline_label: 'Delete Experience' %>
+          <%= f.input :remove_exp4, inline_label: 'Delete Experience' %>
         <% end %>
         <br/><br/>
   </div>

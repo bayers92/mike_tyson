@@ -56,9 +56,9 @@
   					</li>
   					<li>
   						<% if @user.website_setting != nil %> 
-  						<%= link_to 'Website Settings', edit_website_setting_path(@user.website_setting), data: { no_turbolink: true } %> 
+  						<%= link_to 'Settings', edit_website_setting_path(@user.website_setting), data: { no_turbolink: true } %> 
   						<% else %> 
-  						<%= link_to 'Website Settings', new_website_setting_path, data: { no_turbolink: true } %>  
+  						<%= link_to 'Settings', new_website_setting_path, data: { no_turbolink: true } %>  
   						<% end %>
   					</li>
             <li class = "alt">
@@ -152,10 +152,10 @@
 
             <% if @user.website_setting != nil %>
             <li class="<%= active_class(edit_website_setting_path(@user.website_setting)) %>">
-              <i class="fa fa-cog"></i><%= link_to 'Website Settings', edit_website_setting_path(@user.website_setting) %>
+              <i class="fa fa-cog"></i><%= link_to 'Settings', edit_website_setting_path(@user.website_setting) %>
               <% else %>
               <li class="<%= active_class(new_website_setting_path) %>">
-               <i class="fa fa-cog"></i><%= link_to 'Website Settings', new_website_setting_path %> 
+               <i class="fa fa-cog"></i><%= link_to 'Settings', new_website_setting_path %> 
                <% end %>
              </li>
 

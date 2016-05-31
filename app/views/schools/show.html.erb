@@ -29,6 +29,9 @@
 			<div class = "show-for-medium-up">
 				<div class = "row top-nav" style = "background-color:<%=@school.color1%>">
 					<div class = "small-3 columns text-center">
+						<a href="#students" id = "students-link">Students </a>
+					</div>
+					<div class = "small-3 columns text-center">
 						<a href="#projects" id ="project-link">Projects </a>
 					</div>
 					<div class = "small-3 columns text-center">
@@ -36,9 +39,6 @@
 					</div>
 					<div class = "small-3 columns text-center">
 						<a href="#photos" id = "photos-link">Photos </a>
-					</div>
-					<div class = "small-3 columns text-center">
-						<a href="#students" id = "students-link">Students </a>
 					</div>
 				</div>
 			</div>
@@ -53,14 +53,14 @@
 		<div class = "content-section">
 			<div id="projects">
 				<div class = "top-spacer"></div>
-				<div class = "small-12 medium-6 columns small-centered">
+				<div class = "small-12 medium-8 columns small-centered">
 					<%= render 'projects/projectSchoolView' %>
 				</div>
 			</div>
 
 			<div id="articles" style="display:none">
 				<div class = "top-spacer"></div>
-				<div class = "small-12 medium-6 columns small-centered">
+				<div class = "small-12 medium-8 columns small-centered">
 					<%= render 'articles/articleSchoolView' %>
 				</div>
 			</div>
@@ -74,7 +74,7 @@
 
 			<div id="students" style="display:none">
 				<div class = "top-spacer"></div>
-				<div class = "small-12 medium-6 columns small-centered">
+				<div class = "small-12 medium-8 columns small-centered">
 					<%= render 'users/userSchoolView' %>
 				</div>
 			</div>

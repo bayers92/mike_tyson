@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :photo_links
 
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "users/registrations" }
 
   resources :articles
   resources :users

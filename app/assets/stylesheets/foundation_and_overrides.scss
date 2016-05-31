@@ -1747,12 +1747,20 @@ a {
 		}
 	}
 	.experience_img {
-		height: 200px;
-		overflow: hidden;
-		float: left !important;
+		height: 110px;
+		width: 110px;
+		white-space: nowrap;
+
+		text-align: center; margin: 1em 0;
+		.helper {
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+		}
 		img {
-			width: 100%;
-			height: auto;
+			vertical-align: middle;
+			max-height: 110px;
+			max-width: 110px;
 		}
 	}
 }
@@ -2586,5 +2594,10 @@ body {
     float: left;
     padding-right: 30px;
     padding-left: 15px;
+}
+
+.suggest {
+	font-size: 0.8rem;
+	color: $primary-color;
 }
 @import 'foundation';

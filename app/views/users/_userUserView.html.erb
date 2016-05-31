@@ -1,7 +1,7 @@
 <h3 class = "edit-info-header">  Classmate Profiles </h3>
 
 <% @user.school.users.order("RANDOM()").each do |user| %>
-  <% if user.personal_info != nil %>
+  <% if user.personal_info && user.homepage_info %>
       <div class = "small-12 small-centered columns instance">
 
         <div class = "row">

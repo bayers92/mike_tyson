@@ -2,19 +2,13 @@
 
 <% @user = current_user %>
 
-<% content_for :title do %>
-  <%= @user.homepage_info.homepage_display_name%>
-<% end %>
+
 
 
 <% content_for :custom_css do %> 
 <style>
 .heading {
     display: none !important;
-}
-.row.hero {
-  background: url("<%= @user.homepage_info.homepage_pic.url() %>") no-repeat center center fixed;
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url("<%= @user.homepage_info.homepage_pic.url() %>");
 }
 </style>
 <% end %>
@@ -114,40 +108,59 @@
           </div>
 
 
-          <div class = "row pastExperience">
-            <div class = "small-12 small-centered columns">
-              <% if @user.personal_info.exp1_file_name != nil %>
-                <h4 class = "header"> Prior Experience </h4>
-                <div class = "small-12 medium-3 columns experience_img">
-                  <%= image_tag @user.personal_info.exp1.url(:large) %>
-                </div>
-              <% end %>
+            <div class = "row pastExperience">
+              <div class = "small-12 small-centered columns text-center">
+                
+                <% if @user.personal_info.exp1_file_name != nil %>
+                  <h4 class = "header text-left"> Prior Experience </h4>
+                  <div class = "small-12 medium-3 columns">
+                    <div class = "experience_img">
+                      <%= image_tag @user.personal_info.exp1.url(:large) %>
+                      <span class = "helper"></span>
+                    </div>
+                  </div>
+                <% end %>
 
-              <% if @user.personal_info.exp2_file_name != nil %>
-                <div class = "small-12 medium-3 columns experience_img">
-                  <%= image_tag @user.personal_info.exp2.url(:large) %>
-                </div>
-              <% end %>
-
-
-              <% if @user.personal_info.exp3_file_name != nil %>
-                <div class = "small-12 medium-3 columns experience_img">
-                  <%= image_tag @user.personal_info.exp3.url(:large) %>
-                </div>
-              <% end %>
-
-
-              <% if @user.personal_info.exp4_file_name != nil %>
-                <div class = "small-12 medium-3 columns experience_img">
-                  <%= image_tag @user.personal_info.exp4.url(:large) %>
-                </div>
-              <% end %>
+                <% if @user.personal_info.exp2_file_name != nil %>
+                  <div class = "small-12 medium-3 columns">
+                    <div class = "experience_img">
+                      <%= image_tag @user.personal_info.exp2.url(:large) %>
+                      <span class = "helper"></span>
+                    </div>
+                  </div>
+                <% end %>
 
 
+                <% if @user.personal_info.exp3_file_name != nil %>
+
+                  <% if @user.personal_info.exp4_file_name == nil %>
+                    <div class = "small-12 medium-3 columns end">
+                  <% else %>
+                    <div class = "small-12 medium-3 columns">
+                  <% end %>
+                    <div class = "experience_img">
+                      <%= image_tag @user.personal_info.exp3.url(:large) %>
+                      <span class = "helper"></span>
+                    </div>
+                  </div>
+                <% end %>
+
+
+                <% if @user.personal_info.exp4_file_name != nil %>
+                  <div class = "small-12 medium-3 columns end ">
+                    <div class = "experience_img">
+                      <%= image_tag @user.personal_info.exp4.url(:large) %>
+                      <span class = "helper"></span>
+                    </div>
+                  </div>
+                <% end %>
+
+
+              </div>
             </div>
           </div>
-        </div>
-        <!-- END ABOUT SECTION   -->
+          <!-- END ABOUT SECTION   -->
+
 
 
 

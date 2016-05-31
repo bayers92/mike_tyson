@@ -6,7 +6,8 @@ module ApplicationHelper
 
 	def valid_user(user)
 		# if (user.homepage_info != nil && user.personal_info != nil && user.articles != nil && user.photos != nil && user.social_link != nil)
-		return true
-		# end
+		if (user.homepage_info != nil && user.personal_info && user.social_link != nil)
+			return true
+		end
 	end
 end

@@ -33,17 +33,30 @@
       <section class="main-section">
 
 
-<!-- START PROJECT SECTION -->
-        <div class = "content section">
-          <a name = "projects" data-magellan-destination="projects"></a>
-          <div class = "row">
-            <div class = "small-12 small-cenetered columns">
-              <h3 class = "header"> Projects </h3>
+
+        
+          <!-- START BLOG SECTION -->
+          <div class = "content section blog">
+            <a name = "blog" data-magellan-destination="blog"></a>
+            <div class = "row blog">
+              <div class = "small-12 columns">
+                <h3 class = "header text-left"> Reading List </h3>
+                <h5 class = "dark-gray"><i> Articles from around the web that I've found interesting </i> </h5>
+                <br/>
+                <ul class="small-block-grid-1 medium-block-grid-1 no-bullet articles data-equalizer">
+                  <% @user.articles.each do |article| %>
+                  <li = "post data-equalizer-watch"> 
+                    <a href= "<%= article.url %>">
+                      <h4> <%= article.title %> </h4>
+                      <p> <%= article.summary %> </p>
+                    </a>
+                  </li>
+                  <% end %>
+                </ul>
+              </div>
             </div>
           </div>
-          <%= render 'projects/project0' %>
-        </div>
-            <!-- END PROJECT SECTION -->
+          <!-- END BLOG SECTION -->
 
       
 

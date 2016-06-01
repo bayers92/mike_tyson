@@ -42,19 +42,18 @@ Rails.application.configure do
   # => Custom Edits
   
   # Added to suport Devise
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
   address: "smtp.gmail.com",
   port: 587,
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: ENV["GMAIL_USERNAME"],
-  password: ENV["GMAIL_PASSWORD"],
+  user_name: "ActionMailer00@gmail.com",
+  password: "ILoveBrian2016",
+  :openssl_verify_mode  => 'none'
   }
 end

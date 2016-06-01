@@ -17,5 +17,6 @@
    <% if current_user.homepage_info != nil %>     
      <a href="#" data-reveal-id="previewModal" class = "button alt3">View</a>
    <% end %>
+   <a href="/personal_infos/<%=current_user.personal_info.id%>/edit" class = "buttonNext"> Next  <i class="fa fa-arrow-right"></i> </a>
   </div>
 <% end %>

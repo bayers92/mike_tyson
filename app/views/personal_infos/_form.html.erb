@@ -17,7 +17,7 @@
         <% end %>
         <br/><br/><br/>
         
-        <p class = "suggest"> Go to each company's LinkedIn profile and download their profile logo. These images are already the correct size so you will not have to do any cropping! </p>
+        <p class = "suggest"> Suggestion: To display previous school or company logos (recommended), go to each company's LinkedIn profile and download their profile logo. These images are already the correct size so you will not have to do any cropping! </p>
         <br/>
 
         <%= f.input :exp1, label: "Logo of past experience 1:" %>
@@ -55,5 +55,6 @@
     <% if current_user.personal_info != nil %>
       <a href="#" data-reveal-id="previewModal" class = "button alt3">View</a>
     <% end %>
+   <a href="/projects" class = "buttonNext"> Next  <i class="fa fa-arrow-right"></i> </a>
   </div>
 <% end %>

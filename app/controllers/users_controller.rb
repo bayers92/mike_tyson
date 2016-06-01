@@ -30,11 +30,9 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @homepage_info = @user.create_homepage_info()
-    @homepage_info.save
     respond_to do |format|
       if @user.save
-        format.html { redirect_to edit_user_path(@user), notice: 'User was successfully created.' }
+        format.html { redirect_to edit_homepage_info_path(current_user.homepage_info), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

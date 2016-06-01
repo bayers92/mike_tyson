@@ -8,6 +8,7 @@
   <%= f.full_error :reset_password_token %>
 
   <div class="form-inputs">
+    <%= f.association :school %>
     <%= f.input :password, label: "New password", required: true, autofocus: true %>
     <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
   </div>

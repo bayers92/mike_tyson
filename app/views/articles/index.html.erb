@@ -25,6 +25,15 @@
         <br/>
         <br/>
     <% end %>
+    <br/>
+    <br/>
+
+    <% if current_user.articles.first != nil %>
+      <a href="#" data-reveal-id="previewModal" class = "button alt3">View</a>
+      <a href="/photos" class = "buttonNext"> Next  <i class="fa fa-arrow-right"></i> </a>
+    <% end %>
+
     <%= render 'application/instructions_reading_list' %>
+    <%= render 'application/preview_reading_list' %>
   </div>
 </div>

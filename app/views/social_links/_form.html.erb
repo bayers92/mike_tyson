@@ -16,5 +16,6 @@
    <% if current_user.social_link != nil %>
      <a href="#" data-reveal-id="previewModal" class = "button alt3">View</a>
    <% end %>
+   <a href="/website_settings/<%= current_user.website_setting.id %>/edit" class = "buttonNext"> Next  <i class="fa fa-arrow-right"></i> </a>
   </div>
 <% end %>

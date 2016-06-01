@@ -2600,4 +2600,28 @@ body {
 	font-size: 0.8rem;
 	color: $primary-color;
 }
+
+.buttonNext {
+	display: inline;
+	float: right;
+
+	color: white;
+    background-color: $medium-gray;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+	a {
+		color: #FA584F !important;
+	}
+	&:hover {
+		background-color: #FA584F !important;
+		color: white !important;
+	}
+}
+
+
 @import 'foundation';

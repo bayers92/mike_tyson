@@ -15,10 +15,17 @@
                 <%= button_to "New Project", new_project_path, :class => "button", :method => :get %>
     <br/>
     <br/>
-       <%= render 'showcases/projects_edit_view' %>
-        <br/>
-        <br/>
-    
+    <%= render 'showcases/projects_edit_view' %>
+    <br/>
+    <br/>
+
+    <% if current_user.projects != nil %>
+      <a href="#" data-reveal-id="previewModal" class = "button alt3">View</a>
+      <a href="/articles" class = "buttonNext"> Next  <i class="fa fa-arrow-right"></i> </a>
+    <% end %>
+
+
      <%= render 'application/instructions_showcase' %>
+     <%= render 'application/preview_showcase' %>
   </div>
 </div>

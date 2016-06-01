@@ -34,6 +34,16 @@
         <% end %>
         </ul>
       </div>
+
+
+
+    <% if current_user.photos.first != nil %>
+      <div class = "small-12 columns">
+        <a href="#" data-reveal-id="previewModal" class = "button alt3">View</a>
+        <a href="/social_links/<%= current_user.social_link.id %>/edit" class = "buttonNext"> Next  <i class="fa fa-arrow-right"></i> </a>
+      </div>
+    <% end %>
     <%= render 'application/instructions_photo' %>
+    <%= render 'application/preview_photos' %>
   </div>
 </div>

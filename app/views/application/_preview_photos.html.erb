@@ -60,29 +60,27 @@
 
       <section class="main-section">
 
-
-        <!-- START INSTAGRAM SECTION -->
-        <div class = "content section photos">
-          <a name = "photos" data-magellan-destination="photos"></a>
-          <div class = "row">
-            <div class = "small-12 small-centered columns">
-              <h3 class = "header"> Photos </h3>
-            </div>
-            <div class = "small-12 small-centered columns center-text">
-              <ul class="no-bullet">
-                <script type="text/javascript" src="//<%= @user.photo_link.tumblr_url %>.tumblr.com/js"></script>
-              </ul>
+          <!-- START PHOTOS SECTION -->
+          <div class = "content section photos">
+            <a name = "photos" data-magellan-destination="photos"></a>
+            <div class = "row">
+              <div class = "small-12 small-centered columns">
+                <h3 class = "header"> Photos </h3>
+              </div>
+              <div class = "small-12 columns text-center">
+                <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+                  <% if @user.photos != nil %>
+                    <% @user.photos.each do |photo| %>
+                      <li>
+                        <%= image_tag photo.image(:large) %><br/>
+                      </li>
+                    <% end %>
+                  <% end %>
+                </ul>
+              </div>
             </div>
           </div>
-          <div class = "row">
-            <div class = "small-12 columns">
-              <p class = "small"> <a href="http://<%= @user.photo_link.tumblr_url %>.tumblr.com"> View more photos <i class="fa fa-arrow-right"></i></a> </p>
-            </div>
-          </div>
-        </div>
-        <!-- END INSTAGRAM SECTION -->
-
-      
+          <!-- END PHOTOS SECTION -->
 
 
 

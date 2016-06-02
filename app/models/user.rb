@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
 
 	include ActiveModel::Validations
 	validates_with GoodnessValidator
+
+
+	acts_as_taggable_on :industry
 	
 end
 

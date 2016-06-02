@@ -4,7 +4,8 @@
 
 
     <%= f.association :school, label: 'Select your school:' %>
+    <%= f.input :gradyear, collection: 2015..2019, label: 'Year of Graduation:' %>
 
     <br/>
-    <%= f.button :submit, 'Join' %>
+    <%= f.button :submit, 'Save' %>
 <% end %>

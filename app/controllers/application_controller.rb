@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     if resource.class == Admin
       schools_path
     elsif resource.class == User
-      edit_homepage_info_path(current_user.homepage_info)
+      edit_user_path(current_user.id)
     else
       super
     end

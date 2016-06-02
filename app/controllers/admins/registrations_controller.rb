@@ -11,4 +11,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
     # to prevent auto sign in as the new sign up
   end
 
+  def after_sign_up_path_for(resource)
+    schools_path
+  end
 end

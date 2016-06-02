@@ -5,26 +5,26 @@ class ApplicationController < ActionController::Base
   # check_authorization
   devise_group :person, contains: [:user, :admin]
 
-  # def after_sign_in_path_for(resource)
-  #   # check for the class of the object to determine what type it is
-  #   if resource.class == User
-  #     edit_user_path(user.id)
-  #   elsif resource.class == Admin
-  #     schools_path
-  #   else
-  #     super
-  #   end
-  # end
+  def after_sign_in_path_for(resource)
+    # check for the class of the object to determine what type it is
+    if resource.class == User
+      edit_user_path(current_user.id)
+    elsif resource.class == Admin
+      schools_path
+    else
+      super
+    end
+  end
 
-  # def after_sign_up_path_for(resource)
-  #   if resource.class == Admin
-  #     schools_path
-  #   elsif resource.class == User
-  #     edit_homepage_info_path(current_user.homepage_info)
-  #   else
-  #     super
-  #   end
-  # end
+  def after_sign_up_path_for(resource)
+    if resource.class == Admin
+      schools_path
+    elsif resource.class == User
+      edit_homepage_info_path(current_user.homepage_info)
+    else
+      super
+    end
+  end
 
   def account_update_params(resource)
     if resource.class == User

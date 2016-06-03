@@ -29,7 +29,7 @@
 			<div class = "show-for-medium-up">
 				<div class = "row top-nav" style = "background-color:<%=@school.color1%>">
 					<div class = "small-3 columns text-center">
-						<a href="#students" id = "students-link">Students </a>
+						<a href="#students" id = "students-link active-link">Students </a>
 					</div>
 					<div class = "small-3 columns text-center">
 						<a href="#projects" id ="project-link">Projects </a>
@@ -51,33 +51,60 @@
 
 		<!-- START CONTENT SECTION -->
 		<div class = "content-section">
-			<div id="projects">
+
+			<!-- Students -->
+			<div id="students">
+				<div class = "top-spacer"></div>
+
+				<br/><br/>
+				<div class = "medium-3 medium-offset-1 columns instance">
+					<%= form_tag school_path(@school), method: 'get', class: 'tag_form' do %>
+					  
+					  <p> Search by industry: </p>
+					  <%= select_tag "industry[]", options_from_collection_for_select(Industry.all, 'name', 'name', params[:industry]), {multiple: true, size: '10%', class: 'chosen-select'} %>
+
+					  <br/>
+					  <br/>
+					  <p> Search by career focus: </p>
+					  <%= select_tag "career[]", options_from_collection_for_select(Career.all, 'name', 'name', params[:career]), {multiple: true, size: '10%', class: 'chosen-select'} %>
+					  <%= submit_tag "Filter posts" %>
+					<% end %>
+					
+				</div>
+				<div class = "small-12 medium-7 medium-offset-1 columns small-centered medium-uncentered">
+					<%= render 'users/userSchoolView' %>
+				</div>
+			</div>
+			<!-- End students -->
+
+
+			<!-- Projects -->
+			<div id="projects" style="display:none">
 				<div class = "top-spacer"></div>
 				<div class = "small-12 medium-8 columns small-centered">
 					<%= render 'projects/projectSchoolView' %>
 				</div>
 			</div>
+			<!-- End Projects -->
 
+			<!-- Articles -->
 			<div id="articles" style="display:none">
 				<div class = "top-spacer"></div>
 				<div class = "small-12 medium-8 columns small-centered">
 					<%= render 'articles/articleSchoolView' %>
 				</div>
 			</div>
+			<!-- End Articles -->
 
+			<!-- Photos -->
 			<div id="photos" style="display:none">
 				<div class = "top-spacer"></div>
 				<div class = "small-12 columns small-centered">
 					<%= render 'photos/photoSchoolView' %>
 				</div>
 			</div>
+			<!-- End photos -->
 
-			<div id="students" style="display:none">
-				<div class = "top-spacer"></div>
-				<div class = "small-12 medium-8 columns small-centered">
-					<%= render 'users/userSchoolView' %>
-				</div>
-			</div>
 		</div>
 		<!-- END CONTENT SECTION -->
 	</div>

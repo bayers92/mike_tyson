@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require select2
+//= require chosen-jquery
 //= require_tree .
 
 
@@ -112,3 +113,11 @@ $(document).ready(function() {
       });       
     });     
 });
+
+
+$(".chosen-select").chosen({
+    disable_search_threshold: 10,
+    inherit_select_classes: true,
+    no_results_text: "Oops, nothing found!",
+    width: "95%"
+  });

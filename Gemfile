@@ -58,3 +58,7 @@ gem "redactor-rails", github: "glyph-fr/redactor-rails"
 
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'select2-rails'
+
+
+gem 'compass-rails'
+gem 'chosen-rails'

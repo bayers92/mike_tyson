@@ -63,7 +63,7 @@
   					</li>
             <li class = "alt">
               <% if valid_user(@user) %>
-              <i></i><i></i><%= link_to('View Profile', user_path(@user), data: { no_turbolink: true }) %>
+              <i></i><i></i><%= link_to('View Website', user_path(@user), data: { no_turbolink: true }) %>
               <% end %>
             </li>
 
@@ -163,7 +163,7 @@
 
              <li class = "alt">
                <% if valid_user(@user) %>
-               <i></i><i></i><%= link_to('View Profile', user_path(@user), data: { no_turbolink: true }) %>
+               <i></i><i></i><%= link_to('View Website', user_path(@user), data: { no_turbolink: true }) %>
                <% end %>
              </li>
            </ul>

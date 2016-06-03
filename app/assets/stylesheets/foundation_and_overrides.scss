@@ -2518,6 +2518,9 @@ body {
 	.top-spacer {
 		height: 200px;
 	}
+	.top-spacer2 {
+		height: 180px;
+	}
 	.top {
 		background-color: $secondary-color;
 	    position: fixed;
@@ -2536,6 +2539,11 @@ body {
 			a {
 				color: white !important;
 			}
+		}
+		.top-nav2 {
+			padding-top: 0px;
+		    margin-top: 20px;
+		    height: 10px;
 		}
 	}
 	.instance {
@@ -2621,6 +2629,11 @@ body {
 		background-color: #FA584F !important;
 		color: white !important;
 	}
+}
+
+.search-container {
+    position: fixed !important;
+    margin-left: 20px !important;
 }
 
 

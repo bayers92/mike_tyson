@@ -26,7 +26,7 @@
 			<div class = "small-12 columns small-centered text-center">
 				<%= image_tag @school.logo.url(:med) %>
 			</div>
-			<div class = "show-for-medium-up">
+<!-- 			<div class = "show-for-medium-up">
 				<div class = "row top-nav" style = "background-color:<%=@school.color1%>">
 					<div class = "small-3 columns text-center">
 						<a href="#students" id = "students-link active-link">Students </a>
@@ -41,6 +41,8 @@
 						<a href="#photos" id = "photos-link">Photos </a>
 					</div>
 				</div>
+			</div> -->
+			<div class = "row top-nav2" style = "background-color:<%=@school.color1%>" >
 			</div>
 		</div>
 		<!-- TOP SECTION SPACER -->
@@ -54,10 +56,9 @@
 
 			<!-- Students -->
 			<div id="students">
-				<div class = "top-spacer"></div>
+				<div class = "top-spacer2"></div>
 
-				<br/><br/>
-				<div class = "medium-3 medium-offset-1 columns instance">
+				<div class = "medium-3 columns instance search-container show-for-medium-up">
 					<%= form_tag school_path(@school), method: 'get', class: 'tag_form' do %>
 					  
 					  <p> Search by industry: </p>
@@ -71,7 +72,7 @@
 					<% end %>
 					
 				</div>
-				<div class = "small-12 medium-7 medium-offset-1 columns small-centered medium-uncentered">
+				<div class = "small-12 medium-7 medium-offset-4 columns small-centered medium-uncentered">
 					<%= render 'users/userSchoolView' %>
 				</div>
 			</div>

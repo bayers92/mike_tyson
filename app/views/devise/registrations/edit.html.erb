@@ -11,15 +11,32 @@
 
       <div class="form-inputs">
         <%= f.association :school, as: :hidden %>
-        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :email, required: true, autofocus: true, disabled: true %>
+
+
+
+    <%= f.association :school, label: 'Select your school:', disabled: true, hint: "You cannot change your username." %>
+    <%= f.input :gradyear, collection: 2015..2019, label: 'Year of Graduation:' %>
+    <br/>
+
+
+    <%= f.input :industry_list, as: :check_boxes, collection: Industry.all.all.order('name ASC'), value_method: :name, label_method: :name, input_html: { multiple: true, class: 'taggable' }, label: "Select your concentration(s):"%>
+
+    <br/><br/>
+
+  <%= f.input :career_list, as: :check_boxes, collection: Career.all.all.order('name ASC'), value_method: :name, label_method: :name, input_html: { multiple: true, class: 'taggable' }, label: "Select your career focus:"%>
+
+    <br/>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
 
-        <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-        <%= f.input :password_confirmation, required: false %>
         <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+
+        <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false, label: "New Password (leave blank if you don't want to change it)" %>
+        <%= f.input :password_confirmation, required: false, label: "New Password confirmation" %>
+        
       </div>
 
       <div class="form-actions">

@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   resources :photos
   resources :schools
 
-  get 'tags/:tag', to: 'schools/#{school.id}/#students', as: :tag
+
+  get 'tags/:tag', to: 'schools/#{school.id}/#students', as: :tag ## Don't think this is doing anything??
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

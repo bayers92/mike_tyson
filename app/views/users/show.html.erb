@@ -186,7 +186,11 @@
                 <% end %>
 
                 <% if @user.personal_info.exp2_file_name != nil %>
-                  <div class = "small-12 medium-3 columns">
+                  <% if @user.personal_info.exp3_file_name == nil && @user.personal_info.exp4_file_name == nil %>
+                    <div class = "small-12 medium-3 columns end">
+                  <% else %>
+                    <div class = "small-12 medium-3 columns">
+                  <% end %>
                     <div class = "experience_img">
                       <%= image_tag @user.personal_info.exp2.url(:large) %>
                       <span class = "helper"></span>

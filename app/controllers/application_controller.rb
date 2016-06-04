@@ -16,16 +16,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def after_sign_up_path_for(resource)
-    if resource.class == Admin
-      schools_path
-    elsif resource.class == User
-      edit_user_path(current_user.id)
-    else
-      super
-    end
-  end
-
   def account_update_params(resource)
     if resource.class == User
      params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :school_id)

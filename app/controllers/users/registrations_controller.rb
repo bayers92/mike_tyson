@@ -26,7 +26,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-	 params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :school_id)
+	 params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :school_id, :gradyear, industry_list: [], career_list: [])
   end
 
   def after_sign_up_path_for(resource)

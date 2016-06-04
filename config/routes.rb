@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" }
 
   resources :articles
-  resources :users
+  resources :users do 
+    resources :tags
+  end
   resources :background_infos
   resources :experiences
   resources :homepage_infos
@@ -23,6 +25,10 @@ Rails.application.routes.draw do
   resources :website_settings
   resources :photos
   resources :schools
+
+
+  get 'tags/:tag', to: 'schools/#{school.id}/#students', as: :tag ## Don't think this is doing anything??
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

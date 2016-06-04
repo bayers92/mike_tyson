@@ -10,6 +10,22 @@ class SchoolsController < ApplicationController
   end
 
   def show
+    @school = School.find params[:id]
+    @student_tags = @school.users.tag_counts_on(:tags)
+    tags = []
+    tags << params[:industry] unless params[:industry].blank?
+    tags << params[:career] unless params[:career].blank?
+    if params[:industry]
+      if params[:career]
+        @students = @school.users.tagged_with(params[:industry], :on => :industry, :any => true).tagged_with(params[:career], :on => :career, :any => true)
+      else
+        @students = @school.users.tagged_with(params[:industry], :on => :industry, :any => true)
+      end
+    elsif params[:career]
+      @students = @school.users.tagged_with(params[:career], :on => :career, :any => true)
+    else
+      @students = @school.users
+    end
     respond_with(@school)
   end
 

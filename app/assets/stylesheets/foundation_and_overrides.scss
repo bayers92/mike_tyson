@@ -140,6 +140,9 @@ $merriweather: 'Merriweather', serif;
 @import url('//fonts.googleapis.com/css?family=Pontano+Sans');
 $pontano: 'Pontano Sans', sans-serif;
 
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600);
+$tit: 'Titillium Web', sans-serif;
+
 // @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:600);
 // $sans_pro: 'Source Sans Pro', sans-serif;
 
@@ -148,8 +151,8 @@ $pontano: 'Pontano Sans', sans-serif;
 
 $body-bg: $white;
 $body-font-color: rgba(0, 0, 0, 0.8);
-$body-font-family: $merriweather;
-$body-font-weight: normal;
+$body-font-family: $tit;
+$body-font-weight: 300;
 $body-font-style: normal;
 
 
@@ -257,8 +260,8 @@ $h6-font-size: 1rem;
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
 // $paragraph-font-weight: $font-weight-normal;
-$paragraph-font-size: 1.1rem;
-$paragraph-line-height: 2;
+$paragraph-font-size: 1.2rem;
+$paragraph-line-height: 2.1;
 // $paragraph-margin-bottom: rem-calc(20);
 // $paragraph-aside-font-size: rem-calc(14);
 // $paragraph-aside-line-height: 1.35;
@@ -2038,7 +2041,7 @@ a {
 				}
 				p {
 					color: $medium-gray;
-					font-size: 0.9rem;
+					font-size: 1.1rem;
 					&:hover {
 					}
 				}
@@ -2518,6 +2521,9 @@ body {
 	.top-spacer {
 		height: 200px;
 	}
+	.top-spacer2 {
+		height: 180px;
+	}
 	.top {
 		background-color: $secondary-color;
 	    position: fixed;
@@ -2536,6 +2542,11 @@ body {
 			a {
 				color: white !important;
 			}
+		}
+		.top-nav2 {
+			padding-top: 0px;
+		    margin-top: 20px;
+		    height: 10px;
 		}
 	}
 	.instance {
@@ -2621,6 +2632,11 @@ body {
 		background-color: #FA584F !important;
 		color: white !important;
 	}
+}
+
+.search-container {
+    position: fixed !important;
+    margin-left: 20px !important;
 }
 
 

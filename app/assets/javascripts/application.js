@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require select2
+//= require chosen-jquery
 //= require_tree .
 
 
@@ -31,6 +33,7 @@ $(document).foundation({
   }
 });
 
+// Loading page
 $(function() {
     // Animate loader off screen
     $("#loading_page").delay(1000).animate({
@@ -39,7 +42,7 @@ $(function() {
 });
 
 
-
+// Alert box settings
 $(document).ready(function(){
   setTimeout(function(){
     // $('.alert-box').remove();
@@ -48,6 +51,7 @@ $(document).ready(function(){
  });
 
 
+// BrandClub landing page header bg color
 var $heading = $('#heading');
 $(document).scroll(function() {
     $heading.css({background: $(this).scrollTop()>400 ? "#FA584F":"rgba(0,0,0,0)"});
@@ -55,37 +59,7 @@ $(document).scroll(function() {
 
 
 
-
-// $(document).ready(function(){
-//     var showThis = window.location.hash;
-//     if ((showThis) == ("#projects")) {
-//         $("#projects").show();
-//         $("#articles").hide();
-//         $("#photos").hide();
-//         $("#students").hide();
-//         $("html, body").animate({ scrollTop: 0 }, "slow");
-//     } else if ((showThis) == ("#articles")) {
-//         $("#projects").hide();
-//         $("#articles").show();
-//         $("#photos").hide();
-//         $("#students").hide();
-//         $("html, body").animate({ scrollTop: 0 }, "slow");
-//     } else if ((showThis) == ("#photos")) {
-//         $("#projects").hide();
-//         $("#articles").hide();
-//         $("#photos").show();
-//         $("#students").hide();
-//         $("html, body").animate({ scrollTop: 0 }, "slow");
-//     }
-//     else {
-//         $("#projects").hide();
-//         $("#articles").hide();
-//         $("#photos").hide();
-//         $("#students").show();
-//         $("html, body").animate({ scrollTop: 0 }, "slow");
-//     };
-// });
-
+// Social feed on load
 $(document).ready(function(){
     if ((window.location.hash) != '' ) {
         $("#projects").hide();
@@ -103,6 +77,7 @@ $(document).ready(function(){
     };
 });
 
+// Social feed on rehash
 $(window).on('hashchange',function(){ 
     if ((window.location.hash) != '' ) {
         $("#projects").hide();
@@ -121,8 +96,28 @@ $(window).on('hashchange',function(){
 });
 
 
+//  Trying to disable domain box search clickable
 $(function() {
     $("#DomainSearchBox").click(function(e) {
         e.preventDefault();
     });
 });
+
+
+// Taggable
+$(document).ready(function() {
+  $('input.taggable').each(function() {
+    $(this).select2({
+      tags: $(this).data('tags'),
+      tokenSeparators: [',', ' ']
+      });       
+    });     
+});
+
+
+$(".chosen-select").chosen({
+    disable_search_threshold: 10,
+    inherit_select_classes: true,
+    no_results_text: "Oops, nothing found!",
+    width: "95%"
+  });

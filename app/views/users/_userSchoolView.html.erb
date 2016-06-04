@@ -1,19 +1,23 @@
-<% @school.users.order("RANDOM()").each do |user| %>
-  <% if user.personal_info && user.homepage_info %>
-    <div class = "small-12 small-centered columns instance">
+<% if @students.first != nil %>
+  <% @students.order("RANDOM()").each do |user| %>
+    <% if user.personal_info && user.homepage_info %>
+      <div class = "small-12 small-centered columns instance">
 
-      <div class = "row">
+        <div class = "row">
 
-        <div class = "small-4 columns">
-          <div class = "pic about">
-            <img src="<%= user.personal_info.about_pic.url() %>">
+          <div class = "small-4 columns">
+            <div class = "pic about">
+              <img src="<%= user.personal_info.about_pic.url() %>">
+            </div>
+          </div>
+          <div class = "small-8 columns text-center">
+            <h1> <%= link_to user.homepage_info.homepage_display_name, user_path(user)  %> </h1>
+            <h5> <%= link_to user.homepage_info.homepage_header, user_path(user)  %></h5>
           </div>
         </div>
-        <div class = "small-8 columns text-center">
-          <h1> <%= link_to user.homepage_info.homepage_display_name, user_path(user)  %> </h1>
-          <h5> <%= link_to user.homepage_info.homepage_header, user_path(user)  %></h5>
-        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
-<% end %>
+<% else %>
+  <h1> No students fit that search. </h1>
+<% end %>  

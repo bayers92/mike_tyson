@@ -164,8 +164,8 @@
               <!-- END SECOND SECTION   -->
 
               <!-- START CONTACT -->
-              <div class ="small-12 medium-6 small-centered columns" id="info">
-                  <fieldset>
+              <div class ="small-12 medium-6 small-centered columns text-center" id="info">
+                  <!-- <fieldset>
                     <legend>info@brandclub.co</legend>
                       <%= simple_form_for(Demo.new) do |f| %>
                         <%= f.error_notification %>
@@ -178,9 +178,12 @@
                           <%= f.button :submit, "Request Demo" %>
                         </div>
                       <% end %>  
-                  </fieldset>
+                  </fieldset> -->
+                  <%= button_to "Sign Up", new_user_registration_path, :class => "button large",  method: :get %>
+                  <p class ="gray"> Currently open to Consortium Students only. </p>
               </div>
               <!-- END CONTACT -->
+
 
 
               <!-- START FOOTER SECTION -->

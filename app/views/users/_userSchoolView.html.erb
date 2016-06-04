@@ -1,6 +1,6 @@
 <% if @students.first != nil %>
   <% @students.order("RANDOM()").each do |user| %>
-    <% if user.personal_info && user.homepage_info %>
+    <% if user.homepage_info.homepage_display_name == nil || user.homepage_info.homepage_header == nil %>
       <div class = "small-12 small-centered columns instance">
 
         <div class = "row">

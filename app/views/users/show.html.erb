@@ -100,7 +100,7 @@
               <% end %>
             </div>
             <div class = "message-clerk-button-div">
-              <%= button_to "Message", clerk_path(current_clerk), :method => "get", class: "button" %>
+              <%= mail_to @user.email, "Message", class: "button", subject: "Message from CMC about your BrandClub profile." %>
             </div>
           <% end %>
 

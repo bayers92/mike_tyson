@@ -2117,6 +2117,46 @@ textarea {
 	margin-top: 20px;
 }
 
+.approval-button-div {
+	z-index: 99999999999;
+	opacity: 0.7;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	text-align: center;
+	margin-top: 20px;
+	.button {
+		width: 126px;
+    	color: green !important;
+	    background-color: white !important;
+	    border: 2px solid green;
+		&:hover {
+	    	color: white !important;
+		    background-color: green !important;
+		}
+	}
+}
+
+.message-clerk-button-div {
+    z-index: 99999999999;
+    opacity: 0.7;
+    position: fixed;
+    right: 20px;
+    bottom: 90px;
+    text-align: center;
+    margin-top: 20px;
+    .button {
+    	color: #FA584F !important;
+	    background-color: rgba(255, 255, 255, 0);
+	    border: 2px solid #FA584F;
+	    width: 126px;
+	    &:hover {
+	    	background-color: $primary-color;
+	    	color: white !important;
+	    }
+    }
+}
+
 .slogan {
 	margin-top: 50px;
 	h1 {

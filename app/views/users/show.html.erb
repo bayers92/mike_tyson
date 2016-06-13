@@ -91,6 +91,20 @@
           </div>
 
 
+          <% if clerk_signed_in? && (can? :update, @user) %>
+            <div class = "approval-button-div">
+                             <%= simple_form_for @user do |f| %>    
+                  <%= f.input :approval, :as => :hidden, :input_html => { :value => 2} %>
+                  <%= hidden_field_tag(:approval_process, 1) %>
+                  <%= f.submit "Approve", class: "button approve" %>  
+              <% end %>
+            </div>
+            <div class = "message-clerk-button-div">
+              <%= button_to "Message", clerk_path(current_clerk), :method => "get", class: "button" %>
+            </div>
+          <% end %>
+
+
           <!-- START hero row -->
           <div class = "row hero">
             <div class = "small-12 columns text-center logo">

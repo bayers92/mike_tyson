@@ -121,3 +121,41 @@ $(".chosen-select").chosen({
     no_results_text: "Oops, nothing found!",
     width: "95%"
   });
+
+
+
+
+
+// Clerk view  on load
+$(document).ready(function(){
+    if ((window.location.hash) != '' ) {
+        $("#pending").hide();
+        $("#unapproved").hide();
+        $("#approved").hide();
+        $(window.location.hash).show();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        $(".clerk-content-container").animate({ scrollTop: 0 }, "slow");
+        $("#pending-link").removeClass("active-link");
+        $("#unapproved-link").removeClass("active-link");
+        $("#approved-link").removeClass("active-link");
+        $(window.location.hash+"-link").addClass("active-link");
+    };
+});
+
+// Clerk view on rehash
+$(window).on('hashchange',function(){ 
+    if ((window.location.hash) != '' ) {
+        $("#pending").hide();
+        $("#unapproved").hide();
+        $("#approved").hide();
+        $(window.location.hash).show();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        $(".clerk-content-container").animate({ scrollTop: 0 }, "slow");
+        $("#pending-link").removeClass("active-link");
+        $("#unapproved-link").removeClass("active-link");
+        $("#approved-link").removeClass("active-link");
+        $(window.location.hash+"-link").addClass("active-link");
+    };
+});
+
+

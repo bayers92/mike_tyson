@@ -1,0 +1,24 @@
+<div class ="small-12 columns show-for-medium-up no-padding" id="clerk-nav">
+
+	<div class = "small-9 columns link-container">
+		<div class = "small-4 columns text-center link">
+			<a href="#pending" id = "pending-link" class = "active-link">Pending </a>
+		</div>
+
+		<div class = "small-4 columns text-center link">
+			<a href="#unapproved" id = "unapproved-link">Unapproved </a>
+		</div>
+
+		<div class = "small-4 columns text-center link">
+			<a href="#approved" id = "approved-link">Approved </a>
+		</div>
+	</div>
+
+  <div class = "small-3 columns nav-content">
+	<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown right"><i class="fa fa-user" aria-hidden="true"></i>&thinsp;<%= @clerk.email %>&nbsp;&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></button><br>
+	<ul id="drop1" data-dropdown-content class="f-dropdown right" aria-hidden="true">
+	  <li><%= link_to "Account Settings", edit_clerk_registration_path %></li>
+	  <li> <%= link_to 'Logout', destroy_clerk_session_path, :method => :delete %></li>
+	</ul>
+  </div>
+</div>

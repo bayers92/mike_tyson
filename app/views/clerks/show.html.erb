@@ -1,4 +1,32 @@
-<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_clerk_path(@clerk) %> |
-<%= link_to 'Back', clerks_path %>
+<div class = "small-12 medium-12 columns form-yield no-padding">
+	<%= render 'application/alerts' %>
+	<%= render 'application/topNavClerks' %>
+</div>
+<div id = "clerk-nav-filler"></div>
+
+
+<div class = "row clerk-content-container">
+	<div id="pending" >
+		<div class = "small-12 medium-8 columns small-centered">
+			<% @students = @clerk.users.where(:approval => 1) %>
+			<%= render 'users/userClerkView' %>
+		</div>
+	</div>
+	<div id="unapproved" style="display:none">
+		<div class = "small-12 medium-8 columns small-centered">
+			<% @students = @clerk.users.where(:approval => 0) %>
+			<%= render 'users/userClerkView' %>
+		</div>
+	</div>
+	<div id="approved" style="display:none">
+		<div class = "small-12 medium-8 columns small-centered">
+			<% @students = @clerk.users.where(:approval => 2) %>
+			<%= render 'users/userClerkView' %>
+		</div>
+	</div>
+</div>
+
+
+
+

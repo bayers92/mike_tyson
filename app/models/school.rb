@@ -1,5 +1,6 @@
 class School < ActiveRecord::Base
 	has_many :users
+	has_many :clerks
 	has_many :projects, through: :users
 	has_many :articles, through: :users
 	has_many :photos, through: :users

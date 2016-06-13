@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     elsif resource.class == Admin
       schools_path
     elsif resource.class == Clerk
-      clerk_path(current_clerk.id)
+      clerk_path(current_person.id)
     else
       super
     end

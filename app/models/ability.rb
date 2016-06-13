@@ -40,5 +40,6 @@ class Ability
   def initialize(clerk)
     clerk ||= Clerk.new
     can :manage, User, :id => user.clerk_id
+    can :manage, Clerk, :id => clerk.id
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613134916) do
+ActiveRecord::Schema.define(version: 20160613145109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,10 +73,12 @@ ActiveRecord::Schema.define(version: 20160613134916) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.integer  "school_id"
   end
 
   add_index "clerks", ["email"], name: "index_clerks_on_email", unique: true, using: :btree
   add_index "clerks", ["reset_password_token"], name: "index_clerks_on_reset_password_token", unique: true, using: :btree
+  add_index "clerks", ["school_id"], name: "index_clerks_on_school_id", using: :btree
 
   create_table "demos", force: true do |t|
     t.datetime "created_at"
@@ -289,11 +291,9 @@ ActiveRecord::Schema.define(version: 20160613134916) do
     t.string   "unconfirmed_email"
     t.integer  "school_id"
     t.integer  "gradyear"
-    t.integer  "approved"
-    t.integer  "clerk_id"
+    t.integer  "approval",               default: 0
   end
 
-  add_index "users", ["clerk_id"], name: "index_users_on_clerk_id", using: :btree
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

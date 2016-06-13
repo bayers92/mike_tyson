@@ -4,5 +4,6 @@ class Clerk < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :users
+  belongs_to :school
+  has_many :users, through: :school
 end

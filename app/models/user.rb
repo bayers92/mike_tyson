@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
 	has_many :photos, autosave: true
 
 	belongs_to :school
-	belongs_to :clerk
 
 	include ActiveModel::Validations
 	validates_with GoodnessValidator

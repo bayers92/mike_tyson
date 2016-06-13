@@ -3,6 +3,7 @@ class Clerks::RegistrationsController < Devise::RegistrationsController
   skip_before_action :require_no_authentication, only: [:new, :create, :cancel]
   # now we need admin to register new admin
   # prepend_before_action :authenticate_scope!, only: [:new, :create, :cancel]
+  before_action :authenticate_person!
 
   protected
 
@@ -12,7 +13,15 @@ class Clerks::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
-    clerk_path(current_clerk.id)
+    # clerk_path(current_clerk.id)
   end
 
+
+  def sign_up_params
+    params.require(:clerk).permit(:email, :password, :password_confirmation, :school_id)
+  end
+
+  def account_update_params
+   params.require(:clerk).permit(:email, :password, :password_confirmation, :current_password, :school_id)
+  end
 end

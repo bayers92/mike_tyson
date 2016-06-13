@@ -19,10 +19,6 @@
     <% if current_admin != nil %>
       <%= link_to 'Logout', destroy_admin_session_path, :method => :delete %>
     <% end %>
-
-    <% if current_clerk != nil %>
-      <%= link_to 'Logout', destroy_clerk_session_path, :method => :delete %>
-    <% end %>
     
     <%= yield %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>

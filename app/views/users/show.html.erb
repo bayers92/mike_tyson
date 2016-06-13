@@ -85,7 +85,7 @@
           <div class = "edit-profile-button-div">
             <% if user_signed_in? %>
             <% if current_user == @user %>
-            <%= button_to "Return Homepage", edit_user_path(current_user), :class => "button round custom3", :method => :get  %>      
+            <%= button_to "Edit Content", edit_user_path(current_user), :class => "button round custom3", :method => :get  %>      
             <% end %>
             <% end %>
           </div>

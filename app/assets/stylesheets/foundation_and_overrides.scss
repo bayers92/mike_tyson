@@ -2470,7 +2470,8 @@ body {
 		color: $primary-color;
 	}
 	&:hover {
-		background-color: $primary-color;
+		background-color: white;
+		color: $primary-color !important;
 	}
 }
 .button.alt2 {
@@ -2483,11 +2484,9 @@ body {
     padding-right: 25px;
     margin-left: 15px;
     margin-right: 15px;
-	a {
-		color: $primary-color;
-	}
 	&:hover {
-		background-color: $primary-color;
+		background-color: white;
+		color: $primary-color !important;
 	}
 
 }
@@ -2702,6 +2701,13 @@ body {
 .search-container {
     position: fixed !important;
     margin-left: 20px !important;
+}
+
+.unapprove {
+	background-color: $medium-gray !important;
+}
+.approve {
+	background-color: green !important;
 }
 
 

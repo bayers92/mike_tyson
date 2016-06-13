@@ -1,8 +1,7 @@
 class ClerksController < ApplicationController
-  before_action :authenticate_person!, :except => [:show]
+  before_action :authenticate_person!
   before_action :set_clerk, only: [:show, :edit, :update, :destroy]
-  skip_before_action :require_login, only: [:new, :create, :show]
-  load_and_authorize_resource :except => [:create, :new, :show]
+  load_and_authorize_resource
 
   respond_to :html
 
@@ -47,4 +46,5 @@ class ClerksController < ApplicationController
     def clerk_params
       params[:clerk].permit(:school_id)
     end
+
 end

@@ -19,7 +19,7 @@
                  <%= simple_form_for user do |f| %>    
                   <%= f.input :approval, :as => :hidden, :input_html => { :value => 2} %>
                   <%= hidden_field_tag(:approval_process, 1) %>
-                  <%= f.submit "Approve User", class: "button" %>  
+                  <%= f.submit "Approve User", class: "button approve" %>  
               <% end %>
             </div>
           </div>

@@ -16,11 +16,7 @@
               <h5> <%= link_to user.homepage_info.homepage_header, user_path(user)  %></h5>
 
               <br/>
-                 <%= simple_form_for user do |f| %>    
-                  <%= f.input :approval, :as => :hidden, :input_html => { :value => 2} %>
-                  <%= hidden_field_tag(:approval_process, 1) %>
-                  <%= f.submit "Approve User", class: "button" %>  
-              <% end %>
+              <p> <i>User has not submitted for approval. </i></p>
             </div>
           </div>
         </div>

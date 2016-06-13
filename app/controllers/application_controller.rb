@@ -7,6 +7,16 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def current_ability
+    if admin_signed_in?
+      @current_ability ||= Ability.new(current_admin)
+    elsif clerk_signed_in?
+      @current_ability ||= Ability.new(current_clerk)
+    else
+      @current_ability ||= Ability.new(current_user)
+    end
+  end
+
   def after_sign_in_path_for(resource)
     # check for the class of the object to determine what type it is
     if resource.class == User

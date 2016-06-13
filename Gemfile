@@ -43,7 +43,7 @@ gem 'foundation-rails'
 gem 'simple_form'
 gem 'devise'
 gem 'high_voltage', '~> 2.3.0'
-gem 'cancan'
+gem 'cancancan', '~> 1.8'
 gem 'rails_12factor', group: :production
 gem 'aws-sdk', '< 2.0'
 

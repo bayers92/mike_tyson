@@ -43,13 +43,27 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @user = User.find params[:id]
+
+
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+
+      if params[:approval_process]
+        if @user.update(user_params)
+          format.html { redirect_to clerk_path(current_clerk), notice: 'User was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to clerk_path(current_clerk), notice: @user.errors }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        if @user.update(user_params)
+          format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }
+          format.json { render :show, status: :ok, location: @user }
+       else
+          format.html { render :edit }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+       end
       end
     end
   end
@@ -64,6 +78,7 @@ class UsersController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -72,7 +87,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:school_id, :gradyear, :approval, industry_list: [], career_list: [])
+      params.require(:user).permit(:school_id, :gradyear, :approval, :approval_process, industry_list: [], career_list: [])
     end
 
     def verify_email

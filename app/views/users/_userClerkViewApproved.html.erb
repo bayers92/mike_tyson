@@ -17,9 +17,9 @@
 
               <br/>
                  <%= simple_form_for user do |f| %>    
-                  <%= f.input :approval, :as => :hidden, :input_html => { :value => 2} %>
+                  <%= f.input :approval, :as => :hidden, :input_html => { :value => 0} %>
                   <%= hidden_field_tag(:approval_process, 1) %>
-                  <%= f.submit "Approve User", class: "button" %>  
+                  <%= f.submit "Remove Approval", class: "button unapprove", data: { confirm: 'Please confirm you wish to remove approval for user' }  %>  
               <% end %>
             </div>
           </div>

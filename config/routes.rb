@@ -33,7 +33,6 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'schools/#{school.id}/#students', as: :tag ## Don't think this is doing anything??
 
 
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

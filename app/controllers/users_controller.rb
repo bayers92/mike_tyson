@@ -50,8 +50,13 @@ class UsersController < ApplicationController
 
       if params[:approval_process]
         if @user.update(user_params)
-          format.html { redirect_to clerk_path(current_clerk), notice: 'User was successfully updated.' }
-          format.json { head :no_content }
+          if params[:commit] == 'Deny'
+            format.html { redirect_to user_path(@user), notice: 'User was successfully denied.' }
+            format.json { head :no_content }
+          else
+            format.html { redirect_to clerk_path(current_clerk), notice: 'User was successfully approved.' }
+            format.json { head :no_content }
+          end
         else
           format.html { redirect_to clerk_path(current_clerk), notice: @user.errors }
           format.json { render json: @user.errors, status: :unprocessable_entity }

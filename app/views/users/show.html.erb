@@ -112,6 +112,9 @@
                 <%= mail_to @user.email, "Message", class: "button", subject: "Message from CMC about your BrandClub profile." %>
               </div>
             <% end %>
+              <div class = "homepage-clerk-button-div">
+                <%= link_to "Return Homepage", clerk_path(current_clerk), class: "button", method: 'get' %>
+              </div>
           <% end %>
 
 

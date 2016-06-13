@@ -36,4 +36,9 @@ class Ability
     can :manage, Experience
     can :manage, School
   end
+
+  def initialize(clerk)
+    clerk ||= Clerk.new
+    can :manage, User, :id => user.clerk_id
+  end
 end

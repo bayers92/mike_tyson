@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     # check for the class of the object to determine what type it is
     if resource.class == User
-      edit_user_path(current_user.id)
+      user_dashboard_path(current_user)
     elsif resource.class == Admin
       schools_path
     elsif resource.class == Clerk

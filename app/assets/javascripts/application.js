@@ -18,6 +18,8 @@
 //= require_tree .
 
 
+
+
 $(document).foundation();
 //= require turbolinks
 
@@ -97,7 +99,7 @@ $(window).on('hashchange',function(){
 
 
 //  Trying to disable domain box search clickable
-$(function() {
+$(document).ready(function() {
     $("#DomainSearchBox").click(function(e) {
         e.preventDefault();
     });
@@ -156,6 +158,23 @@ $(window).on('hashchange',function(){
         $("#approved-link").removeClass("active-link");
         $(window.location.hash+"-link").addClass("active-link");
     };
+});
+
+// For side nav
+$(window).on('hashchange',function(){ 
+
+    $('#my-menu').tendina({
+      animate: true,
+      speed: 1000,
+      onHover: true,
+      hoverDelay: 300,
+      openCallback: function(clickedEl) {
+        clickedEl.addClass('opened');
+      },
+      closeCallback: function(clickedEl) {
+        clickedEl.addClass('closed');
+      }
+    });
 });
 
 

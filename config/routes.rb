@@ -32,6 +32,12 @@ Rails.application.routes.draw do
 
   get 'tags/:tag', to: 'schools/#{school.id}/#students', as: :tag ## Don't think this is doing anything??
 
+  resources :users do 
+    get '/feed', to: 'users#feed', as: :feed
+    get '/dashboard', to: 'users#dashboard', as: :dashboard
+  end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -4,6 +4,7 @@ module ApplicationHelper
 	 end
 
 
+
 	def valid_user(user)
 		# if (user.homepage_info != nil && user.personal_info != nil && user.articles != nil && user.photos != nil && user.social_link != nil)
 		if (user.homepage_info != nil && user.personal_info && user.social_link != nil)

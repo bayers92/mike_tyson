@@ -1,17 +1,33 @@
 <div class = "row edit-page">
 	<% if @user.school_id != nil %>
+		<% if (@user.industry_list == nil || @user.career_list == nil || @user.gradyear == nil ) && false%>
+			<div class = "small-12 medium-12 columns form-yield no-padding">
+				<%= render 'application/topNav2' %>
+				<%= render 'application/alerts' %>
+				<div class = "small-12 medium-8 columns small-centered">
+					<br/>
+					<%= render 'form' %>
+				</div>
+			</div>
+
+		<!-- SHOW ACTUAL HOMEPAGE -->
+		<% else %>
 			<%= render 'application/sideNav'%>
 			<div class = "small-12 medium-9 columns form-yield no-padding">
 				<%= render 'application/topNav' %>
 				<%= render 'application/alerts' %>
 
 				<div class = "small-12 medium-12 columns">
-				<br/>
-				<%= render 'form' %>
+					<h1> Dashboard </h1>
+				</div>
 			</div>
-		</div>
+		<% end %>
+
+
+
 
 	<% else %>
+	
 		<div class = "small-12 medium-12 columns form-yield no-padding">
 			<%= render 'application/topNav2' %>
 

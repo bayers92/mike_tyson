@@ -1,0 +1,77 @@
+<div class = "row edit-page">
+	<% if @user.school_id != nil %>
+		<% if (@user.industry_list == nil || @user.career_list == nil || @user.gradyear == nil ) && false%>
+			<div class = "small-12 medium-12 columns form-yield no-padding">
+				<%= render 'application/topNav2' %>
+				<%= render 'application/alerts' %>
+				<div class = "small-12 medium-8 columns small-centered">
+					<br/>
+					<%= render 'form' %>
+				</div>
+			</div>
+
+		<!-- SHOW ACTUAL HOMEPAGE -->
+		<% else %>
+			<%= render 'application/sideNav'%>
+			<div class = "small-12 medium-9 columns form-yield no-padding">
+				<%= render 'application/topNav' %>
+				<%= render 'application/alerts' %>
+
+				<div class = "small-12 medium-12 columns">
+					<div class = "row scrollTop">
+						<div class = "small-12 medium-8 small-centered medium-uncentered columns news-feed-container">
+							<div id="projects">
+								<%= render 'projects/projectUserView' %>
+							</div>
+							<div id="articles" style="display:none">
+								<%= render 'articles/articleUserView' %>
+
+							</div>
+							<div id="photos" style="display:none">
+								<%= render 'photos/photoUserView' %>
+							</div>
+							<div id="students" style="display:none">
+								<%= render 'users/userUserView' %>
+							</div>
+						</div>
+						<div class = "show-for-medium-up medium-4 columns selector-container">
+							<div class = "options-list instance text-center">
+								<p class = "social-feed-header"> Classmate Social Feed </p>
+								<div class = "link active-link" id = "projects-user-link">
+									<a href="#projects">Projects </a>
+								</div>
+								<div class = "link" id = "articles-user-link">
+									<a href="#articles">Articles </a>
+								</div>
+								<div class = "link" id = "photos-user-link">
+									<a href="#photos">Photos </a>
+								</div>
+								<div class = "link" id = "students-user-link">
+									<a href="#students">Students </a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% end %>
+
+
+
+
+	<% else %>
+	
+		<div class = "small-12 medium-12 columns form-yield no-padding">
+			<%= render 'application/topNav2' %>
+
+			<div class = "small-12 medium-8 columns text-center small-centered">
+				<br/>
+				<h3> You must be associated with a school before you can continue </h3>
+				<div class = "small-6 columns small-centered">
+					<%= render 'form' %>
+				</div>
+			</div>
+		</div>
+
+	<% end %>	
+</div>

@@ -1929,84 +1929,6 @@ a {
 	height:100vh;
 	max-height: 100vh;
 	// overflow-y: hidden;
-	.nav {
-		background-color: #2D323E;
-		height:100vh;
-		// overflow-y: scroll;
-		.logo-column {
-			z-index: 5;
-			height: 60px;
-			background-color: #373C47;
-			box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
-			.logo img{
-				padding-top: 10px;
-				padding-bottom: 10px;
-				height: 60px;
-			}
-		}
-		.user-name {
-			z-index: 5;
-			h4 {
-				margin-top: 0px !important;
-				min-width: 100%;
-				// background-color: $primary-color;
-				color: white;
-				padding-top: 10px;
-				padding-bottom: 10px;
-				font-size: 1.1rem;
-				a {
-					color: white;
-				}
-			}
-		}
-		.home-link {
-			margin-top: 30px;
-			margin-bottom: 15px;
-			text-transform: uppercase;
-			z-index: 999999;
-			a {
-				color: #6B6F77 !important;
-				padding-left: 30px;
-				&:hover {
-					color: $light-gray !important;
-				}
-			}
-		}
-		.links {
-			li {
-				i {
-					color: $primary-color;
-					float: left;
-					vertical-align: middle;
-					padding-top: 7px;
-					padding-right: 10px;
-				}
-				a {
-					color: #A1A3A8 !important;
-					&:hover {
-						color: $light-gray !important;
-					}
-				}
-				padding: 10px 10px;
-				&.active {
-					a {
-						color: $light-gray !important;
-					}
-				}
-			}
-			li.alt {
-				a {
-					color: $secondary-color !important;
-					font-weight: bold;
-				}
-			}
-			paddding-bottom: 20px;
-			&.account {
-				padding-top: 20px;
-				border-top: $charcoal solid 2px;
-			}
-		}
-	}
 	.form-yield {
 		height: 100vh;
 		overflow-y: scroll;
@@ -2014,6 +1936,194 @@ a {
 		// padding-top: 80px;
 	}
 }
+
+
+
+.nav {
+	background-color: #303641;
+	height:100vh;
+	overflow-y: scroll;
+	.logo-column {
+		z-index: 5;
+		height: 60px;
+		box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+		.logo img{
+			padding-top: 10px;
+			padding-bottom: 10px;
+			height: 60px;
+		}
+	}
+	.user-name {
+		z-index: 5;
+		h4 {
+			margin-top: 0px !important;
+			min-width: 100%;
+			// background-color: $primary-color;
+			color: white;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			font-size: 1.1rem;
+			a {
+				color: white;
+			}
+		}
+	}
+	.home-link {
+		margin-top: 30px;
+		margin-bottom: 15px;
+		text-transform: uppercase;
+		z-index: 999999;
+		a {
+			color: #6B6F77 !important;
+			padding-left: 30px;
+			&:hover {
+				color: $light-gray !important;
+			}
+		}
+	}
+	.links {
+		// padding-top: 90px;
+		li {
+			border-bottom: 1px solid rgba(69, 74, 84, 0.7);
+			padding-left: 0px;
+			.fa {
+				padding-right: 20px;
+				width: 40px;
+			}
+			a {
+				color: #A1A3A8 !important;
+				padding-left: 40px;
+				&:hover {
+					color: $light-gray !important;
+				}
+			}
+			// padding: 5px 5px;
+			&.active {
+				a {
+					color: $light-gray !important;
+				}
+			}
+		}
+		li.alt {
+			a {
+				color: $secondary-color !important;
+				font-weight: bold;
+			}
+		}
+		paddding-bottom: 20px;
+		&.account {
+			padding-top: 20px;
+			border-top: $charcoal solid 2px;
+		}
+		.subclass {
+			padding: 0px;
+			margin: 0px;
+			li {
+				background-color: #2b303a;
+				a {
+					padding-left: 60px;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+.navHomePage {
+	background-color: #2D323E;
+	height:100vh;
+	// overflow-y: scroll;
+	.logo-column {
+		z-index: 5;
+		height: 60px;
+		background-color: #373C47;
+		box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+		.logo img{
+			padding-top: 10px;
+			padding-bottom: 10px;
+			height: 60px;
+		}
+	}
+	.user-name {
+		z-index: 5;
+		h4 {
+			margin-top: 0px !important;
+			min-width: 100%;
+			// background-color: $primary-color;
+			color: white;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			font-size: 1.1rem;
+			a {
+				color: white;
+			}
+		}
+	}
+	.home-link {
+		margin-top: 30px;
+		margin-bottom: 15px;
+		text-transform: uppercase;
+		z-index: 999999;
+		a {
+			color: #6B6F77 !important;
+			padding-left: 30px;
+			&:hover {
+				color: $light-gray !important;
+			}
+		}
+	}
+	.links {
+		li {
+			i {
+				color: $primary-color;
+				float: left;
+				vertical-align: middle;
+				padding-top: 7px;
+				padding-right: 10px;
+			}
+			a {
+				color: #A1A3A8 !important;
+				&:hover {
+					color: $light-gray !important;
+				}
+			}
+			padding: 10px 10px;
+			&.active {
+				a {
+					color: $light-gray !important;
+				}
+			}
+		}
+		li.alt {
+			a {
+				color: $secondary-color !important;
+				font-weight: bold;
+			}
+		}
+		paddding-bottom: 20px;
+		&.account {
+			padding-top: 20px;
+			border-top: $charcoal solid 2px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .no-padding {
 	padding-left: 0px !important;

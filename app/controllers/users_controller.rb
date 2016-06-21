@@ -25,6 +25,14 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def feed
+    @user = User.find params[:user_id]
+  end
+
+  def dashboard
+    @user = User.find params[:user_id]
+  end
+
   # POST /users
   # POST /users.json
   def create

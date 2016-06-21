@@ -1,4 +1,6 @@
 class AnalyticsController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource :except => [:create, :new]
   before_action :set_analytic, only: [:show, :edit, :update, :destroy]
 
   respond_to :html

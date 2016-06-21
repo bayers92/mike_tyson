@@ -17,6 +17,9 @@ class Ability
         can :manage, Photo, :user_id => user.id
         can :manage, SocialLink, :user_id => user.id
         can :manage, WebsiteSetting, :user_id => user.id
+        can :manage, Domain, :user_id => user.id
+        can :manage, Analytic, :user_id => user.id
+        can [:show, :create], Analytic
 
         can :manage, Article, :user => { :id => user.id }
         can :manage, Experience, :background_info => { :user_id => user.id }
@@ -35,6 +38,8 @@ class Ability
         can :manage, WebsiteSetting
         can :manage, Article
         can :manage, Experience
+        can :manage, Domain
+        can :manage, Analytic
 
         can :manage, School
 

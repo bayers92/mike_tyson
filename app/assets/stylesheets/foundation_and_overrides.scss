@@ -2906,5 +2906,13 @@ body {
 	color: white !important;
 }
 
+.searcher {
+	.search {
+		button.symbol {
+			pointer-events: none !important;
+			display: none !important;
+		}
+	}
+}
 
 @import 'foundation';

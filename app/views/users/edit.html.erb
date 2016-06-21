@@ -5,9 +5,15 @@
 				<%= render 'application/topNav' %>
 				<%= render 'application/alerts' %>
 
-				<div class = "small-12 medium-12 columns">
-				<br/>
+				<div class = "small-12 medium-9 columns edit-content-section">
+	            <div class = "edit-info-header">
+	                <h4> Edit Candidate Profile</h4>
+                    <a href="#" data-reveal-id="instructModal">
+	                    <i class="fa fa-info-circle"></i>&nbsp;Instructions
+	                </a>
+	            </div>
 				<%= render 'form' %>
+				<%= render 'application/instructions_candidate' %>
 			</div>
 		</div>
 

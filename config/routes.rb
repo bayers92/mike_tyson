@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :analytics
+
+  resources :domains
+
   devise_for :clerks, controllers: { registrations: "clerks/registrations" }
   resources :clerks
 

@@ -1,0 +1,12 @@
+<%= simple_form_for(@analytic) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :url, label: "Analytics Tracking ID   (ex, UA-56254514-1)" %>
+    <%= f.association :user, as: :hidden, placeholder: "UA-56254514-1" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

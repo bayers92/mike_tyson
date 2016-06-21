@@ -1,0 +1,30 @@
+<div class = "row edit-page">
+	<%= render 'application/sideNav'%>
+	<div class = "small-12 medium-9 columns form-yield no-padding">
+		<%= render 'application/topNav' %>
+		<%= render 'application/alerts' %>
+
+		<div class = "small-12 medium-9 columns edit-content-section">
+			<div class = "edit-info-header">
+				<h4> Domain Name </h4>
+				<a href="#" data-reveal-id="instructModal">
+					<i class="fa fa-info-circle"></i>&nbsp;Instructions
+				</a>
+			</div>
+<p>Type your desired website domain name in the search box below (ie, "yourname.com" or "yourname.me"). If the box turns green then it is available. If it turns red it is not. Once you find a domain that is available, enter the entire domain name in the form below. <strong> DO NOT BUY THE DOMAIN NAME YOURSELF </strong>. If you buy it then we are unable to gaurantee you will be able to use it. We will purchase and activate the domain name for you once your website is approved.</p>
+<div id ="DomainSearchBox">
+	<span class='unclickable' onclick='return false;'>
+	<iframe
+	style="width: 500px; height: 100px; overflow: hidden;"
+	frameborder="0"
+	scrolling="no"
+	src="https://instantdomainsearch.com/widget/liquid/">
+	</iframe>
+</span>
+</div>
+			<%= render 'form' %>
+		</div>
+
+		<%= render 'application/instructions_domain' %>
+	</div>
+</div>

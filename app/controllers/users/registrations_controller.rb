@@ -15,6 +15,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     @website_link = @user.create_website_setting()
     @website_link.save
+
+    @domain = @user.create_domain()
+    @domain.save
+
+    @analytics = @user.create_analytic()
+    @analytics.save
   end
 
 

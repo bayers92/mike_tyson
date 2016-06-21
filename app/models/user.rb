@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 	has_many :projects, autosave: true
 	has_one :social_link,  autosave: true
 	has_one :website_setting,  autosave: true
+	has_one :domain,  autosave: true
+	has_one :analytic,  autosave: true
 
 	has_many :photos, autosave: true
 

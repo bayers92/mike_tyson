@@ -1,29 +1,17 @@
-<h3> Domain Name Search </h3>
-<p> Type your desired website domain name in the search box below (ie, "yourname.com" or "yourname.me"). If the box turns green then it is available. If it turns red it is not. Once you find a domain that is available, enter the entire domain name in the form below. <strong> DO NOT BUY THE DOMAIN NAME YOURSELF </strong>. If you buy it then we are unable to gaurantee you will be able to use it. We will purchase and activate the domain name for you once your website is approved by your head of CMC.</p>
-<div id ="DomainSearchBox">
-	<iframe
-	style="width: 500px; height: 100px; overflow: hidden;"
-	frameborder="0"
-	scrolling="no"
-	src="https://instantdomainsearch.com/widget/liquid/">
-	</iframe>
-</div>
+
 
 <%= simple_form_for(@website_setting) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-  	<br/>
-  	<%= f.input :domain_name, label: "Desired Domain Name:", placeholder: "Include the suffix (.com  .me  etc)" %><br/>
+
 	<label class = "string optional">Select Your Website Color:</p>
   	<%= f.collection_radio_buttons :color, [[0, 'Orange'] ,[1, 'Green'], [2, 'Light Blue'], [4, 'Light Red'], [3, 'Purple'], [5, 'Cornell Red']], :first, :last%>
   </div>
   <br/>
-  <br/>
-  <br/>
 
   <div class="form-actions">
    <%= f.button :submit, 'Save' %>
-   <a href="/users/<%=current_user.id%>" class = "buttonNext"> View Profile!  <i class="fa fa-arrow-right"></i> </a>
+   <a href="/domains/<%= current_user.domain.id %>/edit" class = "buttonNext"> Next  <i class="fa fa-arrow-right"></i> </a>
   </div>
 <% end %>

@@ -1,0 +1,20 @@
+<div class = "row edit-page">
+	<%= render 'application/sideNav'%>
+	<div class = "small-12 medium-9 columns form-yield no-padding">
+		<%= render 'application/topNav' %>
+		<%= render 'application/alerts' %>
+
+		<div class = "small-12 medium-9 columns edit-content-section">
+			<div class = "edit-info-header">
+				<h4> Google Analytics </h4>
+				<a href="#" data-reveal-id="instructModal">
+					<i class="fa fa-info-circle"></i>&nbsp;Instructions
+				</a>
+			</div>
+
+			<%= render 'form' %>
+		</div>
+
+		<%= render 'application/instructions_analytic' %>
+	</div>
+</div>

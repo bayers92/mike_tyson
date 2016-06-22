@@ -1053,17 +1053,17 @@ $tabbar-hamburger-icon-gap: 10px;
 // 23. Progress Bar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// $include-html-media-classes: $include-html-classes;
+$include-html-media-classes: $include-html-classes;
 
 // We use this to set the progress bar height
-// $progress-bar-height: rem-calc(25);
+$progress-bar-height: rem-calc(35);
 // $progress-bar-color: $vapor  ;
 
 // We use these to control the border styles
-// $progress-bar-border-color: scale-color($white, $lightness: 20%);
+$progress-bar-border-color: white;
 // $progress-bar-border-size: 1px;
 // $progress-bar-border-style: solid;
-// $progress-bar-border-radius: $global-radius;
+$progress-bar-border-radius: 0px;
 
 // We use these to control the margin & padding
 // $progress-bar-pad: rem-calc(2);
@@ -2131,6 +2131,10 @@ a {
 	max-width: none !important;
 }
 
+.no-margin {
+	margin: 0px !important;
+}
+
 
 .blog {
 	ul {
@@ -2914,5 +2918,61 @@ body {
 		}
 	}
 }
+
+// PROGRESS BAR
+// progress styles
+.dashboard {
+	h5 {
+		color: $primary-color !important;
+	}
+	.progress {
+		background-color: white !important;
+	}
+
+	.meter {
+	  position:relative;
+	  float:left;
+	  min-width:1%;
+	  height:100%;
+	}
+
+	.percent {
+	  position:absolute;
+	  top:50%;
+	  left:50%;
+	  transform:translate(-50%,-50%);
+	  margin:0;
+	  font-family:tahoma,arial,helvetica;
+	  font-size:12px;
+	  color:white !important;
+	}
+	.tasks {
+		p {
+			font-size: 1rem;
+			margin-bottom: 0px;
+			line-height: 1rem;
+		}
+		ul {
+		    margin-left: 2rem;
+		    font-size: 1rem;
+		    line-height: 1.5rem;
+		    margin-bottom: 0px;
+		}
+		li {
+			color: $dark-gray;
+			a {
+				color: $dark-gray !important;
+				font-size: 1rem;
+			}
+		}
+		.complete {
+			color: $medium-gray !important;
+			a {
+				color: $medium-gray !important;
+			}
+		}
+	}
+}
+
 
 @import 'foundation';

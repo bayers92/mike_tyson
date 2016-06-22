@@ -127,75 +127,71 @@
 									</p>
 								</span>
 							</div>
-							<% if width_content == 100 %>
-								<p> Done! </p>
-							<% else %>
-								<div class ="tasks">
+							<div class ="tasks">
 								<% if width_content == 100 %>
 									<p> Done! </p>
 								<% else %>
 									<p> To do: </p>
 								<% end %>
-									<ul>
-										<% if calc_done_homepage(@user.homepage_info) != 3 %>
-											<li>
-										<% else %>
-											<li class = "complete">
-										<% end %>
-												<%= link_to edit_homepage_info_path(@user.homepage_info) do %>Landing Page &nbsp;(<%= calc_done_homepage(@user.homepage_info) %> / 3) <% end %>
-											</li>
+								<ul>
+									<% if calc_done_homepage(@user.homepage_info) != 3 %>
+										<li>
+									<% else %>
+										<li class = "complete">
+									<% end %>
+											<%= link_to edit_homepage_info_path(@user.homepage_info) do %>Landing Page &nbsp;(<%= calc_done_homepage(@user.homepage_info) %> / 3) <% end %>
+										</li>
 
-										<% if calc_done_personal(@user.personal_info) != 5 %>
-											<li>
-										<% else %>
-											<li class = "complete">
-										<% end %>
-												<%= link_to edit_personal_info_path(@user.personal_info) do %> Personal Info &nbsp;(<%= calc_done_personal(@user.personal_info) %> / 5) <% end %>
-											</li>
+									<% if calc_done_personal(@user.personal_info) != 5 %>
+										<li>
+									<% else %>
+										<li class = "complete">
+									<% end %>
+											<%= link_to edit_personal_info_path(@user.personal_info) do %> Personal Info &nbsp;(<%= calc_done_personal(@user.personal_info) %> / 5) <% end %>
+										</li>
 
-										<% if @user.projects.count < 1 %>
-											<li>
-										<% else %>
-											<li class = "complete">
-										<% end %>
-												<%= link_to projects_path do %> At least 1 project &nbsp;(<%= @user.projects.count %> / 1) <% end %>
-											</li>
+									<% if @user.projects.count < 1 %>
+										<li>
+									<% else %>
+										<li class = "complete">
+									<% end %>
+											<%= link_to projects_path do %> At least 1 project &nbsp;(<%= @user.projects.count %> / 1) <% end %>
+										</li>
 
 
-										<% if @user.articles.count < 3 %>
-											<li>
-										<% else %>
-											<li class = "complete">
-										<% end %>
-												<%= link_to articles_path do %>  At least 3 articles &nbsp;(<%= @user.articles.count %> / 3) <% end %>
-											</li>
+									<% if @user.articles.count < 3 %>
+										<li>
+									<% else %>
+										<li class = "complete">
+									<% end %>
+											<%= link_to articles_path do %>  At least 3 articles &nbsp;(<%= @user.articles.count %> / 3) <% end %>
+										</li>
 
-										<% if @user.photos.count < 3 %>
-											<li>
-										<% else %>
-											<li class = "complete">
-										<% end %>
-												<%= link_to photos_path do %>  At least 3 photos &nbsp;(<%= @user.photos.count %> / 3) <% end %>
-											</li>
+									<% if @user.photos.count < 3 %>
+										<li>
+									<% else %>
+										<li class = "complete">
+									<% end %>
+											<%= link_to photos_path do %>  At least 3 photos &nbsp;(<%= @user.photos.count %> / 3) <% end %>
+										</li>
 
-										<% if calc_done_social(@user.social_link) < 1 %>
-											<li>
-										<% else %>
-											<li class = "complete">
-										<% end %>
-												<%= link_to edit_social_link_path(@user.social_link) do %> At least 1 social link &nbsp;(<%= calc_done_social(@user.social_link) %> / 1) <% end %>
-											</li>
+									<% if calc_done_social(@user.social_link) < 1 %>
+										<li>
+									<% else %>
+										<li class = "complete">
+									<% end %>
+											<%= link_to edit_social_link_path(@user.social_link) do %> At least 1 social link &nbsp;(<%= calc_done_social(@user.social_link) %> / 1) <% end %>
+										</li>
 
-										<% if @user.website_setting.color == nil %>
-											<li>
-										<% else %>
-											<li class = "complete">
-										<% end %>
-												<%= link_to edit_website_setting_path(@user.website_setting) do %> Website settings &nbsp;(<%= @user.website_setting.color? ? 1 : 0 %> / 1) <% end %>
-											</li>
+									<% if @user.website_setting.color == nil %>
+										<li>
+									<% else %>
+										<li class = "complete">
+									<% end %>
+											<%= link_to edit_website_setting_path(@user.website_setting) do %> Website settings &nbsp;(<%= @user.website_setting.color? ? 1 : 0 %> / 1) <% end %>
+										</li>
 
-									</ul>
-								<% end %>
+								</ul>
 							</div>
 						</div>
 
@@ -239,6 +235,8 @@
 
 							</div>
 						</div>
+
+						
 					</div>
 				</div>
 			</div>

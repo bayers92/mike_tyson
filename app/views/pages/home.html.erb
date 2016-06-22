@@ -80,7 +80,7 @@
               <% if user_signed_in? %>
 
               <%= button_to "Logout", destroy_user_session_path, :class => "button alt2 right",  method: :delete %>
-              <%= button_to "View Profile", edit_user_path(current_user), :class => "button alt right", :method => :get  %>
+              <%= button_to "View Profile", user_dashboard_path(current_user), :class => "button alt right", :method => :get  %>
 
               <% else %>
 

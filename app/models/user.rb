@@ -23,9 +23,17 @@ class User < ActiveRecord::Base
 	include ActiveModel::Validations
 	validates_with GoodnessValidator
 
-
-	acts_as_taggable_on :industry, :career
+	acts_as_taggable
+	acts_as_taggable_on :industry, :career, :language, :wexperience, :undergrad, :uconcentration, :travel, :state, :skill, :size, :sex, :region, :mconcentration, :demographic, :balance, :visa, :city
 	scope :by_join_date, order("created_at DESC")
+
+	# validate :maximum_amount_of_tags
+
+
+	def maximum_amount_of_tags
+		number_of_tags = tag_list_cache_on("sex").uniq.length
+		errors.add(:base, "Please only select 1 gender") if number_of_tags > 1
+	end
 	
 end
 

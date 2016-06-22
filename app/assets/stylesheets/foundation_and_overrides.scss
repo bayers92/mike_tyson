@@ -2974,5 +2974,36 @@ body {
 	}
 }
 
+// To break a section into 3 columns
+.yes-columns .checkbox {
+	float: left;
+	width: 33%;
+}
+// End 3 columns section
+
+.input-section {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display: flex;
+	.list-options {
+		label {
+			font-size: 1rem;
+			font-weight: bold;
+			color: $primary-color;
+			font-size: 1.1vw; 
+		}
+		.checkbox {
+			label {
+				font-weight: initial;
+				color: $dark-gray;
+				font-size: 1vw;
+			}
+			input[type="checkbox"] {
+				margin-right: 10px;
+			}
+		}
+	}
+}
+
 
 @import 'foundation';

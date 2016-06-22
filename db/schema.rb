@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621165538) do
+ActiveRecord::Schema.define(version: 20160622213323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,19 @@ ActiveRecord::Schema.define(version: 20160621165538) do
 
   add_index "background_infos", ["user_id"], name: "index_background_infos_on_user_id", using: :btree
 
+  create_table "balances", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "careers", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cities", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -88,6 +100,12 @@ ActiveRecord::Schema.define(version: 20160621165538) do
   add_index "clerks", ["email"], name: "index_clerks_on_email", unique: true, using: :btree
   add_index "clerks", ["reset_password_token"], name: "index_clerks_on_reset_password_token", unique: true, using: :btree
   add_index "clerks", ["school_id"], name: "index_clerks_on_school_id", using: :btree
+
+  create_table "demographics", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "demos", force: true do |t|
     t.datetime "created_at"
@@ -132,6 +150,18 @@ ActiveRecord::Schema.define(version: 20160621165538) do
   add_index "homepage_infos", ["user_id"], name: "index_homepage_infos_on_user_id", using: :btree
 
   create_table "industries", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "languages", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mconcentrations", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -233,6 +263,12 @@ ActiveRecord::Schema.define(version: 20160621165538) do
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
+  create_table "regions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "schools", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -246,6 +282,12 @@ ActiveRecord::Schema.define(version: 20160621165538) do
     t.string   "domain"
   end
 
+  create_table "sexes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "showcases", force: true do |t|
     t.integer  "showcase_type"
     t.datetime "created_at"
@@ -254,6 +296,18 @@ ActiveRecord::Schema.define(version: 20160621165538) do
   end
 
   add_index "showcases", ["user_id"], name: "index_showcases_on_user_id", using: :btree
+
+  create_table "sizes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skills", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "social_links", force: true do |t|
     t.string   "link_linkedin"
@@ -269,6 +323,12 @@ ActiveRecord::Schema.define(version: 20160621165538) do
   end
 
   add_index "social_links", ["user_id"], name: "index_social_links_on_user_id", using: :btree
+
+  create_table "states", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -289,6 +349,24 @@ ActiveRecord::Schema.define(version: 20160621165538) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
+  create_table "travels", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "uconcentrations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "undergrads", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.datetime "created_at"
@@ -317,6 +395,12 @@ ActiveRecord::Schema.define(version: 20160621165538) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["school_id"], name: "index_users_on_school_id", using: :btree
 
+  create_table "visas", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "website_settings", force: true do |t|
     t.string   "domain_name"
     t.integer  "color"
@@ -326,5 +410,11 @@ ActiveRecord::Schema.define(version: 20160621165538) do
   end
 
   add_index "website_settings", ["user_id"], name: "index_website_settings_on_user_id", using: :btree
+
+  create_table "wexperiences", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

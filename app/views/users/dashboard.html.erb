@@ -1,11 +1,19 @@
 <% width_content = 5 %>
 <% if calc_content_done(@user) >= 5 %>
-	<% width_content = calc_content_done(@user) %>
+	<% if calc_content_done(@user) >= 100 %>
+		<% width_content = 100 %>
+	<% else %>
+		<% width_content = calc_content_done(@user) %>
+	<% end %>
 <% end %>
 
 <% width_bonus = 5 %>
 <% if calc_bonus_done(@user) >= 5 %>
-	<% width_bonus = calc_bonus_done(@user) %>
+	<% if calc_bonus_done(@user) >= 100 %>
+		<% width_bonus = 100 %>
+	<% else %>
+		<% width_bonus = calc_bonus_done(@user) %>
+	<% end %>
 <% end %>
 
 
@@ -50,7 +58,11 @@
 								</span>
 							</div>
 							<div class ="tasks">
-								<p> To do: </p>
+								<% if width_content == 100 %>
+									<p> Done! </p>
+								<% else %>
+									<p> To do: </p>
+								<% end %>
 								<ul>
 
 									<% if @user.industry_list.count == 0 %>
@@ -92,7 +104,7 @@
 									<% end %>
 											<%= link_to "Hometown State", edit_user_path(@user) %>
 										</li>
-										
+
 								</ul>
 							</div>
 						</div>
@@ -111,7 +123,11 @@
 								<p> Done! </p>
 							<% else %>
 								<div class ="tasks">
+								<% if width_content == 100 %>
+									<p> Done! </p>
+								<% else %>
 									<p> To do: </p>
+								<% end %>
 									<ul>
 										<% if calc_done_homepage(@user.homepage_info) != 3 %>
 											<li>
@@ -126,7 +142,7 @@
 										<% else %>
 											<li class = "complete">
 										<% end %>
-												<%= link_to edit_homepage_info_path(@user.personal_info) do %> Personal Info &nbsp;(<%= calc_done_personal(@user.personal_info) %> / 5) <% end %>
+												<%= link_to edit_personal_info_path(@user.personal_info) do %> Personal Info &nbsp;(<%= calc_done_personal(@user.personal_info) %> / 5) <% end %>
 											</li>
 
 										<% if @user.projects.count < 1 %>
@@ -190,24 +206,24 @@
 									<p> Done! </p>
 								<% else %>
 									<p> To do: </p>
-									<ul>
-										<% if @user.domain.url == (nil || "") %>
-											<li>
-										<% else %>
-											<li class = "complete">
-										<% end %>
-											<%= link_to edit_domain_path(@user.domain)  do %>Select domain name &nbsp;(<%= @user.domain.url? ? 1 : 0 %> / 1) <% end %>
-										</li>
-
-										<% if @user.analytic.url == (nil || "") %>
-											<li>
-										<% else %>
-											<li class = "complete">
-										<% end %>
-											<%= link_to edit_analytic_path(@user.analytic)  do %>Setup Google Analytics &nbsp;(<%= @user.analytic.url? ? 1 : 0 %>/ 1) <% end %>
-										</li>
-									</ul>
 								<% end %>
+								<ul>
+									<% if @user.domain.url == (nil || "") %>
+										<li>
+									<% else %>
+										<li class = "complete">
+									<% end %>
+										<%= link_to edit_domain_path(@user.domain)  do %>Select domain name &nbsp;(<%= @user.domain.url? ? 1 : 0 %> / 1) <% end %>
+									</li>
+
+									<% if @user.analytic.url == (nil || "") %>
+										<li>
+									<% else %>
+										<li class = "complete">
+									<% end %>
+										<%= link_to edit_analytic_path(@user.analytic)  do %>Setup Google Analytics &nbsp;(<%= @user.analytic.url? ? 1 : 0 %>/ 1) <% end %>
+									</li>
+								</ul>
 
 							</div>
 						</div>

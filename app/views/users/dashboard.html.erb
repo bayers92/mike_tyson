@@ -216,7 +216,7 @@
 									<p> To do: </p>
 								<% end %>
 								<ul>
-									<% if @user.domain.url == (nil || "") %>
+									<% if @user.domain.url == nil %>
 										<li>
 									<% else %>
 										<li class = "complete">
@@ -224,7 +224,7 @@
 										<%= link_to edit_domain_path(@user.domain)  do %>Select domain name &nbsp;(<%= @user.domain.url? ? 1 : 0 %> / 1) <% end %>
 									</li>
 
-									<% if @user.analytic.url == (nil || "") %>
+									<% if @user.analytic.url == nil %>
 										<li>
 									<% else %>
 										<li class = "complete">
@@ -235,8 +235,6 @@
 
 							</div>
 						</div>
-
-						
 					</div>
 				</div>
 			</div>

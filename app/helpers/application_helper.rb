@@ -143,10 +143,10 @@ module ApplicationHelper
 	def calc_bonus_done(resource)
 		total = 2.0
 		done = 0
-		if resource.domain.url != ("" || nil)
+		if resource.domain.url != nil
 			done += 1
 		end
-		if resource.analytic.url != ("" || nil)
+		if resource.analytic.url != nil
 			done += 1
 		end
 		return ((done/total)*100).round

@@ -53,7 +53,11 @@
 							<div class="progress">
 								<span class="meter blue" style="width:<%= width_content %>%">
 									<p class="percent">
-										<%= calc_content_done(@user) %>%
+										<% if calc_content_done(@user) < 5 %>
+											<%= calc_content_done(@user) %>%
+										<% else %>
+											<%= width_content %>%
+										<% end %>
 									</p>
 								</span>
 							</div>
@@ -115,7 +119,11 @@
 							<div class="progress">
 								<span class="meter blue" style="width:<%= width_content %>%">
 									<p class="percent">
-										<%= calc_content_done(@user) %>%
+										<% if calc_content_done(@user) < 5 %>
+											<%= calc_content_done(@user) %>%
+										<% else %>
+											<%= width_content %>%
+										<% end %>
 									</p>
 								</span>
 							</div>
@@ -197,7 +205,11 @@
 							<div class="progress">
 								<span class="meter blue" style="width:<%= width_bonus %>%">
 									<p class="percent">
-										<%= calc_bonus_done(@user) %>%
+										<% if calc_bonus_done(@user) < 5 %>
+											<%= calc_bonusdone(@user) %>%
+										<% else %>
+											<%= width_bonus %>%
+										<% end %>
 									</p>
 								</span>
 							</div>

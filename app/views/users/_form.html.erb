@@ -3,7 +3,7 @@
     <%= f.error_notification %>
 
 
-    <%= f.association :school, label: 'Select your school:',  hint: "You must use your school email." %>
+    <%= f.association :school, label: 'Select your school:', disabled: true,  hint: "You must use account settings to change your email/school" %>
     <%= f.input :gradyear, collection: 2015..2019, label: 'Year of Graduation:' %>
     <br/>
 

@@ -95,9 +95,9 @@
         <section class="main-section">
           <div class = "edit-profile-button-div">
             <% if user_signed_in? %>
-            <% if current_user == @user %>
-            <%= button_to "Edit Content", edit_user_path(current_user), :class => "button round custom3", :method => :get  %>      
-            <% end %>
+              <% if current_user == @user %>
+                <%= button_to "Edit Content", user_dashboard_path(@user) , :class => "button round custom3", :method => :get  %>      
+              <% end %>
             <% end %>
           </div>
 

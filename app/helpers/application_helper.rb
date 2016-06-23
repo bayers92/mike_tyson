@@ -131,7 +131,12 @@ module ApplicationHelper
 		end
 		total += 1
 
-		return ((done/total)*100).round
+		result = ((done/total)*100).round
+		if result > 100
+			result = 100
+		end
+
+		return result
 	end
 
 
@@ -193,7 +198,12 @@ module ApplicationHelper
 			done +=1
 		end
 
-		return ((done/total)*100).round
+		result = ((done/total)*100).round
+		if result > 100
+			result = 100
+		end
+
+		return result
 	end
 
 
@@ -207,7 +217,13 @@ module ApplicationHelper
 		if resource.analytic.url != nil
 			done += 1
 		end
-		return ((done/total)*100).round
+
+		result = ((done/total)*100).round
+		if result > 100
+			result = 100
+		end
+
+		return result
 	end
 				
 			

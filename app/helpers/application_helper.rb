@@ -231,12 +231,19 @@ module ApplicationHelper
 			
 				
 
+	# Return appropriate html for approval status
+	# Give approval integer
+	def check_approval_status(approval)
+		if approval == 0
+			return '<p class="unapproved"> In progress </p>'
+		elsif approval == 1
 
-				
-				
+		elsif approval == 2
 
-				
-			
+		elsif approval == 3
 
+		else
+		end
+	end
 
 end

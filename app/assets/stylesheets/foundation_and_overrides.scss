@@ -3029,5 +3029,73 @@ $yellow: #ffcc00;
 	}
 }
 
+.review-table {
+	.status-col {
+		.unapproved {
+			color: red !important;
+		}
+		.reviewing {
+			color: orange !important;
+		}
+		.pending {
+			color: $yellow !important;
+		}
+		.approved {
+			color: green !important;
+		}
+	}
+	.message {
+		a {
+			color: $dark-gray !important;
+			&:hover {
+				color: $primary-color !important;
+			}
+		}
+	}
+	.username {
+		font-size: 1.15rem;
+		font-weight: bolder;
+		color: $dark-gray !important;
+		&:hover {
+			color: $primary-color !important;
+		}
+		a {
+			color: $dark-gray !important;
+			&:hover {
+				color: $primary-color !important;
+			}
+		}
+	}
+	.approve-table {
+	    background-color: rgba(0,0,0,0) !important;
+	    color: green !important;
+	    margin-bottom: 0px !important;
+	    &:hover {
+    	    background-color: green !important;
+		    color: white !important;
+	    }
+	}
+	.deny-table {
+	    background-color: rgba(0,0,0,0) !important;
+	    color: red !important;
+	    margin-bottom: 0px !important;
+	    &:hover {
+    	    background-color: red !important;
+		    color: white !important;
+	    }	
+	}
+	.disabled {
+		color: $medium-gray !important;
+		background-color: rgba(0,0,0,0) !important;
+		&:hover {
+			color: $medium-gray !important;
+			background-color: rgba(0,0,0,0) !important;
+		}
+	}
+}
+.table-summary {
+	font-size: 0.9rem;
+	font-weight: lighter;
+}
 
 @import 'foundation';

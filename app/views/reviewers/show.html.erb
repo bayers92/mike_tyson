@@ -7,28 +7,28 @@
 
 <div class = "row clerk-content-container">
 	<div id="unapproved" style="display:none">
-		<div class = "small-12 medium-8 columns small-centered">
+		<div class = "small-12 medium-12 columns small-centered">
 			<% @students = @reviewer.users.where(:approval => 0) %>
 			<%= render 'users/userReviewerViewUnapproved' %>
 		</div>
 	</div>
 
-	<div id="reviewing" >
-		<div class = "small-12 medium-8 columns small-centered">
+	<div id="reviewing">
+		<div class = "small-12 medium-12 columns small-centered">
 			<% @students = @reviewer.users.where(:approval => 1) %>
 			<%= render 'users/userReviewerViewReviewing' %>
 		</div>
 	</div>
 
-	<div id="pending" >
-		<div class = "small-12 medium-8 columns small-centered">
+	<div id="pending" style="display:none">
+		<div class = "small-12 medium-12 columns small-centered">
 			<% @students = @reviewer.users.where(:approval => 2) %>
 			<%= render 'users/userReviewerViewPending' %>
 		</div>
 	</div>
 
 	<div id="approved" style="display:none">
-		<div class = "small-12 medium-8 columns small-centered">
+		<div class = "small-12 medium-12 columns small-centered">
 			<% @students = @reviewer.users.where(:approval => 3) %>
 			<%= render 'users/userReviewerViewApproved' %>
 		</div>

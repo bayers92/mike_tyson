@@ -62,3 +62,5 @@ gem 'select2-rails'
 
 gem 'compass-rails'
 gem 'chosen-rails'
+
+gem 'font-awesome-rails'

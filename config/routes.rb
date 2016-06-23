@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :reviewers, controllers: { registrations: "reviewers/registrations" }
+  resources :reviewers
+
   resources :analytics
 
   resources :domains

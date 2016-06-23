@@ -979,7 +979,7 @@ $tabbar-hamburger-icon-gap: 10px;
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-// $panel-bg: scale-color($white, $lightness: -5%);
+$panel-bg: white;
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -2236,7 +2236,7 @@ textarea {
 	opacity: 0.7;
 	position: fixed;
 	right: 20px;
-	bottom: 20px;
+	bottom: 90px;
 	text-align: center;
 	margin-top: 20px;
 	.button {
@@ -2276,7 +2276,7 @@ textarea {
     opacity: 0.7;
     position: fixed;
     right: 20px;
-    bottom: 90px;
+    bottom: 20px;
     text-align: center;
     margin-top: 20px;
     .button {
@@ -2487,7 +2487,7 @@ body {
 	}
 }
 
-
+$yellow: #ffcc00;
 #clerk-nav {
 	box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
 	margin-bottom: 20px;
@@ -2522,12 +2522,12 @@ body {
 			// background-color: $primary-color;
 			padding: 10px 10px;
 			color: white !important;
-			#pending-link {
-				background-color: orange;
-			}
+		}
+		.active-link#reviewing-link {
+			background-color: orange !important;
 		}
 		.active-link#pending-link {
-			background-color: orange !important;
+			background-color: $yellow !important;
 		}
 		.active-link#approved-link {
 			background-color: green !important;
@@ -2536,13 +2536,16 @@ body {
 			background-color: red !important;
 		}
 		#pending-link {
-			color: orange;
+			color: $yellow;
 		}
 		#approved-link {
 			color: green;
 		}
 		#unapproved-link {
 			color: red;
+		}
+		#reviewing-link {
+			color: orange;
 		}
 	}
 }
@@ -3000,6 +3003,27 @@ body {
 			}
 			input[type="checkbox"] {
 				margin-right: 10px;
+			}
+		}
+	}
+}
+
+.person {
+	.unapproved {
+		h1, h5, a {
+			color: red !important;
+		}
+	}
+	.reviewing {
+		h1, h5, a {
+			color: orange !important;
+		}
+		.button.alt3 {
+			color: orange !important;
+			border: 2px solid orange !important;
+			&:hover {
+				color: white !important;
+				background-color: orange !important;
 			}
 		}
 	}

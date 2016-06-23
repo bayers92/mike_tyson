@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   # check_authorization
-  devise_group :person, contains: [:user, :admin, :clerk]
+  devise_group :person, contains: [:user, :admin, :clerk, :reviewer]
 
   protected
 
@@ -12,8 +12,11 @@ class ApplicationController < ActionController::Base
       @current_ability ||= Ability.new(current_admin)
     elsif clerk_signed_in?
       @current_ability ||= Ability.new(current_clerk)
-    else
+    elsif reviewer_signed_in?
+      @current_ability ||= Ability.new(current_reviewer)
+    elsif user_signed_in?
       @current_ability ||= Ability.new(current_user)
+    else
     end
   end
 
@@ -25,6 +28,8 @@ class ApplicationController < ActionController::Base
       schools_path
     elsif resource.class == Clerk
       clerk_path(current_person.id)
+    elsif resource.class == Reviewer
+      reviewer_path(current_person.id)
     else
       super
     end

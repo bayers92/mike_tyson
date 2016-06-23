@@ -45,10 +45,18 @@ class Ability
 
         can :manage, Clerk
 
+        can :manage, Reviewer
+
 
     when Clerk
         can :manage, User, :school_id => user.school_id
         can :manage, Clerk, :id => user.id
+
+
+
+    when Reviewer
+        can :manage, User, :school_id => user.school_id
+        can :manage, Reviewer, :id => user.id
 
     end
   end

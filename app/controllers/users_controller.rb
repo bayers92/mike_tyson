@@ -57,18 +57,36 @@ class UsersController < ApplicationController
     respond_to do |format|
 
       if params[:approval_process]
-        if @user.update(user_params)
-          if params[:commit] == 'Deny'
-            format.html { redirect_to user_path(@user), notice: 'User was successfully denied.' }
-            format.json { head :no_content }
+        # Clerk signed in
+        if clerk_signed_in?
+          if @user.update(user_params)
+            if params[:commit] == 'Deny'
+              format.html { redirect_to user_path(@user), notice: 'User was successfully updated.' }
+              format.json { head :no_content }
+            else
+              format.html { redirect_to clerk_path(current_clerk), notice: 'User was successfully updated.' }
+              format.json { head :no_content }
+            end
           else
-            format.html { redirect_to clerk_path(current_clerk), notice: 'User was successfully approved.' }
-            format.json { head :no_content }
+            format.html { redirect_to clerk_path(current_clerk), notice: @user.errors }
+            format.json { render json: @user.errors, status: :unprocessable_entity }
           end
+        # Reviewer signed in
         else
-          format.html { redirect_to clerk_path(current_clerk), notice: @user.errors }
-          format.json { render json: @user.errors, status: :unprocessable_entity }
+          if @user.update(user_params)
+            if params[:commit] == 'Deny'
+              format.html { redirect_to reviewer_path(current_reviewer), notice: 'User was successfully updated.' }
+              format.json { head :no_content }
+            else
+              format.html { redirect_to reviewer_path(current_reviewer), notice: 'User was successfully updated.' }
+              format.json { head :no_content }
+            end
+          else
+            format.html { redirect_to reviewer_path(current_reviewer), notice: @user.errors }
+            format.json { render json: @user.errors, status: :unprocessable_entity }
+          end
         end
+
       else
         if @user.update(user_params)
           format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }

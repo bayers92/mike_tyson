@@ -102,8 +102,9 @@
           </div>
 
 
+          <!-- IF CLERK LOOKING AT OWN STUDENT -->
           <% if clerk_signed_in? && (can? :update, @user) %>
-            <% if @user.approval == 1 %>
+            <% if @user.approval == 2 %>
               <div class = "approval-button-div">
                   <%= simple_form_for @user do |f| %>    
                     <%= f.input :approval, :as => :hidden, :input_html => { :value => 2} %>
@@ -125,6 +126,33 @@
             <% end %>
               <div class = "homepage-clerk-button-div">
                 <%= link_to "Return Homepage", clerk_path(current_clerk), class: "button", method: 'get' %>
+              </div>
+          <% end %>
+
+        <!-- IF REVIEWER LOOKING AT OWN STUDENT -->
+          <% if reviewer_signed_in? && (can? :update, @user) %>
+            <% if @user.approval == 1 %>
+              <div class = "approval-button-div">
+                  <%= simple_form_for @user do |f| %>    
+                    <%= f.input :approval, :as => :hidden, :input_html => { :value => 2} %>
+                    <%= hidden_field_tag(:approval_process, 1) %>
+                    <%= f.submit "Approve", class: "button approve" %>  
+                  <% end %>
+              </div>
+              <div class = "deny-button-div">
+                  <%= simple_form_for @user do |f| %>    
+                    <%= f.input :approval, :as => :hidden, :input_html => { :value => 0} %>
+                    <%= hidden_field_tag(:approval_process, 1) %>
+                    <%= f.submit "Deny", class: "button" %>  
+                  <% end %>
+              </div>
+            <% else %>
+              <div class = "message-clerk-button-div">
+                <%= mail_to @user.email, "Message", class: "button", subject: "Message from your reviewer about your BrandClub profile." %>
+              </div>
+            <% end %>
+              <div class = "homepage-clerk-button-div">
+                <%= link_to "Return Homepage", reviewer_path(current_reviewer), class: "button", method: 'get' %>
               </div>
           <% end %>
 

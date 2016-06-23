@@ -1,0 +1,40 @@
+<% if @students != nil %>
+  <% @students.order("RANDOM()").each do |user| %>
+    <% if user.personal_info && user.homepage_info %>
+      <% if user.homepage_info.homepage_display_name != "" && user.homepage_info.homepage_header != "" %>
+        <div class = "small-12 small-centered columns instance person">
+
+          <div class = "row reviewing">
+
+            <div class = "small-4 columns">
+              <div class = "pic about">
+                <img src="<%= user.personal_info.about_pic.url() %>">
+              </div>
+            </div>
+            <div class = "small-8 columns text-center">
+              <h1> <%= link_to user.homepage_info.homepage_display_name, user_path(user)  %> </h1>
+              <h5> <%= link_to user.homepage_info.homepage_header, user_path(user)  %></h5>
+
+              <br/>
+                <div class "small-6 small-uncentered columns">
+                  <%= button_to "View Profile", user_path(user.id), method: :get, :class => "button alt3" %>
+                </div>
+               <%= simple_form_for user do |f| %>    
+                  <%= f.input :approval, :as => :hidden, :input_html => { :value => 2} %>
+                  <%= hidden_field_tag(:approval_process, 1) %>
+                  <%= f.submit "Submit for Approval", class: "button approve", data: { confirm: 'Please confirm you wish to submit this user for approval' }  %>  
+              <% end %>
+               <%= simple_form_for user do |f| %>    
+                  <%= f.input :approval, :as => :hidden, :input_html => { :value => 0} %>
+                  <%= hidden_field_tag(:approval_process, 1) %>
+                  <%= f.submit "Deny", class: "button deny", data: { confirm: 'Please confirm you wish to deny this user review approval' }  %>  
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% else %>
+  <h1> No students in this category currently. </h1>
+<% end %>  

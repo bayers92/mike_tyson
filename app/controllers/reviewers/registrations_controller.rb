@@ -1,8 +1,8 @@
-class Admins::RegistrationsController < Devise::RegistrationsController
+class Reviewers::RegistrationsController < Devise::RegistrationsController
   # disable default no_authentication action
   skip_before_action :require_no_authentication, only: [:new, :create, :cancel]
- 
-  # Uncomment to require an admin to register new admin
+
+  # now we need admin to register new reviwer
   prepend_before_action :authenticate_scope!, only: [:new, :create, :cancel]
 
   protected
@@ -13,6 +13,6 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
-    schools_path
+    # 
   end
 end

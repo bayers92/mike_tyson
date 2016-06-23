@@ -135,9 +135,67 @@ module ApplicationHelper
 	end
 
 
+
 	# Give user as resource
 	def calc_profile_done(resource)
+		done = 0 
+		total = 13.0
+
+		if resource.gradyear != nil
+			done +=1
+		end
+
+		if resource.sex_list.count != 0
+			done +=1
+		end
+
+		if resource.state_list != 0
+			done +=1
+		end
+
+		if resource.language_list != 0
+			done +=1
+		end
+
+		if resource.demographic_list != 0
+			done +=1
+		end
+
+		if resource.uconcentration != 0
+			done +=1
+		end
+
+		if resource.industry_list != 0
+			done +=1
+		end
+
+		if resource.mconcentration_list != 0
+			done +=1
+		end
+
+		if resource.region_list != 0
+			done +=1
+		end
+
+		if resource.city_list != 0
+			done +=1
+		end
+
+		if resource.size_list != 0
+			done +=1
+		end
+
+		if resource.travel_list != 0
+			done +=1
+		end
+
+		if resource.balance_list != 0
+			done +=1
+		end
+
+		return ((done/total)*100).round
 	end
+
 
 	# Give user as resource
 	def calc_bonus_done(resource)

@@ -1,20 +1,30 @@
-<% width_content = 5 %>
-<% if calc_content_done(@user) >= 5 %>
-	<% if calc_content_done(@user) >= 100 %>
-		<% width_content = 100 %>
-	<% else %>
-		<% width_content = calc_content_done(@user) %>
-	<% end %>
-<% end %>
 
-<% width_bonus = 5 %>
-<% if calc_bonus_done(@user) >= 5 %>
-	<% if calc_bonus_done(@user) >= 100 %>
-		<% width_bonus = 100 %>
-	<% else %>
-		<% width_bonus = calc_bonus_done(@user) %>
-	<% end %>
-<% end %>
+
+<script>
+// For pie graphs
+window.onload = function() {
+    $("#profile-circle").circliful({
+        animationStep: 5,
+        foregroundBorderWidth: 5,
+        backgroundBorderWidth: 15,
+        percent: <%= calc_profile_done(@user) %>
+    });
+    $("#content-circle").circliful({
+        animationStep: 5,
+        foregroundBorderWidth: 5,
+        backgroundBorderWidth: 15,
+        percent: <%= calc_content_done(@user) %>
+    });
+    $("#bonus-circle").circliful({
+        animationStep: 5,
+        foregroundBorderWidth: 5,
+        backgroundBorderWidth: 15,
+        percent: <%= calc_bonus_done(@user) %>
+    });
+};
+</script>
+
+
 
 
 
@@ -40,199 +50,247 @@
 
 				
 				<div class = "small-12 medium-9 columns edit-content-section">
-
+<!-- 
 		            <div class = "edit-info-header">
 		                <h4> Dashboard</h4>
-		            </div>
+		            </div> -->
 
 
 					<div class="row no-margin dashboard" data-equalizer>
 
 						<div class = "small-12 columns panel radius" data-equalizer-watch>
-							<h5><%= link_to edit_user_path(@user)  do %> Create Candidate Profile <span class="fa fa-arrow-right" aria-hidden="true"></span>  <% end %></h5>
-							<div class="progress">
-								<span class="meter blue" style="width:<%= width_content %>%">
-									<p class="percent">
-										<% if calc_content_done(@user) < 5 %>
-											<%= calc_content_done(@user) %>%
-										<% else %>
-											<%= width_content %>%
-										<% end %>
-									</p>
-								</span>
+							<div class = "row">
+								<!-- Start circle graph -->
+								<div class ="small-12 medium-6 columns right">
+							        <div id="profile-circle"></div>
+								</div>
+								<!-- End graph -->
+								<!-- Start tasks column -->
+								<div class = "small-12 medium-6 columns">
+									<h5><%= link_to edit_user_path(@user)  do %> Create Candidate Profile <span class="fa fa-arrow-right" aria-hidden="true"></span>  <% end %></h5>
+									<div class ="tasks">
+										<p> To do: </p>
+										<ul>
+
+											<% if @user.gradyear == nil %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to "Graduation year", edit_user_path(@user) %>
+												</li>
+
+
+											<% if @user.sex_list.count == 0 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to "Gender", edit_user_path(@user) %>
+												</li>
+
+
+											<% if @user.state_list.count == 0 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to "Home state", edit_user_path(@user) %>
+												</li>
+
+											<% if @user.language_list.count == 0 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to "Language(s)", edit_user_path(@user) %>
+												</li>
+
+											<% if @user.demographic_list.count == 0 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to "Demographics", edit_user_path(@user) %>
+												</li>
+
+											<% if @user.uconcentration_list.count == 0 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to "Undergrad major(s)", edit_user_path(@user) %>
+												</li>
+
+											<% if @user.industry_list.count == 0 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to "Desired industry", edit_user_path(@user) %>
+												</li>
+
+											<% if @user.mconcentration_list.count == 0 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to "MBA concentration(s)", edit_user_path(@user) %>
+												</li>
+
+											<% if @user.region_list.count == 0 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to "Desired region", edit_user_path(@user) %>
+												</li>
+
+											<% if @user.city_list.count == 0 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to "Desired city size", edit_user_path(@user) %>
+												</li>
+
+											<% if @user.size_list.count == 0 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to "Desired company size", edit_user_path(@user) %>
+												</li>
+
+											<% if @user.travel_list.count == 0 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to "Willingness to travel", edit_user_path(@user) %>
+												</li>
+
+
+											<% if @user.balance_list.count == 0 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to "Work life balance", edit_user_path(@user) %>
+												</li>
+
+										</ul>
+									</div>
+								</div>
+								<!-- End Tasks column -->
 							</div>
-							<div class ="tasks">
-								<% if width_content == 100 %>
-									<p> Done! </p>
-								<% else %>
-									<p> To do: </p>
-								<% end %>
-								<ul>
 
-									<% if @user.industry_list.count == 0 %>
-										<li>
-									<% else %>
-										<li class = "complete">
-									<% end %>
-											<%= link_to "Concentration", edit_user_path(@user) %>
-										</li>
+						</div>
 
-									<% if @user.industry_list.count == 0 %>
-										<li>
-									<% else %>
-										<li class = "complete">
-									<% end %>
-											<%= link_to "Demographics", edit_user_path(@user) %>
-										</li>
 
-									<% if @user.industry_list.count == 0 %>
-										<li>
-									<% else %>
-										<li class = "complete">
-									<% end %>
-											<%= link_to "Career Focus", edit_user_path(@user) %>
-										</li>
+						<div class = "small-12 columns panel" data-equalizer-watch>
+							<div class = "row">
+								<div class = "small-12 medium-6 columns right">
+									<div id="content-circle"></div>
+								</div>
+								<div class = "small-12 medium-6 columns">
+									<h5><%= link_to edit_homepage_info_path(@user.homepage_info) do %>Upload Website Content <span class="fa fa-arrow-right" aria-hidden="true"></span> <% end %></h5>
+									<div class ="tasks">
+										<p> To do: </p>
+										<ul>
+											<% if calc_done_homepage(@user.homepage_info) != 3 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to edit_homepage_info_path(@user.homepage_info) do %>Landing Page &nbsp;(<%= calc_done_homepage(@user.homepage_info) %> / 3) <% end %>
+												</li>
 
-									<% if @user.industry_list.count == 0 %>
-										<li>
-									<% else %>
-										<li class = "complete">
-									<% end %>
-											<%= link_to "Desired Region", edit_user_path(@user) %>
-										</li>
+											<% if calc_done_personal(@user.personal_info) != 5 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to edit_personal_info_path(@user.personal_info) do %> Personal Info &nbsp;(<%= calc_done_personal(@user.personal_info) %> / 5) <% end %>
+												</li>
 
-									<% if @user.industry_list.count == 0 %>
-										<li>
-									<% else %>
-										<li class = "complete">
-									<% end %>
-											<%= link_to "Hometown State", edit_user_path(@user) %>
-										</li>
+											<% if @user.projects.count < 1 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to projects_path do %> At least 1 project &nbsp;(<%= @user.projects.count %> / 1) <% end %>
+												</li>
 
-								</ul>
+
+											<% if @user.articles.count < 3 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to articles_path do %>  At least 3 articles &nbsp;(<%= @user.articles.count %> / 3) <% end %>
+												</li>
+
+											<% if @user.photos.count < 3 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to photos_path do %>  At least 3 photos &nbsp;(<%= @user.photos.count %> / 3) <% end %>
+												</li>
+
+											<% if calc_done_social(@user.social_link) < 1 %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to edit_social_link_path(@user.social_link) do %> At least 1 social link &nbsp;(<%= calc_done_social(@user.social_link) %> / 1) <% end %>
+												</li>
+
+											<% if @user.website_setting.color == nil %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+													<%= link_to edit_website_setting_path(@user.website_setting) do %> Website settings &nbsp;(<%= @user.website_setting.color? ? 1 : 0 %> / 1) <% end %>
+												</li>
+
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
 
 
 						<div class = "small-12 columns panel" data-equalizer-watch>
-							<h5><%= link_to edit_homepage_info_path(@user.homepage_info) do %>Upload Website Content <span class="fa fa-arrow-right" aria-hidden="true"></span> <% end %></h5>
-							<div class="progress">
-								<span class="meter blue" style="width:<%= width_content %>%">
-									<p class="percent">
-										<% if calc_content_done(@user) < 5 %>
-											<%= calc_content_done(@user) %>%
-										<% else %>
-											<%= width_content %>%
-										<% end %>
-									</p>
-								</span>
-							</div>
-							<div class ="tasks">
-								<% if width_content == 100 %>
-									<p> Done! </p>
-								<% else %>
-									<p> To do: </p>
-								<% end %>
-								<ul>
-									<% if calc_done_homepage(@user.homepage_info) != 3 %>
-										<li>
-									<% else %>
-										<li class = "complete">
-									<% end %>
-											<%= link_to edit_homepage_info_path(@user.homepage_info) do %>Landing Page &nbsp;(<%= calc_done_homepage(@user.homepage_info) %> / 3) <% end %>
-										</li>
+							<div class = "row">
+								<div class = "small-12 medium-6 columns right">
+									<div id="bonus-circle"></div>
+								</div>
+								<div class = "small-12 medium-6 columns">
+									<h5><%= link_to edit_homepage_info_path(@user.homepage_info) do %>Domain Name and Analytics <span class="fa fa-arrow-right" aria-hidden="true"></span> <% end %></h5>
+									<div class ="tasks">
+										<p> To do: </p>
+										<ul>
+											<% if @user.domain.url == nil %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+												<%= link_to edit_domain_path(@user.domain)  do %>Select domain name &nbsp;(<%= @user.domain.url? ? 1 : 0 %> / 1) <% end %>
+											</li>
 
-									<% if calc_done_personal(@user.personal_info) != 5 %>
-										<li>
-									<% else %>
-										<li class = "complete">
-									<% end %>
-											<%= link_to edit_personal_info_path(@user.personal_info) do %> Personal Info &nbsp;(<%= calc_done_personal(@user.personal_info) %> / 5) <% end %>
-										</li>
+											<% if @user.analytic.url == nil %>
+												<li>
+											<% else %>
+												<li class = "complete">
+											<% end %>
+												<%= link_to edit_analytic_path(@user.analytic)  do %>Setup Google Analytics &nbsp;(<%= @user.analytic.url? ? 1 : 0 %>/ 1) <% end %>
+											</li>
+										</ul>
 
-									<% if @user.projects.count < 1 %>
-										<li>
-									<% else %>
-										<li class = "complete">
-									<% end %>
-											<%= link_to projects_path do %> At least 1 project &nbsp;(<%= @user.projects.count %> / 1) <% end %>
-										</li>
-
-
-									<% if @user.articles.count < 3 %>
-										<li>
-									<% else %>
-										<li class = "complete">
-									<% end %>
-											<%= link_to articles_path do %>  At least 3 articles &nbsp;(<%= @user.articles.count %> / 3) <% end %>
-										</li>
-
-									<% if @user.photos.count < 3 %>
-										<li>
-									<% else %>
-										<li class = "complete">
-									<% end %>
-											<%= link_to photos_path do %>  At least 3 photos &nbsp;(<%= @user.photos.count %> / 3) <% end %>
-										</li>
-
-									<% if calc_done_social(@user.social_link) < 1 %>
-										<li>
-									<% else %>
-										<li class = "complete">
-									<% end %>
-											<%= link_to edit_social_link_path(@user.social_link) do %> At least 1 social link &nbsp;(<%= calc_done_social(@user.social_link) %> / 1) <% end %>
-										</li>
-
-									<% if @user.website_setting.color == nil %>
-										<li>
-									<% else %>
-										<li class = "complete">
-									<% end %>
-											<%= link_to edit_website_setting_path(@user.website_setting) do %> Website settings &nbsp;(<%= @user.website_setting.color? ? 1 : 0 %> / 1) <% end %>
-										</li>
-
-								</ul>
-							</div>
-						</div>
-
-
-						<div class = "small-12 columns panel" data-equalizer-watch>
-							<h5><%= link_to edit_homepage_info_path(@user.homepage_info) do %>Domain Name and Analytics <span class="fa fa-arrow-right" aria-hidden="true"></span> <% end %></h5>
-							<div class="progress">
-								<span class="meter blue" style="width:<%= width_bonus %>%">
-									<p class="percent">
-										<% if calc_bonus_done(@user) < 5 %>
-											<%= calc_bonus_done(@user) %>%
-										<% else %>
-											<%= width_bonus %>%
-										<% end %>
-									</p>
-								</span>
-							</div>
-							<div class ="tasks">
-								<% if width_bonus == 100 %>
-									<p> Done! </p>
-								<% else %>
-									<p> To do: </p>
-								<% end %>
-								<ul>
-									<% if @user.domain.url == nil %>
-										<li>
-									<% else %>
-										<li class = "complete">
-									<% end %>
-										<%= link_to edit_domain_path(@user.domain)  do %>Select domain name &nbsp;(<%= @user.domain.url? ? 1 : 0 %> / 1) <% end %>
-									</li>
-
-									<% if @user.analytic.url == nil %>
-										<li>
-									<% else %>
-										<li class = "complete">
-									<% end %>
-										<%= link_to edit_analytic_path(@user.analytic)  do %>Setup Google Analytics &nbsp;(<%= @user.analytic.url? ? 1 : 0 %>/ 1) <% end %>
-									</li>
-								</ul>
-
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

@@ -72,7 +72,7 @@ class UsersController < ApplicationController
             format.json { render json: @user.errors, status: :unprocessable_entity }
           end
         # Reviewer signed in
-        else
+        elsif reviewer_signed_in?
           if @user.update(user_params)
             if params[:commit] == 'Deny'
               format.html { redirect_to reviewer_path(current_reviewer), notice: 'User was successfully updated.' }
@@ -83,6 +83,20 @@ class UsersController < ApplicationController
             end
           else
             format.html { redirect_to reviewer_path(current_reviewer), notice: @user.errors }
+            format.json { render json: @user.errors, status: :unprocessable_entity }
+          end
+        # Student signed in
+        else
+          if @user.update(user_params)
+            if params[:commit] == 'Deny'
+              format.html { redirect_to user_dashboard_path(current_user), notice: 'User was successfully updated.' }
+              format.json { head :no_content }
+            else
+              format.html { redirect_to user_dashboard_path(current_user), notice: 'User was successfully updated.' }
+              format.json { head :no_content }
+            end
+          else
+            format.html { redirect_to user_dashboard_path(current_user), notice: @user.errors }
             format.json { render json: @user.errors, status: :unprocessable_entity }
           end
         end

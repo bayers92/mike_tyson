@@ -3098,4 +3098,36 @@ $yellow: #ffcc00;
 	font-weight: lighter;
 }
 
+.status {
+	p {
+	    line-height: 1rem;
+	    font-size: 1rem;
+	    margin-bottom: 0px;
+	    margin-top: 25px;
+	    color: $dark-gray;
+	    float: left;
+	    .unapproved {
+			color: red !important;
+		}
+		.reviewing {
+			color: orange !important;
+		}
+		.pending {
+			color: $yellow !important;
+		}
+		.approved {
+			color: green !important;
+		}
+	}
+	.status-button {
+	    padding-top: 10px;
+	    padding-bottom: 10px;
+	    padding-left: 15px;
+	    padding-right: 15px;
+	    margin-left: 15px;
+	    margin-right: 15px;
+	    margin-top: 6px;
+	}
+}
+
 @import 'foundation';

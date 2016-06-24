@@ -1,5 +1,32 @@
 <div class ="small-9 columns show-for-medium-up no-padding" id="edit-page-nav">
-  <div class = "small-6 small-offset-6 columns nav-content">
+  
+	<div class = "small-8 columns status">
+		<p> Profile Status:         
+		<% if @user.approval == 0 %>
+			<% if calc_profile_done(@user) < 100 %>
+	          <span class="unapproved"> 
+	          	<%= link_to edit_user_path(@user)  do %> In progress; must first complete candidate profile <span class="fa fa-arrow-right" aria-hidden="true"></span>  <% end %>
+			  </span>
+          	<% elsif calc_content_done(@user) < 100 %>
+          		<%= link_to user_dashboard_path(@user.id) do %>In progress; upload website content before submitting for review <span class="fa fa-arrow-right" aria-hidden="true"></span> <% end %>
+	  		<% else %>
+            <%= simple_form_for @user do |f| %>    
+              <%= f.input :approval, :as => :hidden, :input_html => { :value => 1} %>
+              <%= hidden_field_tag(:approval_process, 1) %>
+              <%= f.submit 'Submit for Review', class: "button alt3 status-button", data: { confirm: 'Please confirm you wish to submit your profile for review' }  %>  
+          <% end %>  
+      		<% end %>
+        <% elsif @user.approval == 1 %>
+          <span class="reviewing"> In review</span>
+        <% elsif @user.approval == 2 %>
+          <span class="pending">Submitted for CMC Approval</span>
+        <% elsif @user.approval == 3 %>
+          <span class="approved"> Approved! </span>
+        <% else %>
+      <% end %></p>
+	</div>
+
+  <div class = "small-4 columns nav-content">
 
 	<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown right"><i class="fa fa-user" aria-hidden="true"></i>&thinsp;<%= @user.email %>&nbsp;&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></button><br>
 	<ul id="drop1" data-dropdown-content class="f-dropdown right" aria-hidden="true">

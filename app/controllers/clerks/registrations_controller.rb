@@ -3,7 +3,7 @@ class Clerks::RegistrationsController < Devise::RegistrationsController
   skip_before_action :require_no_authentication, only: [:new, :create, :cancel]
 
   # now we need admin to register new clerk
-  prepend_before_action :authenticate_scope!, only: [:new, :create, :cancel]
+  # prepend_before_action :authenticate_scope!, only: [:new, :create, :cancel]
   
   before_action :authenticate_person!
 

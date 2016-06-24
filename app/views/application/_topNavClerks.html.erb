@@ -2,17 +2,23 @@
 
 	<div class = "small-9 columns link-container">
 
-		<div class = "small-4 columns text-center link">
-			<a href="#approved" id = "approved-link">Approved </a>
-		</div>
-		
-		<div class = "small-4 columns text-center link">
-			<a href="#pending" id = "pending-link" class = "active-link">Pending </a>
+		<div class = "small-3 columns text-center link">
+			<a href="#unapproved" id = "unapproved-link"> In Progress (<%= @clerk.users.where(:approval => 0).count %>) </a>
 		</div>
 
-		<div class = "small-4 columns text-center link">
-			<a href="#unapproved" id = "unapproved-link">In Progress </a>
+		<div class = "small-3 columns text-center link">
+			<a href="#reviewing" id = "reviewing-link"> In Review (<%= @clerk.users.where(:approval => 1).count %>)</a>
 		</div>
+
+		<div class = "small-3 columns text-center link">
+			<a href="#pending" id = "pending-link" class = "active-link"> Pending (<%= @clerk.users.where(:approval => 2).count %>)</a>
+		</div>
+
+		<div class = "small-3 columns text-center link">
+			<a href="#approved" id = "approved-link"> Approved (<%= @clerk.users.where(:approval => 3).count %>)</a>
+		</div>
+		
+
 	</div>
 
   <div class = "small-3 columns nav-content">

@@ -1,28 +1,62 @@
-<% if @students != nil %>
-  <% @students.order("RANDOM()").each do |user| %>
-    <% if user.personal_info && user.homepage_info %>
-      <% if user.homepage_info.homepage_display_name != "" && user.homepage_info.homepage_header != "" %>
-        <div class = "small-12 small-centered columns instance">
+<div class = "small-12 columns text-center">
+  <p class = "table-summary">
+    These students are still adding content. <br/>You can view their progress or send them a message, but their website must go through review before you may approve it.
+  </p>
+</div>
+<table class = "review-table">
+  <thead>
+    <tr>
+      <th width = "200" class = "text-center">Status</th>
+      <th width="450" class = "text-center">Student Profile</th>
+      <th width = "150"class = "text-center">Message</th>
+      <th width = "175" class = "text-center">Approve</th>
+      <th width = "175" class = "text-center">Deny</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @students.order("RANDOM()").each do |user| %>
 
-          <div class = "row">
+      <tr height ="75">
 
-            <div class = "small-4 columns">
-              <div class = "pic about">
-                <img src="<%= user.personal_info.about_pic.url() %>">
-              </div>
-            </div>
-            <div class = "small-8 columns text-center">
-              <h1> <%= link_to user.homepage_info.homepage_display_name, user_path(user)  %> </h1>
-              <h5> <%= link_to user.homepage_info.homepage_header, user_path(user)  %></h5>
-
-              <br/>
-              <p> <i>User has not submitted for approval. </i></p>
-            </div>
-          </div>
-        </div>
+      <td class = "status-col">
+        <% if user.approval == 0 %>
+          <span class="unapproved"> <li>In progress</li> </span>
+        <% elsif user.approval == 1 %>
+          <span class="reviewing"> <li>In review </li></span>
+        <% elsif user.approval == 2 %>
+          <span class="pending"> <li>Pending approval </li></span>
+        <% elsif user.approval == 3 %>
+          <span class="approved"> <li>Approved</li> </span>
+        <% else %>
       <% end %>
+      </td>
+      
+        <td class = "username"> 
+
+          <% if user.homepage_info.homepage_display_name != "" %>
+          <%= link_to user_path(user) do %><i class="fa fa-user" aria-hidden="true"></i> <%=user.homepage_info.homepage_display_name %> <% end %>
+          <% else %>
+          <%= link_to user_path(user) do %><i class="fa fa-user" aria-hidden="true"></i> <%=user.email %> <% end %>
+          <% end %>
+        </td>
+
+
+        <td>
+          <a href="mailto:<%= user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; Message </a>
+        </td>
+
+
+        <% if current_clerk.power? %>
+          <td class = "text-center">
+            Not Submitted     
+          </td>
+
+
+
+          <td class = "text-center">
+            Not Submitted
+          </td>
+        <% end %>
+      </tr>
     <% end %>
-  <% end %>
-<% else %>
-  <h1> No students in this category currently. </h1>
-<% end %>  
+  </table>

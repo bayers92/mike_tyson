@@ -1,4 +1,3 @@
-
 <div class = "small-12 medium-12 columns form-yield no-padding">
 	<%= render 'application/topNavClerks' %>
 </div>
@@ -7,26 +6,31 @@
 
 
 <div class = "row clerk-content-container">
-	<div id="pending" >
-		<div class = "small-12 medium-8 columns small-centered">
-			<% @students = @clerk.users.where(:approval => 1) %>
-			<%= render 'users/userClerkViewPending' %>
-		</div>
-	</div>
 	<div id="unapproved" style="display:none">
-		<div class = "small-12 medium-8 columns small-centered">
+		<div class = "small-12 medium-12 columns small-centered">
 			<% @students = @clerk.users.where(:approval => 0) %>
 			<%= render 'users/userClerkViewUnapproved' %>
 		</div>
 	</div>
-	<div id="approved" style="display:none">
-		<div class = "small-12 medium-8 columns small-centered">
+
+	<div id="reviewing" style="display:none">
+		<div class = "small-12 medium-12 columns small-centered">
+			<% @students = @clerk.users.where(:approval => 1) %>
+			<%= render 'users/userClerkViewReviewing' %>
+		</div>
+	</div>
+
+	<div id="pending">
+		<div class = "small-12 medium-12 columns small-centered">
 			<% @students = @clerk.users.where(:approval => 2) %>
+			<%= render 'users/userClerkViewPending' %>
+		</div>
+	</div>
+
+	<div id="approved" style="display:none">
+		<div class = "small-12 medium-12 columns small-centered">
+			<% @students = @clerk.users.where(:approval => 3) %>
 			<%= render 'users/userClerkViewApproved' %>
 		</div>
 	</div>
 </div>
-
-
-
-

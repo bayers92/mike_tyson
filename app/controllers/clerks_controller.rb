@@ -44,7 +44,7 @@ class ClerksController < ApplicationController
     end
 
     def clerk_params
-      params[:clerk].permit(:school_id)
+      params[:clerk].permit(:school_id, :power)
     end
 
 end

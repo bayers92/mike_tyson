@@ -7,7 +7,6 @@ class Ability
     case user
     when User
         can :manage, User, :id => user.id
-
         can :manage, HomepageInfo, :user_id => user.id
         can :manage, BackgroundInfo, :user_id => user.id
         can :manage, PersonalInfo, :user_id => user.id
@@ -40,19 +39,13 @@ class Ability
         can :manage, Experience
         can :manage, Domain
         can :manage, Analytic
-
         can :manage, School
-
         can :manage, Clerk
-
         can :manage, Reviewer
-
 
     when Clerk
         can :manage, User, :school_id => user.school_id
         can :manage, Clerk, :id => user.id
-
-
 
     when Reviewer
         can :manage, User, :school_id => user.school_id

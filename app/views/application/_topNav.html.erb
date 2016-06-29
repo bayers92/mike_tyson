@@ -28,7 +28,10 @@
 
   <div class = "small-4 columns nav-content">
 
-	<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown right"><i class="fa fa-user" aria-hidden="true"></i>&thinsp;<%= @user.email %>&nbsp;&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></button><br>
+<!-- 	<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown right"><i class="fa fa-user" aria-hidden="true"></i>&thinsp;<%= @user.email %>&nbsp;&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></button><br> -->
+
+<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown right"><i class="fa fa-user" aria-hidden="true"></i>&thinsp;User Profile&nbsp;&nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i></button><br>
+
 	<ul id="drop1" data-dropdown-content class="f-dropdown right" aria-hidden="true">
 	  <li><%= link_to "Account Settings", edit_user_registration_path %></li>
 	  <li> <%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>

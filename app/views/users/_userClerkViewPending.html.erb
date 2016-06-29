@@ -4,14 +4,17 @@
     Please review the content and either approve for inclusion in the school resume book, or deny and send the student a message with requested changes.
   </p>
 </div>
+<div class = "small-12 columns small-centered text-center">
 <table class = "review-table">
   <thead>
     <tr>
       <th width = "200" class = "text-center">Status</th>
       <th width="450" class = "text-center">Student Profile</th>
       <th width = "150"class = "text-center">Message</th>
-      <th width = "175" class = "text-center">Approve</th>
-      <th width = "175" class = "text-center">Deny</th>
+      <% if current_clerk.power? %>
+        <th width = "175" class = "text-center">Approve</th>
+        <th width = "175" class = "text-center">Deny</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -70,4 +73,4 @@
       </tr>
     <% end %>
   </table>
- 
+ </div>

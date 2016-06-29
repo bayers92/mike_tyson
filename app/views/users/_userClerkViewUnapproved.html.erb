@@ -9,8 +9,10 @@
       <th width = "200" class = "text-center">Status</th>
       <th width="450" class = "text-center">Student Profile</th>
       <th width = "150"class = "text-center">Message</th>
-      <th width = "175" class = "text-center">Approve</th>
-      <th width = "175" class = "text-center">Deny</th>
+      <% if current_clerk.power? %>
+        <th width = "175" class = "text-center">Approve</th>
+        <th width = "175" class = "text-center">Deny</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>

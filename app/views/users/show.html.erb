@@ -342,10 +342,12 @@
                 <h3 class = "header"> Photos </h3>
               </div>
               <div class = "small-12 columns text-center">
-                <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+                <!-- <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4"> -->
+                <ul class="clearing-thumbs small-block-grid-4" data-clearing>
                   <% if @user.photos != nil %>
                     <% @user.photos.each do |photo| %>
-                      <li>
+                      <li class = "photo-user-page">
+                        <span class = "helper"></span>
                         <%= image_tag photo.image(:large) %><br/>
                       </li>
                     <% end %>

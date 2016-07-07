@@ -181,5 +181,8 @@ $(window).on('hashchange',function(){
     });
 });
 
-
+// Lightbox effect for pictures
+$(document).ready(function(){
+    MediumLightbox('figure.zoom-effect');
+});
 

@@ -3130,4 +3130,19 @@ $yellow: #ffcc00;
 	}
 }
 
+.photo-user-page {
+    height: 220px !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    padding-top: 1.25rem !important;
+	.helper {
+	    display: inline-block;
+	    height: 100%;
+	    vertical-align: middle;
+	}
+	img {
+	    border-radius: 3px;
+        vertical-align: middle;
+	}
+}
 @import 'foundation';

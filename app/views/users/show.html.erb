@@ -183,7 +183,7 @@
                 <dd data-magellan-arrival="projects"><a href="#projects">Projects</a></dd>
                 <dd data-magellan-arrival="blog"><a href="#blog">Reading List</a></dd>
                 <dd data-magellan-arrival="photos"><a href="#photos">Photos</a></dd>
-                <dd><a href="mailto:<%=@user.email%>">Contact</a></dd>
+                <dd data-magellan-arrival="contact"><a href="#contact">Contact</a></dd>
               </dl>
             </div>
           </div>
@@ -193,6 +193,9 @@
 
           <div class ="content section">
             <a name="about" data-magellan-destination="about"></a>
+            <div class = "row">
+              <h3 class = "header"> About </h3>
+            </div>
             <div class = "row no-padding">
               <div class = "small-12 medium-4 columns text-center">
                 <img src="<%= @user.personal_info.about_pic.url(:med) %>">
@@ -231,190 +234,203 @@
                     <a href="<%= @user.social_link.link_tumblr %>"><i class="fa fa-tumblr fa-1x"></i></a>
                     <% end %>
                   </div>
-                  <div class = "small-12 large-8 small-centered columns">
+                  <div class = "contact-email-link">
                     <% if @user.social_link.link_alt_email? %>
                     <a href="mailto:<%= @user.social_link.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.social_link.link_alt_email %> </a>
                     <% else %>
                     <a href="mailto:<%= @user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.email %> </a>
-                    <% end %>
-                  </div>    
-
-                  <a href = "<%= @user.personal_info.resume.url() %>"><i class="fa fa-paperclip"></i> &nbsp; Full Resume </a><br/><br/>
+                    <% end %>    
+                  </div>
+                  <div class = "resume-link">
+                  <a href = "<%= @user.personal_info.resume.url() %>"><i class="fa fa-paperclip"></i> &nbsp; Full Resume </a>
                 </div>
-              </div>
-
-              <div class ="small- medium-7 columns end">
-                <p>
-                  <%= @user.personal_info.intro_paragraph %>
-                </p>
               </div>
             </div>
 
+            <div class ="small- medium-7 columns end">
+              <p>
+                <%= @user.personal_info.intro_paragraph %>
+              </p>
+            </div>
+          </div>
 
-            <div class = "row pastExperience">
-              <div class = "small-12 small-centered columns text-center">
 
-                <% if @user.personal_info.exp1_file_name != nil %>
-                <h4 class = "header text-left"> Prior Experience </h4>
+          <div class = "row pastExperience">
+            <div class = "small-12 small-centered columns text-center">
+
+              <% if @user.personal_info.exp1_file_name != nil %>
+              <h4 class = "header text-left"> Prior Experience </h4>
+              <div class = "small-12 medium-3 columns">
+                <div class = "experience_img">
+                  <%= image_tag @user.personal_info.exp1.url(:large) %>
+                  <span class = "helper"></span>
+                </div>
+              </div>
+              <% end %>
+
+              <% if @user.personal_info.exp2_file_name != nil %>
+              <% if @user.personal_info.exp3_file_name == nil && @user.personal_info.exp4_file_name == nil %>
+              <div class = "small-12 medium-3 columns end">
+                <% else %>
                 <div class = "small-12 medium-3 columns">
+                  <% end %>
                   <div class = "experience_img">
-                    <%= image_tag @user.personal_info.exp1.url(:large) %>
+                    <%= image_tag @user.personal_info.exp2.url(:large) %>
                     <span class = "helper"></span>
                   </div>
                 </div>
                 <% end %>
 
-                <% if @user.personal_info.exp2_file_name != nil %>
-                <% if @user.personal_info.exp3_file_name == nil && @user.personal_info.exp4_file_name == nil %>
+
+                <% if @user.personal_info.exp3_file_name != nil %>
+
+                <% if @user.personal_info.exp4_file_name == nil %>
                 <div class = "small-12 medium-3 columns end">
                   <% else %>
                   <div class = "small-12 medium-3 columns">
                     <% end %>
                     <div class = "experience_img">
-                      <%= image_tag @user.personal_info.exp2.url(:large) %>
+                      <%= image_tag @user.personal_info.exp3.url(:large) %>
                       <span class = "helper"></span>
                     </div>
                   </div>
                   <% end %>
 
 
-                  <% if @user.personal_info.exp3_file_name != nil %>
-
-                  <% if @user.personal_info.exp4_file_name == nil %>
-                  <div class = "small-12 medium-3 columns end">
-                    <% else %>
-                    <div class = "small-12 medium-3 columns">
-                      <% end %>
-                      <div class = "experience_img">
-                        <%= image_tag @user.personal_info.exp3.url(:large) %>
-                        <span class = "helper"></span>
-                      </div>
-                    </div>
-                    <% end %>
-
-
-                    <% if @user.personal_info.exp4_file_name != nil %>
-                    <div class = "small-12 medium-3 columns end ">
-                      <div class = "experience_img">
-                        <%= image_tag @user.personal_info.exp4.url(:large) %>
-                        <span class = "helper"></span>
-                      </div>
-                    </div>
-                    <% end %>
-
-
-                  </div>
-                </div>
-              </div>
-              <!-- END ABOUT SECTION   -->
-
-
-
-              <!-- START PROJECT SECTION -->
-              <div class = "content section">
-                <a name = "projects" data-magellan-destination="projects"></a>
-                <div class = "row">
-                  <div class = "small-12 small-cenetered columns">
-                    <h3 class = "header"> Projects </h3>
-                  </div>
-                </div>
-                <%= render 'projects/project0' %>
-              </div>
-              <!-- END PROJECT SECTION -->
-
-
-              <!-- START BLOG SECTION -->
-              <div class = "content section blog">
-                <a name = "blog" data-magellan-destination="blog"></a>
-                <div class = "row blog">
-                  <div class = "small-12 columns">
-                    <h3 class = "header text-left"> Reading List </h3>
-                    <h5 class = "dark-gray"><i> Articles from around the web that I've found interesting </i> </h5>
-                    <br/>
-                    <ul class="small-block-grid-1 medium-block-grid-1 no-bullet articles data-equalizer">
-                      <% @user.articles.each do |article| %>
-                      <li = "post data-equalizer-watch"> 
-                        <a href= "<%= article.url %>">
-                          <h4> <%= article.title %> </h4>
-                          <p> <%= article.summary %> </p>
-                        </a>
-                      </li>
-                      <% end %>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <!-- END BLOG SECTION -->
-
-
-              <!-- START PHOTOS SECTION -->
-              <div class = "content section photos">
-                <a name = "photos" data-magellan-destination="photos"></a>
-                <div class = "row">
-                  <div class = "small-12 small-centered columns">
-                    <h3 class = "header"> Photos </h3>
-                  </div>
-                  <div class = "small-12 columns text-center">
-                    <!-- <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4"> -->
-                    <ul class="clearing-thumbs small-block-grid-4" data-clearing>
-                      <% if @user.photos != nil %>
-                      <% @user.photos.each do |photo| %>
-                      <li class = "photo-user-page">
-                        <span class = "helper"></span>
-                        <%= image_tag photo.image(:large) %><br/>
-                      </li>
-                      <% end %>
-                      <% end %>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <!-- END PHOTOS SECTION -->
-
-              <!-- START FOOTER SECTION -->
-              <div class = "footer section">
-                <div class = "row">
-                  <div class = "small-12 large-4 small-centered columns">
-                    <div class = "icons">
-
-                      <% if @user.social_link.link_linkedin? %>
-                      <a href="<%= @user.social_link.link_linkedin %>"><i class="fa fa-linkedin fa-1x"></i></a>
-                      <% end %>
-
-                      <% if @user.social_link.link_twitter? %>
-                      <a href="<%= @user.social_link.link_twitter %>"><i class="fa fa-twitter fa-1x"></i></a>
-                      <% end %>
-
-                      <% if @user.social_link.link_facebook? %>
-                      <a href="<%= @user.social_link.link_facebook %>"><i class="fa fa-facebook fa-1x"></i></a>
-                      <% end %>
-
-                      <% if @user.social_link.link_github? %>
-                      <a href="<%= @user.social_link.link_github %>"><i class="fa fa-github-alt fa-1x"></i></a>
-                      <% end %>
-
-                      <% if @user.social_link.link_instagram? %>
-                      <a href="<%= @user.social_link.link_instagram %>"><i class="fa fa-instagram fa-1x"></i></a>
-                      <% end %>
-
-                      <% if @user.social_link.link_tumblr? %>
-                      <a href="<%= @user.social_link.link_tumblr %>"><i class="fa fa-tumblr fa-1x"></i></a>
-                      <% end %>
+                  <% if @user.personal_info.exp4_file_name != nil %>
+                  <div class = "small-12 medium-3 columns end ">
+                    <div class = "experience_img">
+                      <%= image_tag @user.personal_info.exp4.url(:large) %>
+                      <span class = "helper"></span>
                     </div>
                   </div>
-                  <div class = "small-12 large-8 small-centered columns">
-                    <% if @user.social_link.link_alt_email? %>
-                    <a href="mailto:<%= @user.social_link.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.social_link.link_alt_email %> </a>
-                    <% else %>
-                    <a href="mailto:<%= @user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.email %> </a>
-                    <% end %>
-                  </div>    
+                  <% end %>
+
+
                 </div>
               </div>
-              <!-- END FOOTER SECTION -->
-            </section> 
-            <!-- END MAIN SECTION -->
-            <a class="exit-off-canvas"></a>
-          </div>
-          <!-- END OFF-CANVAS WRAP -->
-        </body>
+            </div>
+            <!-- END ABOUT SECTION   -->
+
+
+
+            <!-- START PROJECT SECTION -->
+            <div class = "content section">
+              <a name = "projects" data-magellan-destination="projects"></a>
+              <div class = "row">
+                <div class = "small-12 small-cenetered columns">
+                  <h3 class = "header"> Projects </h3>
+                </div>
+              </div>
+              <%= render 'projects/project0' %>
+            </div>
+            <!-- END PROJECT SECTION -->
+
+
+            <!-- START BLOG SECTION -->
+            <div class = "content section blog">
+              <a name = "blog" data-magellan-destination="blog"></a>
+              <div class = "row blog">
+                <div class = "small-12 columns">
+                  <h3 class = "header text-left"> Reading List </h3>
+                  <h5 class = "dark-gray"><i> Articles from around the web that I've found interesting </i> </h5>
+                  <br/>
+                  <ul class="small-block-grid-1 medium-block-grid-1 no-bullet articles data-equalizer">
+                    <% @user.articles.each do |article| %>
+                    <li = "post data-equalizer-watch"> 
+                      <a href= "<%= article.url %>">
+                        <h4> <%= article.title %> </h4>
+                        <p> <%= article.summary %> </p>
+                      </a>
+                    </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- END BLOG SECTION -->
+
+
+            <!-- START PHOTOS SECTION -->
+            <div class = "content section photos">
+              <a name = "photos" data-magellan-destination="photos"></a>
+              <div class = "row">
+                <div class = "small-12 small-centered columns">
+                  <h3 class = "header"> Photos </h3>
+                </div>
+                <div class = "small-12 columns text-center">
+                  <!-- <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4"> -->
+                  <ul class="clearing-thumbs small-block-grid-4" data-clearing>
+                    <% if @user.photos != nil %>
+                    <% @user.photos.each do |photo| %>
+                    <li class = "photo-user-page">
+                      <span class = "helper"></span>
+                      <%= image_tag photo.image(:large) %><br/>
+                    </li>
+                    <% end %>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- END PHOTOS SECTION -->
+
+            <!-- START CONTACT SECTION -->
+            <div class = "content section footer">
+              <a name = "contact" data-magellan-destination="contact"></a>
+              <div class = "row">
+                <div class = "small-12 small-centered columns">
+                  <h3 class = "header"> Contact </h3>
+                </div>
+              </div>
+              <div class = "row footer-content">
+                <div class = "small-12 small-centered columns">
+
+                  <div class = "contact-message-button-div">
+                    <%= mail_to @user.email, "Message Me", class: "button alt4", subject: "Message from CMC about your BrandClub profile." %>
+                  </div>
+
+
+                  <div class = "icons">
+
+                    <% if @user.social_link.link_linkedin? %>
+                    <a href="<%= @user.social_link.link_linkedin %>"><i class="fa fa-linkedin fa-2x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_twitter? %>
+                    <a href="<%= @user.social_link.link_twitter %>"><i class="fa fa-twitter fa-2x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_facebook? %>
+                    <a href="<%= @user.social_link.link_facebook %>"><i class="fa fa-facebook fa-2x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_github? %>
+                    <a href="<%= @user.social_link.link_github %>"><i class="fa fa-github-alt fa-2x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_instagram? %>
+                    <a href="<%= @user.social_link.link_instagram %>"><i class="fa fa-instagram fa-2x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_tumblr? %>
+                    <a href="<%= @user.social_link.link_tumblr %>"><i class="fa fa-tumblr fa-2x"></i></a>
+                    <% end %>
+                  </div>
+                </div>
+                <div class = "small-12 large-8 small-centered columns">
+                  <% if @user.social_link.link_alt_email? %>
+                  <a href="mailto:<%= @user.social_link.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.social_link.link_alt_email %> </a>
+                  <% else %>
+                  <a href="mailto:<%= @user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.email %> </a>
+                  <% end %>
+                </div>    
+              </div>
+            </div>
+            <!-- END FOOTER SECTION -->
+          </section> 
+          <!-- END MAIN SECTION -->
+          <a class="exit-off-canvas"></a>
+        </div>
+        <!-- END OFF-CANVAS WRAP -->
+      </body>

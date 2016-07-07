@@ -1508,25 +1508,25 @@ $topbar-height: 60px;
 }
 
 .footer {
-	margin-top: 40px;
-	padding-bottom: 10px;
-	text-align: center;
+	padding-bottom: 200px;
+	.footer-content{
+		padding-top: 100px;
+	}
 	.icons {
+		padding-bottom: 40px;
+		padding-top: 40px;
 		a {
-			margin-right: 5px;
-			margin-left: 5px;
+			margin-right: 15px;
+			margin-left: 15px;
 		}
 		img {
-			height: 50px;
+			height: 150px;
 			width: auto;
 			padding-bottom: 10px;
 		}
 	}
 	a {
 		color: $medium-gray !important;
-		&:hover {
-			color: $primary-color !important;
-		}
 	}
 }
 
@@ -2725,6 +2725,22 @@ $yellow: #ffcc00;
 	}
 
 }
+.button.alt4 {
+	color: $dark-gray !important;
+    background-color: rgba(255,255,255,0);
+    border: 2px solid $dark-gray;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+	&:hover {
+		background-color: $dark-gray !important;
+		color: white !important;
+	}
+
+}
 
 .heading-padding {
 	top: 0px;
@@ -3170,6 +3186,10 @@ $yellow: #ffcc00;
 	h3 {
 		padding-top: 20px;
 	}
+	.icons {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
 	p {
 		font-size: 1.1rem;
 		margin-bottom: 0px;
@@ -3179,5 +3199,12 @@ $yellow: #ffcc00;
 		padding-top: 10px;
 		padding-left: 10px;
 	}
+	.contact-email-link, .resume-link {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
 }
+
+
+
 @import 'foundation';

@@ -15,6 +15,8 @@
 //= require foundation
 //= require select2
 //= require chosen-jquery
+//= require jquery.jcrop
+//= require papercrop
 //= require_tree .
 
 
@@ -186,3 +188,9 @@ $(document).ready(function(){
     MediumLightbox('figure.zoom-effect');
 });
 
+
+$(document).ready(function(){
+    $("#toggle").click(function(){
+        $("#crop").toggle();
+    });
+});

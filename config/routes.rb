@@ -44,6 +44,10 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'users#dashboard', as: :dashboard
   end
 
+  resources :personal_infos do
+    post 'crop', :on => :member
+  end
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

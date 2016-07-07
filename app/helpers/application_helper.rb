@@ -154,47 +154,47 @@ module ApplicationHelper
 			done +=1
 		end
 
-		if resource.state_list != 0
+		if resource.state_list.count != 0
 			done +=1
 		end
 
-		if resource.language_list != 0
+		if resource.language_list.count != 0
 			done +=1
 		end
 
-		if resource.demographic_list != 0
+		if resource.demographic_list.count != 0
 			done +=1
 		end
 
-		if resource.uconcentration != 0
+		if resource.uconcentration.count != 0
 			done +=1
 		end
 
-		if resource.industry_list != 0
+		if resource.industry_list.count != 0
 			done +=1
 		end
 
-		if resource.mconcentration_list != 0
+		if resource.mconcentration_list.count != 0
 			done +=1
 		end
 
-		if resource.region_list != 0
+		if resource.region_list.count != 0
 			done +=1
 		end
 
-		if resource.city_list != 0
+		if resource.city_list.count != 0
 			done +=1
 		end
 
-		if resource.size_list != 0
+		if resource.size_list.count != 0
 			done +=1
 		end
 
-		if resource.travel_list != 0
+		if resource.travel_list.count != 0
 			done +=1
 		end
 
-		if resource.balance_list != 0
+		if resource.balance_list.count != 0
 			done +=1
 		end
 

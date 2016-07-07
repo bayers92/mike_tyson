@@ -193,49 +193,65 @@
 
           <div class ="content section">
             <a name="about" data-magellan-destination="about"></a>
-            <div class = "row">
-              <div class = "small-12 small-cenetered columns">
-                <h3 class = "header"> About </h3>
-              </div>
-            </div>
+              <div class = "small-12 medium-4 columns text-center">
+                <img src="<%= @user.personal_info.about_pic.url(:med) %>">
+                <div class = "info-card">
+                  <h3> <%= @user.homepage_info.homepage_display_name %></h3>
+                  <p> <%= @user.school.name %> </p>
 
-            <!-- Horizontal Photo Start -->
-            <% if @user.personal_info.vertical == false %>
-            <div class = "row">
-              <div class = "small-12 small-centered columns">
-                <div class = "pic about">
-                  <img src="<%= @user.personal_info.about_pic.url() %>">
+                  <% if @user.gradyear != nil %>
+                    <p> Class of <%= @user.gradyear %> </p>
+                  <% end %>
+
+
+                  <div class = "icons">
+
+                  <% if @user.social_link.link_linkedin? %>
+                  <a href="<%= @user.social_link.link_linkedin %>"><i class="fa fa-linkedin fa-1x"></i></a>
+                  <% end %>
+
+                  <% if @user.social_link.link_twitter? %>
+                  <a href="<%= @user.social_link.link_twitter %>"><i class="fa fa-twitter fa-1x"></i></a>
+                  <% end %>
+
+                  <% if @user.social_link.link_facebook? %>
+                  <a href="<%= @user.social_link.link_facebook %>"><i class="fa fa-facebook fa-1x"></i></a>
+                  <% end %>
+
+                  <% if @user.social_link.link_github? %>
+                  <a href="<%= @user.social_link.link_github %>"><i class="fa fa-github-alt fa-1x"></i></a>
+                  <% end %>
+
+                  <% if @user.social_link.link_instagram? %>
+                  <a href="<%= @user.social_link.link_instagram %>"><i class="fa fa-instagram fa-1x"></i></a>
+                  <% end %>
+
+                  <% if @user.social_link.link_tumblr? %>
+                  <a href="<%= @user.social_link.link_tumblr %>"><i class="fa fa-tumblr fa-1x"></i></a>
+                  <% end %>
+                </div>
+              <div class = "small-12 large-8 small-centered columns">
+                <% if @user.social_link.link_alt_email? %>
+                <a href="mailto:<%= @user.social_link.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.social_link.link_alt_email %> </a>
+                <% else %>
+                <a href="mailto:<%= @user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.email %> </a>
+                <% end %>
+              </div>    
+
+
+
+
+
+                  <a href = "<%= @user.personal_info.resume.url() %>"><i class="fa fa-paperclip"></i> &nbsp; Full Resume </a><br/><br/>
                 </div>
               </div>
             </div>
 
-            <div class = "row">
-              <div class ="small-12 small-centered columns">
-                <p>
-                  <%= simple_format(@user.personal_info.intro_paragraph) %>
-                </p>
-              </div>
-            </div>
-
-            <!-- Vertical Photo Start -->
-            <% else %>
-            <div class = "row">
-              <div class = "small-text-center medium-text-left">
-                <img src="<%= @user.personal_info.about_pic.url(:large) %>" class = "user-about-photo">
-              </div>
-              <div class ="small-12 small-centered columns">
+              <div class ="small- medium-7 columns end">
                 <p>
                   <%= @user.personal_info.intro_paragraph %>
                 </p>
               </div>
-            </div>
-            <% end %>
-
-            <div class = "row">
-              <div class = "small-12 small-centered columns">
-                <a href = "<%= @user.personal_info.resume.url() %>"><i class="fa fa-paperclip fa-2x"></i> &nbsp; View Full Resume </a><br/><br/>
-              </div>
-            </div>
 
 
             <div class = "row pastExperience">

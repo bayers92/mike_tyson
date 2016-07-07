@@ -64,3 +64,7 @@ gem 'compass-rails'
 gem 'chosen-rails'
 
 gem 'font-awesome-rails'
+
+gem 'papercrop'
+gem 'rmagick'
+gem 'carrierwave'

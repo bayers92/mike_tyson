@@ -2,12 +2,18 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-  	    <%= f.input :about_pic, label: 'Headshot Picture:' %>
+        <%= f.input :about_pic, label: 'Headshot Picture:' %>
         <% if @personal_info.about_pic? %>
-          <%= image_tag @personal_info.about_pic.url(:med) %>
+          <%= image_tag @personal_info.about_pic.url(:large) %>
+          <br/><br/>
+          <div id = "toggle">
+            <a> <i class="fa fa-crop"></i>Crop image </a>
+          </div>
+          <div id = "crop" style="display:none">
+            <%= f.cropbox :about_pic %>
+          </div>
           <br/><br/>
         <% end %>
-        <%= f.input :vertical, inline_label: 'Vertical Photo' %>
         <br/>
   	    <%= f.input :intro_paragraph, label: 'Intro Paragraph', placeholder: "Thomas Edward Patrick 'Tom' Brady, Jr. (born August 3, 1977), nicknamed Tom Terrific, is an American football quarterback for the New England Patriots of the National Football League (NFL). After playing college football for the University of Michigan, Tom Brady was drafted by the Patriots in the sixth round of the 2000 NFL draft.... " %>
         <br/>

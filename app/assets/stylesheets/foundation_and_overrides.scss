@@ -131,20 +131,20 @@ $light-gray: #F9F6F6;
 
 // We use these to control various global styles
 
-// @import url('//fonts.googleapis.com/css?family=Raleway');
-// $raleway:'Raleway', sans-serif;
+@import url('//fonts.googleapis.com/css?family=Raleway');
+$raleway:'Raleway', sans-serif;
 
-@import url('//fonts.googleapis.com/css?family=Merriweather:400,300,900');
-$merriweather: 'Merriweather', serif;
+// @import url('//fonts.googleapis.com/css?family=Merriweather:400,300,900');
+// $merriweather: 'Merriweather', serif;
 
 @import url('//fonts.googleapis.com/css?family=Pontano+Sans');
 $pontano: 'Pontano Sans', sans-serif;
 
-@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600);
-$tit: 'Titillium Web', sans-serif;
+// @import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600);
+// $tit: 'Titillium Web', sans-serif;
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
-$roboto: 'Roboto', sans-serif;
+// @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
+// $roboto: 'Roboto', sans-serif;
 
 // @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:600);
 // $sans_pro: 'Source Sans Pro', sans-serif;
@@ -154,7 +154,7 @@ $roboto: 'Roboto', sans-serif;
 
 $body-bg: $white;
 $body-font-color: rgba(0, 0, 0, 0.8);
-$body-font-family: $roboto;
+$body-font-family: $raleway;
 $body-font-weight: 300;
 $body-font-style: normal;
 
@@ -3183,6 +3183,7 @@ $yellow: #ffcc00;
 
 .info-card {
 	color: $dark-gray !important;
+	padding-bottom: 75px;
 	h3 {
 		padding-top: 20px;
 	}

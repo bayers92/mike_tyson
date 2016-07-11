@@ -205,13 +205,13 @@
                 <img src="<%= @user.personal_info.about_pic.url(:med) %>">
                 <div class = "info-card">
                   <h3> <%= @user.homepage_info.homepage_display_name %></h3>
-                  <p> <%= @user.school.name %> </p>
+                  <!-- <p> <%= @user.school.name %> </p> -->
 
-                  <% if @user.gradyear != nil %>
+                  <!-- <% if @user.gradyear != nil %>
                   <p> Class of <%= @user.gradyear %> </p>
-                  <% end %>
+                  <% end %> -->
 
-
+                  <!--
                   <div class = "icons">
 
                     <% if @user.social_link.link_linkedin? %>
@@ -238,6 +238,7 @@
                     <a href="<%= @user.social_link.link_tumblr %>"><i class="fa fa-tumblr fa-1x"></i></a>
                     <% end %>
                   </div>
+                --> 
                   <div class = "contact-email-link">
                     <% if @user.social_link.link_alt_email? %>
                     <a href="mailto:<%= @user.social_link.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.social_link.link_alt_email %> </a>
@@ -245,9 +246,11 @@
                     <a href="mailto:<%= @user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.email %> </a>
                     <% end %>    
                   </div>
-                  <div class = "resume-link">
-                  <a href = "<%= @user.personal_info.resume.url() %>"><i class="fa fa-paperclip"></i> &nbsp; Full Resume </a>
-                </div>
+                  <% if @user.personal_info.resume_file_name != nil %>
+                    <div class = "resume-link">
+                    <a href = "<%= @user.personal_info.resume.url() %>"><i class="fa fa-paperclip"></i> &nbsp; Full Resume </a>
+                  </div>
+                <% end %>
               </div>
             </div>
 

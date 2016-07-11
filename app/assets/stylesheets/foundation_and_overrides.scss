@@ -1509,8 +1509,11 @@ $topbar-height: 60px;
 
 .footer {
 	padding-bottom: 200px;
-	.footer-content{
-		padding-top: 100px;
+	.footer-content {
+		padding-top: 80px;
+	}
+	.contact-message-button-div {
+		padding-bottom: 80px;
 	}
 	.icons {
 		padding-bottom: 40px;

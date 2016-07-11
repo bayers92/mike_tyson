@@ -17,7 +17,6 @@
 
 
 <!-- CHANGING PRIMARY-COLOR FOR USER -->
-<% if @user.website_setting != nil %>
 <% if @user.website_setting.color == 0 %>
 <%= render 'primary_color0' %>
 <% elsif @user.website_setting.color == 1 %>
@@ -30,7 +29,8 @@
 <%= render 'primary_color4' %>
 <% elsif @user.website_setting.color == 5 %>
 <%= render 'primary_color5' %>
-<% end %>
+<% else %>
+<%= render 'primary_color0' %>
 <% end %>
 
 
@@ -155,6 +155,10 @@
             <%= link_to "Return Homepage", reviewer_path(current_reviewer), class: "button", method: 'get' %>
           </div>
           <% end %>
+
+
+<!-- START USER PROFILE STYLE SECTION -->
+      <div class ="user-profile-style">
 
 
           <!-- START hero row -->
@@ -432,5 +436,6 @@
           <!-- END MAIN SECTION -->
           <a class="exit-off-canvas"></a>
         </div>
+      </div>
         <!-- END OFF-CANVAS WRAP -->
       </body>

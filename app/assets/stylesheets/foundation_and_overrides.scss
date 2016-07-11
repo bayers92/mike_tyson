@@ -3196,6 +3196,9 @@ $yellow: #ffcc00;
 	}
 	a {
 		color: $medium-gray !important;
+		&:hover {
+			color: $primary-color !important;
+		}
 		padding-top: 10px;
 		padding-left: 10px;
 	}
@@ -3203,6 +3206,10 @@ $yellow: #ffcc00;
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
+}
+
+.user-profile-style {
+
 }
 
 

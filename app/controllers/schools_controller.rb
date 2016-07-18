@@ -53,6 +53,10 @@ class SchoolsController < ApplicationController
     respond_with(@school)
   end
 
+  def roster
+    @school = School.find params[:school_id]
+  end
+
   private
     def set_school
       @school = School.find(params[:id])

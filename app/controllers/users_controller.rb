@@ -52,6 +52,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     @user = User.find params[:id]
+    @school = @user.school
 
 
     respond_to do |format|
@@ -101,6 +102,14 @@ class UsersController < ApplicationController
           end
         end
 
+        # admin changing stauts of domain name
+      elsif params[:dstatus_process]
+        if @user.update(user_params)
+          format.html { redirect_to school_roster_path(@school), notice: 'User domain was successfully updated.' }
+          format.json { head :no_content }
+        end
+
+        # User themself
       else
         if @user.update(user_params)
           format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }
@@ -132,7 +141,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:school_id, :gradyear, :approval, :approval_process, industry_list: [], career_list: [], language_list: [], wexperience_list: [], undergrad_list: [], uconcentration_list: [], travel_list: [], state_list: [], skill_list: [], size_list: [], sex_list: [], region_list: [], mconcentration_list: [], demographic_list: [], balance_list: [], visa_list: [], city_list: [])
+      params.require(:user).permit(:school_id, :gradyear, :approval, :approval_process, :dstatus, :dstatus_process, industry_list: [], career_list: [], language_list: [], wexperience_list: [], undergrad_list: [], uconcentration_list: [], travel_list: [], state_list: [], skill_list: [], size_list: [], sex_list: [], region_list: [], mconcentration_list: [], demographic_list: [], balance_list: [], visa_list: [], city_list: [])
     end
 
     def verify_email

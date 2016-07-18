@@ -44,6 +44,10 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'users#dashboard', as: :dashboard
   end
 
+  resources :schools do
+    get '/roster', to: 'schools#roster', as: :roster
+  end
+
   resources :personal_infos do
     post 'crop', :on => :member
   end

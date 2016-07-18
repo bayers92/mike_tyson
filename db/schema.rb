@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624014315) do
+ActiveRecord::Schema.define(version: 20160718205528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -409,6 +409,7 @@ ActiveRecord::Schema.define(version: 20160624014315) do
     t.integer  "school_id"
     t.integer  "gradyear"
     t.integer  "approval",               default: 0
+    t.integer  "dstatus",                default: 0
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -428,6 +429,7 @@ ActiveRecord::Schema.define(version: 20160624014315) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "dstatus",     default: 0
   end
 
   add_index "website_settings", ["user_id"], name: "index_website_settings_on_user_id", using: :btree

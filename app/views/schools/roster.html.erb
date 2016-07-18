@@ -1,13 +1,14 @@
 <div class = "row">
   <div class = "small-12 columns">
-    <h1>Listing All Students</h1>
-    <%= link_to 'View by school', schools_path %>
+    <h1><%= @school.name %></h1>
+    <br>
+    <%= link_to 'Back to all schools', schools_path %>
   </div>
 </div>
 
 <div class = "row">
   <div class = "small-12 columns">
-    <h3> Approved websites (<%= @users.where(approval: 3).count %>)</h3> 
+    <h3> Approved websites  (<%= @school.users.where(approval: 3).count %>)</h3> 
     <table>
       <thead>
         <tr>
@@ -22,7 +23,7 @@
       </thead>
 
       <tbody>
-        <% @users.where(approval: 3).find_each do |user| %>
+        <% @school.users.where(approval: 3).find_each do |user| %>
         <tr>
           <td> <%= user.id %></td>
           <td> <%= user.gradyear %> </td>
@@ -89,7 +90,7 @@
 
 
   <div class = "small-12 columns">
-    <h3> Pending CMC approval  (<%= @users.where(approval: 2).count %>)</h3> 
+    <h3> Pending CMC approval  (<%= @school.users.where(approval: 2).count %>)</h3> 
     <table>
       <thead>
         <tr>
@@ -104,7 +105,7 @@
       </thead>
 
       <tbody>
-        <% @users.where(:approval => 2).find_each do |user| %>
+        <% @school.users.where(:approval => 2).find_each do |user| %>
         <tr>
           <td> <%= user.id %></td>
           <td> <%= user.gradyear %> </td>
@@ -166,7 +167,7 @@
 
 
   <div class = "small-12 columns">
-    <h3> Under Review  (<%= @users.where(approval: 1).count %>)</h3> 
+    <h3> Under Review  (<%= @school.users.where(approval: 1).count %>)</h3> 
     <table>
       <thead>
         <tr>
@@ -181,7 +182,7 @@
       </thead>
 
       <tbody>
-        <% @users.where(:approval => 1).find_each do |user| %>
+        <% @school.users.where(:approval => 1).find_each do |user| %>
         <tr>
           <td> <%= user.id %></td>
           <td> <%= user.gradyear %> </td>
@@ -242,7 +243,7 @@
   </div>
 
   <div class = "small-12 columns">
-    <h3> In Progress  (<%= @users.where(approval: 0).count %>)</h3> 
+    <h3> In Progress  (<%= @school.users.where(approval: 0).count %>)</h3> 
     <table>
       <thead>
         <tr>
@@ -257,7 +258,7 @@
       </thead>
 
       <tbody>
-        <% @users.where(:approval => 0).find_each do |user| %>
+        <% @school.users.where(:approval => 0).find_each do |user| %>
         <tr>
           <td> <%= user.id %></td>
           <td> <%= user.gradyear %> </td>

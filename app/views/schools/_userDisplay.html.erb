@@ -7,7 +7,6 @@
           <th> # ID </th>
           <th> Grad Year </th>
           <th> Student Name </th>
-          <th> Status </th>
           <th> Domain Name </th>
           <th> Domain Status </th>
           <th> Action</th>
@@ -24,7 +23,6 @@
           <% else %>
           <td><%= link_to user.email, user_path(user) %> </td>
           <% end %>
-          <td> <%= user.approval %></td>
           <% if user.website_setting != nil %>
           <td> <strong><%= user.website_setting.domain_name %></td></strong>
           <% else %>
@@ -89,7 +87,6 @@
           <th> # ID </th>
           <th> Grad Year </th>
           <th> Student Name </th>
-          <th> Status </th>
           <th> Domain Name </th>
           <th> Domain Status </th>
           <th> Action</th>
@@ -106,7 +103,6 @@
           <% else %>
           <td><%= link_to user.email, user_path(user) %> </td>
           <% end %>
-          <td> <%= user.approval %></td>
           <% if user.website_setting != nil %>
           <td> <strong><%= user.website_setting.domain_name %></td></strong>
           <% else %>
@@ -166,7 +162,6 @@
           <th> # ID </th>
           <th> Grad Year </th>
           <th> Student Name </th>
-          <th> Status </th>
           <th> Domain Name </th>
           <th> Domain Status </th>
           <th> Action</th>
@@ -183,7 +178,6 @@
           <% else %>
             <td><%= link_to user.email, user_path(user) %> </td>
           <% end %>
-          <td> <%= user.approval %></td>
           <% if user.website_setting != nil %>
           <td> <strong><%= user.website_setting.domain_name %></td></strong>
           <% else %>
@@ -242,7 +236,6 @@
           <th> # ID </th>
           <th> Grad Year </th>
           <th> Student Name </th>
-          <th> Status </th>
           <th> Domain Name </th>
           <th> Domain Status </th>
           <th> Action</th>
@@ -259,7 +252,6 @@
           <% else %>
           <td><%= link_to user.email, user_path(user) %> </td>
           <% end %>
-          <td> <%= user.approval %></td>
           <% if user.website_setting != nil %>
           <td> <strong><%= user.website_setting.domain_name %></td></strong>
           <% else %>

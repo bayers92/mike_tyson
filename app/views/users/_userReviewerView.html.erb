@@ -1,5 +1,5 @@
 <% if @students != nil %>
-  <% @students.order("RANDOM()").each do |user| %>
+  <% @students.each do |user| %>
     <% if user.personal_info && user.homepage_info %>
       <% if user.homepage_info.homepage_display_name != "" && user.homepage_info.homepage_header != "" %>
         <div class = "small-12 small-centered columns instance">

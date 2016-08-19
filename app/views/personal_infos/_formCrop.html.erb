@@ -1,4 +1,6 @@
 <%= simple_form_for(@personal_info) do |f| %>
+  <div class="form-inputs">
 	<%= f.cropbox :about_pic, width: 500 %>
-	<%= f.submit 'Save' %>
+    <%= f.button :submit, 'Save' %>
+	</div>
 <% end %>

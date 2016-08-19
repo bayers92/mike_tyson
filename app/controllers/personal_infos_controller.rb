@@ -96,7 +96,9 @@ class PersonalInfosController < ApplicationController
   def crop
     @user = current_user
     @personal_info = @user.create_personal_info(personal_info_params)
-    @asset = @personal_info.about_pic
+    # @user = current_user
+    # @personal_info = @user.create_personal_info(personal_info_params)
+    # @asset = @personal_info.about_pic
   end
 
   private
@@ -107,6 +109,7 @@ class PersonalInfosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def personal_info_params
-       params.require(:personal_info).permit(:name_first, :name_last, :intro_paragraph, :about_pic, :resume, :vertical, :exp1, :exp2, :exp3, :exp4, :remove_exp1, :remove_exp2, :remove_exp3, :remove_exp4, :about_pic_original_w, :about_pic_original_h, :about_pic_box_w, :about_pic_aspect, :about_pic_crop_x, :about_pic_crop_y, :about_pic_crop_w, :about_pic_crop_h)
+       params.require(:personal_info).permit(:name_first, :name_last, :intro_paragraph, :about_pic, :resume, :vertical, :exp1, :exp2, :exp3, :exp4, :remove_exp1, :remove_exp2, :remove_exp3, :remove_exp4, 
+        :about_pic_original_w, :about_pic_original_h, :about_pic_box_w, :about_pic_aspect, :about_pic_crop_x, :about_pic_crop_y, :about_pic_crop_w, :about_pic_crop_h)
     end
 end

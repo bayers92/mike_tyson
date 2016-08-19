@@ -12,7 +12,11 @@
 				</a>
 			</div>
 
-			<%= render 'form' %>
+			<% if params[:crop] %>
+				<%= render 'formCrop' %>
+			<% else %>
+				<%= render 'form' %>
+			<% end %>
 		</div>
 
 		<%= render 'application/instructions_personal_info' %>

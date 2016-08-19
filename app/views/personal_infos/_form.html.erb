@@ -4,14 +4,9 @@
   <div class="form-inputs">
         <%= f.input :about_pic, label: 'Headshot Picture:' %>
         <% if @personal_info.about_pic? %>
-          <%= image_tag @personal_info.about_pic.url(:large) %>
+          <%= image_tag @personal_info.about_pic.url(:med) %>
           <br/><br/>
-          <div id = "toggle">
-            <a> <i class="fa fa-crop"></i>Crop image </a>
-          </div>
-          <div id = "crop" style="display:none">
-            <%= f.cropbox :about_pic %>
-          </div>
+          <!-- <a> <i class="fa fa-crop"> </i></a><%= link_to "Crop Image", edit_personal_info_path(@personal_info, crop: true) %> -->
           <br/><br/>
         <% end %>
         <br/>

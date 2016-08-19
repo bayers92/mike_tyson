@@ -49,7 +49,8 @@ Rails.application.routes.draw do
   end
 
   resources :personal_infos do
-    post 'crop', :on => :member
+    # post 'crop', :on => :member
+    get 'crop', to: 'personal_infos/#crop', as: :crop
   end
 
 

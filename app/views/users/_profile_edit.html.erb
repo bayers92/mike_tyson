@@ -1,5 +1,5 @@
 
-
+<%= render 'modals' %>
 
 <% content_for :title do %>
 <%= @user.homepage_info.homepage_display_name%>
@@ -64,6 +64,7 @@
 
 
 
+
     <div class="off-canvas-wrap fixed" data-offcanvas>
       <div class="inner-wrap">
 
@@ -92,106 +93,77 @@
         <section class="main-section">
 
 
-  
 
 
-<!-- START USER PROFILE STYLE SECTION -->
-      <div class ="user-profile-style">
+
+          <!-- START USER PROFILE STYLE SECTION -->
+          <div class ="user-profile-style">
 
 
-          <!-- START hero row -->
-          <div class = "row hero">
-            <div class = "small-12 columns text-center logo">
-              <h1 id = "openmodal"><%= @user.homepage_info.homepage_display_name %></h1>
-	            <h3><%= @user.homepage_info.homepage_header %></h3>
+            <!-- START hero row -->
+            <div class = "row hero">
+              <div class = "small-12 columns text-center logo">
+                <h1 id = "open_name_modal"><%= @user.homepage_info.homepage_display_name %></h1>
+                <h3 id = "open_slogan_modal"><%= @user.homepage_info.homepage_header %></h3>
+              </div>
+<!--               <div class = "small-12 small-centered columns text-center arrow">
+                <a href="#about"><i class="fa fa-angle-double-down fa-4x"></i></a>
+              </div> -->
             </div>
-            <div class = "small-12 small-centered columns text-center arrow">
-              <a href="#about"><i class="fa fa-angle-double-down fa-4x"></i></a>
+            <!-- END hero row -->
+
+
+            <%= simple_form_for(@user.homepage_info, multipart: true) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs">
+              <%= f.input :homepage_display_name, label: 'Display Name:', placeholder: 'Tom Brady' %>
+              <%= f.input :homepage_header, label: 'Personal Slogan:', placeholder: 'Patriots | Football | Family' %>
+              <%= f.input :homepage_pic, label: 'Background Image:' %>
             </div>
-          </div>
-          <!-- END hero row -->
-<div class="ui basic modal">
 
-  <div class="header">
-    Archive Old Messages
-  </div>
-  <div class="content">
-    <div class="description">
-      <%= simple_form_for(@user.homepage_info, multipart: true) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :homepage_display_name, label: 'Display Name:', placeholder: 'Tom Brady' %>
-    <%= f.input :homepage_header, label: 'Personal Slogan:', placeholder: 'Patriots | Football | Family' %>
-    <%= f.input :homepage_pic, label: 'Background Image:' %>
-  </div>
- 
-
-    </div>
-  </div>
-  <div class="form-actions actions">
-    <div class="two fluid ui inverted buttons">
-      <div class="ui cancel red basic inverted button">
-        <i class="remove icon"></i>
-        Cancel
-      </div>
-        <%= f.button :submit, 'Save', :class => "ui ok green basic inverted button" %> 
-    </div>
-  </div>
-  <% end %>
-</div>
-
-<%= simple_form_for(@user.homepage_info, multipart: true) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :homepage_display_name, label: 'Display Name:', placeholder: 'Tom Brady' %>
-    <%= f.input :homepage_header, label: 'Personal Slogan:', placeholder: 'Patriots | Football | Family' %>
-    <%= f.input :homepage_pic, label: 'Background Image:' %>
-  </div>
-
-  <div class="form-actions">
-    <br/>
-   <%= f.button :submit, 'Save' %>   
-   <% if current_user.homepage_info != nil %>     
-     <a href="#" data-reveal-id="previewModal" class = "button alt3">View</a>
-   <% end %>
-   <a href="/personal_infos/<%=current_user.personal_info.id%>/edit" class = "buttonNext"> Next  <i class="fa fa-arrow-right"></i> </a>
-  </div>
-<% end %>
-
-
-
-
-
-          <div class = "show-for-medium-up">
-
-            <!-- START DESKTOP NAVIGATION -->
-            <div data-magellan-expedition="fixed">
-              <dl class="sub-nav">
-                <dd data-magellan-arrival="about"><a href="#about">About</a></dd>
-                <dd data-magellan-arrival="projects"><a href="#projects">Projects</a></dd>
-                <dd data-magellan-arrival="blog"><a href="#blog">Reading List</a></dd>
-                <dd data-magellan-arrival="photos"><a href="#photos">Photos</a></dd>
-                <dd data-magellan-arrival="contact"><a href="#contact">Contact</a></dd>
-              </dl>
+            <div class="form-actions">
+              <br/>
+              <%= f.button :submit, 'Save' %>   
+              <% if current_user.homepage_info != nil %>     
+              <a href="#" data-reveal-id="previewModal" class = "button alt3">View</a>
+              <% end %>
+              <a href="/personal_infos/<%=current_user.personal_info.id%>/edit" class = "buttonNext"> Next  <i class="fa fa-arrow-right"></i> </a>
             </div>
-          </div>
-          <!-- END NAVIGATION -->
+            <% end %>
 
-          <!-- START ABOUT SECTION -->
 
-          <div class ="content section">
-            <a name="about" data-magellan-destination="about"></a>
-            <div class = "row">
-              <h3 class = "header"> About </h3>
+
+
+
+            <div class = "show-for-medium-up">
+
+              <!-- START DESKTOP NAVIGATION -->
+              <div data-magellan-expedition="fixed">
+                <dl class="sub-nav">
+                  <dd data-magellan-arrival="about"><a href="#about">About</a></dd>
+                  <dd data-magellan-arrival="projects"><a href="#projects">Projects</a></dd>
+                  <dd data-magellan-arrival="blog"><a href="#blog">Reading List</a></dd>
+                  <dd data-magellan-arrival="photos"><a href="#photos">Photos</a></dd>
+                  <dd data-magellan-arrival="contact"><a href="#contact">Contact</a></dd>
+                </dl>
+              </div>
             </div>
-            <div class = "row no-padding">
-              <div class = "small-12 medium-4 columns text-center">
-                <img src="<%= @user.personal_info.about_pic.url(:med) %>"> 
-                <div class = "info-card">
-                  <h3> <%= @user.homepage_info.homepage_display_name %></h3>
-                  <!-- <p> <%= @user.school.name %> </p> -->
+            <!-- END NAVIGATION -->
+
+            <!-- START ABOUT SECTION -->
+
+            <div class ="content section">
+              <a name="about" data-magellan-destination="about"></a>
+              <div class = "row">
+                <h3 class = "header"> About </h3>
+              </div>
+              <div class = "row no-padding">
+                <div class = "small-12 medium-4 columns text-center">
+                  <img src="<%= @user.personal_info.about_pic.url(:med) %>"> 
+                  <div class = "info-card">
+                    <h3> <%= @user.homepage_info.homepage_display_name %></h3>
+                    <!-- <p> <%= @user.school.name %> </p> -->
 
                   <!-- <% if @user.gradyear != nil %>
                   <p> Class of <%= @user.gradyear %> </p>
@@ -225,17 +197,17 @@
                     <% end %>
                   </div>
                 --> 
-                  <div class = "contact-email-link">
-                    <% if @user.social_link.link_alt_email? %>
-                    <a href="mailto:<%= @user.social_link.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.social_link.link_alt_email %> </a>
-                    <% else %>
-                    <a href="mailto:<%= @user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.email %> </a>
-                    <% end %>    
-                  </div>
-                  <% if @user.personal_info.resume_file_name != nil %>
-                    <div class = "resume-link">
-                    <a href = "<%= @user.personal_info.resume.url() %>"><i class="fa fa-paperclip"></i> &nbsp; Full Resume </a>
-                  </div>
+                <div class = "contact-email-link">
+                  <% if @user.social_link.link_alt_email? %>
+                  <a href="mailto:<%= @user.social_link.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.social_link.link_alt_email %> </a>
+                  <% else %>
+                  <a href="mailto:<%= @user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.email %> </a>
+                  <% end %>    
+                </div>
+                <% if @user.personal_info.resume_file_name != nil %>
+                <div class = "resume-link">
+                  <a href = "<%= @user.personal_info.resume.url() %>"><i class="fa fa-paperclip"></i> &nbsp; Full Resume </a>
+                </div>
                 <% end %>
               </div>
             </div>
@@ -426,5 +398,5 @@
           <a class="exit-off-canvas"></a>
         </div>
       </div>
-        <!-- END OFF-CANVAS WRAP -->
-      </body>
+      <!-- END OFF-CANVAS WRAP -->
+    </body>

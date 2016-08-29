@@ -1,0 +1,54 @@
+<!-- Name Modal -->
+            <div class="ui basic modal" id = "name">
+
+              <div class="header">
+                Edit Display Name
+              </div>
+
+              <div class="content">
+                <div class="description">
+                  <%= simple_form_for(@user.homepage_info, multipart: true) do |f| %>
+                  <%= f.error_notification %>
+                  <div class="form-inputs">
+                    <%= f.input :homepage_display_name, label: 'Display Name:', placeholder: 'Display Name' %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions actions">
+                <div class="two fluid ui inverted buttons">
+                  <%= f.button :button, "Cancel", type: :reset, :class => "ui cancel red basic inverted buttone" %>
+                  <%= f.button :submit, 'Save', :class => "ui ok green basic inverted button" %> 
+                </div>
+              </div>
+
+              <% end %>
+            </div>
+
+
+<!-- Slogan Modal -->
+            <div class="ui basic modal" id = "slogan">
+
+              <div class="header">
+                Edit Homepage Slogan
+              </div>
+
+              <div class="content">
+                <div class="description">
+                  <%= simple_form_for(@user.homepage_info, multipart: true) do |f| %>
+                  <%= f.error_notification %>
+                  <div class="form-inputs">
+                    <%= f.input :homepage_header, label: 'Homepage Slogan:' %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions actions">
+                <div class="two fluid ui inverted buttons">
+                  <%= f.button :button, "Cancel", type: :reset, :class => "ui cancel red basic inverted buttone" %>
+                  <%= f.button :submit, 'Save', :class => "ui ok green basic inverted button" %> 
+                </div>
+              </div>
+              
+              <% end %>
+            </div>

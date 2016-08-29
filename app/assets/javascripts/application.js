@@ -21,14 +21,22 @@
 //= require_tree .
 
 
-$("#openmodal").click(function () {
-    $('.ui.basic.modal')
+
+$("#open_name_modal").click(function () {
+    $('#name')
       .modal('setting', 'closable', false)
       .modal('show')
     ;
 });
 
 
+
+$("#open_slogan_modal").click(function () {
+    $('#slogan')
+      .modal('setting', 'closable', false)
+      .modal('show')
+    ;
+});
 
 $(document).foundation();
 //= require turbolinks

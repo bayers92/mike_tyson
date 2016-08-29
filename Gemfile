@@ -68,3 +68,7 @@ gem 'font-awesome-rails'
 gem 'papercrop'
 gem 'rmagick'
 gem 'carrierwave'
+
+gem 'less-rails-semantic_ui'
+gem 'autoprefixer-rails'
+gem 'therubyracer'

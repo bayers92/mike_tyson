@@ -17,7 +17,9 @@
 //= require chosen-jquery
 //= require jquery.jcrop
 //= require papercrop
+//= require semantic_ui/semantic_ui
 //= require_tree .
+
 
 
 

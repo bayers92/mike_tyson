@@ -21,6 +21,12 @@
 //= require_tree .
 
 
+$("#openmodal").click(function () {
+    $('.ui.basic.modal')
+      .modal('setting', 'closable', false)
+      .modal('show')
+    ;
+});
 
 
 

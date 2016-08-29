@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  # resources :after_signup
+
   devise_for :reviewers, controllers: { registrations: "reviewers/registrations" }
   resources :reviewers
 
@@ -22,9 +25,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" }
 
   resources :articles
+
   resources :users do 
     resources :tags
   end
+
   resources :background_infos
   resources :experiences
   resources :homepage_infos
@@ -42,6 +47,7 @@ Rails.application.routes.draw do
   resources :users do 
     get '/feed', to: 'users#feed', as: :feed
     get '/dashboard', to: 'users#dashboard', as: :dashboard
+    resources :after_signup, controller: 'users/after_signup'
   end
 
   resources :schools do

@@ -25,6 +25,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
 
+  def new 
+
+    super
+
+  end
+
+
+
+  def update 
+
+    super
+
+  end
+
+
+
   protected
 
   def sign_up_params
@@ -36,6 +52,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
-    user_dashboard_path(current_user)
+    # user_dashboard_path(current_user)
+    user_after_signup_path(:id =>:add_info, :user_id => current_user.id)
+  end
+
+  def after_update_path_for(resource)
+    user_path(current_user)
   end
 end

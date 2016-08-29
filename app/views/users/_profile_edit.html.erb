@@ -1,0 +1,430 @@
+
+
+
+<% content_for :title do %>
+<%= @user.homepage_info.homepage_display_name%>
+<% end %>
+
+
+<% content_for :custom_css do %> 
+<style>
+.heading {
+  display: none !important;
+}
+.row.hero {
+  background: url("<%= @user.homepage_info.homepage_pic.url() %>") no-repeat center center fixed;
+  background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),  url("<%= @user.homepage_info.homepage_pic.url() %>");
+}
+</style>
+<% end %>
+
+
+<!-- CHANGING PRIMARY-COLOR FOR USER -->
+<% if @user.website_setting.color == 0 %>
+<%= render 'primary_color0' %>
+<% elsif @user.website_setting.color == 1 %>
+<%= render 'primary_color1' %>
+<% elsif @user.website_setting.color == 2 %>
+<%= render 'primary_color2' %>
+<% elsif @user.website_setting.color == 3 %>
+<%= render 'primary_color3' %>
+<% elsif @user.website_setting.color == 4 %>
+<%= render 'primary_color4' %>
+<% elsif @user.website_setting.color == 5 %>
+<%= render 'primary_color5' %>
+<% else %>
+<%= render 'primary_color0' %>
+<% end %>
+
+
+<!-- LOADING GRAPHIC PAGE -->
+<style>
+  /* This only works with JavaScript, 
+  if it's not present, don't show loader */
+  .no-js #loading_page { display: none;  }
+  .js .loading_page { display: block; background-color: white; position: absolute; left: 0px; top: 0px; height: 100%; width: 100%; z-index: 99999;}
+  </style>
+
+  <!-- USER SPECIFIC GOOGLE ANALYTICS -->
+  <% if @user.analytic != '' %>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', <%= @user.analytic.url %>, 'auto');
+  ga('send', 'pageview');
+
+  </script>
+  <% end %>
+
+
+  <body>
+
+
+
+    <div class="off-canvas-wrap fixed" data-offcanvas>
+      <div class="inner-wrap">
+
+        <!-- MOBILE NAV BAR -->
+        <div class = "fixed">
+          <nav class="tab-bar show-for-small-only">
+            <section class="right-small">
+              <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+            </section>
+          </nav>
+        </div>
+
+        <!-- MOBILE NAVIGATION OFFCANVAS LIST -->
+        <aside class="right-off-canvas-menu" aria-hidden="true">
+          <ul class="off-canvas-list">
+            <li><label><%= @user.homepage_info.homepage_display_name %></label></li>
+            <li><a href="#about"><i class="fa fa-user fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;About</a></li>
+            <li><a href="#projects"><i class="fa fa-flask fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Projects</a></li>
+            <li><a href="#blog"><i class="fa fa-newspaper-o fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Reading List</a></li>
+            <li><a href="#photos"><i class="fa fa-instagram fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Photos</a></li>
+            <li><a href="mailto:<%=@user.email%>"><i class="fa fa-envelope-o fa-1x"></i>&nbsp;&nbsp;&nbsp;&nbsp;Contact</a></li>
+          </ul>
+        </aside>
+        <!-- END MOBILE NAV OFFCANVAS -->
+
+        <section class="main-section">
+
+
+  
+
+
+<!-- START USER PROFILE STYLE SECTION -->
+      <div class ="user-profile-style">
+
+
+          <!-- START hero row -->
+          <div class = "row hero">
+            <div class = "small-12 columns text-center logo">
+              <h1 id = "openmodal"><%= @user.homepage_info.homepage_display_name %></h1>
+	            <h3><%= @user.homepage_info.homepage_header %></h3>
+            </div>
+            <div class = "small-12 small-centered columns text-center arrow">
+              <a href="#about"><i class="fa fa-angle-double-down fa-4x"></i></a>
+            </div>
+          </div>
+          <!-- END hero row -->
+<div class="ui basic modal">
+
+  <div class="header">
+    Archive Old Messages
+  </div>
+  <div class="content">
+    <div class="description">
+      <%= simple_form_for(@user.homepage_info, multipart: true) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :homepage_display_name, label: 'Display Name:', placeholder: 'Tom Brady' %>
+    <%= f.input :homepage_header, label: 'Personal Slogan:', placeholder: 'Patriots | Football | Family' %>
+    <%= f.input :homepage_pic, label: 'Background Image:' %>
+  </div>
+ 
+
+    </div>
+  </div>
+  <div class="form-actions actions">
+    <div class="two fluid ui inverted buttons">
+      <div class="ui cancel red basic inverted button">
+        <i class="remove icon"></i>
+        Cancel
+      </div>
+        <%= f.button :submit, 'Save', :class => "ui ok green basic inverted button" %> 
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<%= simple_form_for(@user.homepage_info, multipart: true) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :homepage_display_name, label: 'Display Name:', placeholder: 'Tom Brady' %>
+    <%= f.input :homepage_header, label: 'Personal Slogan:', placeholder: 'Patriots | Football | Family' %>
+    <%= f.input :homepage_pic, label: 'Background Image:' %>
+  </div>
+
+  <div class="form-actions">
+    <br/>
+   <%= f.button :submit, 'Save' %>   
+   <% if current_user.homepage_info != nil %>     
+     <a href="#" data-reveal-id="previewModal" class = "button alt3">View</a>
+   <% end %>
+   <a href="/personal_infos/<%=current_user.personal_info.id%>/edit" class = "buttonNext"> Next  <i class="fa fa-arrow-right"></i> </a>
+  </div>
+<% end %>
+
+
+
+
+
+          <div class = "show-for-medium-up">
+
+            <!-- START DESKTOP NAVIGATION -->
+            <div data-magellan-expedition="fixed">
+              <dl class="sub-nav">
+                <dd data-magellan-arrival="about"><a href="#about">About</a></dd>
+                <dd data-magellan-arrival="projects"><a href="#projects">Projects</a></dd>
+                <dd data-magellan-arrival="blog"><a href="#blog">Reading List</a></dd>
+                <dd data-magellan-arrival="photos"><a href="#photos">Photos</a></dd>
+                <dd data-magellan-arrival="contact"><a href="#contact">Contact</a></dd>
+              </dl>
+            </div>
+          </div>
+          <!-- END NAVIGATION -->
+
+          <!-- START ABOUT SECTION -->
+
+          <div class ="content section">
+            <a name="about" data-magellan-destination="about"></a>
+            <div class = "row">
+              <h3 class = "header"> About </h3>
+            </div>
+            <div class = "row no-padding">
+              <div class = "small-12 medium-4 columns text-center">
+                <img src="<%= @user.personal_info.about_pic.url(:med) %>"> 
+                <div class = "info-card">
+                  <h3> <%= @user.homepage_info.homepage_display_name %></h3>
+                  <!-- <p> <%= @user.school.name %> </p> -->
+
+                  <!-- <% if @user.gradyear != nil %>
+                  <p> Class of <%= @user.gradyear %> </p>
+                  <% end %> -->
+
+                  <!--
+                  <div class = "icons">
+
+                    <% if @user.social_link.link_linkedin? %>
+                    <a href="<%= @user.social_link.link_linkedin %>"><i class="fa fa-linkedin fa-1x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_twitter? %>
+                    <a href="<%= @user.social_link.link_twitter %>"><i class="fa fa-twitter fa-1x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_facebook? %>
+                    <a href="<%= @user.social_link.link_facebook %>"><i class="fa fa-facebook fa-1x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_github? %>
+                    <a href="<%= @user.social_link.link_github %>"><i class="fa fa-github-alt fa-1x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_instagram? %>
+                    <a href="<%= @user.social_link.link_instagram %>"><i class="fa fa-instagram fa-1x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_tumblr? %>
+                    <a href="<%= @user.social_link.link_tumblr %>"><i class="fa fa-tumblr fa-1x"></i></a>
+                    <% end %>
+                  </div>
+                --> 
+                  <div class = "contact-email-link">
+                    <% if @user.social_link.link_alt_email? %>
+                    <a href="mailto:<%= @user.social_link.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.social_link.link_alt_email %> </a>
+                    <% else %>
+                    <a href="mailto:<%= @user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.email %> </a>
+                    <% end %>    
+                  </div>
+                  <% if @user.personal_info.resume_file_name != nil %>
+                    <div class = "resume-link">
+                    <a href = "<%= @user.personal_info.resume.url() %>"><i class="fa fa-paperclip"></i> &nbsp; Full Resume </a>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+
+            <div class ="small- medium-7 columns end">
+              <p>
+                <%= @user.personal_info.intro_paragraph %>
+              </p>
+            </div>
+          </div>
+
+
+          <div class = "row pastExperience">
+            <div class = "small-12 small-centered columns text-center">
+
+              <% if @user.personal_info.exp1_file_name != nil %>
+              <h4 class = "header text-left"> Prior Experience </h4>
+              <div class = "small-12 medium-3 columns">
+                <div class = "experience_img">
+                  <%= image_tag @user.personal_info.exp1.url(:large) %>
+                  <span class = "helper"></span>
+                </div>
+              </div>
+              <% end %>
+
+              <% if @user.personal_info.exp2_file_name != nil %>
+              <% if @user.personal_info.exp3_file_name == nil && @user.personal_info.exp4_file_name == nil %>
+              <div class = "small-12 medium-3 columns end">
+                <% else %>
+                <div class = "small-12 medium-3 columns">
+                  <% end %>
+                  <div class = "experience_img">
+                    <%= image_tag @user.personal_info.exp2.url(:large) %>
+                    <span class = "helper"></span>
+                  </div>
+                </div>
+                <% end %>
+
+
+                <% if @user.personal_info.exp3_file_name != nil %>
+
+                <% if @user.personal_info.exp4_file_name == nil %>
+                <div class = "small-12 medium-3 columns end">
+                  <% else %>
+                  <div class = "small-12 medium-3 columns">
+                    <% end %>
+                    <div class = "experience_img">
+                      <%= image_tag @user.personal_info.exp3.url(:large) %>
+                      <span class = "helper"></span>
+                    </div>
+                  </div>
+                  <% end %>
+
+
+                  <% if @user.personal_info.exp4_file_name != nil %>
+                  <div class = "small-12 medium-3 columns end ">
+                    <div class = "experience_img">
+                      <%= image_tag @user.personal_info.exp4.url(:large) %>
+                      <span class = "helper"></span>
+                    </div>
+                  </div>
+                  <% end %>
+
+
+                </div>
+              </div>
+            </div>
+            <!-- END ABOUT SECTION   -->
+
+
+
+            <!-- START PROJECT SECTION -->
+            <div class = "content section">
+              <a name = "projects" data-magellan-destination="projects"></a>
+              <div class = "row">
+                <div class = "small-12 small-cenetered columns">
+                  <h3 class = "header"> Projects </h3>
+                </div>
+              </div>
+              <%= render 'projects/project0' %>
+            </div>
+            <!-- END PROJECT SECTION -->
+
+
+            <!-- START BLOG SECTION -->
+            <div class = "content section blog">
+              <a name = "blog" data-magellan-destination="blog"></a>
+              <div class = "row blog">
+                <div class = "small-12 columns">
+                  <h3 class = "header text-left"> Reading List </h3>
+                  <h5 class = "dark-gray"><i> Articles from around the web that I've found interesting </i> </h5>
+                  <br/>
+                  <ul class="small-block-grid-1 medium-block-grid-1 no-bullet articles data-equalizer">
+                    <% @user.articles.each do |article| %>
+                    <li = "post data-equalizer-watch"> 
+                      <a href= "<%= article.url %>">
+                        <h4> <%= article.title %> </h4>
+                        <p> <%= article.summary %> </p>
+                      </a>
+                    </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- END BLOG SECTION -->
+
+
+            <!-- START PHOTOS SECTION -->
+            <div class = "content section photos">
+              <a name = "photos" data-magellan-destination="photos"></a>
+              <div class = "row">
+                <div class = "small-12 small-centered columns">
+                  <h3 class = "header"> Photos </h3>
+                </div>
+                <div class = "small-12 columns text-center">
+                  <!-- <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4"> -->
+                  <ul class="clearing-thumbs small-block-grid-4" data-clearing>
+                    <% if @user.photos != nil %>
+                    <% @user.photos.each do |photo| %>
+                    <li class = "photo-user-page">
+                      <span class = "helper"></span>
+                      <%= image_tag photo.image(:large) %><br/>
+                    </li>
+                    <% end %>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- END PHOTOS SECTION -->
+
+            <!-- START CONTACT SECTION -->
+            <div class = "content section footer">
+              <a name = "contact" data-magellan-destination="contact"></a>
+              <div class = "row">
+                <div class = "small-12 small-centered columns">
+                  <h3 class = "header"> Contact </h3>
+                </div>
+              </div>
+              <div class = "row footer-content">
+                <div class = "small-12 small-centered columns">
+
+                  <div class = "contact-message-button-div">
+                    <%= mail_to @user.email, "Message Me", class: "button alt4", subject: "Message from CMC about your BrandClub profile." %>
+                  </div>
+
+
+                  <div class = "icons">
+
+                    <% if @user.social_link.link_linkedin? %>
+                    <a href="<%= @user.social_link.link_linkedin %>"><i class="fa fa-linkedin fa-2x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_twitter? %>
+                    <a href="<%= @user.social_link.link_twitter %>"><i class="fa fa-twitter fa-2x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_facebook? %>
+                    <a href="<%= @user.social_link.link_facebook %>"><i class="fa fa-facebook fa-2x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_github? %>
+                    <a href="<%= @user.social_link.link_github %>"><i class="fa fa-github-alt fa-2x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_instagram? %>
+                    <a href="<%= @user.social_link.link_instagram %>"><i class="fa fa-instagram fa-2x"></i></a>
+                    <% end %>
+
+                    <% if @user.social_link.link_tumblr? %>
+                    <a href="<%= @user.social_link.link_tumblr %>"><i class="fa fa-tumblr fa-2x"></i></a>
+                    <% end %>
+                  </div>
+                </div>
+                <div class = "small-12 large-8 small-centered columns">
+                  <% if @user.social_link.link_alt_email? %>
+                  <a href="mailto:<%= @user.social_link.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.social_link.link_alt_email %> </a>
+                  <% else %>
+                  <a href="mailto:<%= @user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.email %> </a>
+                  <% end %>
+                </div>    
+              </div>
+            </div>
+            <!-- END FOOTER SECTION -->
+          </section> 
+          <!-- END MAIN SECTION -->
+          <a class="exit-off-canvas"></a>
+        </div>
+      </div>
+        <!-- END OFF-CANVAS WRAP -->
+      </body>

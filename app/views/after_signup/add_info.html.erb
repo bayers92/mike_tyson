@@ -1,0 +1,85 @@
+<div class = "row">
+	<div class = "small-12 columns">
+		<h1> Candidate Profile </h1>
+		<h3> Information relevant for all applications </h3>
+	</div>
+</div>
+<div class = "row">
+	<div class = "small-12 columns">
+		<%= simple_form_for(@user, :url => wizard_path, :method => :put) do |f| %>
+		    <%= f.error_notification %>
+
+		    <div class = "input-section">
+			    <%= f.association :school, label: 'Select your school:', hint: "You must use account settings to change your email/school" %>
+			</div>
+
+		    <div class = "input-section">
+			    <%= f.input :gradyear, collection: 2000..2020, label: 'Year of Graduation:' %>
+			</div>
+
+
+		    <div class = "input-section">
+			  	<%= f.input :sex_list, as: :check_boxes, collection: Sex.all.all.order('name ASC'), value_method: :name, label_method: :name, input_html: { multiple: true, class: 'taggable' }, label: "Select your gender:", wrapper_html: { class: 'list-options' }%>
+			</div>
+
+
+		    <div class = "input-section yes-columns">
+
+
+			  	<%= f.input :state_list, collection: State.all.all.order('name ASC'), value_method: :name, label_method: :name, input_html: { multiple: true, class: 'taggable' }, label: "Select your Hometown State:", wrapper_html: { class: 'ui fluid search dropdown"' }%>
+			</div>
+
+
+		    <div class = "input-section yes-columns">
+			  	<%= f.input :language_list, as: :check_boxes, collection: Language.all.all.order('name ASC'), value_method: :name, label_method: :name, input_html: { multiple: true, class: 'taggable' }, label: "Spoken languages: (professional/native proficiency only)", wrapper_html: { class: 'list-options' }%>
+			</div>
+
+		    <div class = "input-section yes-columns">
+			  	<%= f.input :demographic_list, as: :check_boxes, collection: Demographic.all.all.order('name ASC'), value_method: :name, label_method: :name, input_html: { multiple: true, class: 'taggable' }, label: "Demographics:", wrapper_html: { class: 'list-options' }%>
+			</div>
+
+			<!-- ADD SKILLS HERE!! -->
+
+			<!-- ADD UNDERGRAD HERE!! -->
+
+		    <div class = "input-section yes-columns">
+			  	<%= f.input :uconcentration_list, as: :check_boxes, collection: Uconcentration.all.all.order('name ASC'), value_method: :name, label_method: :name, input_html: { multiple: true, class: 'taggable' }, label: "Undergraduate major(s):", wrapper_html: { class: 'list-options' }%>
+			</div>
+
+			<!-- ADD FUNCTIONAL WORK EXPERIENCE -->
+
+
+		    <div class = "input-section yes-columns">
+				<%= f.input :industry_list, as: :check_boxes, collection: Industry.all.all.order('name ASC'), value_method: :name, label_method: :name, input_html: { multiple: true, class: 'taggable' }, label: "Select your desired career industries:", wrapper_html: { class: 'list-options' }%>
+			</div>
+
+		    <div class = "input-section yes-columns">
+				<%= f.input :mconcentration_list, as: :check_boxes, collection: Mconcentration.all.all.order('name ASC'), value_method: :name, label_method: :name, input_html: { multiple: true, class: 'taggable' }, label: "MBA concentration(s):", wrapper_html: { class: 'list-options' }%>
+			</div>
+
+			<div class = "input-section">
+				<%= f.input :region_list, as: :check_boxes, collection: Region.all.all.order('name ASC'), value_method: :name, label_method: :name, input_html: { multiple: true, class: 'taggable' }, label: "Desired geographical region:", wrapper_html: { class: 'list-options' }%>
+			</div>
+
+			<div class = "input-section">
+				<%= f.input :city_list, as: :check_boxes, collection: City.all.all, value_method: :name, label_method: :name, input_html: { multiple: true, class: 'taggable' }, label: "Desired city size:", wrapper_html: { class: 'list-options' }%>
+			</div>
+
+			<div class = "input-section">
+				<%= f.input :size_list, as: :check_boxes, collection: Size.all.all, value_method: :name, label_method: :name, input_html: { multiple: true, class: 'taggable' }, label: "I prefer to work in a company that is:", wrapper_html: { class: 'list-options' }%>
+			</div>
+
+			<div class = "input-section">
+				<%= f.input :travel_list, as: :check_boxes, collection: Travel.all.all, value_method: :name, label_method: :name, input_html: { multiple: true, class: 'taggable' }, label: "Willingness to travel:", wrapper_html: { class: 'list-options' }%>
+			</div>
+
+			<div class = "input-section">
+				<%= f.input :balance_list, as: :check_boxes, collection: Balance.all.all, value_method: :name, label_method: :name, input_html: { multiple: true, class: 'taggable' }, label: "How important is work life balance?", wrapper_html: { class: 'list-options' }%>
+			</div>
+
+
+		    <%= f.button :submit, 'Next' %>
+		<% end %>
+	</div>
+</div>
+

@@ -52,3 +52,33 @@
               
               <% end %>
             </div>
+
+
+
+<!-- Paragraph Modal -->
+            <div class="ui basic modal" id = "paragraph">
+
+              <div class="header">
+                Edit Personal Statement
+              </div>
+
+              <div class="content">
+                <div class="description">
+                  <%= simple_form_for(@user.personal_info) do |f| %>
+                  <%= f.error_notification %>
+                  <div class="form-inputs">
+                        <%= f.input :intro_paragraph, label: 'Intro Paragraph', placeholder: "Thomas Edward Patrick 'Tom' Brady, Jr. (born August 3, 1977), nicknamed Tom Terrific, is an American football quarterback for the New England Patriots of the National Football League (NFL). After playing college football for the University of Michigan, Tom Brady was drafted by the Patriots in the sixth round of the 2000 NFL draft.... " %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions actions">
+                <div class="two fluid ui inverted buttons">
+                  <%= f.button :button, "Cancel", type: :reset, :class => "ui cancel red basic inverted buttone" %>
+                  <%= f.button :submit, 'Save', :class => "ui ok green basic inverted button" %> 
+                </div>
+              </div>
+              
+              <% end %>
+            </div>
+

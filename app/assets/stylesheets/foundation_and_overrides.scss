@@ -1372,7 +1372,7 @@ $sub-nav-font-color-hover: scale-color($sub-nav-font-color, $lightness: -25%);
 // $has-tip-cursor-type: help;
 
 // $tooltip-padding: rem-calc(12);
-// $tooltip-bg: $oil;
+$tooltip-bg: rgba(0,0,0,0);
 // $tooltip-font-size: rem-calc(14);
 // $tooltip-font-weight: $font-weight-normal;
 // $tooltip-font-color: $white;
@@ -1498,6 +1498,7 @@ $topbar-height: 60px;
 .content {
 	padding-top: 60px;
 	padding-bottom: 0px;
+	background-color: $white-smoke;
 }
 
 .content.insta {
@@ -3217,5 +3218,24 @@ $yellow: #ffcc00;
 }
 
 
+.editable {
+    cursor:pointer;
+    cursor:hand;
+	&:hover {
+		border: dashed thin $primary-color;
+	}
+}
+
+.center-fifty {
+	width: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro-paragraph {
+	min-height: 200px;
+	width: 100%;
+}
 
 @import 'foundation';

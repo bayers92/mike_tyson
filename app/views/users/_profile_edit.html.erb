@@ -103,38 +103,14 @@
             <!-- START hero row -->
             <div class = "row hero">
               <div class = "small-12 columns text-center logo">
-                <h1 id = "open_name_modal"><%= @user.homepage_info.homepage_display_name %></h1>
-                <h3 id = "open_slogan_modal"><%= @user.homepage_info.homepage_header %></h3>
+                <h1 id = "open_name_modal" class = "editable center-fifty" data-tooltip="Edit" ><%= @user.homepage_info.homepage_display_name %></h1>
+                <h3 id = "open_slogan_modal" class = "editable center-fifty" data-tooltip="Edit"><%= @user.homepage_info.homepage_header %></h3>
               </div>
 <!--               <div class = "small-12 small-centered columns text-center arrow">
                 <a href="#about"><i class="fa fa-angle-double-down fa-4x"></i></a>
               </div> -->
             </div>
             <!-- END hero row -->
-
-
-            <%= simple_form_for(@user.homepage_info, multipart: true) do |f| %>
-            <%= f.error_notification %>
-
-            <div class="form-inputs">
-              <%= f.input :homepage_display_name, label: 'Display Name:', placeholder: 'Tom Brady' %>
-              <%= f.input :homepage_header, label: 'Personal Slogan:', placeholder: 'Patriots | Football | Family' %>
-              <%= f.input :homepage_pic, label: 'Background Image:' %>
-            </div>
-
-            <div class="form-actions">
-              <br/>
-              <%= f.button :submit, 'Save' %>   
-              <% if current_user.homepage_info != nil %>     
-              <a href="#" data-reveal-id="previewModal" class = "button alt3">View</a>
-              <% end %>
-              <a href="/personal_infos/<%=current_user.personal_info.id%>/edit" class = "buttonNext"> Next  <i class="fa fa-arrow-right"></i> </a>
-            </div>
-            <% end %>
-
-
-
-
 
             <div class = "show-for-medium-up">
 
@@ -155,69 +131,24 @@
 
             <div class ="content section">
               <a name="about" data-magellan-destination="about"></a>
-              <div class = "row">
-                <h3 class = "header"> About </h3>
-              </div>
               <div class = "row no-padding">
-                <div class = "small-12 medium-4 columns text-center">
+                <div class = "small-12 small-centered medium-uncentered medium-3 medium-offset-1 columns text-center instance">
                   <img src="<%= @user.personal_info.about_pic.url(:med) %>"> 
-                  <div class = "info-card">
-                    <h3> <%= @user.homepage_info.homepage_display_name %></h3>
-                    <!-- <p> <%= @user.school.name %> </p> -->
-
-                  <!-- <% if @user.gradyear != nil %>
-                  <p> Class of <%= @user.gradyear %> </p>
-                  <% end %> -->
-
-                  <!--
-                  <div class = "icons">
-
-                    <% if @user.social_link.link_linkedin? %>
-                    <a href="<%= @user.social_link.link_linkedin %>"><i class="fa fa-linkedin fa-1x"></i></a>
-                    <% end %>
-
-                    <% if @user.social_link.link_twitter? %>
-                    <a href="<%= @user.social_link.link_twitter %>"><i class="fa fa-twitter fa-1x"></i></a>
-                    <% end %>
-
-                    <% if @user.social_link.link_facebook? %>
-                    <a href="<%= @user.social_link.link_facebook %>"><i class="fa fa-facebook fa-1x"></i></a>
-                    <% end %>
-
-                    <% if @user.social_link.link_github? %>
-                    <a href="<%= @user.social_link.link_github %>"><i class="fa fa-github-alt fa-1x"></i></a>
-                    <% end %>
-
-                    <% if @user.social_link.link_instagram? %>
-                    <a href="<%= @user.social_link.link_instagram %>"><i class="fa fa-instagram fa-1x"></i></a>
-                    <% end %>
-
-                    <% if @user.social_link.link_tumblr? %>
-                    <a href="<%= @user.social_link.link_tumblr %>"><i class="fa fa-tumblr fa-1x"></i></a>
-                    <% end %>
-                  </div>
-                --> 
-                <div class = "contact-email-link">
-                  <% if @user.social_link.link_alt_email? %>
-                  <a href="mailto:<%= @user.social_link.link_alt_email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.social_link.link_alt_email %> </a>
-                  <% else %>
-                  <a href="mailto:<%= @user.email %>"><i class="fa fa-envelope-o fa-1x"></i> &nbsp; <%= @user.email %> </a>
-                  <% end %>    
+                  <h3 id = "open_name_modal-two" class = "editable" data-tooltip="Edit"> <%= @user.homepage_info.homepage_display_name %></h3>
                 </div>
-                <% if @user.personal_info.resume_file_name != nil %>
-                <div class = "resume-link">
-                  <a href = "<%= @user.personal_info.resume.url() %>"><i class="fa fa-paperclip"></i> &nbsp; Full Resume </a>
+
+                <div class = "small-12 medium-6 medium-offset-1 small-centered medium-uncentered columns instance end">
+
+                  <h3 class = "header"> About </h3>
+                  <p class = "intro-paragraph editable" data-tooltip="Edit" id = "open_paragraph_modal">
+                    <%= @user.personal_info.intro_paragraph %>
+                  </p>
+                    <div class = "resume-link">
+                      <a href = "<%= @user.personal_info.resume.url() %>"><i class="fa fa-paperclip"></i> &nbsp; View Full Resume </a>
+                    </div>
                 </div>
-                <% end %>
+
               </div>
-            </div>
-
-            <div class ="small- medium-7 columns end">
-              <p>
-                <%= @user.personal_info.intro_paragraph %>
-              </p>
-            </div>
-          </div>
 
 
           <div class = "row pastExperience">

@@ -64,7 +64,7 @@ class PersonalInfosController < ApplicationController
             @personal_info.remove_exp4 = false
         end
         @personal_info.save
-        format.html { redirect_to edit_personal_info_path(current_user.personal_info), notice: 'Personal info was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Personal info was successfully updated.' }
         format.json { render :show, status: :ok, location: @personal_info }
       else
         format.html { render :edit }

@@ -28,8 +28,12 @@ $("#open_name_modal").click(function () {
       .modal('show')
     ;
 });
-
-
+$("#open_name_modal-two").click(function () {
+    $('#name')
+      .modal('setting', 'closable', false)
+      .modal('show')
+    ;
+});
 
 $("#open_slogan_modal").click(function () {
     $('#slogan')
@@ -37,6 +41,19 @@ $("#open_slogan_modal").click(function () {
       .modal('show')
     ;
 });
+
+
+$("#open_paragraph_modal").click(function () {
+    $('#paragraph')
+      .modal('setting', 'closable', false)
+      .modal('show')
+    ;
+});
+
+
+
+
+
 
 $(document).foundation();
 //= require turbolinks

@@ -18,6 +18,7 @@
 //= require jquery.jcrop
 //= require papercrop
 //= require semantic_ui/semantic_ui
+//= require ckeditor/init
 //= require_tree .
 
 

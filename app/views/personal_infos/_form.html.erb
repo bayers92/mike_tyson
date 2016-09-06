@@ -10,7 +10,7 @@
           <br/><br/>
         <% end %>
         <br/>
-  	    <%= f.input :intro_paragraph, label: 'Intro Paragraph', placeholder: "Thomas Edward Patrick 'Tom' Brady, Jr. (born August 3, 1977), nicknamed Tom Terrific, is an American football quarterback for the New England Patriots of the National Football League (NFL). After playing college football for the University of Michigan, Tom Brady was drafted by the Patriots in the sixth round of the 2000 NFL draft.... " %>
+        <%= f.input :intro_paragraph, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
         <br/>
   	    <%= f.input :resume, label: 'Resume: (must be PDF file)' %>
         <% if @personal_info.resume? %>

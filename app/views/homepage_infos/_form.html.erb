@@ -3,7 +3,8 @@
 
   <div class="form-inputs">
   	<%= f.input :homepage_display_name, label: 'Display Name:', placeholder: 'Tom Brady' %>
-    <%= f.input :homepage_header, label: 'Personal Slogan:', placeholder: 'Patriots | Football | Family' %>
+    <%= f.input :concentration, label: 'Concentration:', placeholder: 'MBA Concentration' %>
+    <%= f.input :interest, label: 'Personal Interest:', placeholder: 'Personal element/interest related to future career' %>
     <%= f.input :homepage_pic, label: 'Background Image:' %>
     <% if @homepage_info.homepage_pic? %>
     	<%= image_tag @homepage_info.homepage_pic.url(:med) %>

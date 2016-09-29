@@ -198,12 +198,12 @@ window.onload = function() {
 									<div class ="tasks">
 										<p> To do: </p>
 										<ul>
-											<% if calc_done_homepage(@user.homepage_info) != 3 %>
+											<% if calc_done_homepage(@user.homepage_info) != 4 %>
 												<li>
 											<% else %>
 												<li class = "complete">
 											<% end %>
-													<%= link_to edit_homepage_info_path(@user.homepage_info) do %>Landing Page &nbsp;(<%= calc_done_homepage(@user.homepage_info) %> / 3) <% end %>
+													<%= link_to edit_homepage_info_path(@user.homepage_info) do %>Landing Page &nbsp;(<%= calc_done_homepage(@user.homepage_info) %> / 4) <% end %>
 												</li>
 
 											<% if calc_done_personal(@user.personal_info) != 5 %>

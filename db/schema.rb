@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718205528) do
+ActiveRecord::Schema.define(version: 20160929233357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -146,6 +146,8 @@ ActiveRecord::Schema.define(version: 20160718205528) do
     t.string   "homepage_pic_content_type"
     t.integer  "homepage_pic_file_size"
     t.datetime "homepage_pic_updated_at"
+    t.string   "concentration",             default: ""
+    t.string   "interest",                  default: ""
   end
 
   add_index "homepage_infos", ["user_id"], name: "index_homepage_infos_on_user_id", using: :btree

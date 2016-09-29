@@ -59,6 +59,6 @@ class HomepageInfosController < ApplicationController
     end
 
     def homepage_info_params
-      params.require(:homepage_info).permit(:homepage_header, :homepage_display_name, :homepage_pic, :user_id)
+      params.require(:homepage_info).permit(:homepage_header, :homepage_display_name, :homepage_pic, :user_id, :interest, :concentration)
     end
 end

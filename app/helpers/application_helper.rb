@@ -46,7 +46,10 @@ module ApplicationHelper
 	# Give homepage info as resource
 	def calc_done_homepage(resource)
 		done = 0
-		if resource.homepage_header != ""
+		if resource.concentration != ""
+			done += 1
+		end
+		if resource.interest != ""
 			done += 1
 		end
 		if resource.homepage_display_name != ""
@@ -109,7 +112,7 @@ module ApplicationHelper
 		total = 0.0
 		
 		done += calc_done_homepage(resource.homepage_info)
-		total += 3
+		total += 4
 		
 		done += calc_done_personal(resource.personal_info)
 		total += 5

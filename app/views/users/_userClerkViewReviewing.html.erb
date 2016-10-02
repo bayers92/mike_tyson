@@ -49,9 +49,13 @@
 
 
         <% if current_clerk.power? %>
-          <td class = "text-center">
-            Not Submitted     
-          </td>
+        <td>
+            <%= simple_form_for user do |f| %>    
+              <%= f.input :approval, :as => :hidden, :input_html => { :value => 3} %>
+              <%= hidden_field_tag(:approval_process, 1) %>
+              <%= f.submit 'Approve', class: "button approve-table", data: { confirm: 'Please confirm you wish to submit this user for approval' }  %>  
+          <% end %>   
+        </td>
 
 
 

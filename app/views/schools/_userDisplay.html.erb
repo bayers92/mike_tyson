@@ -23,14 +23,14 @@
           <% else %>
           <td><%= link_to user.email, user_path(user) %> </td>
           <% end %>
-          <% if user.website_setting != nil %>
-          <td> <strong><%= user.website_setting.domain_name %></td></strong>
+          <% if user.domain != nil %>
+          <td> <strong><%= user.domain.url%></td></strong>
           <% else %>
           <td></td>
           <% end %>
           <td>
-            <% if user.website_setting != nil %>
-            <% if (user.website_setting.domain_name != "" && user.website_setting.domain_name != nil) %>
+            <% if user.domain != nil %>
+            <% if (user.domain.url!= "" && user.domain.url!= nil) %>
             <% if user.dstatus == 1 %>
             Purchased.
             <% else %>
@@ -46,8 +46,8 @@
 
 
           <td>
-            <% if user.website_setting != nil %>
-            <% if (user.website_setting.domain_name != "" && user.website_setting.domain_name != nil) %>
+            <% if user.domain != nil %>
+            <% if (user.domain.url!= "" && user.domain.url!= nil) %>
             <% if user.dstatus == 1 %>
             <%= simple_form_for user do |f| %>    
             <%= f.input :dstatus, :as => :hidden, :input_html => { :value => 0} %>
@@ -103,14 +103,14 @@
           <% else %>
           <td><%= link_to user.email, user_path(user) %> </td>
           <% end %>
-          <% if user.website_setting != nil %>
-          <td> <strong><%= user.website_setting.domain_name %></td></strong>
+          <% if user.domain != nil %>
+          <td> <strong><%= user.domain.url%></td></strong>
           <% else %>
           <td></td>
           <% end %>
           <td>
-            <% if user.website_setting != nil %>
-            <% if (user.website_setting.domain_name != "" && user.website_setting.domain_name != nil) %>
+            <% if user.domain != nil %>
+            <% if (user.domain.url!= "" && user.domain.url!= nil) %>
             <% if user.dstatus == 1 %>
             Purchased.
             <% else %>
@@ -126,8 +126,8 @@
 
 
           <td>
-            <% if user.website_setting != nil %>
-            <% if (user.website_setting.domain_name != "" && user.website_setting.domain_name != nil) %>
+            <% if user.domain != nil %>
+            <% if (user.domain.url!= "" && user.domain.url!= nil) %>
             <% if user.dstatus == 1 %>
             <%= simple_form_for user do |f| %>    
             <%= f.input :dstatus, :as => :hidden, :input_html => { :value => 0} %>
@@ -178,14 +178,14 @@
           <% else %>
             <td><%= link_to user.email, user_path(user) %> </td>
           <% end %>
-          <% if user.website_setting != nil %>
-          <td> <strong><%= user.website_setting.domain_name %></td></strong>
+          <% if user.domain != nil %>
+          <td> <strong><%= user.domain.url%></td></strong>
           <% else %>
           <td></td>
           <% end %>
           <td>
-            <% if user.website_setting != nil %>
-            <% if (user.website_setting.domain_name != "" && user.website_setting.domain_name != nil) %>
+            <% if user.domain != nil %>
+            <% if (user.domain.url!= "" && user.domain.url!= nil) %>
             <% if user.dstatus == 1 %>
             Purchased.
             <% else %>
@@ -201,8 +201,8 @@
 
 
           <td>
-            <% if user.website_setting != nil %>
-            <% if (user.website_setting.domain_name != "" && user.website_setting.domain_name != nil) %>
+            <% if user.domain != nil %>
+            <% if (user.domain.url!= "" && user.domain.url!= nil) %>
             <% if user.dstatus == 1 %>
             <%= simple_form_for user do |f| %>    
             <%= f.input :dstatus, :as => :hidden, :input_html => { :value => 0} %>
@@ -252,14 +252,14 @@
           <% else %>
           <td><%= link_to user.email, user_path(user) %> </td>
           <% end %>
-          <% if user.website_setting != nil %>
-          <td> <strong><%= user.website_setting.domain_name %></td></strong>
+          <% if user.domain != nil %>
+          <td> <strong><%= user.domain.url%></td></strong>
           <% else %>
           <td></td>
           <% end %>
           <td>
-            <% if user.website_setting != nil %>
-            <% if (user.website_setting.domain_name != "" && user.website_setting.domain_name != nil) %>
+            <% if user.domain != nil %>
+            <% if (user.domain.url!= "" && user.domain.url!= nil) %>
             <% if user.dstatus == 1 %>
             Purchased.
             <% else %>
@@ -275,8 +275,8 @@
 
 
           <td>
-            <% if user.website_setting != nil %>
-            <% if (user.website_setting.domain_name != "" && user.website_setting.domain_name != nil) %>
+            <% if user.domain != nil %>
+            <% if (user.domain.url!= "" && user.domain.url!= nil) %>
             <% if user.dstatus == 1 %>
             <%= simple_form_for user do |f| %>    
             <%= f.input :dstatus, :as => :hidden, :input_html => { :value => 0} %>

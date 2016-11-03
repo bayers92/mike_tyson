@@ -166,9 +166,13 @@
             <div class = "small-12 columns text-center logo">
               <a href="#about">
                 <h1><%= @user.homepage_info.homepage_display_name %></h1>
-                <h3> MBA Candidate </h3>
-                <h3>Concentration: <%= @user.homepage_info.concentration %></h3>
-                <h3> <%= @user.homepage_info.interest %></h3>
+                <% if @user.gradyear != nil %>
+                  <% if @user.gradyear < (Time.now.year+1) %>
+                    <h3> MBA Candidate </h3>
+                    <h3>Concentration: <%= @user.homepage_info.concentration %></h3>
+                    <h3> <%= @user.homepage_info.interest %></h3>
+                  <% end %>
+                <% end %>
               </a>
             </div>
             <div class = "small-12 small-centered columns text-center arrow">

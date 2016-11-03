@@ -167,7 +167,7 @@
               <a href="#about">
                 <h1><%= @user.homepage_info.homepage_display_name %></h1>
                 <% if @user.gradyear != nil %>
-                  <% if @user.gradyear >= (Time.now.year) %>
+                  <% if @user.gradyear > (Time.now.year) %>
                     <h3> MBA Candidate </h3>
                     <h3>Concentration: <%= @user.homepage_info.concentration %></h3>
                   <% end %>
